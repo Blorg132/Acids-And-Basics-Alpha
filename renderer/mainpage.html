@@ -41,7 +41,6 @@ CSS Helpful Rules:
         <style>
         .title-text {
             color: rgb(11, 219, 11);
-            outline: 5px solid rgb(232, 69, 69);
             font-style: oblique;
             font-size: 80px;
             text-align: center;
@@ -50,6 +49,8 @@ CSS Helpful Rules:
             animation-duration: 4s;
             animation-iteration-count: infinite;
             animation-direction: alternate;
+
+            transition-duration: 1.5s;
         }    
 
         @keyframes spinningtitle {
@@ -58,12 +59,16 @@ CSS Helpful Rules:
             }
 
             50%{
-                transform: rotateZ(1deg);
+                transform: rotateZ(2deg);
             }
 
             100%{
-                transform: rotateZ(-1deg);
+                transform: rotateZ(-2deg);
             }
+        }
+
+        .title-text:hover{
+            scale: 1.3;
         }
 
         .menu-button {
@@ -104,9 +109,9 @@ CSS Helpful Rules:
         <br>
         <button class="menu-button" onclick="window.location.href='practice.html';">Practice</button>
         <br>
-        <button class="menu-button">Flashcards</button>
+        <button class="menu-button" onclick="window.location.href='flashcards.html';">Flashcards</button>
         <br>
-        <button class="menu-button">Credits</button>
+        <button class="menu-button" onclick="window.location.href='credits.html';">Credits</button>
         
 
     </body>
