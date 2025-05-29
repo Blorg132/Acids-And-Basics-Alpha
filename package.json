@@ -1,0 +1,15 @@
+{
+  "name": "acidsandbasics1.1",
+  "productName": "Acids and Basics",
+  "version": "1.0.0",
+  "description": "First version of A&B",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "ME",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^36.3.1"
+  }
+}

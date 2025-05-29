@@ -1,0 +1,93 @@
+<!--This is an HTML comment. Please use this.-->
+
+<!--This is the MAIN page of the app/website/thingie
+Here are some useful things to remember:
+
+Putting CSS style mid-tag:
+    <h1 style="CSS CODE;">blah blah blah</h1>
+
+Helpful Tags:
+<br>
+
+CSS Helpful Rules:
+    background-color
+    border-color
+    color (for text)
+
+    outline (outline-style also necessary)
+    font-size
+    font-style (italic, oblique, etc)
+
+
+
+    border-radius (makes buttons rounded at the edges)
+    border
+    padding: 12px 70px; (makes buttons bigger)
+-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>Acids and Basics 0.1</title>
+    </head>
+
+
+    <body style="background-color: gray">
+        <!--Declaring some CSS style shit here.
+        Whoever's doing this later, make it not shit.-->
+        <style>
+        h1 {
+            color: rgb(11, 219, 11);
+            outline: 5px dashed rgb(232, 69, 69);
+            font-style: oblique;
+            font-size: 80px;
+        }    
+
+        .menu-button {
+            color: green;
+            /*this is for making button look good */
+            padding: 12px 70px;
+            font-size: 25px;
+            border: 2px solid black;
+            border-radius: 10px; 
+            /*this somehow centers the button*/
+            display: block;
+            margin: 0 auto;
+            width: 30%;
+            /*this affects hover transition time, longer looks better???*/
+            transition-duration: 0.4s;
+            
+        }
+        
+        /*pretty sure this has to be declared as a seperate rule. Oh well!*/
+        .menu-button:hover {
+            /*background-color determines what rest of the button turns to,
+            color is what the TEXT turns to :) */
+            background-color: green;
+            color: whitesmoke;
+        }
+        
+        </style>
+        
+        <!--Main Title Thingie-->
+        <h1 style="text-align: center;">Acids and Basics</h1>
+
+        <!--Menu Buttons-->
+        <button class="menu-button" onclick="window.location.href='lessons.html';">Lessons</button>
+        <!--Just copy and paste this onclick button code. I don't care enough to actually know
+        why it's 'window.location.href'. Wait actually fucking nevermind that makes a lot of sense.
+        Forget that I wrote this comment.-->
+        <br>
+        <button class="menu-button" onclick="window.location.href='practice.html';">Practice</button>
+        <br>
+        <button class="menu-button">Flashcards</button>
+        <br>
+        <button class="menu-button">Credits</button>
+        
+
+    </body>
+
+</html>
