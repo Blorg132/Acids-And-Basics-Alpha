@@ -11,8 +11,26 @@
     <!--Declaring CSS Styles-->
     <style>
 
+
+        .lesson-select-button {
+            padding: 8px 50px;
+            font-size: 14px;
+            border: 2px solid black;
+            border-radius: 10px; 
+            transition-duration: 0.4s;
+            width: 15%;
+            text-align: center;
+        }
+
+        .lesson-select-button:hover {
+            color: green;
+            scale: 1.1;
+        }
         .back-button {
             padding: 8px 50px;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
             font-size: 14px;
             border: 2px solid black;
             border-radius: 10px; 
@@ -25,9 +43,13 @@
             background-color: red;
             color: white;
         }
+
+
     </style>
 
 
+    <button class="lesson-select-button">Lesson 1: Basics of Atomic Structure</button>
+    <button class="lesson-select-button">Lesson 2: Atomic Structure Continued</button>
     <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
 </body>
 
