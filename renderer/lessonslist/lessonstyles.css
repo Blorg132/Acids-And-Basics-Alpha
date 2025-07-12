@@ -1,0 +1,40 @@
+
+/*styles for lessons CSS! */
+
+
+body {
+    background-color: rgb(195, 145, 69);
+}
+
+.cool-header-blue {
+    color:aliceblue;
+    font-size: 30px;
+    text-align: center;
+    transition-duration: 0.5s;
+    
+}
+
+
+.cool-header-blue:hover {
+    font-size: 40px;
+    transition-duration: 1s;
+}
+
+b {
+    color:rgb(79, 109, 159);
+    transition-duration: 250ms;
+
+}
+
+b:hover {
+    display: inline-block;
+    transform: scale(1.5);
+    transform-origin: top;
+    color:greenyellow;
+    transition-duration: 500ms;
+}
+
+p {
+    color: rgb(15, 15, 15);
+    font-size: 20px;
+}
