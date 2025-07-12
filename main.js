@@ -13,6 +13,15 @@ function createMainWindow() {
         width: 1024,
         height: 720,
     });
+    
+     // Music window: minimal, hidden
+    musicWindow = new BrowserWindow({
+        show: false,
+        webPreferences: { nodeIntegration: false }
+    });
+
+    musicWindow.loadFile('backgroundmusic.html'); // This page just plays your music
+    
 
     // load the actual html file in the main window
     mainWindow.loadFile(path.join(__dirname, './renderer/mainpage.html'));
@@ -21,4 +30,6 @@ function createMainWindow() {
 // making the window
 app.whenReady().then(() => {
     createMainWindow();
+
 });
+

@@ -32,6 +32,7 @@ CSS Helpful Rules:
         <meta charset="UTF-8" />
 
         <title>Acids and Basics 0.1</title>
+        <audio src="sounds/badbackgroundmusic.mp3" autoplay loop></audio>
     </head>
 
 
@@ -102,22 +103,26 @@ CSS Helpful Rules:
 
         </style>
         
+        <!--This is the one with all of the cool renderer shit. Effects, sounds, all of that JAVA nonsense should be in that.-->
+        <script src="renderer.js"></script>
+
         <!--Main Title Thingie-->
         <h1 class="title-text">Acids and Basics</h1>
 
 
         
         <!--Menu Buttons-->
-        <button class="menu-button" onclick="window.location.href='lessons.html';">Lessons</button>
         <!--Just copy and paste this onclick button code. I don't care enough to actually know
         why it's 'window.location.href'. Wait actually fucking nevermind that makes a lot of sense.
         Forget that I wrote this comment.-->
+        <button class="menu-button" onclick="playClickSound1('lessons.html');">Lessons</button>
         <br>
-        <button class="menu-button" onclick="window.location.href='practice.html';">Practice</button>
+        <button class="menu-button" onclick="playClickSound1('practice.html')">Practice</button>
         <br>
-        <button class="menu-button" onclick="window.location.href='flashcards.html';">Flashcards</button>
+        <button class="menu-button" onclick="playClickSound1('flashcards.html');">Flashcards</button>
         <br>
-        <button class="menu-button" onclick="window.location.href='credits.html';">Credits</button>
+        <button class="menu-button" onclick="playClickSound1('credits.html');">Credits</button>
+
         
         
     </body>
