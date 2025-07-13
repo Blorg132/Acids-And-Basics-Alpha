@@ -1,0 +1,28 @@
+
+
+/* menu buttons!!! */
+
+.menu-button {
+    color: green;
+    /*this is for making button look good */
+    padding: 12px 70px;
+    font-size: 25px;
+    border: 2px solid black;
+    border-radius: 10px; 
+    /*this somehow centers the button*/
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    /*this affects hover transition time, longer looks better???*/
+    transition-duration: 0.5s;
+    
+}
+        
+/*pretty sure this has to be declared as a seperate rule. Oh well!*/
+.menu-button:hover {
+    /*background-color determines what rest of the button turns to,
+    color is what the TEXT turns to :) */
+    background-color: green;
+    color: whitesmoke;
+    scale: 1.2;
+}

@@ -32,14 +32,14 @@ CSS Helpful Rules:
         <meta charset="UTF-8" />
 
         <title>Acids and Basics 0.1</title>
+
+        <!--Playing the background music. Please change.-->
         <audio src="sounds/badbackgroundmusic.mp3" autoplay loop></audio>
-    </head>
 
 
-    <body style="background-color: rgb(35, 33, 33)">
-        <!--Declaring some CSS style shit here.
-        Whoever's doing this later, make it not shit.-->
         <style>
+
+        /* THIS IS NOT IN STYLES.CSS */
         .title-text {
             color: rgb(77, 226, 184);
             font-style: oblique;
@@ -71,50 +71,33 @@ CSS Helpful Rules:
         .title-text:hover{
             scale: 1.3;
         }
+        
+        
 
-        .menu-button {
-            color: green;
-            /*this is for making button look good */
-            padding: 12px 70px;
-            font-size: 25px;
-            border: 2px solid black;
-            border-radius: 10px; 
-            /*this somehow centers the button*/
-            display: block;
-            margin: 0 auto;
-            width: 30%;
-            /*this affects hover transition time, longer looks better???*/
-            transition-duration: 0.5s;
-            
+        body {
+
+            background-image: url('images/chemistrybackground.jpg');
+            background-color: rgba(255, 255, 255, 0.486);
+            background-blend-mode: overlay;
+            border: 1px solid black;
         }
-        
-        /*pretty sure this has to be declared as a seperate rule. Oh well!*/
-        .menu-button:hover {
-            /*background-color determines what rest of the button turns to,
-            color is what the TEXT turns to :) */
-            background-color: green;
-            color: whitesmoke;
-            scale: 1.2;
-        }
-
-
-        
-        
 
         </style>
+    </head>
+
+
+    <body style="background-color: rgb(35, 33, 33)">
+        <!--Declaring some CSS style shit here.
+        Whoever's doing this later, make it not shit.-->
         
+        <link rel="stylesheet" href="styles.css">
+
         <!--This is the one with all of the cool renderer shit. Effects, sounds, all of that JAVA nonsense should be in that.-->
         <script src="renderer.js"></script>
 
-        <!--Main Title Thingie-->
         <h1 class="title-text">Acids and Basics</h1>
 
 
-        
-        <!--Menu Buttons-->
-        <!--Just copy and paste this onclick button code. I don't care enough to actually know
-        why it's 'window.location.href'. Wait actually fucking nevermind that makes a lot of sense.
-        Forget that I wrote this comment.-->
         <button class="menu-button" onclick="playClickSound1('lessons.html');">Lessons</button>
         <br>
         <button class="menu-button" onclick="playClickSound1('practice.html')">Practice</button>
