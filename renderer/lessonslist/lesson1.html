@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="lessonstyles.css">
+    <script src="renderer.js"></script>
     <title>Lesson 1: Basics of Chemistry</title>
 </head>
 
@@ -13,70 +14,14 @@
 
 
     <p>Chemistry refers to the study of <span id="clickmatter"><b>matter</b></span> and its properties, as well as how it changes over time through different processes.
-    
     </p>
-    <button onclick="sayAllo()" style="color:green">allo</button>
-
-
     <script>
-        // customAlert box, please move this. i hate this script being
-        function customAlert(message) {
-            // Overlay
-            const overlay = document.createElement('div');
-            overlay.style.position = 'fixed';
-            overlay.style.top = 0;
-            overlay.style.left = 0;
-            overlay.style.width = '100vw';
-            overlay.style.height = '100vh';
-            overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
-            overlay.style.zIndex = 999; // behind the box but above page
-
-            // Alert Box
-            const box = document.createElement('div');
-            box.style.position = 'fixed';
-            box.style.top = '50%';
-            box.style.left = '50%';
-            box.style.transform = 'translate(-50%, -50%)';
-            box.style.background = '#fff';
-            box.style.padding = '20px 30px';
-            box.style.borderRadius = '10px';
-            box.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
-            box.style.fontFamily = 'sans-serif';
-            box.style.textAlign = 'center';
-            box.style.zIndex = 1000; // must be higher than overlay!
-
-            // Message
-            const text = document.createElement('p');
-            text.textContent = message;
-            text.style.marginBottom = '20px';
-
-            // OK Button
-            const btn = document.createElement('button');
-            btn.textContent = 'OK';
-            btn.style.padding = '8px 16px';
-            btn.style.border = 'none';
-            btn.style.borderRadius = '5px';
-            btn.style.backgroundColor = '#007bff';
-            btn.style.color = '#fff';
-            btn.style.cursor = 'pointer';
-
-            btn.onclick = () => {
-                document.body.removeChild(overlay);
-                document.body.removeChild(box);
-            };
-
-            // Assemble
-            box.appendChild(text);
-            box.appendChild(btn);
-            document.body.appendChild(overlay);
-            document.body.appendChild(box);
-        }
-
-        // making clickable words
         document.getElementById("clickmatter").addEventListener("click", function() {
             customAlert("In simple terms, matter is anything that has mass and takes up space (volume). It's the stuff that makes up everything we see and touch.");
         });
     </script>
+    <button onclick="sayAllo()" style="color:green">allo</button>
+
     
 </body>
 

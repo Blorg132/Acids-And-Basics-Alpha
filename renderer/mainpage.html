@@ -34,8 +34,12 @@ CSS Helpful Rules:
         <title>Acids and Basics 0.1</title>
 
         <!--Playing the background music. Please change.-->
-        <audio src="sounds/badbackgroundmusic.mp3" autoplay loop></audio>
+        <audio src="sounds/badbackgroundmusic.mp3" autoplay loop id="backgroundmusic"></audio>
 
+        <script>
+            var audio = document.getElementById("backgroundmusic");
+            audio.volume = 0.2;
+        </script>
 
         <style>
 
