@@ -19,7 +19,7 @@ function playClickSound1(destination) {
 
 
 
-// CUSTOM ALERT CODE!!!
+// CUSTOM ALERT CODE!!! (for lessons)
 
 // customAlert
 function customAlert(message) {
@@ -75,6 +75,3 @@ function customAlert(message) {
 }
 
 // making clickable words
-document.getElementById("clickmatter").addEventListener("click", function() {
-  customAlert("In simple terms, matter is anything that has mass and takes up space (volume). It's the stuff that makes up everything we see and touch.");
-});
