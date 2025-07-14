@@ -1,30 +1,6 @@
 <!--This is an HTML comment. please use this.-->
 
 <!--This is the MAIN page of the app/website/thingie
-Here are some useful things to remember:
-
-Putting CSS style mid-tag:
-    <h1 style="CSS CODE;">blah blah blah</h1>
-
-Helpful Tags:
-<br>
-
-CSS Helpful Rules:
-    background-color
-    border-color
-    color (for text)
-
-    outline (outline-style also necessary)
-    font-size
-    font-style (italic, oblique, etc)
-
-
-
-    border-radius (makes buttons rounded at the edges)
-    border
-    padding: 12px 70px; (makes buttons bigger)
--->
-
 
 <!DOCTYPE html>
 <html>
@@ -34,18 +10,21 @@ CSS Helpful Rules:
         <title>Acids and Basics 0.1</title>
 
         <!--Playing the background music. Please change.-->
-        <audio src="sounds/badbackgroundmusic.mp3" autoplay loop id="backgroundmusic"></audio>
+        <audio src="sounds/themesong.mp3" autoplay loop id="backgroundmusic"></audio>
 
+        <!--Changing the volume. I think we can have multiple Java scripts. Don't worry. Forget about it.-->
         <script>
             var audio = document.getElementById("backgroundmusic");
-            audio.volume = 0.2;
+            audio.volume = 0.1;
         </script>
+
 
         <style>
 
         /* THIS IS NOT IN STYLES.CSS */
         .title-text {
             color: rgb(77, 226, 184);
+            font-family: Title;
             font-style: oblique;
             font-size: 90px;
             text-align: center;
@@ -74,6 +53,7 @@ CSS Helpful Rules:
 
         .title-text:hover{
             scale: 1.3;
+            color: rgb(89, 121, 209)
         }
         
         
@@ -99,9 +79,10 @@ CSS Helpful Rules:
         <!--This is the one with all of the cool renderer shit. Effects, sounds, all of that JAVA nonsense should be in that.-->
         <script src="renderer.js"></script>
 
+        <br>
         <h1 class="title-text">Acids and Basics</h1>
 
-
+        <hr style="width: 400; height: 5; color:rgb(64, 153, 231); background-color: black;">
         <button class="menu-button" onclick="playClickSound1('lessons.html');">Lessons</button>
         <br>
         <button class="menu-button" onclick="playClickSound1('practice.html')">Practice</button>
@@ -109,7 +90,8 @@ CSS Helpful Rules:
         <button class="menu-button" onclick="playClickSound1('flashcards.html');">Flashcards</button>
         <br>
         <button class="menu-button" onclick="playClickSound1('credits.html');">Credits</button>
-
+        <br>
+        <hr style="width: 400; height: 5; color:rgb(82, 164, 236); background-color: black;">
         
         
     </body>

@@ -26,3 +26,12 @@
     color: whitesmoke;
     scale: 1.2;
 }
+
+
+
+/* FONTS!!!! */
+
+@font-face {
+    font-family: Title;
+    src: url('fonts/Borel-Regular.ttf');
+}
