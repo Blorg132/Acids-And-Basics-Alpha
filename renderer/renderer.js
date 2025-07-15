@@ -75,3 +75,8 @@ function customAlert(message) {
 }
 
 // making clickable words
+
+
+document.getElementById("clickmatter").addEventListener("click", function() {
+  customAlert("You clicked the word!");
+});

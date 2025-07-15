@@ -1,4 +1,10 @@
 
+
+@font-face {
+    font-family: JostParagraph;
+    src: url('fonts/Jost-VariableFont_wght.ttf');
+}
+
 /*styles for lessons CSS! */
 
 
@@ -23,7 +29,7 @@ body {
 b {
     color:rgb(79, 109, 159);
     transition-duration: 250ms;
-
+    
 }
 
 b:hover {
@@ -36,5 +42,34 @@ b:hover {
 
 p {
     color: rgb(15, 15, 15);
+    font-family: JostParagraph;
     font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.back-button {
+    padding: 8px 50px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    font-size: 14px;
+    border: 2px solid black;
+    border-radius: 10px; 
+    transition-duration: 0.4s;
+    width: 15%;
+
+}
+
+.back-button:hover {
+    background-color: red;
+    color: white;
 }

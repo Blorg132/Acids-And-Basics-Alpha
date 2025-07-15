@@ -1,10 +1,12 @@
+<!--Please note that the customAlert function is broken. It sucks. Find a way to fix it.-->
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="lessonstyles.css">
-    <script src="renderer.js"></script>
+    <script src="lesson1.js"></script>
     <title>Lesson 1: Basics of Chemistry</title>
 </head>
 
@@ -15,9 +17,13 @@
 
     <p>Chemistry refers to the study of <span id="clickmatter"><b>matter</b></span> and its properties, as well as how it changes over time through different processes.
     </p>
+    <p><span id="clickmatter">Matter</span> is defined</p>
 
-    <button onclick="sayAllo()" style="color:green">allo</button>
-
+    <script>
+        document.getElementById("clickmatter").addEventListener("click", function() {
+            customAlert("You clicked the word!");
+        });
+    </script>
     
 </body>
 

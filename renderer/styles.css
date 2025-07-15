@@ -29,9 +29,31 @@
 
 
 
+/* back buttons */
+
+.back-button {
+    padding: 8px 50px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    font-size: 14px;
+    border: 2px solid black;
+    border-radius: 10px; 
+    transition-duration: 0.4s;
+    width: 15%;
+
+}
+
+.back-button:hover {
+    background-color: red;
+    color: white;
+}
+
+
 /* FONTS!!!! */
 
 @font-face {
     font-family: Title;
     src: url('fonts/Borel-Regular.ttf');
 }
+
