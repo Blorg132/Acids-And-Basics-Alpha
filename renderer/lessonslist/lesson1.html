@@ -6,8 +6,15 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="lessonstyles.css">
-    <script src="lesson1.js"></script>
+    <script src="lessons.js"></script>
     <title>Lesson 1: Basics of Chemistry</title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
 </head>
 
 <body>
@@ -17,11 +24,15 @@
 
     <p>Chemistry refers to the study of <span id="clickmatter"><b>matter</b></span> and its properties, as well as how it changes over time through different processes.
     </p>
-    <p><span id="clickmatter">Matter</span> is defined</p>
+    <p><span id="clickmatter">Matter</span> has a few distinct "states": solid, liquid, and gas. Each of these states </p>
 
+
+    <!--Running Custom Alert scripts here.-->
     <script>
+
+
         document.getElementById("clickmatter").addEventListener("click", function() {
-            customAlert("You clicked the word!");
+            customAlert("Matter is defined as anything that takes up volume (space) and mass (has weight).");
         });
     </script>
     

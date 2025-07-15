@@ -1,10 +1,4 @@
 
-
-@font-face {
-    font-family: JostParagraph;
-    src: url('fonts/Jost-VariableFont_wght.ttf');
-}
-
 /*styles for lessons CSS! */
 
 
@@ -17,6 +11,7 @@ body {
     font-size: 30px;
     text-align: center;
     transition-duration: 0.5s;
+    font-family: Jost;
     
 }
 
@@ -42,13 +37,8 @@ b:hover {
 
 p {
     color: rgb(15, 15, 15);
-    font-family: JostParagraph;
     font-size: 20px;
 }
-
-
-
-
 
 
 

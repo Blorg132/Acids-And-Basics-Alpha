@@ -27,7 +27,20 @@
     scale: 1.2;
 }
 
+.lesson-select-button {
+    padding: 8px 50px;
+    font-size: 14px;
+    border: 2px solid black;
+    border-radius: 10px; 
+    transition-duration: 0.4s;
+    width: 15%;
+    text-align: center;
+}
 
+.lesson-select-button:hover {
+    color: green;
+    scale: 1.1;
+}
 
 /* back buttons */
 
@@ -57,3 +70,7 @@
     src: url('fonts/Borel-Regular.ttf');
 }
 
+@font-face {
+    font-family: Jost;
+    src: url('fonts/Jost-VariableFont_wght.ttf');
+}

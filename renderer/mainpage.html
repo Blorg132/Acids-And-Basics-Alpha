@@ -24,7 +24,8 @@
         /* THIS IS NOT IN STYLES.CSS */
         .title-text {
             color: rgb(77, 226, 184);
-            font-family: Title;
+            /* We can also use Borel-Regular here, your choice */
+            font-family: Jost;
             font-style: oblique;
             font-size: 90px;
             text-align: center;
@@ -39,15 +40,17 @@
 
         @keyframes spinningtitle {
             0%{
-
+                opacity: 0.6;
             }
 
             50%{
                 transform: rotateZ(2deg);
+                opacity: 1;
             }
 
             100%{
                 transform: rotateZ(-2deg);
+                opacity: 0.6;
             }
         }
 
@@ -60,10 +63,23 @@
 
         body {
 
-            background-image: url('images/chemistrybackground.jpg');
+
             background-color: rgba(255, 255, 255, 0.486);
             background-blend-mode: overlay;
             border: 1px solid black;
+        }
+
+
+
+        
+        .bg-layer {
+            background-image: url('images/chemistrybackground.jpg');
+            background-size: 130% 130%;
+            background-position: center;
+            position: absolute;
+            inset: 0;
+            opacity: 0.3;
+            z-index: -1;
         }
 
         </style>
@@ -79,8 +95,24 @@
         <!--This is the one with all of the cool renderer shit. Effects, sounds, all of that JAVA nonsense should be in that.-->
         <script src="renderer.js"></script>
 
+        <!--Background image goes here.-->
+        <div class="bg-layer"></div>
         <br>
         <h1 class="title-text">Acids and Basics</h1>
+
+        <script>
+            // This is in renderer.js, but for some reason it doesn't call unless it's here. Oh well!
+            function playClickSound1(destination) {
+                const sound = new Audio('sounds/clicksound1.wav');
+                sound.volume = 0.3;
+                sound.play();
+
+                // Wait briefly, then navigate
+                setTimeout(() => {
+                    window.location.href = destination;
+                }, 250);
+            }
+        </script>
 
         <hr style="width: 400; height: 5; color:rgb(64, 153, 231); background-color: black;">
         <button class="menu-button" onclick="playClickSound1('lessons.html');">Lessons</button>
