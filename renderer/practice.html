@@ -9,72 +9,10 @@
     <h1>Practice</h1>
 
     <div class="practice-background"></div>
-    <audio id="dropdownsound" src="sounds/clicksound2.wav" preload="auto"></audio>
+    <audio id="dropdownsound" src="sounds/dropdownsound.wav" preload="auto"></audio>
     <audio id="elementhoversound" src="sounds/elementhover.wav" preload="auto"></audio>
-</head>
 
-<body style="background-color: rgb(0, 0, 0);">
-
-
-    <script>
-        function showNotesButtons() {
-            const container = document.getElementById("notes-buttons");
-            container.style.display = (container.style.display === "block") ? "none" : "block";
-            const sound = document.getElementById("dropdownsound");
-            sound.currentTime = 0;
-            sound.volume = 0.3;
-            sound.play();
-        }
-
-        function showQuestionsButtons() {
-            const container = document.getElementById("questions-buttons");
-            container.style.display = (container.style.display === "block") ? "none" : "block";
-            const sound = document.getElementById("dropdownsound");
-            sound.currentTime = 0;
-            sound.volume = 0.3;
-            sound.play();
-        }
-    </script>
-    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: left; font-size: 60px;" onclick="showNotesButtons();">Notes</button>
-    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: right; font-size: 60px;" onclick="showQuestionsButtons();">Questions</button>
-
-    <div id="notes-buttons" style="float: left; display: none;">
-
-        <button>Note 1</button>
-        <button>Note 2</button>
-
-    </div>
-
-    <div id="questions-buttons" style="float: right; display: none;">
-        <button>Question Pack 1</button>
-        <button>Question Pack 2</button>
-    </div>
-
-
-    <script>
-      const sound1 = document.getElementById("elementhoversound");
-      const buttons = document.querySelectorAll('#notes-buttons button, #questions-buttons button');
-      buttons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-          sound1.currentTime = 0; // rewind to start
-          sound1.volume = 0.4;
-          sound1.play();
-        });
-        button.addEventListener("mouseleave", () => {
-
-          sound1.currentTime = 5.3;
-          sound1.stop();
-          sound1.play();
-        })
-
-      })
-    </script>
-
-    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
-</body>
-
-<head>
-  <style>
+    <style>
     .lesson-select-button1 {
       width: 500px;
       height: 100px;
@@ -121,6 +59,72 @@
     }
   </style>
 </head>
+
+<body style="background-color: rgb(0, 0, 0);">
+
+
+    <script>
+        function showNotesButtons() {
+            const container = document.getElementById("notes-buttons");
+            container.style.display = (container.style.display === "block") ? "none" : "block";
+            const sound = document.getElementById("dropdownsound");
+            sound.currentTime = 0;
+            sound.volume = 0.3;
+            sound.play();
+        }
+
+        function showQuestionsButtons() {
+            const container = document.getElementById("questions-buttons");
+            container.style.display = (container.style.display === "block") ? "none" : "block";
+            const sound = document.getElementById("dropdownsound");
+            sound.currentTime = 0;
+            sound.volume = 0.3;
+            sound.play();
+        }
+    </script>
+    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: left; font-size: 60px;" onclick="showNotesButtons();">Notes</button>
+    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: right; font-size: 60px;" onclick="showQuestionsButtons();">Questions</button>
+
+    <div id="notes-buttons" style="float: left; display: none;">
+
+        <!--As of now, EVERY SINGLE new button will need to have this copy and paste style. Sorry. Someone fix it. Not me.-->
+
+        <button style="display: flex; flex-direction: column;">Note 1</button>
+        <button style="display: flex; flex-direction: column;">Note 2</button>
+
+    </div>
+
+    <div id="questions-buttons" style="float: right; display: none;">
+
+        <!--This is f***ed for reasons stated above. Oh well!-->
+
+        <button style="display: flex; flex-direction: column;">Question Pack 1</button>
+        <button style="display: flex; flex-direction: column;">Question Pack 2</button>
+    </div>
+
+
+    <script>
+      const sound1 = document.getElementById("elementhoversound");
+      const buttons = document.querySelectorAll('#notes-buttons button, #questions-buttons button');
+      buttons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+          sound1.currentTime = 0; // rewind to start
+          sound1.volume = 0.4;
+          sound1.play();
+        });
+        button.addEventListener("mouseleave", () => {
+
+          sound1.currentTime = 5.3;
+          sound1.stop();
+          sound1.play();
+        })
+
+      })
+    </script>
+
+    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
+</body>
+
 
 
 </html>
