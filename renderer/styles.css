@@ -44,10 +44,6 @@
 
 
 
-.dropdown-button {
-
-}
-
 .practice-background {
     background-image: url('images/practice-background.webp');
     background-size: 100% 100%;
@@ -81,29 +77,15 @@
 h1 {
     color: #a662fe;
     text-align: center;
-    font-size: 50px;
-    font-family: Title;
+    font-size: 70px;
+    font-family: Quantico;
 }
 
 
 .practice-background {
     background-image: url('images/practice-background.webp');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 /* FONTS!!!! */
@@ -116,4 +98,10 @@ h1 {
 @font-face {
     font-family: Jost;
     src: url('fonts/Jost-VariableFont_wght.ttf');
+}
+
+
+@font-face {
+    font-family: Quantico;
+    src: url('fonts/Quantico-Bold.ttf');
 }
