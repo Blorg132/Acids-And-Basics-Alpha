@@ -11,8 +11,33 @@
 
 <body style="background-color: rgb(255, 247, 222);">
 
-    <button class="lesson-select-button" style="width: 500px; height: 100px; float: left; font-size: 60px;">Notes</button>
-    <button class="lesson-select-button" style="width: 500px; height: 100px; float: right; font-size: 60px;">Questions</button>
+
+    <script>
+        function showNotesButtons() {
+            const container = document.getElementById("notes-buttons");
+            container.style.display = (container.style.display === "block") ? "none" : "block";
+        }
+
+        function showQuestionsButtons() {
+            const container = document.getElementById("questions-buttons");
+            container.style.display = (container.style.display === "block") ? "none" : "block";
+        }
+    </script>
+    <button class="lesson-select-button" style="width: 500px; height: 100px; float: left; font-size: 60px;" onclick="showNotesButtons();">Notes</button>
+    <button class="lesson-select-button" style="width: 500px; height: 100px; float: right; font-size: 60px;" onclick="showQuestionsButtons();">Questions</button>
+
+    <div id="notes-buttons">
+
+        <button>Note 1</button>
+        <button>Note 2</button>
+
+    </div>
+
+    <div id="questions-buttons">
+        <button>Question Pack 1</button>
+        <button>Question Pack 2</button>
+    </div>
+
 
     <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
 </body>
