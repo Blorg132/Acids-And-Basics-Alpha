@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="styles.css">
 
     <h1>Practice</h1>
+
+    <div class="practice-background"></div>
 </head>
 
-<body style="background-color: rgb(0, 0, 0); background-image: url('images/practice-background.webp');">
+<body style="background-color: rgb(0, 0, 0);">
 
 
     <script>
@@ -41,6 +43,55 @@
 
     <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
 </body>
+
+<head>
+  <style>
+    .lesson-select-button {
+      width: 500px;
+      height: 100px;
+      font-size: 48px;
+      border-radius: 20px;
+      border: none;
+      background: linear-gradient(to right, #c084fc, #a78bfa);
+      color: white;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lesson-select-button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #a78bfa, #c084fc);
+    }
+
+    #notes-buttons button,
+    #questions-buttons button,
+    .back-button {
+      font-size: 24px;
+      margin: 10px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: none;
+      background-color: white;
+      color: black;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    #notes-buttons button:hover,
+    #questions-buttons button:hover,
+    .back-button:hover {
+      background-color: #f3f3f3;
+      transform: translateY(-2px);
+    }
+
+    #notes-buttons,
+    #questions-buttons {
+      margin-top: 20px;
+    }
+  </style>
+</head>
 
 
 </html>
