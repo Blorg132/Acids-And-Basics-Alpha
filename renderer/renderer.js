@@ -16,7 +16,3 @@ function playClickSound1(destination) {
 }
 
 
-@font-face {
-    font-family: Jost;
-    src: url('fonts/Jost-VariableFont_wght.ttf');
-}

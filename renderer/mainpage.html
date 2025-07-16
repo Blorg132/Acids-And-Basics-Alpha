@@ -124,8 +124,29 @@
         <button class="menu-button" onclick="playClickSound1('credits.html');">Credits</button>
         <br>
         <hr style="width: 400; height: 5; color:rgb(82, 164, 236); background-color: black;">
+        <audio id="hoverSound" src="sounds/hoversound.wav" preload="auto"></audio>
         
-        
+
+        <!--Hover Sound Effects-->
+
+        <script>
+            const buttons = document.querySelectorAll('.menu-button');
+            const sound = document.getElementById("hoverSound");
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    sound.currentTime = 0; // rewind to start
+                    sound.volume = 0.4;
+                    sound.play();
+                });
+                button.addEventListener("mouseleave", () => {
+
+                    sound.currentTime = 5.3;
+                    sound.stop();
+                    sound.play();
+                })
+
+            });
+        </script>
     </body>
 
 </html>
