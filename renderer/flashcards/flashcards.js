@@ -1,17 +1,16 @@
-const flashcards = [
-  {
-    front: "What is the pH of a neutral solution?",
-    back: "7"
-  },
-  {
-    front: "What is the chemical symbol for sodium?",
-    back: "Na"
-  }
-];
+const fs = require('fs');
+const path = require('path');
 
+// Get absolute path to JSON file
+const flashcardPath = path.join(__dirname, 'flashcards.json');
+
+// Read and parse the JSON
+let flashcards = JSON.parse(fs.readFileSync(flashcardPath));
 let currentIndex = 0;
 let isFlipped = false;
 
+
+// Flipping/Card functions
 function showFront() {
   const cardText = document.getElementById('card-text');
   cardText.textContent = flashcards[currentIndex].front;
