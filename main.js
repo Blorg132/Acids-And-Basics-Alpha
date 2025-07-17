@@ -6,6 +6,7 @@ console.log("Running!");
 const path = require('path');
 const { app, BrowserWindow } = require('electron');
 
+let audioWindow;
 function createMainWindow() {
     // defining properties of the MAIN browserwindow
     const mainWindow = new BrowserWindow({
@@ -22,5 +23,13 @@ function createMainWindow() {
 app.whenReady().then(() => {
     createMainWindow();
 
+    audioWindow = new BrowserWindow({
+        show: false,
+        webPreferences: {
+          nodeIntegration: true
+        }
+    });
+
 });
+
 

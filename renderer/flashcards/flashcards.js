@@ -94,7 +94,7 @@ let dog = document.getElementById("flashcardsleft");
 dog.textContent = flashcards.length;
 
 let buttonsound = document.getElementById("buttonclicked");
-buttonsound.volume = 0.25;
+buttonsound.volume = 0.15;
 
 function showFront() {
   cardText.textContent = flashcards[currentIndex].front;
@@ -179,7 +179,9 @@ function shuffleFlashcards(){
 
   // Function to play a random shuffle sound
   const randomIndex = Math.floor(Math.random() * shuffleSounds.length);
-  shuffleSounds[randomIndex].play();
+  shuffle = shuffleSounds[randomIndex]
+  shuffle.volume = 0.2;
+  shuffle.play();
   cardText.classList.add('settle');
 
   usedFlashcards = [];
