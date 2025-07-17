@@ -1,3 +1,43 @@
+/* MAINPAGE.HTML */
+
+.title-text {
+    color: rgb(77, 226, 184);
+    /* We can also use Borel-Regular here, your choice */
+    font-family: Jost;
+    font-style: oblique;
+    font-size: 90px;
+    text-align: center;
+
+    animation-name: spinningtitle;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    transition-duration: 1s;
+}    
+
+@keyframes spinningtitle {
+    0%{
+        opacity: 0.6;
+    }
+
+    50%{
+        transform: rotateZ(2deg);
+        opacity: 1;
+    }
+
+    100%{
+        transform: rotateZ(-2deg);
+        opacity: 0.6;
+    }
+}
+
+.title-text:hover{
+    scale: 1.2;
+    color: rgb(89, 121, 209)
+}
+
+
 
 
 /* menu buttons!!! */
@@ -26,7 +66,20 @@
     background-color: green;
     color: whitesmoke;
     scale: 1.2;
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 .lesson-select-button {
     padding: 8px 50px;
