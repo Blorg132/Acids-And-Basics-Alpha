@@ -30,6 +30,7 @@ let currentIndex = 0;
 let isFlipped = false;
 let monkey = 0;
 let cardText = document.getElementById('card-text')
+let usedFlashcards = []
 
 function showFront() {
   cardText.textContent = flashcards[currentIndex].front;
@@ -52,11 +53,35 @@ function nextCard() {
   if(cardText.classList.contains('backside')){
     cardText.classList.remove('backside')
   }
-  currentIndex = (currentIndex + 1) % flashcards.length;
+  var numberFound = false;
+  var previousIndex = currentIndex;
+  while (numberFound == false){
+    currentIndex = Math.floor(Math.random() * flashcards.length);
+    if (currentIndex == previousIndex){
+      console.log('ruhroh');
+    } else {
+      if (usedFlashcards.includes(currentIndex)){
+        if(usedFlashcards === flashcards.length){
+          return('ruhroh for real this time');
+        }
+        console.log('double ruhroh');
+      } else {
+        usedFlashcards.push(currentIndex);
+        numberFound = true;
+      }
+    }
+  }
+  
   // (currentIndex + random.number????) make a shuffle mechanic this way? built in?
   // then again, flashcards should be based on what units you want to test, right?
   isFlipped = false;
   showFront();
 }
+
+// make a unit select button
+
+// make a reset seen flashcards button
+
+
 
 showFront(); // Load first card on page load
