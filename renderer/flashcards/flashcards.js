@@ -1,34 +1,58 @@
-const fs = require('fs');
-const path = require('path');
+//
+//ALL FLASHCARDS
+//
 
-// Get absolute path to JSON file
-const flashcardPath = path.join(__dirname, 'flashcards.json');
+const flashcards = [
 
-// Read and parse the JSON
-let flashcards = JSON.parse(fs.readFileSync(flashcardPath));
+  {front: "What is the capital of Spain?", back: "Fucking Portugal"},
+  {front: "What is the capital of monkey", back: "doggie roggie"}
+
+]
+
+//
+//
+//
+//
+//
+//
+//
+//
+//          // Actual code starts beyond this point.
+//
+
+
+
+
+
 let currentIndex = 0;
 let isFlipped = false;
+let monkey = 0;
+let cardText = document.getElementById('card-text')
 
-
-
-// Flipping/Card functions
 function showFront() {
-  const cardText = document.getElementById('card-text');
   cardText.textContent = flashcards[currentIndex].front;
 }
 
 function flipCard() {
-  const cardText = document.getElementById('card-text');
   isFlipped = !isFlipped;
   cardText.textContent = isFlipped
     ? flashcards[currentIndex].back
     : flashcards[currentIndex].front;
+
+  if (isFlipped) {
+    cardText.classList.add('backside');
+  } else {
+    cardText.classList.remove('backside');
+  }
 }
 
 function nextCard() {
+  if(cardText.classList.contains('backside')){
+    cardText.classList.remove('backside')
+  }
   currentIndex = (currentIndex + 1) % flashcards.length;
   isFlipped = false;
   showFront();
 }
 
-window.onload = showFront;
+showFront(); // Load first card on page load
