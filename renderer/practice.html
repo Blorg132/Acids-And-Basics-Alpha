@@ -32,9 +32,9 @@
     }
 
     #notes-buttons button, 
-    #questions-buttons button,
-    .back-button {
+    #questions-buttons button {
       font-size: 24px;
+      font-family: Quantico;
       margin: 10px;
       padding: 12px 24px;
       border-radius: 12px;
@@ -47,8 +47,7 @@
     }
 
     #notes-buttons button:hover,
-    #questions-buttons button:hover,
-    .back-button:hover {
+    #questions-buttons button:hover {
       background-color: #f3f3f3;
       transform: translateY(-5px);
     }
@@ -56,6 +55,7 @@
     #notes-buttons,
     #questions-buttons {
       margin-top: 20px;
+
     }
   </style>
 </head>
@@ -86,8 +86,8 @@
 
 
     <!--Just so you know, we can fix all of this with a mega DIV. Just make two seperate div's under the same class, make that class flex-direction column. I'm too lazy to do this rn. -->
-    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: left; font-size: 60px;" onclick="showNotesButtons();">Notes</button>
-    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: right; font-size: 60px;" onclick="showQuestionsButtons();">Questions</button>
+    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: left; font-size: 60px; font-family: Jost;" onclick="showNotesButtons();">Notes</button>
+    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: right; font-size: 60px; font-family: Jost;" onclick="showQuestionsButtons();">Questions</button>
 
     <div id="notes-buttons" style="float: left; display: none;">
 

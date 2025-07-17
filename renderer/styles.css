@@ -67,18 +67,21 @@
     position: fixed;
     bottom: 20px;
     left: 20px;
-    font-size: 14px;
+    font-size: calc(1em + 0.5vw);
+    text-align: center;
     font-family: Jost;
-    border: 2px solid black;
+    border: 2px solid rgb(199, 33, 33);
     border-radius: 10px; 
     transition-duration: 0.4s;
     width: 15%;
-
+    font-family: Quantico;
 }
 
 .back-button:hover {
-    background-color: red;
-    color: white;
+    background-color: #f54e4e;
+    color:aliceblue;
+    transform: translateY(-5px);
+    font-family: Quantico;
 }
 
 
