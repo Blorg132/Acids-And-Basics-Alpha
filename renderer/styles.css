@@ -44,15 +44,19 @@
 
 
 
-.practice-background {
-    background-image: url('images/practice-background.webp');
-    background-size: 100% 100%;
-    background-position: center;
-    position: absolute;
-    inset: 0;
-    opacity: 0.3;
-    z-index: -1;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* back buttons */
 
@@ -74,6 +78,21 @@
     color: white;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* practice mode*/
+
 h1 {
     color: #a662fe;
     text-align: center;
@@ -84,15 +103,50 @@ h1 {
 
 .practice-background {
     background-image: url('images/practice-background.webp');
-
+    background-size: 100% 100%;
+    background-position: center;
+    position: absolute;
+    inset: 0;
+    opacity: 0.3;
+    z-index: -1;
 }
 
 
 
+
+
+
+
+
+
+
+
+
+/* all of the following horrible shit is for the flashcards */
 .backside {
 
-    color: blueviolet;
+    color: rgb(105, 219, 139);
 }
+
+.completed-set {
+    color:rgb(93, 255, 93);
+    font-size: 30px;
+    border: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* FONTS!!!! */
 

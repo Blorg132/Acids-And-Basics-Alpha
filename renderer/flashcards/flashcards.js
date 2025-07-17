@@ -32,8 +32,11 @@ let monkey = 0;
 let cardText = document.getElementById('card-text')
 let usedFlashcards = []
 
+//counter stuff yet again
 let flashcardcounter = document.getElementById("flashcardcounter");
 flashcardcounter.textContent = usedFlashcards.length;
+let dog = document.getElementById("flashcardsleft");
+dog.textContent = flashcards.length;
 
 function showFront() {
   cardText.textContent = flashcards[currentIndex].front;
@@ -58,12 +61,20 @@ function nextCard() {
   }
   var numberFound = false;
   var previousIndex = currentIndex;
+
+  // this is for the counters
   flashcardcounter.textContent = usedFlashcards.length;
+  dog.textContent = flashcards.length;
+
+
   // check if all flashcards have been used
   if(usedFlashcards.length === flashcards.length){
     usedFlashcards = [];
     emptysound = document.getElementById("emptysound");
     emptysound.play();
+    flashcardcounter.classList.add('completed-set');
+  } else {
+    flashcardcounter.classList.remove('completed-set');
   }
 
   // entering decision loop
@@ -87,6 +98,24 @@ function nextCard() {
   isFlipped = false;
   showFront();
 }
+
+
+
+function shuffleFlashcards(){
+
+  const shuffleSounds = [
+    new Audio('../sounds/shufflesound1.wav'),
+    new Audio('../sounds/shufflesound2.wav')
+  ];
+
+  // Function to play a random shuffle sound
+  const randomIndex = Math.floor(Math.random() * shuffleSounds.length);
+  shuffleSounds[randomIndex].play();
+
+  usedFlashcards = [];
+  nextCard();
+}
+
 
 // make a unit select button
 

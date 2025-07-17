@@ -9,6 +9,10 @@
 
     <audio id="backgroundmusic" src="../sounds/lessonsong.mp3" autoplay loop></audio>
     <audio id="emptysound" src="../sounds/dropdownsound.wav"></audio>
+    <audio id="shufflesound1" src="../sounds/shufflesound1.wav" preload="auto"></audio>
+    <audio id="shufflesound2" src="../sounds/shufflesound2.wav" preload="auto"></audio>
+
+    
     <script>
         // changing the volume of this fucking loud ass song!!!
 
@@ -44,11 +48,18 @@
         <button class="flashcardbutton" onclick="flipCard()">Flip</button>
         <br>
         <button class="flashcardbutton" onclick="nextCard()">Next</button>
+        <br>
+        <button class="flashcardbutton" onclick="shuffleFlashcards()"><em>Shuffle Set</em></button>
 
     </div>
 
-    <aside>Number of Flashcards Done:</aside>
-    <aside id="flashcardcounter">[FLASHCARDS COMPLETED]</aside>
+
+    <!--THESE ARE THEE COUNTERSSSSSSS-->
+    <aside style="font-family: Quantico; "><em>Number of Flashcards Done:</em></aside>
+    <aside id="flashcardcounter" style="font-family: Title;">IF YOU'RE READING THIS IT'S TOO LATE</aside>
+    <br>
+    <aside style="font-family: Jost; "><em>Flashcards Left:</em></aside>
+    <aside id="flashcardsleft" style="font-family: Title; font-size: 20px;">IF YOU'RE READING THIS IT'S TOO LATE</aside>
 
 
 
