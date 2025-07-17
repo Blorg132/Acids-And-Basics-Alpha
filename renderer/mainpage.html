@@ -11,8 +11,9 @@
 
         <!--Playing the background music. Please change.-->
         <audio src="sounds/themesong.mp3" autoplay loop id="backgroundmusic"></audio>
+        <audio id="hoverSound" src="sounds/elementhover.wav" preload="auto"></audio>
 
-        <!--Changing the volume. I think we can have multiple Java scripts. Don't worry. Forget about it.-->
+        <!--Changing the volume.-->
         <script>
             var audio = document.getElementById("backgroundmusic");
             audio.volume = 0.1;
@@ -120,7 +121,6 @@
         <br>
         <button class="menu-button" onclick="playClickSound1('credits.html');">Credits</button>
         <br>
-        <audio id="hoverSound" src="sounds/hoversound.wav" preload="auto"></audio>
         
 
         <!--Hover Sound Effects-->
@@ -131,15 +131,10 @@
             buttons.forEach(button => {
                 button.addEventListener('mouseenter', () => {
                     sound.currentTime = 0; // rewind to start
-                    sound.volume = 0.4;
+                    sound.volume = 0.3;
                     sound.play();
                 });
-                button.addEventListener("mouseleave", () => {
 
-                    sound.currentTime = 5.3;
-                    sound.stop();
-                    sound.play();
-                })
 
             });
         </script>
