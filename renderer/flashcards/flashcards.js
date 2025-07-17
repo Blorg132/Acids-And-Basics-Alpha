@@ -32,6 +32,9 @@ let monkey = 0;
 let cardText = document.getElementById('card-text')
 let usedFlashcards = []
 
+let flashcardcounter = document.getElementById("flashcardcounter");
+flashcardcounter.textContent = usedFlashcards.length;
+
 function showFront() {
   cardText.textContent = flashcards[currentIndex].front;
 }
@@ -55,17 +58,24 @@ function nextCard() {
   }
   var numberFound = false;
   var previousIndex = currentIndex;
+  flashcardcounter.textContent = usedFlashcards.length;
+  // check if all flashcards have been used
+  if(usedFlashcards.length === flashcards.length){
+    usedFlashcards = [];
+    emptysound = document.getElementById("emptysound");
+    emptysound.play();
+  }
+
+  // entering decision loop
   while (numberFound == false){
     currentIndex = Math.floor(Math.random() * flashcards.length);
-    if (currentIndex == previousIndex){
+    if (currentIndex == previousIndex){ // checks if card is same as previous one
       console.log('ruhroh');
     } else {
-      if (usedFlashcards.includes(currentIndex)){
-        if(usedFlashcards === flashcards.length){
-          return('ruhroh for real this time');
-        }
-        console.log('double ruhroh');
+      if (usedFlashcards.includes(currentIndex)){ // checks if card has already been used
+        ('double ruhroh');
       } else {
+        //appending Used Flashcard if both tests pass :)
         usedFlashcards.push(currentIndex);
         numberFound = true;
       }
@@ -79,9 +89,6 @@ function nextCard() {
 }
 
 // make a unit select button
-
-// make a reset seen flashcards button
-
 
 
 showFront(); // Load first card on page load
