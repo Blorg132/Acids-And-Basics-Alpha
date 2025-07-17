@@ -4,8 +4,10 @@
 
 const flashcards = [
 
-  {front: "What is the capital of Spain?", back: "Fucking Portugal"},
-  {front: "What is the capital of monkey", back: "doggie roggie"}
+  {front: "What is the capital of Spain?", back: "Fucking Portugal", unit:"1"},
+  {front: "What is the capital of monkey", back: "doggie roggie", unit: "1"},
+  {front: "Monkeys are the best animal.", back: "Yes they are!", unit: "2"},
+  {front: "This is blatant filler text.", back: "Of course it is.", unit: "2"}
 
 ]
 
