@@ -12,114 +12,7 @@
     <audio id="dropdownsound" src="sounds/dropdownsound.wav" preload="auto"></audio>
     <audio id="elementhoversound" src="sounds/elementhover.wav" preload="auto"></audio>
 
-<body style="background-color: rgb(0, 0, 0);">
-
-
-    <script>
-        function showNotesButtons() {
-            const container = document.getElementById("notes-buttons");
-            container.style.display = (container.style.display === "block") ? "none" : "block";
-        }
-
-        function showQuestionsButtons() {
-            const container = document.getElementById("questions-buttons");
-            container.style.display = (container.style.display === "block") ? "none" : "block";
-        }
-    </script>
-    
-
-    <head>
-  <style>
-    .dropdown {
-      position: relative;
-      display: inline-block;
-      margin-top: 40px;
-    }
-
-    .questions-button {
-      width: 500px;
-      height: 100px;
-      font-size: 24px;
-      font-weight: normal;
-      background: linear-gradient(90deg, #f284fc, #a78bfa);
-      color: white;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.5s ease;
-    }
-
-    .questions-button:hover {
-      transform: scale(1.02);
-      background: linear-gradient(270deg, #7f5af0, #14d3e1); /* reversed */
-    }
-
-    .dropdown-content {
-      max-height: 0;
-      overflow: hidden;
-      position: absolute;
-      background-color: white;
-      width: 500px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      border-radius: 15px;
-      z-index: 1;
-      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-      opacity: 0;
-    }
-
-    .dropdown-content button {
-      width: 100%;
-      padding: 20px;
-      border: none;
-      background: none;
-      text-align: left;
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    .dropdown-content button:hover {
-      background-color: #f3f3f3;
-    }
-
-    .dropdown:hover .dropdown-content {
-      max-height: 300px;
-      opacity: 1;
-    }
-  </style>
-</head>
-<body>
-
-<!-- Questions Dropdown -->
-<div class="dropdown">
-  <button class="questions-button">Questions</button>
-  <div class="dropdown-content">
-    <button onclick="alert('Question Pack 1')">Question Pack 1</button>
-    <button onclick="alert('Question Pack 2')">Question Pack 2</button>
-  </div>
-</div>
-
-</body>
-
-
-
-    <div id="notes-buttons" style="float:left ; display: none;">
-
-        <button>Note 1</button>
-        <button>Note 2</button>
-
-    </div>
-
-    <div id="questions-buttons" style="float: right; display: none;">
-        <button>Question Pack 1</button>
-        <button>Question Pack 2</button>
-    </div>
-
-
-    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
-</body>
-
-<head>
-  <style>
+    <style>
     .dropdown {
       position: relative;
       display: inline-block;
@@ -174,140 +67,32 @@
       max-height: 300px;
       opacity: 1;
     }
-  </style>
+    </style>
+
 </head>
+
+
+
 <body>
 
-<div class="dropdown">
-  <button class="dropdown-button">Notes</button>
-  <div class="dropdown-content">
-    <button onclick="alert('Note 1')">Note 1</button>
-    <button onclick="alert('Note 2')">Note 2</button>
+  <div class="dropdown">
+    <button class="dropdown-button">Notes</button>
+    <div class="dropdown-content">
+      <button onclick="alert('Note 1')">Note 1</button>
+      <button onclick="alert('Note 2')">Note 2</button>
+    </div>
+
+    <!--This is the broken part. You do what you gotta do.-->
+    <button class="dropdown-button">Questions</button>
+    <div class="dropdown-content">
+      <button onclick="alert('Note 1')">Note 1</button>
+      <button onclick="alert('Note 2')">Note 2</button>
+    </div>
   </div>
-</div>
 
 </body>
 
 
-<head>
-  <style>
-    <style>
-    .lesson-select-button1 {
-      width: 500px;
-      height: 100px;
-      font-size: 60px;
-      border-radius: 20px;
-      border: none;
-      background: linear-gradient(to right, #f284fc, #a78bfa);
-      color: white;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
 
-    .lesson-select-button1:hover {
-      transform: scale(1.05);
-      background: linear-gradient(to right, #a98dfb, #f284fc);
-    }
-
-    #notes-buttons button, 
-    #questions-buttons button {
-      font-size: 24px;
-      font-family: Quantico;
-      margin: 10px;
-      padding: 12px 24px;
-      border-radius: 12px;
-      border: none;
-      background-color: white;
-      color: black;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      transition: 0.2s ease;
-      cursor: pointer;
-    }
-
-    #notes-buttons button:hover,
-    #questions-buttons button:hover {
-      background-color: #f3f3f3;
-      transform: translateY(-5px);
-    }
-
-    #notes-buttons,
-    #questions-buttons {
-      margin-top: 20px;
-
-    }
-    </style>
-</head>
-
-<body style="background-color: rgb(19, 15, 37);">
-
-
-    <script>
-        function showNotesButtons() {
-            const container = document.getElementById("notes-buttons");
-            container.style.display = (container.style.display === "block") ? "none" : "block";
-            const sound = document.getElementById("dropdownsound");
-            sound.currentTime = 0;
-            sound.volume = 0.3;
-            sound.play();
-        }
-
-        function showQuestionsButtons() {
-            const container = document.getElementById("questions-buttons");
-            container.style.display = (container.style.display === "block") ? "none" : "block";
-            const sound = document.getElementById("dropdownsound");
-            sound.currentTime = 0;
-            sound.volume = 0.3;
-            sound.play();
-        }
-    </script>
-
-
-
-    <!--Just so you know, we can fix all of this with a mega DIV. Just make two seperate div's under the same class, make that class flex-direction column. I'm too lazy to do this rn. -->
-    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: left; font-size: 60px; font-family: Jost;" onclick="showNotesButtons();">Notes</button>
-    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: right; font-size: 60px; font-family: Jost;" onclick="showQuestionsButtons();">Questions</button>
-
-    <div id="notes-buttons" style="float: left; display: none;">
-
-        <!--As of now, EVERY SINGLE new button will need to have this copy and paste style. Sorry. Someone fix it. Not me.-->
-
-        <button style="display: flex; flex-direction: column;">Note 1</button>
-        <button style="display: flex; flex-direction: column;">Note 2</button>
-
-    </div>
-
-    <div id="questions-buttons" style="float: right; display: none;">
-
-        <!--This is f***ed for reasons stated above. Oh well!-->
-
-        <button style="display: flex; flex-direction: column;">Question Pack 1</button>
-        <button style="display: flex; flex-direction: column;">Question Pack 2</button>
-    </div>
-
-
-    <script>
-      const sound1 = document.getElementById("elementhoversound");
-      const buttons = document.querySelectorAll('#notes-buttons button, #questions-buttons button');
-      buttons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-          sound1.currentTime = 0; // rewind to start
-          sound1.volume = 0.4;
-          sound1.play();
-        });
-        button.addEventListener("mouseleave", () => {
-
-          sound1.currentTime = 5.3;
-          sound1.stop();
-          sound1.play();
-        })
-
-      })
-    </script>
-
-    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
-</body>
-
-
-
+<button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
 </html>
