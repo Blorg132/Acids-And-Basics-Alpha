@@ -9,8 +9,10 @@
     <h1>Practice</h1>
 
     <div class="practice-background"></div>
-</head>
+    <audio id="dropdownsound" src="sounds/dropdownsound.wav" preload="auto"></audio>
+    <audio id="elementhoversound" src="sounds/elementhover.wav" preload="auto"></audio>
 
+<<<<<<< HEAD
 <body style="background-color: rgb(0, 0, 0);">
 
 
@@ -190,6 +192,9 @@
 
 <head>
   <style>
+=======
+    <style>
+>>>>>>> e3e6786a7b3a083f27fc68da04299e8d20434905
     .lesson-select-button1 {
       width: 500px;
       height: 100px;
@@ -209,9 +214,9 @@
     }
 
     #notes-buttons button, 
-    #questions-buttons button,
-    .back-button {
+    #questions-buttons button {
       font-size: 24px;
+      font-family: Quantico;
       margin: 10px;
       padding: 12px 24px;
       border-radius: 12px;
@@ -224,8 +229,7 @@
     }
 
     #notes-buttons button:hover,
-    #questions-buttons button:hover,
-    .back-button:hover {
+    #questions-buttons button:hover {
       background-color: #f3f3f3;
       transform: translateY(-5px);
     }
@@ -233,9 +237,80 @@
     #notes-buttons,
     #questions-buttons {
       margin-top: 20px;
+
     }
-  </style>
+    </style>
 </head>
+
+<body style="background-color: rgb(19, 15, 37);">
+
+
+    <script>
+        function showNotesButtons() {
+            const container = document.getElementById("notes-buttons");
+            container.style.display = (container.style.display === "block") ? "none" : "block";
+            const sound = document.getElementById("dropdownsound");
+            sound.currentTime = 0;
+            sound.volume = 0.3;
+            sound.play();
+        }
+
+        function showQuestionsButtons() {
+            const container = document.getElementById("questions-buttons");
+            container.style.display = (container.style.display === "block") ? "none" : "block";
+            const sound = document.getElementById("dropdownsound");
+            sound.currentTime = 0;
+            sound.volume = 0.3;
+            sound.play();
+        }
+    </script>
+
+
+
+    <!--Just so you know, we can fix all of this with a mega DIV. Just make two seperate div's under the same class, make that class flex-direction column. I'm too lazy to do this rn. -->
+    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: left; font-size: 60px; font-family: Jost;" onclick="showNotesButtons();">Notes</button>
+    <button class="lesson-select-button1" style="width: 40%; height: 100px; float: right; font-size: 60px; font-family: Jost;" onclick="showQuestionsButtons();">Questions</button>
+
+    <div id="notes-buttons" style="float: left; display: none;">
+
+        <!--As of now, EVERY SINGLE new button will need to have this copy and paste style. Sorry. Someone fix it. Not me.-->
+
+        <button style="display: flex; flex-direction: column;">Note 1</button>
+        <button style="display: flex; flex-direction: column;">Note 2</button>
+
+    </div>
+
+    <div id="questions-buttons" style="float: right; display: none;">
+
+        <!--This is f***ed for reasons stated above. Oh well!-->
+
+        <button style="display: flex; flex-direction: column;">Question Pack 1</button>
+        <button style="display: flex; flex-direction: column;">Question Pack 2</button>
+    </div>
+
+
+    <script>
+      const sound1 = document.getElementById("elementhoversound");
+      const buttons = document.querySelectorAll('#notes-buttons button, #questions-buttons button');
+      buttons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+          sound1.currentTime = 0; // rewind to start
+          sound1.volume = 0.4;
+          sound1.play();
+        });
+        button.addEventListener("mouseleave", () => {
+
+          sound1.currentTime = 5.3;
+          sound1.stop();
+          sound1.play();
+        })
+
+      })
+    </script>
+
+    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
+</body>
+
 
 
 </html>

@@ -6,25 +6,78 @@
     <meta charset="UTF-8" />
     <title>Flashcards Homepage</title>
     <link rel="stylesheet" href="../styles.css">
-    <script src="flashcards.js"></script>
+
+    <audio id="backgroundmusic" src="../sounds/flashcardsong.mp3" autoplay loop></audio>
+    <audio id="emptysound" src="../sounds/dropdownsound.wav"></audio>
+    <audio id="shufflesound1" src="../sounds/shufflesound1.wav" preload="auto"></audio>
+    <audio id="shufflesound2" src="../sounds/shufflesound2.wav" preload="auto"></audio>
+    <audio id="buttonclicked" src="../sounds/clicksound2.wav" preload="auto"></audio>
+    
+    <script>
+        // changing the volume of this fucking loud ass song!!!
+
+        const sound = document.getElementById("backgroundmusic");
+        sound.volume = 0.3;
+    </script>
+
+    <!--Defining flashcard button styles here instead of styles.css! hahahahahahah-->
+
+    <style>
+        .flashcardbutton {
+            padding: 15px;
+            width: 13%;
+            font-family: Jost;
+            font-size: calc(.5em + 1vw);
+            transition-duration: 0.15s;
+        }
+
+        .flashcardbutton:hover {
+            scale: 1.1;
+            transform: translateY(-5px);
+            background-color: rgb(255, 153, 116);
+            border-color: rgba(172, 252, 51, 0.706);
+            transition-duration: 0.15s;
+        }
+
+        p {
+            font-family: Quantico;
+            font-size: 35px;
+            font-size: calc(2em + 1vw);
+        }
+    </style>
 </head>
 
 
 <body style="background-color: gray">
 
-    <script src="flashcards.js"></script>
+    <div style="display: flex; flex-direction: column; align-items: center; position: center;">
+        <div id="flashcard" class="card">
+            <p id="card-text">[Card will appear here]</p>
+        </div> 
 
-    <div id="flashcard" class="card">
-    <p id="card-text">[Card will appear here]</p>
+
+        <button class="flashcardbutton" onclick="flipCard()">Flip</button>
+        <br>
+        <button class="flashcardbutton" onclick="nextCard()">Next</button>
+        <br>
+        <button class="flashcardbutton" onclick="shuffleFlashcards()"><em>Shuffle Set</em></button>
+
     </div>
 
-    <button onclick="flipCard()">Flip</button>
-    <button onclick="nextCard()">Next</button>
+
+    <!--THESE ARE THEE COUNTERSSSSSSS-->
+    <aside style="font-family: Quantico; font-size: calc(0.5em + 1vw);"><em>Number of Flashcards Done:</em></aside>
+    <aside id="flashcardcounter" style="font-family: Title; font-size: calc(0.5em + 1vw);">IF YOU'RE READING THIS IT'S TOO LATE</aside>
+    <br>
+    <aside style="font-family: Jost; font-size: calc(0.5em + 1vw);"><em>Flashcards Left:</em></aside>
+    <aside id="flashcardsleft" style="font-family: Title; font-size: calc(0.5em + 1vw);"">IF YOU'RE READING THIS IT'S TOO LATE</aside>
 
 
 
 
     <button class="back-button" onclick="window.location.href='../mainpage.html';">Back</button>
+
+    <script src="flashcards.js"></script>
 </body>
 
 
