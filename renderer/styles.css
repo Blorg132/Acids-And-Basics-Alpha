@@ -6,6 +6,7 @@
     color: green;
     /*this is for making button look good */
     padding: 12px 70px;
+    font-family: Quantico;
     font-size: 25px;
     border: 2px solid black;
     border-radius: 10px; 
@@ -32,6 +33,7 @@
     font-size: 14px;
     border: 2px solid black;
     border-radius: 10px; 
+    font-family: Jost;
     transition-duration: 0.4s;
     width: 15%;
     text-align: center;
@@ -66,6 +68,7 @@
     bottom: 20px;
     left: 20px;
     font-size: 14px;
+    font-family: Jost;
     border: 2px solid black;
     border-radius: 10px; 
     transition-duration: 0.4s;
@@ -147,7 +150,7 @@ h1 {
 
 .completed-set {
     color:rgb(93, 255, 93);
-    font-size: 30px;
+    font-size: calc(2em + 2vw);
     border: 3px;
 }
 
@@ -167,6 +170,8 @@ h1 {
 
 /* FONTS!!!! */
 
+/* P.S: font-family is what YOU want to call it, doesn't have to be same as the file */
+
 @font-face {
     font-family: Title;
     src: url('fonts/Borel-Regular.ttf');
@@ -181,4 +186,10 @@ h1 {
 @font-face {
     font-family: Quantico;
     src: url('fonts/Quantico-Bold.ttf');
+}
+
+
+@font-face {
+    font-family: Fancy;
+    src: url('fonts/Ephesis-Regular.ttf');
 }
