@@ -51,6 +51,8 @@ function nextCard() {
     cardText.classList.remove('backside')
   }
   currentIndex = (currentIndex + 1) % flashcards.length;
+  // (currentIndex + random.number????) make a shuffle mechanic this way? built in?
+  // then again, flashcards should be based on what units you want to test, right?
   isFlipped = false;
   showFront();
 }
