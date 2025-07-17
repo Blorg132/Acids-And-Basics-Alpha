@@ -7,6 +7,29 @@
     <title>Flashcards Homepage</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="flashcards.js"></script>
+
+    <audio id="backgroundmusic" src="../sounds/lessonsong.mp3" autoplay loop></audio>
+    <script>
+        // changing the volume of this fucking loud ass song!!!
+
+        const sound = document.getElementById("backgroundmusic");
+        sound.volume = 0.3;
+    </script>
+
+    <!--Defining flashcard button styles here instead of styles.css! hahahahahahah-->
+
+    <style>
+        .flashcardbutton {
+            padding: 15px;
+            width: 200px;
+            font-family: Jost;
+        }
+
+        p {
+            font-family: Quantico;
+            font-size: 35px;
+        }
+    </style>
 </head>
 
 
@@ -14,12 +37,16 @@
 
     <script src="flashcards.js"></script>
 
-    <div id="flashcard" class="card">
-    <p id="card-text">[Card will appear here]</p>
-    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; position: center;">
+        <div id="flashcard" class="card">
+            <p id="card-text">[Card will appear here]</p>
+        </div> 
 
-    <button onclick="flipCard()">Flip</button>
-    <button onclick="nextCard()">Next</button>
+
+        <button class="flashcardbutton" onclick="flipCard()">Flip</button>
+        <br>
+        <button class="flashcardbutton" onclick="nextCard()">Next</button>
+    </div>
 
 
 
