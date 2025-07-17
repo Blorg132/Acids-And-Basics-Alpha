@@ -123,9 +123,26 @@ h1 {
 
 
 /* all of the following horrible shit is for the flashcards */
+
+.frontside {
+    transition-duration: 0.3s;
+}
+
+.frontside:hover {
+    transition-duration: 0.3s;
+    scale: 1.2;
+}
+
 .backside {
 
     color: rgb(105, 219, 139);
+    transition-duration: 0.3s;
+}
+
+
+.backside:hover {
+    scale: 1.2;
+    transition-duration: 0.3s;
 }
 
 .completed-set {

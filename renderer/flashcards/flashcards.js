@@ -4,7 +4,7 @@
 
 const flashcards = [
 
-  {front: "What is the capital of Spain?", back: "Fucking Portugal", unit:"1"},
+  {front: "What is the capital of Spain?", back: "I think it's Portugal.", unit:"1"},
   {front: "What is the capital of monkey", back: "doggie roggie", unit: "1"},
   {front: "Monkeys are the best animal.", back: "Yes they are!", unit: "2"},
   {front: "This is blatant filler text.", back: "Of course it is.", unit: "2"}
@@ -40,6 +40,7 @@ dog.textContent = flashcards.length;
 
 function showFront() {
   cardText.textContent = flashcards[currentIndex].front;
+  cardText.classList.add('frontside');
 }
 
 function flipCard() {
@@ -50,8 +51,10 @@ function flipCard() {
 
   if (isFlipped) {
     cardText.classList.add('backside');
+    cardText.classList.remove('frontside');
   } else {
     cardText.classList.remove('backside');
+    cardText.classList.add('frontside');
   }
 }
 
