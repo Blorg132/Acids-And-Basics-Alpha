@@ -31,7 +31,7 @@ b:hover {
     transform: scale(1.5);
     transform-origin: top;
     color:greenyellow;
-    transition-duration: 500ms;
+    transition-duration: 250ms;
 }
 
 p {
@@ -42,6 +42,17 @@ p {
 
 
 
+em {
+    font-family: Quantico;
+    font-size: 18px;
+    transition-duration: 0.5s;
+}
+
+em:hover {
+    transform: translateY(-5px);
+    transition-duration: 0.5s;
+}
+
 
 
 
@@ -50,15 +61,31 @@ p {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    font-size: 14px;
-    border: 2px solid black;
+    font-size: calc(1em + 0.5vw);
+    text-align: center;
+    font-family: Jost;
+    border: 2px solid rgb(199, 33, 33);
     border-radius: 10px; 
     transition-duration: 0.4s;
     width: 15%;
-
+    font-family: Quantico;
 }
 
 .back-button:hover {
-    background-color: red;
-    color: white;
+    background-color: #f54e4e;
+    color:aliceblue;
+    transform: translateY(-5px);
+    font-family: Quantico;
+}
+
+
+
+
+
+
+/* we have to redeclare fonts here, whoopsies!!! */
+
+@font-face {
+    font-family: Quantico;
+    src: url("../fonts/Quantico-Bold.ttf");
 }
