@@ -26,14 +26,28 @@
     </p>
     <p>Matter has a few distinct "states": solid, liquid, and gas. Each of these states are <em>very very cool!</em></p>
 
+    <p>If you're ready to sart answering some questions, click the button below me to try your first test!</p>
+
+    <!---->
+    <!---->
+    <!--Please fix this gototest CSS class in lessonstyles.css. I'm nominating Nicholas. Or Abhinav. Sincerely, Michae l.-->
+    <!---->
+    <!---->
+
+    <button class="gototest" id="gototest">I'm Ready!</button>
+
 
     <!--Running Custom Alert scripts here.-->
     <script>
-
-
         document.getElementById("clickmatter").addEventListener("click", function() {
             customAlert("Matter is defined as anything that takes up volume (space) and mass (has weight).");
         });
+
+        // Is this the best way to do it? No. But I think it looks cool. Sincerely, Michael
+        document.getElementById("gototest").addEventListener("click", function() {
+            window.location.href="lesson1test.html";
+        });
+
     </script>
     
 

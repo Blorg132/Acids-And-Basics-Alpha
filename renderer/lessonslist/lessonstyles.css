@@ -1,6 +1,7 @@
 
 /*styles for lessons CSS! */
 
+/* text and other bullshit*/
 
 body {
     background-color: rgb(195, 145, 69);
@@ -56,6 +57,24 @@ em:hover {
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* Buttons */
+
+
+
+
+
+
+
 .back-button {
     padding: 8px 50px;
     position: fixed;
@@ -77,6 +96,44 @@ em:hover {
     transform: translateY(-5px);
     font-family: Quantico;
 }
+
+
+
+
+.gototest {
+
+    /*looks*/
+    padding: 8px 50px;
+    width: 25%;
+    border: 2px solid rgb(199, 33, 33);
+    border-radius: 10px; 
+
+    /*position, but this is awful currently*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /*text*/
+    text-align: center;
+    font-family: Quantico;
+    font-size: calc(1em + 0.5vw);
+    text-align: center;
+
+    transition-duration: 0.4s;
+}
+
+
+.gototest:hover {
+    background-color: #bce86a;
+    color:rgb(77, 71, 254);
+    scale: 1.1;
+    font-family: Quantico;
+    transition-duration: 0.4s;
+}
+
+
+
 
 
 
