@@ -7,7 +7,7 @@ const flashcards = [
   // If you're ever interested into what each of the units mean, here is what i have so far:
   // Unit 1: Basic shit. not really sure. Abhinav you figure it out.
   
-  // Unit 1: Basic THings
+  // Unit 1: Basic Things
   { front: "What is the smallest unit of matter?", back: "An atom", unit: "1" },
   { front: "What three particles make up an atom?", back: "Protons, neutrons, and electrons", unit: "1" },
   { front: "What is the charge of a proton?", back: "Positive (+)", unit: "1" },
@@ -97,8 +97,9 @@ let usedFlashcards = []
 //counter stuff yet again
 let flashcardcounter = document.getElementById("flashcardcounter");
 flashcardcounter.textContent = usedFlashcards.length;
+
 let dog = document.getElementById("flashcardsleft");
-dog.textContent = flashcards.length;
+dog.textContent = flashcards.length - usedFlashcards.length;
 
 let buttonsound = document.getElementById("buttonclicked");
 buttonsound.volume = 0.15;
