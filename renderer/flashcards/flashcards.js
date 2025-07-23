@@ -4,7 +4,10 @@
 
 const flashcards = [
 
-  // Unit 1: Atoms and Elements
+  // If you're ever interested into what each of the units mean, here is what i have so far:
+  // Unit 1: Basic shit. not really sure. Abhinav you figure it out.
+  
+  // Unit 1: Basic THings
   { front: "What is the smallest unit of matter?", back: "An atom", unit: "1" },
   { front: "What three particles make up an atom?", back: "Protons, neutrons, and electrons", unit: "1" },
   { front: "What is the charge of a proton?", back: "Positive (+)", unit: "1" },
@@ -15,6 +18,7 @@ const flashcards = [
   { front: "What defines an element?", back: "The number of protons", unit: "1" },
   { front: "What is the atomic number?", back: "The number of protons in an atom", unit: "1" },
   { front: "What is the mass number?", back: "Protons + Neutrons", unit: "1" },
+  { front: "What is a homogenous mixture?", back: "A mixture with uniform composition", unit: "1"},
 
   // Unit 2: Periodic Table
   { front: "Who created the periodic table?", back: "Dmitri Mendeleev", unit: "2" },
@@ -63,6 +67,9 @@ const flashcards = [
   { front: "What is the process of liquid to solid called?", back: "Freezing", unit: "5" },
   { front: "What is the process of solid to gas called?", back: "Sublimation", unit: "5" },
   { front: "What causes changes in states of matter?", back: "Adding or removing heat", unit: "5" }
+
+
+  // My actual questions
 
 ]
 
