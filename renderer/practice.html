@@ -13,158 +13,136 @@
     <audio id="elementhoversound" src="sounds/elementhover.wav" preload="auto"></audio>
 
      <style>
-    .dropdown {
-      position: relative;
-      display: inline-block;
-      margin-top: 40px;
-    }
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-top: 40px;
+      }
 
-    .questions-button {
-      width: 705px;
-      height: 100px;
-      font-size: 60px;
-      font-weight: bold;
-      background: linear-gradient(90deg, #f284fc, #a78bfa);
-      color: white;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.5s ease;
-    }
+      .questions-button {
+        width: 705px;
+        height: 100px;
+        font-size: 60px;
+        font-weight: bold;
+        background: linear-gradient(90deg, #f284fc, #a78bfa);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.5s ease;
+      }
 
-    .questions-button:hover {
-      transform: scale(1.02);
-      background: linear-gradient(270deg, #7f5af0, #14d3e1); /* reversed */
-    }
-
-
-    
-    .dropdown-content {
-      max-height: 0;
-      overflow: hidden;
-      position: absolute;
-      background-color: white;
-      width: 705px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      border-radius: 15px;
-      z-index: 1;
-      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-      opacity: 0;
-    }
-
-    .dropdown-content button {
-      width: 100%;
-      padding: 20px;
-      border: none;
-      background: none;
-      text-align: left;
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    .dropdown-content button:hover {
-      background-color: #f3f3f3;
-    }
-
-    .dropdown:hover .dropdown-content {
-      max-height: 300px;
-      opacity: 1;
-    }
+      .questions-button:hover {
+        transform: scale(1.02);
+        background: linear-gradient(270deg, #7f5af0, #14d3e1); /* reversed */
+      }
 
 
+      
+      .dropdown-content {
+        max-height: 0;
+        overflow: hidden;
+        position: absolute;
+        background-color: white;
+        width: 705px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        border-radius: 15px;
+        z-index: 1;
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        opacity: 0;
+      }
 
-    .dropdown-button {
-      width: 705px;
-      height: 100px;
-      font-size: 60px;
-      font-weight: bold;
-      background: linear-gradient(90deg, #f284fc, #a78bfa);
-      color: white;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.5s ease;
-    }
+      .dropdown-content button {
+        width: 100%;
+        padding: 20px;
+        border: none;
+        background: none;
+        text-align: left;
+        font-size: 18px;
+        cursor: pointer;
+      }
 
-    .dropdown-button:hover {
-      transform: scale(1.02);
-      background: linear-gradient(270deg, #7f5af0, #14d3e1); /* reversed */
-    }
+      .dropdown-content button:hover {
+        background-color: #f3f3f3;
+      }
 
-    .dropdown-content button {
-      width: 100%;
-      padding: 20px;
-      border: none;
-      background: none;
-      text-align: left;
-      font-size: 18px;
-      cursor: pointer;
-    }
+      .dropdown:hover .dropdown-content {
+        max-height: 300px;
+        opacity: 1;
+      }
 
-    .dropdown-content button:hover {
-      background-color: #f3f3f3;
-    }
 
-    .dropdown:hover .dropdown-content {
-      max-height: 300px;
-      opacity: 1;
-    }
 
-.lesson-select-button1 {
-      width: 700px;
-      height: 100px;
-      font-size: 60px;
-      border-radius:20px;
-      border:none ;
-      background: linear-gradient(to right, #f284fc, #a78bfa);
-      color: white;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+      .dropdown-button {
+        width: 705px;
+        height: 100px;
+        font-size: 60px;
+        font-weight: bold;
+        background: linear-gradient(90deg, #f284fc, #a78bfa);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.5s ease;
+      }
 
-    .lesson-select-button1:hover {
-      transform: scale(1.05);
-      background: linear-gradient(to right, #a98dfb, #f284fc);
-    }
+      .dropdown-button:hover {
+        transform: scale(1.02);
+        background: linear-gradient(270deg, #7f5af0, #14d3e1); /* reversed */
+      }
 
-    #notes-buttons button, 
-    #questions-buttons button {
-      font-size: 24px;
-      font-family: Quantico;
-      margin: 10px;
-      padding: 12px 24px;
-      border-radius: 12px;
-      border: none;
-      background-color: white;
-      color: black;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      transition: 0.2s ease;
-      cursor: pointer;
-    }
+      .dropdown-content button {
+        width: 100%;
+        padding: 20px;
+        border: none;
+        background: none;
+        text-align: left;
+        font-size: 18px;
+        cursor: pointer;
+      }
 
-    #notes-buttons button:hover,
-    #questions-buttons button:hover {
-      background-color: #f3f3f3;
-      transform: translateY(-5px);
-    }
+      .dropdown-content button:hover {
+        background-color: #f3f3f3;
+      }
 
-    #notes-buttons,
-    #questions-buttons {
-      margin-top: 20px;
+      .dropdown:hover .dropdown-content {
+        max-height: 300px;
+        opacity: 1;
+      }
 
-    }
+      #notes-buttons button, 
+      #questions-buttons button {
+        font-size: 24px;
+        font-family: Quantico;
+        margin: 10px;
+        padding: 12px 24px;
+        border-radius: 12px;
+        border: none;
+        background-color: white;
+        color: black;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: 0.2s ease;
+        cursor: pointer;
+      }
 
-  </style>
+      #notes-buttons button:hover,
+      #questions-buttons button:hover {
+        background-color: #f3f3f3;
+        transform: translateY(-5px);
+      }
+
+      #notes-buttons,
+      #questions-buttons {
+        margin-top: 20px;
+
+      }
+
+     </style>
 </head>
+
 <body style="background-color: rgb(0, 0, 0);">
 
-
-
-
-
-
-    <!-- Questions Dropdown -->
+    <!-- THE DROPDOWNS -->
   <div class="dropdown">
     <button class="questions-button">Questions</button>
     <div class="dropdown-content">
@@ -181,45 +159,46 @@
     </div>
   </div>
 
-    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
-    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
-
-<div class="flask-wrapper">
-  <svg class="flask" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-    <path d="M24 2h16v8l10 36c1.1 4-1.9 8-6.1 8H20.1c-4.2 0-7.2-4-6.1-8L24 10V2z" fill="url(#liquid)" stroke="#000" stroke-width="2"/>
-    <defs>
-      <linearGradient id="liquid" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#3a86ff"/>
-        <stop offset="100%" stop-color="#8338ec"/>
-      </linearGradient>
-    </defs>
-  </svg>
-  <div class="sparkle sparkle1"></div>
-  <div class="sparkle sparkle2"></div>
-  <div class="sparkle sparkle3"></div>
-</div>
+  <div class="flask-wrapper">
+    <svg class="flask" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 2h16v8l10 36c1.1 4-1.9 8-6.1 8H20.1c-4.2 0-7.2-4-6.1-8L24 10V2z" fill="url(#liquid)" stroke="#000" stroke-width="2"/>
+      <defs>
+        <linearGradient id="liquid" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3a86ff"/>
+          <stop offset="100%" stop-color="#8338ec"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div class="sparkle sparkle1"></div>
+    <div class="sparkle sparkle2"></div>
+    <div class="sparkle sparkle3"></div>
+  </div>
 
 
-<script>
-        function showNotesButtons() {
-            const container = document.getElementById("notes-buttons");
-            container.style.display = (container.style.display === "block") ? "none" : "block";
-            const sound = document.getElementById("dropdownsound");
-            sound.currentTime = 0;
-            sound.volume = 0.3;
-            sound.play();
-        }
+  <script>
+    function showNotesButtons() {
+        const container = document.getElementById("notes-buttons");
+        container.style.display = (container.style.display === "block") ? "none" : "block";
+        const sound = document.getElementById("dropdownsound");
+        sound.currentTime = 0;
+        sound.volume = 0.3;
+        sound.play();
+    }
 
-        function showQuestionsButtons() {
-            const container = document.getElementById("questions-buttons");
-            container.style.display = (container.style.display === "block") ? "none" : "block";
-            const sound = document.getElementById("dropdownsound");
-            sound.currentTime = 0;
-            sound.volume = 0.3;
-            sound.play();
-        }
+    function showQuestionsButtons() {
+        const container = document.getElementById("questions-buttons");
+        container.style.display = (container.style.display === "block") ? "none" : "block";
+        const sound = document.getElementById("dropdownsound");
+        sound.currentTime = 0;
+        sound.volume = 0.3;
+        sound.play();
+    }
 
-    </script>
+  </script>
+
+
+  <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
+  <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
 
 </body>
 
