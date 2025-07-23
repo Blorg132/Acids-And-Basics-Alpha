@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Practice Homepage</title>
-    <link rel="stylesheet" href="styles.css">
+  <head>
+      <meta charset="UTF-8" />
+      <title>Practice Homepage</title>
+      <link rel="stylesheet" href="styles.css">
 
-    <h1>Practice</h1>
+      <h1>Practice</h1>
 
-    <div class="practice-background"></div>
-    <audio id="dropdownsound" src="sounds/dropdownsound.wav" preload="auto"></audio>
-    <audio id="elementhoversound" src="sounds/elementhover.wav" preload="auto"></audio>
+      <div class="practice-background"></div>
+      <audio id="dropdownsound" src="sounds/dropdownsound.wav" preload="auto"></audio>
+      <audio id="elementhoversound" src="sounds/elementhover.wav" preload="auto"></audio>
 
-     <style>
-      /* Abhinav this is now your first task. Please fix this and organize the :)*/
+      <style>
       .dropdown {
         position: relative;
         display: inline-block;
@@ -111,6 +110,24 @@
         opacity: 1;
       }
 
+  .lesson-select-button1 {
+        width: 700px;
+        height: 100px;
+        font-size: 60px;
+        border-radius:20px;
+        border:none ;
+        background: linear-gradient(to right, #f284fc, #a78bfa);
+        color: white;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .lesson-select-button1:hover {
+        transform: scale(1.05);
+        background: linear-gradient(to right, #a98dfb, #f284fc);
+      }
+
       #notes-buttons button, 
       #questions-buttons button {
         font-size: 24px;
@@ -138,27 +155,35 @@
 
       }
 
-     </style>
-</head>
+    </style>
+  </head>
 
-<body style="background-color: rgb(0, 0, 0);">
+  <body style="background-color: rgb(0, 0, 0);">
 
-    <!-- THE DROPDOWNS -->
-  <div class="dropdown">
-    <button class="questions-button">Questions</button>
-    <div class="dropdown-content">
-      <button onclick="alert('Question Pack 1')">Question Pack 1</button>
-      <button onclick="alert('Question Pack 2')">Question Pack 2</button>
+
+
+
+
+
+      <!-- Questions Dropdown -->
+    <div class="dropdown">
+      <button class="questions-button">Questions</button>
+      <div class="dropdown-content">
+        <button onclick="alert('Question Pack 1')">Question Pack 1</button>
+        <button onclick="alert('Question Pack 2')">Question Pack 2</button>
+      </div>
     </div>
-  </div>
 
-  <div class="dropdown">
-    <button class="dropdown-button">Notes</button>
-    <div class="dropdown-content">
-      <button onclick="alert('Note 1')">Note 1</button>
-      <button onclick="alert('Note 2')">Note 2</button>
+    <div class="dropdown">
+      <button class="dropdown-button">Notes</button>
+      <div class="dropdown-content">
+        <button onclick="alert('Note 1')">Note 1</button>
+        <button onclick="alert('Note 2')">Note 2</button>
+      </div>
     </div>
-  </div>
+
+      <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
+      <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
 
   <div class="flask-wrapper">
     <svg class="flask" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -177,30 +202,26 @@
 
 
   <script>
-    function showNotesButtons() {
-        const container = document.getElementById("notes-buttons");
-        container.style.display = (container.style.display === "block") ? "none" : "block";
-        const sound = document.getElementById("dropdownsound");
-        sound.currentTime = 0;
-        sound.volume = 0.3;
-        sound.play();
-    }
+          function showNotesButtons() {
+              const container = document.getElementById("notes-buttons");
+              container.style.display = (container.style.display === "block") ? "none" : "block";
+              const sound = document.getElementById("dropdownsound");
+              sound.currentTime = 0;
+              sound.volume = 0.3;
+              sound.play();
+          }
 
-    function showQuestionsButtons() {
-        const container = document.getElementById("questions-buttons");
-        container.style.display = (container.style.display === "block") ? "none" : "block";
-        const sound = document.getElementById("dropdownsound");
-        sound.currentTime = 0;
-        sound.volume = 0.3;
-        sound.play();
-    }
+          function showQuestionsButtons() {
+              const container = document.getElementById("questions-buttons");
+              container.style.display = (container.style.display === "block") ? "none" : "block";
+              const sound = document.getElementById("dropdownsound");
+              sound.currentTime = 0;
+              sound.volume = 0.3;
+              sound.play();
+          }
 
-  </script>
+      </script>
 
-
-  <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
-  <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
-
-</body>
+  </body>
 
 </html>
