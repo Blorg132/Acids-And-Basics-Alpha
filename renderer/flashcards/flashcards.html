@@ -23,6 +23,18 @@
     <!--Defining flashcard button styles here instead of styles.css! hahahahahahah-->
 
     <style>
+
+        .background {
+            background-image: url('../images/thelastsupper.jpg');
+            background-repeat: repeat;
+            background-size: 100% 100%;
+            background-position: center;
+            position: absolute;
+            inset: 0;
+            opacity: 1;
+            z-index: -1;
+        }
+
         .flashcardbutton {
             padding: 15px;
             width: 13%;
@@ -41,6 +53,9 @@
 
         p {
             font-family: Quantico;
+            color: rgb(68, 81, 160);
+            background-color: aqua;
+            background-blend-mode: difference;
             font-size: 35px;
             font-size: calc(2em + 1vw);
         }
@@ -48,8 +63,9 @@
 </head>
 
 
-<body style="background-color: gray">
+<body style="background-color: rgb(47, 85, 129)">
 
+    <div class="background"></div>
     <div style="display: flex; flex-direction: column; align-items: center; position: center;">
         <div id="flashcard" class="card">
             <p id="card-text">[Card will appear here]</p>
