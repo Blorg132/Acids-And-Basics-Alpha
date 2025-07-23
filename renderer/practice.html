@@ -12,11 +12,7 @@
     <audio id="dropdownsound" src="sounds/dropdownsound.wav" preload="auto"></audio>
     <audio id="elementhoversound" src="sounds/elementhover.wav" preload="auto"></audio>
 
-<body style="background-color: rgb(0, 0, 0);">
-
-
-    <head>
-  <style>
+     <style>
     .dropdown {
       position: relative;
       display: inline-block;
@@ -74,30 +70,8 @@
       max-height: 300px;
       opacity: 1;
     }
-  </style>
-</head>
 
 
-<!-- Questions Dropdown -->
-<div class="dropdown">
-  <button class="questions-button">Questions</button>
-  <div class="dropdown-content">
-    <button onclick="alert('Question Pack 1')">Question Pack 1</button>
-    <button onclick="alert('Question Pack 2')">Question Pack 2</button>
-  </div>
-</div>
-
-
-
-    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
-</body>
-
-<head>
-  <style>
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
 
     .dropdown-button {
       width: 705px;
@@ -115,19 +89,6 @@
     .dropdown-button:hover {
       transform: scale(1.02);
       background: linear-gradient(270deg, #7f5af0, #14d3e1); /* reversed */
-    }
-
-    .dropdown-content {
-      max-height: 0;
-      overflow: hidden;
-      position: absolute;
-      background-color: white;
-      width: 705px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      border-radius: 15px;
-      z-index: 1;
-      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-      opacity: 0;
     }
 
     .dropdown-content button {
@@ -148,26 +109,8 @@
       max-height: 300px;
       opacity: 1;
     }
-  </style>
-</head>
-<body>
 
-<div class="dropdown">
-  <button class="dropdown-button">Notes</button>
-  <div class="dropdown-content">
-    <button onclick="alert('Note 1')">Note 1</button>
-    <button onclick="alert('Note 2')">Note 2</button>
-  </div>
-</div>
-
-</body>
-
-
-
-<head>
-  <style>
-    <style>
-    .lesson-select-button1 {
+.lesson-select-button1 {
       width: 700px;
       height: 100px;
       font-size: 60px;
@@ -211,44 +154,35 @@
       margin-top: 20px;
 
     }
-    </style>
+
+  </style>
 </head>
-
-<body style="background-color: rgb(19, 15, 37);">
-
-
-    <script>
-        function showNotesButtons() {
-            const container = document.getElementById("notes-buttons");
-            container.style.display = (container.style.display === "block") ? "none" : "block";
-            const sound = document.getElementById("dropdownsound");
-            sound.currentTime = 0;
-            sound.volume = 0.3;
-            sound.play();
-        }
-
-        function showQuestionsButtons() {
-            const container = document.getElementById("questions-buttons");
-            container.style.display = (container.style.display === "block") ? "none" : "block";
-            const sound = document.getElementById("dropdownsound");
-            sound.currentTime = 0;
-            sound.volume = 0.3;
-            sound.play();
-        }
-    </script>
+<body style="background-color: rgb(0, 0, 0);">
 
 
 
-    <!--Just so you know, we can fix all of this with a mega DIV. Just make two seperate div's under the same class, make that class flex-direction column. I'm too lazy to do this rn. -->
- 
-    <div id="notes-buttons" style="float: left; display: none;">
 
-        <!--As of now, EVERY SINGLE new button will need to have this copy and paste style. Sorry. Someone fix it. Not me.-->
 
-        <button style="display: flex; flex-direction: column;">Note 1</button>
-        <button style="display: flex; flex-direction: column;">Note 2</button>
 
+    <!-- Questions Dropdown -->
+  <div class="dropdown">
+    <button class="questions-button">Questions</button>
+    <div class="dropdown-content">
+      <button onclick="alert('Question Pack 1')">Question Pack 1</button>
+      <button onclick="alert('Question Pack 2')">Question Pack 2</button>
     </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropdown-button">Notes</button>
+    <div class="dropdown-content">
+      <button onclick="alert('Note 1')">Note 1</button>
+      <button onclick="alert('Note 2')">Note 2</button>
+    </div>
+  </div>
+
+    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
+    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
 
 <div class="flask-wrapper">
   <svg class="flask" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -266,31 +200,27 @@
 </div>
 
 
+<script>
+        function showNotesButtons() {
+            const container = document.getElementById("notes-buttons");
+            container.style.display = (container.style.display === "block") ? "none" : "block";
+            const sound = document.getElementById("dropdownsound");
+            sound.currentTime = 0;
+            sound.volume = 0.3;
+            sound.play();
+        }
 
+        function showQuestionsButtons() {
+            const container = document.getElementById("questions-buttons");
+            container.style.display = (container.style.display === "block") ? "none" : "block";
+            const sound = document.getElementById("dropdownsound");
+            sound.currentTime = 0;
+            sound.volume = 0.3;
+            sound.play();
+        }
 
-
-    <script>
-      const sound1 = document.getElementById("elementhoversound");
-      const buttons = document.querySelectorAll('#notes-buttons button, #questions-buttons button');
-      buttons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-          sound1.currentTime = 0; // rewind to start
-          sound1.volume = 0.4;
-          sound1.play();
-        });
-        button.addEventListener("mouseleave", () => {
-
-          sound1.currentTime = 5.3;
-          sound1.stop();
-          sound1.play();
-        })
-
-      })
     </script>
 
-    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
 </body>
-
-
 
 </html>
