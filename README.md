@@ -11,7 +11,11 @@ This is the right one. For sure.
 
 2. **Install [Visual Studio Code](https://code.visualstudio.com/)** (optional but recommended)
 
+
+3. Install Node.js, Git
 ---
+
+
 
 1. Open Visual Studio Code console AFTER OPENING THE FOLDER and run "npm install"
 2. Start the app with "npx electron ."
@@ -20,7 +24,6 @@ This is the right one. For sure.
 
 
 //////////////////////////////////////////////
-
 Packaging the App:
 
 3. Package your app
