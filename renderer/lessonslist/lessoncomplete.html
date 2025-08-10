@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+
+<html>
+
+    <!--Declaring Some CSS Styles-->
+    <style>
+
+        h1 {
+            /*formatting the text*/
+            text-align: center;
+            font-size: 100px;
+            /*playing the animation */
+
+            animation-name: changecolor;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes changecolor{
+            0% {color: rgb(57, 67, 178);}
+            25% {color: aliceblue}
+            50% {color: yellow;}
+            75% {color:rgb(122, 60, 12)}
+            100% {color: rgb(57, 67, 178);}
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
+
+    <!---->
+
+    <head>
+        <h1>CONGRATS!</h1>
+        <link rel="stylesheet" href="lessonstyles.css">
+    </head>
+
+
+    <body style="background-color: rgba(130, 130, 201, 0.806);">
+
+        <p>
+            You've completed the lesson! Make sure to check out the new lessons unlocked <br>in the practice section!
+        </p>
+
+
+
+        <button class="back-button" onclick="window.location.href='../lessons.html';">Back</button>
+    </body>
+
+
+</html>
