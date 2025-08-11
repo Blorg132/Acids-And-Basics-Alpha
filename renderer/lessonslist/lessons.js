@@ -1,3 +1,35 @@
+// accessing lesson unlock system
+
+const fs = require('fs');
+const path = require('path');
+
+const unlocksPath = path.join(__dirname, 'data', 'questionunlocks.json');
+
+function loadUnlocks() {
+  if (!fs.existsSync(unlocksPath)) {
+    const defaultData = { lesson1: false, lesson2: false, lesson3: false };
+    fs.writeFileSync(unlocksPath, JSON.stringify(defaultData, null, 2));
+    return defaultData;
+  }
+  return JSON.parse(fs.readFileSync(unlocksPath));
+}
+
+function saveUnlocks(unlocks) {
+  fs.writeFileSync(unlocksPath, JSON.stringify(unlocks, null, 2));
+}
+
+
+
+
+//
+//
+//
+//
+// CUSTOM ALERT SYSTEM. USE THIS FOR THE LESSONS AND HIGHLIGHTED WORDS.
+//
+//
+//
+//
 function customAlert(message) {
   // Overlay
   const overlay = document.createElement('div');
@@ -49,3 +81,10 @@ function customAlert(message) {
   document.body.appendChild(overlay);
   document.body.appendChild(box);
 }
+
+//
+//
+//
+//
+//
+//
