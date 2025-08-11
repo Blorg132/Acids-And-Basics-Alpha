@@ -25,13 +25,13 @@
     <style>
 
         .background {
-            background-image: url('../images/thelastsupper.jpg');
+            background-image: url('../images/flashcardbackground.jpg');
             background-repeat: repeat;
             background-size: 100% 100%;
             background-position: center;
             position: absolute;
             inset: 0;
-            opacity: 1;
+            opacity: 0.2;
             z-index: -1;
         }
 
@@ -54,7 +54,6 @@
         p {
             font-family: Quantico;
             color: rgb(68, 81, 160);
-            background-color: aqua;
             background-blend-mode: difference;
             font-size: 35px;
             font-size: calc(2em + 1vw);
@@ -63,7 +62,7 @@
 </head>
 
 
-<body style="background-color: rgb(47, 85, 129)">
+<body style="background-color: rgb(211, 211, 211)">
 
     <div class="background"></div>
     <div style="display: flex; flex-direction: column; align-items: center; position: center;">
@@ -94,15 +93,6 @@
     <button class="back-button" onclick="window.location.href='../mainpage.html';">Back</button>
 
 
-
-    <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown()">Menu</button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="#">Option 1</a>
-            <a href="#">Option 2</a>
-            <a href="#">Option 3</a>
-        </div>
-    </div>
 
     <script src="flashcards.js"></script>
 </body>
