@@ -5,7 +5,7 @@
     /* We can also use Borel-Regular here, your choice */
     font-family: Jost;
     font-style: oblique;
-    font-size: 90px;
+    font-size: 10vw;
     text-align: center;
 
     animation-name: spinningtitle;
@@ -45,10 +45,10 @@
 .menu-button {
     color: green;
     /*this is for making button look good */
-    padding: 12px 70px;
+    padding: 14px 70px;
     font-family: Quantico;
-    font-size: 25px;
-    border: 2px solid black;
+    font-size: 22px;
+    border: 5px solid rgb(30, 126, 161);
     border-radius: 10px; 
     /*this somehow centers the button*/
     display: block;
@@ -64,6 +64,7 @@
     /*background-color determines what rest of the button turns to,
     color is what the TEXT turns to :) */
     background-color: green;
+    border: 5px double rgb(184, 199, 76);
     color: whitesmoke;
     scale: 1.2;
 
@@ -350,4 +351,10 @@ h1 {
 @font-face {
     font-family: Fancy;
     src: url('fonts/Ephesis-Regular.ttf');
+}
+
+
+@font-face {
+  font-family: Money;
+  src: url('fonts/DMSerifText-Regular.ttf');
 }
