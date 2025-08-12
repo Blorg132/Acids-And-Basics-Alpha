@@ -42,6 +42,18 @@
             }
 
 
+            .beakerhud {
+                font-size: 3vw;
+                font-family: Money;
+                color:rgb(0, 0, 0);
+                border: 5px solid rgb(0, 0, 0);
+                display: inline-block; /*this makes the border stop at the end of the text!!! keep this in mind!!! */
+                background-image: url("images/flashcardbackground.jpg");
+                background-size: 10em;
+                background-repeat: no-repeat;
+            }
+
+
             /*making rarity text?*/
             .normalitem {
                 color: green;
@@ -64,6 +76,16 @@
             }
 
         </style>
+
+
+        <!--Beaker Hud!!!!!-->
+
+        <div id="beakerhudcontainer">
+            <!--perhaps put an image background later here with <img>? who knows.-->
+            <aside id="beakerhud" class="beakerhud"></aside>
+        </div>
+
+
 
     </head>
 

@@ -37,12 +37,18 @@ angryman.addEventListener("mouseover", () => {
 
 
 
-// inventory shit i guess
+// Loading in the coins/beakers??
 fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if (err) {
-    console.log("File read failed:", err);
+    console.log("Failed to reach inventory status.", err);
     return;
   }
-  const beakeramount = JSON.parse(jsonString);
-  console.log("File data:", jsonString);
+  const jsonData = JSON.parse(jsonString);
+  console.log("Beaker amount recieved:", jsonData.beakers);
+
+
+  // Updating the counter on screen!
+  const beakers = jsonData.beakers;
+  beakerhud = document.getElementById("beakerhud");
+  beakerhud.textContent = beakers + " Beakers in Bank";
 });
