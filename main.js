@@ -1,9 +1,9 @@
-// use 'npx electron .' to run the program!
+
+const path = require('path');
 
 console.log("Running!");
 
 // creating window
-const path = require('path');
 const { app, BrowserWindow } = require('electron');
 
 let audioWindow;
@@ -13,6 +13,10 @@ function createMainWindow() {
         title: 'Acids & Basics',
         width: 1024,
         height: 720,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        }
     });
 
     // load the actual html file in the main window
@@ -23,12 +27,5 @@ function createMainWindow() {
 app.whenReady().then(() => {
     createMainWindow();
 
-    audioWindow = new BrowserWindow({
-        show: false,
-        webPreferences: {
-          nodeIntegration: true,
-          contextIsolation: false
-        }
-    });
 
 });

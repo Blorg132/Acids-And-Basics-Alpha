@@ -1,5 +1,4 @@
-
-
+const fs = require('fs');
 
 // Item Description Showing and Everything
 
@@ -34,4 +33,16 @@ angryman.addEventListener("mouseover", () => {
     Name.className = "rareitem";
     description.textContent = "This is an angry man. Woohoo!";
     cost.textContent = "50";
+});
+
+
+
+// inventory shit i guess
+fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
+  if (err) {
+    console.log("File read failed:", err);
+    return;
+  }
+  const beakeramount = JSON.parse(jsonString);
+  console.log("File data:", jsonString);
 });
