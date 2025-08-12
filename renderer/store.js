@@ -51,6 +51,7 @@ popuptext = document.getElementById("purchasetext");
 var itemname = "";
 var itemprice = 0;
 var itemid = 0;
+var itemresell = 0;
 
 
 matchbox = document.getElementById("matchbox");
@@ -115,10 +116,12 @@ purchasebutton.addEventListener("click", () => {
         itemname = "Gas-Dipped Matchbox"
         itemprice = 25;
         itemid = 1;
+        itemresell = 10;
     } else if(purchasechosen == "Very Angry Man"){
         itemname = "Very Angry Man"
         itemprice = 50;
         itemid = 2;
+        itemresell = 20;
     }
     //
     //
@@ -155,7 +158,8 @@ purchasebutton.addEventListener("click", () => {
         if (!jsonData.items) jsonData.items = [];
         jsonData.items.push({
             id: itemid,
-            name: itemname
+            name: itemname,
+            resell: itemresell
         });
 
         // Write back to file
