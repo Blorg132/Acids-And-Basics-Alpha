@@ -1,4 +1,31 @@
 {
-  "beakers": 7650,
-  "items": []
+  "beakers": 6611,
+  "beakersearned": 0,
+  "items": [
+    {
+      "id": 2,
+      "name": "Very Angry Man",
+      "resell": 20
+    },
+    {
+      "id": 2,
+      "name": "Very Angry Man",
+      "resell": 20
+    },
+    {
+      "id": 2,
+      "name": "Very Angry Man",
+      "resell": 20
+    },
+    {
+      "id": 2,
+      "name": "Very Angry Man",
+      "resell": 20
+    },
+    {
+      "id": 1,
+      "name": "Gas-Dipped Matchbox",
+      "resell": 10
+    }
+  ]
 }

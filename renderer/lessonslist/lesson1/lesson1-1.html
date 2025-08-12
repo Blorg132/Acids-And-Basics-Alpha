@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+
+    <head>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="../lessonstyles.css">
+        <title>Lesson 1 Quiz</title>
+    </head>
+
+
+    <body style="background-color: grey">
+        
+        <!--Please note that all instances of form-submission with HTML should be in labels. No idea why though.-->
+        <p>What state of matter takes the shape of it's container and can flow?</p>
+        <form id="lessonform1">
+
+            <!--First Question-->
+            <!--Just so you know, for 'radio' forms, set the values to wrong or correct. Then, look for 'correct' with a querySelectorAll thing.-->
+            <label>
+                <input type="radio" name="question1" value="wrong">
+                "Solid"
+            </label>
+            <label>
+                <input type="radio" name="question1" value="correct">
+                "Liquid"
+            </label>
+            <label>
+                <input type="radio" name="question1" value="wrong">
+                "Gas"
+            </label> 
+
+
+            <!--Submit button-->
+            <button type="submit">I'm Done!</button>
+
+        </form>
+
+
+
+        <script src="../lessons.js"></script>
+
+        
+        <script>
+            // Warning: fs and path are ALREADY defined within lessons.js, don't need to run another require command. Thanks chat.
+
+            // CHECKING THE ANSWERS!
+            // also, i don't know why i'm writing this sub-HTML code. I'll move this to a proper file and function later.
+            document.getElementById("lessonform1").addEventListener("submit", function(event) { //forms can have the "submit" event, just so you know :)
+
+                event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
+
+                let totalscore = 0
+
+                // checking question1
+
+                let question1 = document.querySelector('input[name="question1"]:checked');
+                if (question1 && question1.value === "correct") {
+                    totalscore++;
+                }
+
+
+                // console.logging the score for debug purposes. remove this later when we don't need it. or maybe not?
+                console.log("Score earned: " + totalscore);
+
+
+                // now, writing to disk the amount of beakers recieved!
+                fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
+
+                    // Parsing and making it usable.
+                    let jsonData = JSON.parse(jsonString);
+                    console.log("data parsed and ready to go!");
+                    
+
+                    // WHEN YOU COME BACK
+                    // Incorporate lessondata.json
+                    // make it reduce beakers when redoing a test
+                    // blah blah
+
+                    jsonData.beakers += totalscore;
+                    // writing to disk!
+                    fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(jsonData, null, 2));
+                    console.log("successfully written to disk, "+ jsonData.beakers +" now in JSON.");
+                });
+            });
+
+        </script>
+
+
+    </body>
+
+
+
+</html>
