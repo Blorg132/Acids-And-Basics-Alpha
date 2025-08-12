@@ -358,3 +358,9 @@ h1 {
   font-family: Money;
   src: url('fonts/DMSerifText-Regular.ttf');
 }
+
+
+@font-face {
+  font-family: Exquisite;
+  src: url("fonts/Yesteryear-Regular.ttf");
+}

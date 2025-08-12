@@ -81,7 +81,7 @@
             }
 
             .rareitem {
-                color: rgb(255, 114, 114);
+                color: rgb(136, 180, 236);
                 font-size: 2vw;
                 font-family: Jost;
                 font-style: italic;
@@ -89,9 +89,32 @@
             }
 
             .exquisiteitem {
-                color: rgb(219, 34, 34);
+                color: rgb(144, 67, 83);
                 font-size: 2vw;
-                font-family: Fancy;
+                font-family: Exquisite;
+                animation-name: exquisite;
+                animation-duration: 1.5s;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes exquisite {
+                0% {
+                    color: rgb(144, 67, 83);
+
+                }
+                50% {
+                    color: rgb(115, 65, 223);
+
+                }
+
+                75% {
+                    color: rgba(109, 207, 79, 0.6)
+
+                }
+                100% {
+                    color: rgb(144, 67, 83);
+
+                }
             }
 
 
@@ -210,6 +233,15 @@
 
                 <div class="upgrade" id="metalchair">
                     <img src="images/imageassets/MetalChair.webp">
+                </div>
+
+
+                <div class="upgrade" id="therecliner">
+                    <img src="images/imageassets/TheRecliner.webp">
+                </div>
+
+                <div class="upgrade" id="pooltable">
+                    <img src="images/imageassets/PoolTable.webp">
                 </div>
             </div>
         </div>

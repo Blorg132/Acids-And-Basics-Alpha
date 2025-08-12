@@ -11,7 +11,8 @@ let beakerhud = "";
 // Setting initial upgrade purchase to false
 let woodenchairpurchased = false;
 let metalchairpurchased = false;
-
+let thereclinerpurchased = false;
+let pooltablepurchased = false;
 
 fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if (err) {
@@ -34,6 +35,16 @@ fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if(jsonData.items.some(item => item.id === 102)){
     metalchairpurchased = true;
     document.getElementById("metalchair").classList.add("sold");
+  }
+
+  if(jsonData.items.some(item => item.id === 103)){
+    thereclinerpurchased = true;
+    document.getElementById("therecliner").classList.add("sold");
+  }
+
+  if(jsonData.items.some(item => item.id === 104)){
+    pooltablepurchased = true;
+    document.getElementById("pooltable").classList.add("sold");
   }
 
 
@@ -165,9 +176,53 @@ metalchair.addEventListener("click", () => {
 
 //
 //
+// THE RECLINER
+//
+//
+
+therecliner = document.getElementById("therecliner");
+therecliner.addEventListener("mouseover", () => {
+    Name.textContent = "The Recliner";
+    Name.className = "exquisiteitem";
+    description.textContent = "The one and only. Most people think that comfort and practicality are mutually exclusive; this bad boy proves them wrong.";
+    cost.textContent = "Cost: 130 Beakers";
+});
+
+therecliner.addEventListener("click", () => {
+    console.log(thereclinerpurchased);
+    if(thereclinerpurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "The Recliner";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 130 Beakers?";
+    }
 
 
+});
 
+//
+//
+//  POOL TABLE
+pooltable = document.getElementById("pooltable");
+pooltable.addEventListener("mouseover", () => {
+    Name.textContent = "Pool Table";
+    Name.className = "normalitem";
+    description.textContent = "A pool table. You can eat on it. The intention of the holes is for garbage disposal.";
+    cost.textContent = "Cost: 40 Beakers";
+});
+
+pooltable.addEventListener("click", () => {
+    console.log(pooltablepurchased);
+    if(pooltablepurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "Pool Table";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 40 Beakers?";
+    }
+
+
+});
+//
+//
+//
 // purchase window code
 
 
@@ -218,6 +273,24 @@ purchasebutton.addEventListener("click", () => {
         if(beakers > itemprice){
             metalchairpurchased = true;
             document.getElementById("metalchair").classList.add("sold");
+        }
+    } else if(purchasechosen == "The Recliner"){
+        itemname = "The Recliner";
+        itemprice = 130;
+        itemid = 103;
+        itemresell = 60;
+        if(beakers > itemprice){
+            thereclinerpurchased = true;
+            document.getElementById("therecliner").classList.add("sold");
+        }
+    } else if(purchasechosen == "Pool Table"){
+        itemname = "Pool Table";
+        itemprice = 40;
+        itemid = 104;
+        itemresell = 18;
+        if(beakers > itemprice){
+            pooltablepurchased = true;
+            document.getElementById("pooltable").classList.add("sold");
         }
     }
     //
@@ -285,7 +358,7 @@ purchasebutton.addEventListener("click", () => {
 
 
 
-})
+});
 
 
 

@@ -11,3 +11,7 @@ UPGRADES
 
 wooden chair = 101
 metal chair = 102
+the recliner = 103
+
+
+pool table = 104
