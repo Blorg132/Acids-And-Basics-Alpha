@@ -57,7 +57,7 @@ matchbox = document.getElementById("matchbox");
 matchbox.addEventListener("mouseover", () => {
     Name.textContent = "Gas-Dipped Matchbox";
     Name.className = "normalitem";
-    description.textContent = "This gas-dipped matchbox is perfect for burning any questions up. Feel free to use when you're not smart enough.";
+    description.textContent = "This gas-dipped matchbox is perfect for burning any multiple-choice answers up. Feel free to use when you want a better guess!";
     cost.textContent = "Cost: 25 Beakers";
 });
 matchbox.addEventListener("click", () => {
@@ -74,8 +74,15 @@ angryman.addEventListener("mouseover", () => {
 
     Name.textContent = "Very Angry Man";
     Name.className = "rareitem";
-    description.textContent = "This is an angry man. Woohoo!";
+    description.textContent = "Skips any question. We are not liable for any assault/verbal abuse from the Angry Man.";
     cost.textContent = "Cost: 50 Beakers";
+});
+
+angryman.addEventListener("click", () => {
+    popup.classList.remove("hidden");
+    purchasechosen = "Very Angry Man";
+    popuptext.textContent = purchasephrase + purchasechosen + " for 50 Beakers?";
+
 });
 
 
@@ -108,6 +115,10 @@ purchasebutton.addEventListener("click", () => {
         itemname = "Gas-Dipped Matchbox"
         itemprice = 25;
         itemid = 1;
+    } else if(purchasechosen == "Very Angry Man"){
+        itemname = "Very Angry Man"
+        itemprice = 50;
+        itemid = 2;
     }
     //
     //
@@ -154,8 +165,12 @@ purchasebutton.addEventListener("click", () => {
                 return;
             }
             console.log("Purchase saved to inventory.json!");
-            // updating beaker hud
+            // updating beaker hud and playing sound
             beakerhud.textContent = beakers + " Beakers Owned";
+            const chaching = document.getElementById("chaching");
+            chaching.currentTime = 0;
+            chaching.volume = 0.5;
+            chaching.play();
 
         });
     });

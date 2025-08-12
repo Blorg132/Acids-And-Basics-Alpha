@@ -19,7 +19,7 @@
         </script>
         
 
-        <!--Making Bg Layer style here.-->
+        <!--Making Bg Layer styles and inventory styles here.-->
         <style>
         
         .bg-layer {
@@ -30,6 +30,17 @@
             inset: 0;
             opacity: 0.3;
             z-index: -1;
+        }
+
+
+        .inventory-button {
+            color: blue;
+            padding: 20px 20px;
+        }
+
+        .house-button {
+            color: red;
+            padding: 20px 20px;
         }
 
         </style>
@@ -61,6 +72,10 @@
             <button class="menu-button" onclick="playClickSound1('store.html');">Store</button>
         </div>
         
+
+        <!--User Data buttons-->
+        <button class="house-button" onclick="playClickSound1('userdata/house.html')">house</button>
+        <button class="inventory-button" onclick="playClickSound1('userdata/inventory.html')">inventory</button>
 
         <script>
             // This is in renderer.js, but for some reason it doesn't call unless it's here. Oh well!

@@ -1,17 +1,3 @@
 {
-  "beakers": 8925,
-  "items": [
-    {
-      "id": 1,
-      "name": "Gas-Dipped Matchbox"
-    },
-    {
-      "id": 1,
-      "name": "Gas-Dipped Matchbox"
-    },
-    {
-      "id": 1,
-      "name": "Gas-Dipped Matchbox"
-    }
-  ]
+  "beakers": 8750
 }

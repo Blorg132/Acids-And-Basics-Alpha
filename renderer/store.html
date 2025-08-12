@@ -7,12 +7,14 @@
 
         <!--DECLARING SOUNDS/MUSICS-->
         <audio src="sounds/store_song.mp3" autoplay loop id="backgroundmusic"></audio>
+        <audio id="chaching" src="sounds/chaching.wav" preload="auto"></audio>
         <audio id="hoverSound" src="sounds/elementhover.wav" preload="auto"></audio>
         <!--Changing the volume.-->
         <script>
             var audio = document.getElementById("backgroundmusic");
-            audio.volume = 0.3;
+            audio.volume = 0.45;
         </script>
+
 
 
 
@@ -143,7 +145,7 @@
                 background-position: center;
                 position: absolute;
                 inset: 0;
-                opacity: 0.3;
+                opacity: 0.2;
                 z-index: -100;
             }
 
