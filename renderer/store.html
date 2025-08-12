@@ -105,8 +105,37 @@
                 padding: 20px 20px;
                 border: 4px dotted black;
                 font-weight: 800;
+                border-radius: 10px;
                 left: 80%;
+                transition-duration: 0.5s;
             }
+
+            .purchasebutton:hover {
+                background-color: rgb(20, 135, 20);
+                color: whitesmoke;
+                border-radius: 25px;
+                transition-duration: 0.2s;
+            }
+
+
+            .cancelbutton {
+                font-family: Jost;
+                font-size: 1em;
+                padding: 20px 20px;
+                border: 4px dotted black;
+                font-weight: 800;
+                border-radius: 10px;
+                left: 80%;
+                transition-duration: 0.5s;
+            }
+
+            .cancelbutton:hover {
+                background-color: rgb(193, 54, 54);
+                color: whitesmoke;
+                border-radius: 25px;
+                transition-duration: 0.2s;
+            }
+
 
         </style>
 
@@ -146,8 +175,10 @@
         <!--Purchase Popup-->
         <div id="purchasepopup" class="purchasewindow hidden">
             <p id="purchasetext" class="purchasetext">You want to purchase me!</p>
-            <button id="cancelpurchase">Cancel Purchase</button>
-            <button id="purchase" class="purchasebutton">Purchase!</button>
+            <div style="display: flex; justify-content: center; gap: 35px;">
+                <button id="cancelpurchase" class="cancelbutton">Cancel Purchase</button>
+                <button id="purchase" class="purchasebutton">Purchase!</button>
+            </div>
         </div>
 
 
