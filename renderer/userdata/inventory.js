@@ -16,6 +16,10 @@ const angrymanid = 2;
 
 
 var sellprice = 0;
+var sellitem = "";
+var sellid = 0;
+let sellcounter;
+var sellcounterprevioustext = "";
 //
 //
 
@@ -52,11 +56,17 @@ sellwindow = document.getElementById("sellwindow");
 
 matchboxcount.addEventListener("click", () => {
     sellwindow.classList.remove("hidden");
+    sellid = 1;
+    sellitem = "Gas-Dipped Matchbox"
+    sellprice = 10;
 })
 
 
 angrymancount.addEventListener("click", () => {
     sellwindow.classList.remove("hidden");
+    sellid = 2;
+    sellitem = "Very Angry Man"
+    sellprice = 20;
 })
 
 
@@ -71,6 +81,59 @@ cancelbutton.addEventListener("click", () => {
 
 sellbutton = document.getElementById("sell");
 sellbutton.addEventListener("click", () => {
+
+    // hiding the window again
     sellwindow.classList.add("hidden");
 
+    fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
+
+        // Parsing and making it usable.
+        let jsonData = JSON.parse(jsonString);
+
+        console.log("Parsed and ready.");
+
+        // Get beaker amount for refund;
+        var beakers = jsonData.beakers;
+        console.log(beakers)
+        // Get the array (adjust if your JSON structure is different)
+        const items = Array.isArray(jsonData) ? jsonData : jsonData.items;
+        console.log("Obtained array.");
+        // Find the index of the first occurrence of the target id
+        const index = items.findIndex(item => item.id === sellid);
+        console.log("Index: " + index);
+
+
+        if (index !== -1) {
+            // Remove that one item only
+            items.splice(index, 1);
+
+        // If jsonData is an object containing the array, update it back
+        if (!Array.isArray(jsonData)) {
+        jsonData.items = items;
+        }
+
+
+            console.log(`Removed one item with id = ${sellid}`);
+            beakers = beakers + sellprice;
+            console.log('Rewarding ' + sellprice + " beakers back to player.");
+            console.log(beakers);
+
+            //This is copy and paste. Fuck you. Find a better way if you want.
+            matchboxcount.textContent = "Gas-Dipped Matchboxes: " + items.filter(item => item.id === matchboxid).length;
+            angrymancount.textContent = "Angry Men on Standby:  " + items.filter(item => item.id === angrymanid).length;
+
+            // Save updated JSON back to file
+    
+        } else {
+            console.log(`No item found with id = ${sellid}`);
+        }
+    });
+
+    try {
+        fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(jsonData, null, 2));
+        console.log('File saved successfully!');
+    } catch (writeErr) {
+        console.error('Error writing file:', writeErr);
+    }
+        
 });
