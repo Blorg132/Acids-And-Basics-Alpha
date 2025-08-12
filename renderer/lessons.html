@@ -21,14 +21,34 @@
     <!--Declaring CSS Styles-->
     <style>
 
-
-
+        .hidden {
+                display: none;
+        }
     </style>
 
 
-    <button class="lesson-select-button" onclick="window.location.href='lessonslist/lesson1/lesson1.html';">Lesson 1: Basics of Atomic Structure</button>
-    <button class="lesson-select-button">Lesson 2: Atomic Structure Continued</button>
+    <button class="lesson-select-button" onclick="window.location.href='lessonslist/lesson1/lesson1.html';">Lesson 1: Basics of Kinetic Molecular Theory</button>
+    <button id="lesson2" class="lesson-select-button hidden">Lesson 2: KMT Continued</button>
     <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
+
+    <script>
+        const fs = require('fs');
+        // hiding and unhiding lessons
+
+        fs.readFile("./renderer/userdata/lessondata.json", "utf8", (err, lessonRaw) => {
+            lessonData = JSON.parse(lessonRaw);
+
+            //
+            // the actual hiding
+            //
+            if(lessonData.lesson1 == true){
+                document.getElementById("lesson2").classList.remove("hidden");
+            }
+            //
+            //
+            //
+        });
+    </script>
 </body>
 
 
