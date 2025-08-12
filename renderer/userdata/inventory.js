@@ -18,8 +18,7 @@ const angrymanid = 2;
 var sellprice = 0;
 var sellitem = "";
 var sellid = 0;
-let sellcounter;
-var sellcounterprevioustext = "";
+
 //
 //
 
@@ -28,6 +27,8 @@ var sellcounterprevioustext = "";
 matchboxcount = document.getElementById("matchboxcount");
 angrymancount = document.getElementById("angrymancount");
 
+
+beakerhud = document.getElementById("beakerhud");
 //
 //
 
@@ -35,6 +36,9 @@ angrymancount = document.getElementById("angrymancount");
 const jsonData = JSON.parse(fs.readFileSync('./renderer/userdata/inventory.json', 'utf8'));
 
 const items = jsonData.items;  // access the array inside
+
+beakerhud.textContent = jsonData.beakers + " Beakers Owned";
+
 
 
 // NOTE: We're using try/catch blocks here because we want text to show up (and also avoid the console spam) when
@@ -52,23 +56,29 @@ angrymancount.textContent = "Angry Men on Standby:  " + items.filter(item => ite
 //
 //
 
-sellwindow = document.getElementById("sellwindow");
+
+selltext = document.getElementById("selltext");
 
 matchboxcount.addEventListener("click", () => {
     sellwindow.classList.remove("hidden");
     sellid = 1;
-    sellitem = "Gas-Dipped Matchbox"
+    sellitem = "Gas-Dipped Matchbox";
     sellprice = 10;
+    // This is necessary to put for every addeventlistener. Sorry!
+    selltext.textContent = "Do you want to sell one " + sellitem + " for " + sellprice + "?";
 })
 
 
 angrymancount.addEventListener("click", () => {
     sellwindow.classList.remove("hidden");
     sellid = 2;
-    sellitem = "Very Angry Man"
+    sellitem = "Very Angry Man";
     sellprice = 20;
+    // This is necessary to put for every addeventlistener. Sorry!
+    selltext.textContent = "Do you want to sell one " + sellitem + " for " + sellprice + "?";
 })
 
+// window text
 
 
 // cancel and sell button nonsense
@@ -82,9 +92,16 @@ cancelbutton.addEventListener("click", () => {
 sellbutton = document.getElementById("sell");
 sellbutton.addEventListener("click", () => {
 
-    // hiding the window again
-    sellwindow.classList.add("hidden");
 
+    //
+    //
+    //
+    // WARNING: YOU ARE ENTERING MINDFUCKERY ZONE. YOU WILL BE MINDFUCKED.
+    // PLEASE DO NOT EDIT ANY OF THIS SHIT. I HAVE NO IDEA HOW THIS WIZARDRY I DEVELOPED EVEN FUCKING WORKS.
+    // THANKS.
+    // JUST KNOW THAT IT WRITES TO DISK AND SELLS ITEMS. THAT'S ALL.
+    //
+    //
     fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
 
         // Parsing and making it usable.
@@ -94,7 +111,7 @@ sellbutton.addEventListener("click", () => {
 
         // Get beaker amount for refund;
         var beakers = jsonData.beakers;
-        console.log(beakers)
+        console.log(beakers);
         // Get the array (adjust if your JSON structure is different)
         const items = Array.isArray(jsonData) ? jsonData : jsonData.items;
         console.log("Obtained array.");
@@ -114,7 +131,7 @@ sellbutton.addEventListener("click", () => {
 
 
             console.log(`Removed one item with id = ${sellid}`);
-            beakers = beakers + sellprice;
+            jsonData.beakers += sellprice;
             console.log('Rewarding ' + sellprice + " beakers back to player.");
             console.log(beakers);
 
@@ -122,18 +139,25 @@ sellbutton.addEventListener("click", () => {
             matchboxcount.textContent = "Gas-Dipped Matchboxes: " + items.filter(item => item.id === matchboxid).length;
             angrymancount.textContent = "Angry Men on Standby:  " + items.filter(item => item.id === angrymanid).length;
 
-            // Save updated JSON back to file
+            // hiding the window again
+            sellwindow.classList.add("hidden");
     
         } else {
             console.log(`No item found with id = ${sellid}`);
+            selltext.textContent = "What are you, a scammer? NO ITEM FOUND!";
         }
+
+        try {
+
+            //saving it
+            fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(jsonData, null, 2));
+            console.log('File saved successfully!');
+        } catch (writeErr) {
+            console.error('Error writing file:', writeErr);
+        }
+        beakerhud.textContent = jsonData.beakers + " Beakers Owned";
     });
 
-    try {
-        fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(jsonData, null, 2));
-        console.log('File saved successfully!');
-    } catch (writeErr) {
-        console.error('Error writing file:', writeErr);
-    }
+
         
 });

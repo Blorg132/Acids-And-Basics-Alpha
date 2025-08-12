@@ -80,6 +80,18 @@
                 border-radius: 25px;
                 transition-duration: 0.2s;
             }
+
+            .beakerhud {
+                font-size: 3vw;
+                font-family: Money;
+                color:rgb(0, 0, 0);
+                border: 5px solid rgb(0, 0, 0);
+                display: inline-block; /*this makes the border stop at the end of the text!!! keep this in mind!!! */
+                background-image: url("../images/flashcardbackground.jpg");
+                background-size: 10em;
+                background-repeat: no-repeat;
+            }
+
         </style>
 
     </head>
@@ -108,7 +120,13 @@
             <p id="angrymancount"></p>
             <!---->
             <aside style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: rgb(203, 203, 203);">If you want to sell an item, click on it here!</aside>
+        
         </div>
+
+
+        <br>
+        <br>
+        <aside class="beakerhud" id="beakerhud">asdf</aside>
 
         <button class="back-button" onclick="window.location.href='../mainpage.html';">Back</button>
 
