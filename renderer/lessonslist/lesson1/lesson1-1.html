@@ -53,8 +53,7 @@
 
                 event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
 
-                let totalscore = 0
-
+                let totalscore = 0;
                 // checking question1
 
                 let question1 = document.querySelector('input[name="question1"]:checked');
@@ -67,24 +66,8 @@
                 console.log("Score earned: " + totalscore);
 
 
-                // now, writing to disk the amount of beakers recieved!
-                fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
-
-                    // Parsing and making it usable.
-                    let jsonData = JSON.parse(jsonString);
-                    console.log("data parsed and ready to go!");
-                    
-
-                    // WHEN YOU COME BACK
-                    // Incorporate lessondata.json
-                    // make it reduce beakers when redoing a test
-                    // blah blah
-
-                    jsonData.beakers += totalscore;
-                    // writing to disk!
-                    fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(jsonData, null, 2));
-                    console.log("successfully written to disk, "+ jsonData.beakers +" now in JSON.");
-                });
+                lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
+                                               // make sure you pass the score variable through, or else it won't work!
             });
 
         </script>

@@ -72,3 +72,44 @@ function customAlert(message) {
 //
 //
 //
+
+
+
+//
+//
+// GIVING BEAKERS AFTER LESSON
+function lessonGiveBeakers(score){
+  fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
+    let jsonData = JSON.parse(jsonString);
+
+    fs.readFile("./renderer/userdata/lessondata.json", "utf8", (err, lessonRaw) => {
+        if (err) throw err;
+
+        let lessonData = JSON.parse(lessonRaw);
+        let givebeakers = false;
+
+        if (lessonData.lesson1 === false) {
+            givebeakers = true;
+            lessonData.lesson1 = true;
+        }
+
+        // Save lesson completion
+        fs.writeFileSync('./renderer/userdata/lessondata.json', JSON.stringify(lessonData, null, 2));
+
+        // Give beakers if needed
+        if (givebeakers) {
+          jsonData.beakers += score;
+        } else {
+          console.log("Unable to give beakers, lesson already completed.");
+        }
+
+        // Save inventory
+        fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(jsonData, null, 2));
+
+        console.log(`Updated inventory: ${jsonData.beakers} beakers`);
+    });
+  });
+}
+//
+//
+//
