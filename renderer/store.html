@@ -21,26 +21,40 @@
         <style>
 
             .store-container {
-                display: flex;
-                flex-direction: row;
+                display: grid;
+                grid-template-columns: repeat(14, 1fr); /* 4 equal columns */
+                grid-template-rows: repeat(2, auto);   /* 2 rows */
                 gap: 20px;
                 border: 5px dotted green;
             }
 
+
+            .upgrade-container {
+                grid-row: 2;
+            }
+
+            .sold {
+                opacity: 0.2;
+            }
+
             .upgrade img{
-                width: 10vw;
+                width: 7vw;
                 height: auto;
+                max-width: 7vw;
+                max-height: 7vw;
+                min-width: 7w;
+                min-height: 7vw;
                 transition-duration: 0.2s;
                 object-fit: contain; /* keeps proportions */
                 border: 5px solid black;
+                object-fit: fill;
                 
             }
 
             .upgrade img:hover {
-                width: 11vw;
-                height: auto;
+                transform: scale(1.25);
                 transition-duration: 0.2s;
-                border: 5px solid rgb(113, 127, 206);
+                border: 5px solid rgb(128, 141, 218);
             }
 
 
@@ -59,13 +73,13 @@
             /*making rarity text?*/
             .normalitem {
                 color: green;
-                font-size: 3vw;
+                font-size: 2vw;
                 font-family: Quantico;
             }
 
             .rareitem {
                 color: rgb(255, 114, 114);
-                font-size: 3vw;
+                font-size: 2vw;
                 font-family: Jost;
                 font-style: italic;
                 font-weight: 600;
@@ -73,7 +87,7 @@
 
             .exquisiteitem {
                 color: rgb(219, 34, 34);
-                font-size: 3vw;
+                font-size: 2vw;
                 font-family: Fancy;
             }
 
@@ -166,7 +180,7 @@
 
 
 
-    <body style="background-color: blanchedalmond;">
+    <body style="background-color: blanchedalmond; overflow: hidden;">
 
         <!--Background Layer Here-->
         <div class="bg-layer"></div>
@@ -184,6 +198,13 @@
                 <img src="images/imageassets/AngryMan.png">
             </div>
 
+
+            <!--Upgrades can go here-->
+            <div class="upgrade-container">
+                <div class="upgrade" id="woodenchair">
+                    <img src="images/imageassets/WoodenChair.webp">
+                </div>
+            </div>
         </div>
 
 

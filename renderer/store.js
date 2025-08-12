@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { json } = require('stream/consumers');
 var purchasechosen = "";
 const purchasephrase = "Would you like to buy ";
 
@@ -6,19 +7,32 @@ let beakers = 0;
 
 let beakerhud = "";
 
+let woodenchairpurchased = false;
+
 fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if (err) {
     console.log("Failed to reach inventory status.", err);
     return;
   }
+
+
   const jsonData = JSON.parse(jsonString);
   beakers = jsonData.beakers;
   beakerhud = document.getElementById("beakerhud");
   console.log("Beaker amount recieved:", jsonData.beakers);
 
+  // checking if upgrades have been purchased
+  if(jsonData.items.some(item => item.id === 101)){
+    woodenchairpurchased = true;
+    document.getElementById("woodenchair").classList.add("sold");
+  }
+
 
   // Updating the counter on screen!
   beakerhud.textContent = beakers + " Beakers Owned";
+
+
+
 });
 
 // Item Description Showing and Everything
@@ -88,6 +102,31 @@ angryman.addEventListener("click", () => {
 
 
 
+//
+//
+//HOUSE UPGRADES
+//
+//
+
+woodenchair = document.getElementById("woodenchair");
+woodenchair.addEventListener("mouseover", () => {
+
+    Name.textContent = "Broken Wooden Chair";
+    Name.className = "normalitem";
+    description.textContent = "This will look absolutely SPECTACULAR in your house! Just kidding. This is a piece of trash I found outside. Please take it.";
+    cost.textContent = "Cost: 15 Beakers";
+});
+
+woodenchair.addEventListener("click", () => {
+    console.log(woodenchairpurchased);
+    if(woodenchairpurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "Broken Wooden Chair";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 15 Beakers?";
+    }
+
+
+});
 
 
 
@@ -122,6 +161,13 @@ purchasebutton.addEventListener("click", () => {
         itemprice = 50;
         itemid = 2;
         itemresell = 20;
+    } else if(purchasechosen == "Broken Wooden Chair"){
+        woodenchairpurchased = true;
+        document.getElementById("woodenchair").classList.add("sold");
+        itemname = "Broken Wooden Chair"
+        itemprice = 15;
+        itemid = 101;
+        itemresell = 6;
     }
     //
     //
