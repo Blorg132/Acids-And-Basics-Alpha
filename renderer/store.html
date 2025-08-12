@@ -137,6 +137,16 @@
             }
 
 
+            .bg-layer {
+                background-image: url('images/shopbackground.jpg');
+                background-size: 100% 100%;
+                background-position: center;
+                position: absolute;
+                inset: 0;
+                opacity: 0.3;
+                z-index: -100;
+            }
+
         </style>
 
 
@@ -154,7 +164,10 @@
 
 
 
-    <body>
+    <body style="background-color: blanchedalmond;">
+
+        <!--Background Layer Here-->
+        <div class="bg-layer"></div>
 
         <h1 style="color: brown;">Avogadroid's Emporium</h1>
 
