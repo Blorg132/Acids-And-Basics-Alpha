@@ -75,6 +75,39 @@
                 font-family: Fancy;
             }
 
+
+            .purchasewindow {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgb(53, 77, 58);
+                border: 5px solid rgb(0, 0, 0);
+                padding: 60px;
+                z-index: 1000;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            .purchasetext {
+                font-family: Jost;
+                font-size: 1.5em;
+                color: rgb(178, 178, 178);
+                text-align: center;
+            }
+
+        
+            .purchasebutton {
+                font-family: Jost;
+                font-size: 1em;
+                padding: 20px 20px;
+                border: 4px dotted black;
+                font-weight: 800;
+                left: 80%;
+            }
+
         </style>
 
 
@@ -110,8 +143,15 @@
         </div>
 
 
+        <!--Purchase Popup-->
+        <div id="purchasepopup" class="purchasewindow hidden">
+            <p id="purchasetext" class="purchasetext">You want to purchase me!</p>
+            <button id="cancelpurchase">Cancel Purchase</button>
+            <button id="purchase" class="purchasebutton">Purchase!</button>
+        </div>
 
 
+        <!--The shit at the bottom that describes things.-->
         <p id="name" class="normalitem"></p>
         <p id="description" style="font-family: Courier New; font-size: 2vw;">Welcome to the Emporium! Hover over anything to see if you want to buy it!</p>
         <p id="cost" style="font-family: Money; color:green; font-size: 4vw; text-align: center;"></p>
