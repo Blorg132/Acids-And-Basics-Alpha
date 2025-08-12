@@ -91,16 +91,20 @@ function lessonGiveBeakers(score){
         if (lessonData.lesson1 === false) {
             givebeakers = true;
             lessonData.lesson1 = true;
+
         }
 
         // Save lesson completion
         fs.writeFileSync('./renderer/userdata/lessondata.json', JSON.stringify(lessonData, null, 2));
 
         // Give beakers if needed
+        // Just so you know, beakersearned is in INVENTORY, not in LESSON DATA
         if (givebeakers) {
           jsonData.beakers += score;
+          jsonData.beakersearned = score;
         } else {
           console.log("Unable to give beakers, lesson already completed.");
+          jsonData.beakersearned = 0;
         }
 
         // Save inventory

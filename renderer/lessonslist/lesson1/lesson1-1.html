@@ -15,11 +15,11 @@
     <body style="background-color: grey">
         
         <!--Please note that all instances of form-submission with HTML should be in labels. No idea why though.-->
-        <p>What state of matter takes the shape of it's container and can flow?</p>
         <form id="lessonform1">
 
             <!--First Question-->
             <!--Just so you know, for 'radio' forms, set the values to wrong or correct. Then, look for 'correct' with a querySelectorAll thing.-->
+            <p>What state of matter takes the shape of it's container and can flow?</p>
             <label>
                 <input type="radio" name="question1" value="wrong">
                 "Solid"
@@ -34,7 +34,29 @@
             </label> 
 
 
+            <!--Second Question-->
+            <p>According to the KMT, how do gas particles move?</p>
+            <label>
+                <input type="radio" name="question2" value="wrong">
+                "In a fixed position"
+            </label>
+            <label>
+                <input type="radio" name="question2" value="wrong">
+                "In circular waves"
+            </label>
+            <label>
+                <input type="radio" name="question2" value="wrong">
+                "In straight lines forever"
+            </label>
+            <label>
+                <input type="radio" name="question2" value="correct">
+                "In straight lines until they collide"
+            </label>
+
             <!--Submit button-->
+
+            <br>
+            <br>
             <button type="submit">I'm Done!</button>
 
         </form>
@@ -45,29 +67,32 @@
 
         
         <script>
-            // Warning: fs and path are ALREADY defined within lessons.js, don't need to run another require command. Thanks chat.
-
-            // CHECKING THE ANSWERS!
-            // also, i don't know why i'm writing this sub-HTML code. I'll move this to a proper file and function later.
-            document.getElementById("lessonform1").addEventListener("submit", function(event) { //forms can have the "submit" event, just so you know :)
-
+            // Checking answers when user submits with the button
+            document.getElementById("lessonform1").addEventListener("submit", function(event) {
                 event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
+                let totalscore = 0; // please pass this variable into the function lessonGiveBeakers to add the proper amount
 
-                let totalscore = 0;
-                // checking question1
 
+                // QUESTION 1: Multiple Choice
                 let question1 = document.querySelector('input[name="question1"]:checked');
                 if (question1 && question1.value === "correct") {
                     totalscore++;
                 }
 
+                // QUESTION 2: Multiple Choice
 
-                // console.logging the score for debug purposes. remove this later when we don't need it. or maybe not?
-                console.log("Score earned: " + totalscore);
+                let question2 = document.querySelector('input[name="question2"]:checked');
+                if(question2 && question2.value === "correct"){
+                    totalscore = totalscore + 2;
+                }
+
+
 
 
                 lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
-                                               // make sure you pass the score variable through, or else it won't work!
+                // make sure you pass the score variable through, or else it won't work!
+
+                window.location.href="../lessoncomplete.html";
             });
 
         </script>

@@ -17,12 +17,31 @@
             animation-iteration-count: infinite;
         }
 
+
+        h4 {
+            text-align: center;
+            font-size: 2em;
+            animation-name: pulse;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+        }
+
         @keyframes changecolor{
             0% {color: rgb(57, 67, 178);}
             25% {color: aliceblue}
             50% {color: yellow;}
             75% {color:rgb(122, 60, 12)}
             100% {color: rgb(57, 67, 178);}
+        }
+
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.10);
+            }
         }
 
         p {
@@ -35,16 +54,37 @@
     <head>
         <h1>CONGRATS!</h1>
         <link rel="stylesheet" href="lessonstyles.css">
+
+        <!--Getting The Music-->
+        <audio id="music" src="../sounds/congratssong.mp3" autoplay></audio>
+
+        <script>
+            //changing the volume
+            document.getElementById("music").volume = 0.3;
+        </script>
     </head>
 
 
-    <body style="background-color: rgba(130, 130, 201, 0.806);">
+    <body style="background-color: rgba(130, 130, 201, 0.806); overflow: hidden;">
 
+
+        <h4 id="showscore"></h4>
         <p>
-            You've completed the lesson! Make sure to check out the new lessons unlocked <br>in the practice section!
+            You've completed the lesson! Make sure to check out the new questions unlocked <br>in the practice section!
         </p>
 
-
+        <!--adding lessons.js just for the FS require-->
+        <script src="lessons.js"></script>
+        <script>
+            showscore = document.getElementById("showscore");
+            fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, inventoryRaw) => {
+                inventoryData = JSON.parse(inventoryRaw);
+                showscore.textContent = "Beakers Earned: " + inventoryData.beakersearned;
+                if(inventoryData.beakersearned == 0){
+                    showscore.textContent = "No Beakers Earned (Lesson Repeated)";
+                }
+            });
+        </script>
 
         <button class="back-button" onclick="window.location.href='../lessons.html';">Back</button>
     </body>
