@@ -1,0 +1,13 @@
+matchbo = 1
+angry man = 2
+
+
+
+
+
+
+UPGRADES
+
+
+wooden chair = 101
+metal chair = 102

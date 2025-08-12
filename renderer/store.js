@@ -7,7 +7,11 @@ let beakers = 0;
 
 let beakerhud = "";
 
+
+// Setting initial upgrade purchase to false
 let woodenchairpurchased = false;
+let metalchairpurchased = false;
+
 
 fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if (err) {
@@ -25,6 +29,11 @@ fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if(jsonData.items.some(item => item.id === 101)){
     woodenchairpurchased = true;
     document.getElementById("woodenchair").classList.add("sold");
+  }
+
+  if(jsonData.items.some(item => item.id === 102)){
+    metalchairpurchased = true;
+    document.getElementById("metalchair").classList.add("sold");
   }
 
 
@@ -108,6 +117,8 @@ angryman.addEventListener("click", () => {
 //
 //
 
+
+// WOODEN CHAIR
 woodenchair = document.getElementById("woodenchair");
 woodenchair.addEventListener("mouseover", () => {
 
@@ -127,9 +138,33 @@ woodenchair.addEventListener("click", () => {
 
 
 });
+//
+//
+
+//METAL CHAIR
+
+metalchair = document.getElementById("metalchair");
+metalchair.addEventListener("mouseover", () => {
+
+    Name.textContent = "Sturdy Metal Chair";
+    Name.className = "rareitem";
+    description.textContent = "A chair made out of steel, everyone's favorite alloy. Looks a little bit uncomfortable- but hey - it'll probably last a lifetime.";
+    cost.textContent = "Cost: 75 Beakers";
+});
+
+metalchair.addEventListener("click", () => {
+    console.log(metalchairpurchased);
+    if(metalchairpurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "Sturdy Metal Chair";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 75 Beakers?";
+    }
 
 
+});
 
+//
+//
 
 
 
@@ -144,13 +179,17 @@ cancelbutton.addEventListener("click", () => {
 purchasebutton = document.getElementById("purchase");
 purchasebutton.addEventListener("click", () => {
     popup.classList.add("hidden");
+    fs.readFileSync("./renderer/userdata/inventory.json", "utf8");
+    console.log("read the file!");
 
     //
     //
     // PLEASE PUT PRICES AND NAMES HERE
     // also figure out what id's are what later? make a new file? thanks
     //
-    //
+    // ALSO OH MY FUCKING GOD
+    // PLEASE PUT THE BEAKER > ITEMPRICE CHECK AFTER DECLARING THE VARIABLES
+    // IF YOU DO IT BEFORE EVERYTHING GETS FUCKED
     if(purchasechosen == "Gas-Dipped Matchbox"){
         itemname = "Gas-Dipped Matchbox"
         itemprice = 25;
@@ -162,24 +201,38 @@ purchasebutton.addEventListener("click", () => {
         itemid = 2;
         itemresell = 20;
     } else if(purchasechosen == "Broken Wooden Chair"){
-        woodenchairpurchased = true;
-        document.getElementById("woodenchair").classList.add("sold");
-        itemname = "Broken Wooden Chair"
+        itemname = "Broken Wooden Chair";
         itemprice = 15;
         itemid = 101;
         itemresell = 6;
+        if(beakers > itemprice){
+            woodenchairpurchased = true;
+            document.getElementById("woodenchair").classList.add("sold");
+            console.log(document.getElementById("woodenchair").classList);
+        }
+    } else if(purchasechosen == "Sturdy Metal Chair"){
+        itemname = "Sturdy Metal Chair";
+        itemprice = 75;
+        itemid = 102;
+        itemresell = 30;
+        if(beakers > itemprice){
+            metalchairpurchased = true;
+            document.getElementById("metalchair").classList.add("sold");
+        }
     }
     //
     //
 
     // runs after getting itemname and itemprice
-    console.log("Purchased: " + itemname);
 
     // checks if player has enough beakers
-    if(itemprice > beakers){
-        console.log("You broke bish.")
+    if(beakers < itemprice){
+        popup.classList.remove("hidden");
+        popuptext.textContent = "Man, you're broke. Get out of my store!";
         return;
     }
+
+    console.log("Purchased: " + itemname);
     beakers = beakers-itemprice;
     console.log(beakers);
 
