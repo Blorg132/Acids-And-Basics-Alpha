@@ -8,7 +8,7 @@
         <!--DECLARING SOUNDS/MUSICS-->
         <audio src="sounds/store_song.mp3" autoplay loop id="backgroundmusic"></audio>
         <audio id="chaching" src="sounds/chaching.wav" preload="auto"></audio>
-        <audio id="hoverSound" src="sounds/elementhover.wav" preload="auto"></audio>
+        <audio id="hoverSound" src="sounds/hoversoundshop.wav" preload="auto"></audio>
         <!--Changing the volume.-->
         <script>
             var audio = document.getElementById("backgroundmusic");
@@ -171,7 +171,7 @@
         <!--Background Layer Here-->
         <div class="bg-layer"></div>
 
-        <h1 style="color: brown;">Avogadroid's Emporium</h1>
+        <h1 style="color: brown; font-family: Fancy;">The Emporium</h1>
 
         <div class="store-container">
 
@@ -203,6 +203,21 @@
         <p id="cost" style="font-family: Money; color:green; font-size: 4vw; text-align: center;"></p>
         <!--Obligatory Back Button.-->
         <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
+
+
+        <!--Script for making the hover sound effects-->
+        <script>
+            const buttons = document.querySelectorAll('.upgrade');
+            const sound = document.getElementById("hoverSound");
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    sound.currentTime = 0; // rewind to start
+                    sound.volume = 0.2;
+                    sound.play();
+                });
+            });
+        </script>
+
 
         <script src="store.js"></script>
     </body>
