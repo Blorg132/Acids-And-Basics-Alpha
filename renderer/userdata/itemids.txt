@@ -15,3 +15,8 @@ the recliner = 103
 
 
 pool table = 104
+metal table = 105
+oak table = 106
+
+
+chandy = 107

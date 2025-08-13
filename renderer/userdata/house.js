@@ -12,6 +12,11 @@ let thereclinerplaced = false;
 let pooltableowned = false;
 let pooltableplaced = false;
 
+
+// roofs
+let chandyowned = false;
+let chandyplaced = false;
+
 //Getting Clickables from The Document///////////////////
 popupwindow = document.getElementById("selectionwindow");
 
@@ -20,6 +25,8 @@ metalchair = document.getElementById("metalchair");
 therecliner = document.getElementById("therecliner");
 
 pooltable = document.getElementById("pooltable");
+
+chandy = document.getElementById("chandy");
 //////////////////////////////////////////////////////////
 
 // Loading in house saves from disk!!!!//////////////////////////////////////
@@ -35,7 +42,7 @@ if(houseData.chair === "woodenchair"){
     //getting placed look
     woodenchair.classList.add("placed");
 }else if(houseData.chair === "metalchair"){
-    metalchairowned = true;
+    metalchairplaced = true;
     document.getElementById("physicalmetalchair").classList.remove("hidden");
     //getting placed look
     metalchair.classList.add("placed");
@@ -53,6 +60,17 @@ if(houseData.table === "pooltable"){
     //getting placed look
     pooltable.classList.add("placed");
 }
+
+
+
+if(houseData.roof === "chandy"){
+    chandyplaced = true;
+    document.getElementById("physicalchandy").classList.remove("hidden");
+    //getting placed look
+    chandy.classList.add("placed");
+}
+
+
 /////////////////////////////////////////////////////////////////////////////
 
 function furnishClicked(){
@@ -89,6 +107,13 @@ function furnishClicked(){
     if(inventoryData.items.some(item => item.id === 104)){
         pooltableowned = true;
         document.getElementById("pooltable").classList.remove("unavailable");
+    }
+
+    // ROOF STUFF
+
+    if(inventoryData.items.some(item => item.id === 107)){
+        chandyowned = true;
+        document.getElementById("chandy").classList.remove("unavailable");
     }
 
     /////////////////////////////////////////////////////////////////////
@@ -169,6 +194,29 @@ function furnishClicked(){
             pooltable.classList.remove("placed");
             pooltableplaced = false;
             houseData.table = "";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        }
+    })
+
+
+    //////////////////////////////////roof stuff//////////////////////////
+    //////////////////////////////////////////////////////////////////////
+
+
+    chandy = document.getElementById("chandy");
+    chandy.addEventListener("click", () => {
+        if(chandyowned == true && chandyplaced == false && houseData.roof === ""){
+
+            document.getElementById("physicalchandy").classList.remove("hidden");
+            chandy.classList.add("placed");
+            chandyplaced = true;
+            houseData.roof = "chandy";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        } else if(chandyplaced == true){
+            document.getElementById("physicalchandy").classList.add("hidden");
+            chandy.classList.remove("placed");
+            chandyplaced = false;
+            houseData.roof = "";
             fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
         }
     })

@@ -13,6 +13,7 @@ let woodenchairpurchased = false;
 let metalchairpurchased = false;
 let thereclinerpurchased = false;
 let pooltablepurchased = false;
+let chandypurchased = false;
 
 fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if (err) {
@@ -45,6 +46,15 @@ fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if(jsonData.items.some(item => item.id === 104)){
     pooltablepurchased = true;
     document.getElementById("pooltable").classList.add("sold");
+  }
+
+  //////////////////////////////////
+  // Missing id's 105 and 106 here
+  //////////////////////////////////
+
+  if(jsonData.items.some(item => item.id === 107)){
+    chandypurchased = true;
+    document.getElementById("chandy").classList.add("sold");
   }
 
 
@@ -206,7 +216,7 @@ pooltable = document.getElementById("pooltable");
 pooltable.addEventListener("mouseover", () => {
     Name.textContent = "Pool Table";
     Name.className = "normalitem";
-    description.textContent = "A pool table. You can eat on it. The intention of the holes is for garbage disposal.";
+    description.textContent = "A classic for every bar and nightclub. Not your classic though, you're just a nerd who likes chemistry.";
     cost.textContent = "Cost: 40 Beakers";
 });
 
@@ -220,6 +230,31 @@ pooltable.addEventListener("click", () => {
 
 
 });
+
+
+//////////////////////////////////
+//roof stuff
+//////////////////////////////////
+chandy = document.getElementById("chandy");
+chandy.addEventListener("mouseover", () => {
+    Name.textContent = "Chandy";
+    Name.className = "rareitem";
+    description.textContent = "Old Victorian-era chandelier in solid condition. We call it Chandy so as to not scare away the common folk in the store.";
+    cost.textContent = "Cost: 115 Beakers";
+});
+
+chandy.addEventListener("click", () => {
+    console.log(chandypurchased);
+    if(chandypurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "Chandy";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 115 Beakers?";
+    }
+
+
+});
+
+
 //
 //
 //
@@ -291,6 +326,16 @@ purchasebutton.addEventListener("click", () => {
             pooltablepurchased = true;
             document.getElementById("pooltable").classList.add("sold");
         }
+    } else if(purchasechosen == "Chandy"){
+        itemname = "Chandy";
+        itemprice = 115;
+        itemid = 107;
+        itemresell = 50;
+        if(beakers > itemprice){
+            chandypurchased = true;
+            document.getElementById("chandy").classList.add("sold");
+        }
+
     }
     //
     //
@@ -349,39 +394,9 @@ purchasebutton.addEventListener("click", () => {
 
         });
     });
-    //
-    //
-    //
-
-
-
-
 
 });
 
 
 
 
-
-
-
-
-
-
-//BEAKER HUD CODE
-//
-//
-//
-//
-//
-//
-// Loading in the coins/beakers??
-
-
-//
-//
-//
-//
-//
-//
-//

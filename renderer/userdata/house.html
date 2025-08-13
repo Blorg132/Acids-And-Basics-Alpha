@@ -162,6 +162,22 @@
                 left: 45%; /* distance from left of page */
             }
 
+            .physicalchandy img {
+                height: auto;
+                max-width: 15vw;
+                max-height: 25vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 17%;  /* distance from top of page */
+                left: 42%; /* distance from left of page */
+            }
+
+
         </style>
 
     </head>
@@ -193,6 +209,13 @@
                 </div>
             </div>
 
+            <!--Roof Items-->
+            <div class="furniture-section" id="roofholder">
+                <div class="furniture unavailable" id="chandy">
+                    <img src="../images/imageassets/ChandyTransparent.webp">
+                </div>
+            </div>
+
 
 
 
@@ -216,6 +239,12 @@
 
         <div class="physicalpooltable hidden" id="physicalpooltable">
             <img src="../images/imageassets/PoolTableTransparent.png">
+        </div>
+
+
+
+        <div class="physicalchandy hidden" id="physicalchandy">
+            <img src="../images/imageassets/ChandyTransparent.webp">
         </div>
 
 
