@@ -1,0 +1,10 @@
+
+
+https://www.w3schools.com/html/html_form_input_types.asp -> Use this for figuring out input types for the tests.
+
+
+
+IMPORTANT:
+- Make sure you redeclare any fonts you're planning to use in the lessonstyles.css one, and make sure you are ONLY using this css file. Thanks.
+
+

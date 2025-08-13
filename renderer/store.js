@@ -235,7 +235,6 @@ purchasebutton = document.getElementById("purchase");
 purchasebutton.addEventListener("click", () => {
     popup.classList.add("hidden");
     fs.readFileSync("./renderer/userdata/inventory.json", "utf8");
-    console.log("read the file!");
 
     //
     //
@@ -308,7 +307,7 @@ purchasebutton.addEventListener("click", () => {
     console.log("Purchased: " + itemname);
     beakers = beakers-itemprice;
     console.log(beakers);
-
+    
 
     //
     //

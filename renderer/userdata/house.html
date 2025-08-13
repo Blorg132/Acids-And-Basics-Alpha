@@ -10,25 +10,141 @@
         <audio id="backgroundmusic" src="../sounds/housesong.mp3" autoplay loop></audio>
 
 
-        
+
         <!--Setting volume for the audio/soundeffects-->
         <script>
             // setting the volume for background music
-            document.getElementById("backgroundmusic").volume = 0.5;
+            document.getElementById("backgroundmusic").volume = 0.03;
         </script>
 
+
+        <style>
+            .bg-layer {
+                background-image: url('../images/house.webp');
+                background-size: 100% 100%;
+                background-position: center;
+                position: absolute;
+                inset: 0;
+                opacity: 1;
+                z-index: -100;
+            }
+
+
+            .selectionwindow {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(45, 189, 67, 0.651);
+                border: 6px solid rgb(0, 0, 0);
+                padding: 60px;
+                z-index: 1000;
+            }
+
+            .furnish-button {
+                padding: 8px 50px;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                font-size: calc(1em + 0.5vw);
+                justify-content: center;
+                font-family: Jost;
+                border: 4px solid rgb(63, 185, 206);
+                border-radius: 10px; 
+                transition-duration: 0.4s;
+                width: 15%;
+                font-family: Quantico;
+            }
+
+            .furnish-button:hover {
+                background-color: #60dc5e;
+                color:rgb(40, 53, 65);
+                transform: translateY(-5px);
+                font-family: Quantico;
+            }
+
+            .unavailable {
+                opacity: 0.2;
+            }
+
+            .furniture img{
+                width: 7vw;
+                height: auto;
+                max-width: 7vw;
+                max-height: 7vw;
+                min-width: 7w;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                border: 5px solid black;
+                object-fit: fill;
+                
+            }
+
+            .furniture img:hover {
+                transform: scale(1.25);
+                transition-duration: 0.2s;
+                border: 5px solid rgb(128, 141, 218);
+            }
+
+
+            .furniture-section {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .furnitureplaced {
+                border: 5px solid rgb(180, 219, 41);
+            }
+
+        </style>
 
     </head>
 
 
     <body>
+        <div class="bg-layer"></div>
+
+        <!--Selection Window-->
+        <div id="selectionwindow" class="selectionwindow hidden">
+            
+            <!--Chairs-->
+            <div class="furniture-section" id="chairholder">
+                <div class="furniture unavailable" id="woodenchair">
+                    <img src="../images/imageassets/WoodenChair.webp">
+                </div>
+                <div class="furniture unavailable" id="metalchair">
+                    <img src="../images/imageassets/MetalChair.webp">
+                </div>
+                <div class="furniture unavailable" id="therecliner">
+                    <img src="../images/imageassets/TheRecliner.webp">
+                </div>
+            </div>
+
+            <!--Tables-->
+            <div class="furniture-section" id="tableholder">
+                <div class="furniture unavailable" id="pooltable">
+                    <img src="../images/imageassets/PoolTable.webp">
+                </div>
+            </div>
 
 
+
+
+            <div style="display: flex; justify-content: center; gap: 15px;">
+                <button id="cancelpurchase" class="cancelbutton" onclick="document.getElementById('selectionwindow').classList.add('hidden');">Close Window</button>
+            </div>
+        </div>
+        
+
+        <button class="back-button" onclick="window.location.href='../mainpage.html';">Back</button>
+        <button class="furnish-button" onclick="furnishClicked();">Furnish</button>
+
+
+        <script src="house.js"></script>
     </body>
 
 
-    <script>
-        
-    </script>
 
 </html>
