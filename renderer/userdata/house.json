@@ -3,5 +3,8 @@
   "comment1": "They can have any couch under 'couch', any book under 'book', etc. Let it be customizable.",
   "table": "pooltable",
   "chair": "therecliner",
-  "roof": "chandy"
+  "roof": "chandy",
+  "painting": "",
+  "fridge": "",
+  "pet": ""
 }

@@ -36,6 +36,7 @@ beakerhud = document.getElementById("beakerhud");
 
 const jsonData = JSON.parse(fs.readFileSync('./renderer/userdata/inventory.json', 'utf8'));
 
+
 const items = jsonData.items;  // access the array inside
 
 beakerhud.textContent = jsonData.beakers + " Beakers Owned";
@@ -170,6 +171,11 @@ clearbutton = document.getElementById("clearbutton");
 clearbutton.addEventListener("click", () => {
     let jsonData = JSON.parse(fs.readFileSync("./renderer/userdata/inventory.json", "utf8"));
     jsonData.items = [];
+    var houseData = JSON.parse(fs.readFileSync('./renderer/userdata/house.json', 'utf8'));
+    houseData.chair = "";
+    houseData.table = "";
+    houseData.roof = "";
+    
     fs.writeFileSync("./renderer/userdata/inventory.json", JSON.stringify(jsonData, null, 2), "utf8");
 
 });
