@@ -79,6 +79,37 @@ function furnishClicked(){
     });
 
 
+    metalchair = document.getElementById("metalchair");
+    metalchair.addEventListener("click", () => {
+        if(metalchairowned == true && metalchairplaced == false){
+
+            document.getElementById("physicalmetalchair").classList.remove("hidden");
+            metalchair.classList.add("placed");
+            metalchairplaced = true;
+        } else if(metalchairplaced == true){
+            document.getElementById("physicalmetalchair").classList.add("hidden");
+            metalchair.classList.remove("placed");
+            metalchairplaced = false;
+        }
+    })
+
+
+    therecliner = document.getElementById("therecliner");
+    therecliner.addEventListener("click", () => {
+        if(thereclinerowned == true && thereclinerplaced == false){
+
+            document.getElementById("physicaltherecliner").classList.remove("hidden");
+            therecliner.classList.add("placed");
+            thereclinerplaced = true;
+        } else if(thereclinerplaced == true){
+            document.getElementById("physicaltherecliner").classList.add("hidden");
+            therecliner.classList.remove("placed");
+            thereclinerplaced = false;
+        }
+    })
+
+
+
     //
     //
     

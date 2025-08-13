@@ -95,11 +95,27 @@
             }
 
             .placed {
-                border-radius: 15;
+                background-color: blueviolet;
+                opacity: 0.8;
             }
 
 
             .physicalwoodenchair img{
+                height: auto;
+                max-width: 23vw;
+                max-height: 22vw;
+                min-width: 8w;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 50%;  /* distance from top of page */
+                left: 17% /* distance from left of page */
+            }
+
+            .physicalmetalchair img{
                 height: auto;
                 max-width: 25vw;
                 max-height: 23vw;
@@ -110,8 +126,25 @@
                 object-fit: fill;
 
                 position: absolute; /* or fixed */
-                top: 54%;  /* distance from top of page */
-                left: 10% /* distance from left of page */
+                top: 48%;  /* distance from top of page */
+                left: 9% /* distance from left of page */
+            }
+            
+
+            .physicaltherecliner img {
+                height: auto;
+                max-width: 25vw;
+                max-height: 23vw;
+                min-width: 8w;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 40%;  /* distance from top of page */
+                left: 35%; /* distance from left of page */
+                transform: scaleX(-1);
             }
 
         </style>
@@ -157,6 +190,12 @@
         <!--The Physical Furniture-->
         <div class="physicalwoodenchair hidden" id="physicalwoodenchair">
             <img src="../images/imageassets/WoodenChairTransparent.png">
+        </div>
+        <div class="physicalmetalchair hidden" id="physicalmetalchair">
+            <img src="../images/imageassets/MetalChairTransparent.webp">
+        </div>
+        <div class="physicaltherecliner hidden" id="physicaltherecliner">
+            <img src="../images/imageassets/TheReclinerTransparent.png">
         </div>
 
 
