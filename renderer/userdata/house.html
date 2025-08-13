@@ -94,8 +94,24 @@
                 justify-content: center;
             }
 
-            .furnitureplaced {
-                border: 5px solid rgb(180, 219, 41);
+            .placed {
+                border-radius: 15;
+            }
+
+
+            .physicalwoodenchair img{
+                height: auto;
+                max-width: 25vw;
+                max-height: 23vw;
+                min-width: 8w;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 48%;  /* distance from top of page */
+                left: 10% /* distance from left of page */
             }
 
         </style>
@@ -103,7 +119,7 @@
     </head>
 
 
-    <body>
+    <body style="overflow: hidden;">
         <div class="bg-layer"></div>
 
         <!--Selection Window-->
@@ -138,6 +154,14 @@
         </div>
         
 
+        <!--The Physical Furniture-->
+        <div class="physicalwoodenchair hidden" id="physicalwoodenchair">
+            <img src="../images/imageassets/WoodenChairTransparent.png">
+        </div>
+
+
+
+        <!--buttons-->
         <button class="back-button" onclick="window.location.href='../mainpage.html';">Back</button>
         <button class="furnish-button" onclick="furnishClicked();">Furnish</button>
 

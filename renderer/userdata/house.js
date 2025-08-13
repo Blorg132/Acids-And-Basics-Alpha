@@ -2,10 +2,14 @@ const fs = require('fs');
 
 //chairs
 let woodenchairowned = false;
+let woodenchairplaced = false;
 let metalchairowned = false;
+let metalchairplaced = false;
 let thereclinerowned = false;
+let thereclinerplaced = false;
 //tables
 let pooltableowned = false;
+let pooltableplaced = false;
 
 function furnishClicked(){
     popupwindow = document.getElementById("selectionwindow");
@@ -49,9 +53,26 @@ function furnishClicked(){
             pooltableowned = true;
             document.getElementById("pooltable").classList.remove("unavailable");
         }
-
-
     });
+
+
+    //physically placing the furniture now
+    //CHAIRS
+    woodenchair = document.getElementById("woodenchair")
+    woodenchair.addEventListener("click", () => {
+        if(woodenchairowned == true && woodenchairplaced == false){
+
+            document.getElementById("physicalwoodenchair").classList.remove("hidden");
+            woodenchair.classList.add("placed");
+            woodenchairplaced = true;
+        } else if(woodenchairplaced == true){
+            document.getElementById("physicalwoodenchair").classList.add("hidden");
+            woodenchair.classList.remove("placed");
+            woodenchairplaced = false;
+        }
+    });
+
+
     //
     //
     
