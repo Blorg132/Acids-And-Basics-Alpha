@@ -1,5 +1,5 @@
 {
-  "beakers": 3600,
+  "beakers": 2985,
   "beakersearned": 0,
   "items": [
     {
@@ -8,24 +8,14 @@
       "resell": 30
     },
     {
-      "id": 105,
-      "name": "Metal Table",
-      "resell": 48
-    },
-    {
-      "id": 104,
-      "name": "Pool Table",
-      "resell": 18
-    },
-    {
       "id": 112,
       "name": "Cheap Painting",
       "resell": 26
     },
     {
-      "id": 102,
-      "name": "Sturdy Metal Chair",
-      "resell": 30
+      "id": 105,
+      "name": "Metal Table",
+      "resell": 48
     },
     {
       "id": 103,
@@ -36,6 +26,16 @@
       "id": 107,
       "name": "Chandy",
       "resell": 50
+    },
+    {
+      "id": 102,
+      "name": "Sturdy Metal Chair",
+      "resell": 30
+    },
+    {
+      "id": 104,
+      "name": "Pool Table",
+      "resell": 18
     },
     {
       "id": 101,
