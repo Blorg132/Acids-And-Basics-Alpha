@@ -1,5 +1,10 @@
 const fs = require('fs');
 
+
+////////////////////////////////////////////////////////////
+//NOTE: THIS IS OWNED, AND PLACED. DO NOT FORGET ONE PLEASE./
+////////////////////////////////////////////////////////////
+
 //chairs
 let woodenchairowned = false;
 let woodenchairplaced = false;
@@ -11,6 +16,8 @@ let thereclinerplaced = false;
 //tables
 let pooltableowned = false;
 let pooltableplaced = false;
+let metaltableowned = false;
+let metaltableplaced = false;
 
 
 // roofs
@@ -25,6 +32,7 @@ metalchair = document.getElementById("metalchair");
 therecliner = document.getElementById("therecliner");
 
 pooltable = document.getElementById("pooltable");
+metaltable = document.getElementById("metaltable");
 
 chandy = document.getElementById("chandy");
 //////////////////////////////////////////////////////////
@@ -59,6 +67,11 @@ if(houseData.table === "pooltable"){
     document.getElementById("physicalpooltable").classList.remove("hidden");
     //getting placed look
     pooltable.classList.add("placed");
+} else if(houseData.table === "metaltable"){
+    metaltableplaced = true;
+    document.getElementById("physicalmetaltable").classList.remove("hidden");
+    //getting placed look
+    metaltable.classList.add("placed");
 }
 
 
@@ -107,6 +120,10 @@ function furnishClicked(){
     if(inventoryData.items.some(item => item.id === 104)){
         pooltableowned = true;
         document.getElementById("pooltable").classList.remove("unavailable");
+    }
+    if(inventoryData.items.some(item => item.id === 105)){
+        metaltableowned = true;
+        document.getElementById("metaltable").classList.remove("unavailable");
     }
 
     // ROOF STUFF
@@ -193,6 +210,24 @@ function furnishClicked(){
             document.getElementById("physicalpooltable").classList.add("hidden");
             pooltable.classList.remove("placed");
             pooltableplaced = false;
+            houseData.table = "";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        }
+    })
+
+    metaltable = document.getElementById("metaltable");
+    metaltable.addEventListener("click", () => {
+        if(metaltableowned == true && metaltableplaced == false && houseData.table === ""){
+
+            document.getElementById("physicalmetaltable").classList.remove("hidden");
+            metaltable.classList.add("placed");
+            metaltableplaced = true;
+            houseData.table = "metaltable";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        } else if(metaltableplaced == true){
+            document.getElementById("physicalmetaltable").classList.add("hidden");
+            metaltable.classList.remove("placed");
+            metaltableplaced = false;
             houseData.table = "";
             fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
         }

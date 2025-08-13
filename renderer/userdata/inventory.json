@@ -1,21 +1,21 @@
 {
-  "beakers": 8770,
+  "beakers": 7720,
   "beakersearned": 0,
   "items": [
+    {
+      "id": 103,
+      "name": "The Recliner",
+      "resell": 60
+    },
     {
       "id": 107,
       "name": "Chandy",
       "resell": 50
     },
     {
-      "id": 104,
-      "name": "Pool Table",
-      "resell": 18
-    },
-    {
-      "id": 103,
-      "name": "The Recliner",
-      "resell": 60
+      "id": 1,
+      "name": "Gas-Dipped Matchbox",
+      "resell": 10
     },
     {
       "id": 102,
@@ -23,9 +23,19 @@
       "resell": 30
     },
     {
+      "id": 105,
+      "name": "Metal Table",
+      "resell": 48
+    },
+    {
       "id": 101,
       "name": "Broken Wooden Chair",
       "resell": 6
+    },
+    {
+      "id": 104,
+      "name": "Pool Table",
+      "resell": 18
     }
   ]
 }

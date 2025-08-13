@@ -14,7 +14,7 @@
         <!--Setting volume for the audio/soundeffects-->
         <script>
             // setting the volume for background music
-            document.getElementById("backgroundmusic").volume = 0.03;
+            document.getElementById("backgroundmusic").volume = 0.15;
         </script>
 
 
@@ -101,8 +101,23 @@
 
             .physicalwoodenchair img{
                 height: auto;
-                max-width: 23vw;
-                max-height: 22vw;
+                max-width: 42vw;
+                max-height: 37vw;
+                min-width: 8w;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 63%;  /* distance from top of page */
+                left: 45% /* distance from left of page */
+            }
+
+            .physicalmetalchair img{
+                height: auto;
+                max-width: 52vw;
+                max-height: 41vw;
                 min-width: 8w;
                 min-height: 7vw;
                 transition-duration: 0.2s;
@@ -111,22 +126,7 @@
 
                 position: absolute; /* or fixed */
                 top: 54%;  /* distance from top of page */
-                left: 17% /* distance from left of page */
-            }
-
-            .physicalmetalchair img{
-                height: auto;
-                max-width: 25vw;
-                max-height: 23vw;
-                min-width: 8w;
-                min-height: 7vw;
-                transition-duration: 0.2s;
-                object-fit: contain; /* keeps proportions */
-                object-fit: fill;
-
-                position: absolute; /* or fixed */
-                top: 50%;  /* distance from top of page */
-                left: 9% /* distance from left of page */
+                left: 45% /* distance from left of page */
             }
             
 
@@ -176,6 +176,22 @@
                 left: 42%; /* distance from left of page */
             }
 
+            .physicalmetaltable img {
+                height: auto;
+                max-width: 55vw;
+                max-height: 60vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 58%;  /* distance from top of page */
+                left: 50%; /* distance from left of page */
+            }
+
+
 
         </style>
 
@@ -205,6 +221,10 @@
             <div class="furniture-section" id="tableholder">
                 <div class="furniture unavailable" id="pooltable">
                     <img src="../images/imageassets/PoolTable.webp">
+                </div>
+
+                <div class="furniture unavailable" id="metaltable">
+                    <img src="../images/imageassets/MetalTable.webp">
                 </div>
             </div>
 
@@ -239,6 +259,9 @@
         <div class="physicalpooltable hidden" id="physicalpooltable">
             <img src="../images/imageassets/PoolTableTransparent.png">
         </div>
+        <div class="physicalmetaltable hidden" id="physicalmetaltable">
+            <img src="../images/imageassets/MetalTableTransparent.webp">
+        </div>
 
 
 
@@ -249,6 +272,7 @@
 
         <!--buttons-->
         <button class="back-button" onclick="window.location.href='../mainpage.html';">Back</button>
+        <!--I think if we make this a while loop, we can avoid sticky buttons? who knows.-->
         <button class="furnish-button" onclick="furnishClicked();">Furnish</button>
 
 

@@ -13,7 +13,9 @@ let woodenchairpurchased = false;
 let metalchairpurchased = false;
 let thereclinerpurchased = false;
 let pooltablepurchased = false;
+let metaltablepurchased  = false;
 let chandypurchased = false;
+
 
 fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if (err) {
@@ -48,8 +50,13 @@ fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
     document.getElementById("pooltable").classList.add("sold");
   }
 
+if(jsonData.items.some(item => item.id === 105)){
+    metaltablepurchased = true;
+    document.getElementById("metaltable").classList.add("sold");
+  }
+
   //////////////////////////////////
-  // Missing id's 105 and 106 here
+  // Missing id 106 here
   //////////////////////////////////
 
   if(jsonData.items.some(item => item.id === 107)){
@@ -232,6 +239,29 @@ pooltable.addEventListener("click", () => {
 });
 
 
+/// METAL TABLE
+/////////
+
+metaltable = document.getElementById("metaltable");
+metaltable.addEventListener("mouseover", () => {
+    Name.textContent = "Metal Table";
+    Name.className = "rareitem";
+    description.textContent = "Strong, tough, and perfect for any high-school cafeteria or interrogation room. Make sure you keep kids from licking the rust under it.";
+    cost.textContent = "Cost: 100 Beakers";
+});
+
+metaltable.addEventListener("click", () => {
+    console.log(metaltablepurchased);
+    if(metaltablepurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "Metal Table";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 100 Beakers?";
+    }
+
+
+});
+
+
 //////////////////////////////////
 //roof stuff
 //////////////////////////////////
@@ -336,6 +366,15 @@ purchasebutton.addEventListener("click", () => {
             document.getElementById("chandy").classList.add("sold");
         }
 
+    } else if(purchasechosen == "Metal Table"){
+        itemname = "Metal Table";
+        itemprice = 100;
+        itemid = 105;
+        itemresell = 48;
+        if(beakers > itemprice){
+            metaltablepurchased = true;
+            document.getElementById("metaltable").classList.add("sold");
+        }
     }
     //
     //
