@@ -20,3 +20,7 @@ oak table = 106
 
 
 chandy = 107
+        = 108
+
+
+nasty fridge = 109

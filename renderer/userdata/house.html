@@ -192,6 +192,21 @@
             }
 
 
+            .physicalnastyfridge img {
+                height: auto;
+                max-width: 25vw;
+                max-height: 30vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 45%;  /* distance from top of page */
+                left: 74%; /* distance from left of page */
+            }
+
 
         </style>
 
@@ -235,6 +250,13 @@
                 </div>
             </div>
 
+            <!--Fridges-->
+            <div class="furniture-section" id="fridgeholder">
+                <div class="furniture unavailable" id="nastyfridge">
+                    <img src="../images/imageassets/NastyFridge.webp">
+                </div>
+            </div>
+
 
 
 
@@ -245,6 +267,7 @@
         
 
         <!--The Physical Furniture-->
+        <!--I think placing these in different spots helps with the 3d arrangement? who knows.-->
         <div class="physicalwoodenchair hidden" id="physicalwoodenchair">
             <img src="../images/imageassets/WoodenChairTransparent.png">
         </div>
@@ -253,6 +276,11 @@
         </div>
         <div class="physicaltherecliner hidden" id="physicaltherecliner">
             <img src="../images/imageassets/TheReclinerTransparent.png">
+        </div>
+
+
+        <div class="physicalnastyfridge hidden" id="physicalnastyfridge">
+            <img src="../images/imageassets/NastyFridgeTransparent.webp">
         </div>
 
 

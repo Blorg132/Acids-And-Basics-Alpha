@@ -24,6 +24,11 @@ let metaltableplaced = false;
 let chandyowned = false;
 let chandyplaced = false;
 
+// fridges
+let nastyfridgeowned = false;
+let nastyfridgeplaced = false;
+
+
 //Getting Clickables from The Document///////////////////
 popupwindow = document.getElementById("selectionwindow");
 
@@ -35,6 +40,8 @@ pooltable = document.getElementById("pooltable");
 metaltable = document.getElementById("metaltable");
 
 chandy = document.getElementById("chandy");
+
+nastyfridge = document.getElementById("nastyfridge");
 //////////////////////////////////////////////////////////
 
 // Loading in house and inventory saves from disk!!!!//////////////////////////////////////
@@ -74,13 +81,23 @@ if(houseData.table === "pooltable"){
     metaltable.classList.add("placed");
 }
 
-
+console.log("Table loaded!");
 
 if(houseData.roof === "chandy"){
     chandyplaced = true;
     document.getElementById("physicalchandy").classList.remove("hidden");
     //getting placed look
     chandy.classList.add("placed");
+}
+
+
+console.log("Roof items loaded!");
+
+if(houseData.fridge === "nastyfridge"){
+    nastyfridgeplaced = true;
+    document.getElementById("physicalnastyfridge").classList.remove("hidden");
+    //getting placed look
+    nastyfridge.classList.add("placed");
 }
 
 
@@ -132,6 +149,15 @@ function furnishClicked(){
         chandyowned = true;
         document.getElementById("chandy").classList.remove("unavailable");
     }
+
+
+    /// FRIDGES
+
+    if(inventoryData.items.some(item => item.id === 109)){
+        nastyfridgeowned = true;
+        document.getElementById("nastyfridge").classList.remove("unavailable");
+    }
+
 
     /////////////////////////////////////////////////////////////////////
     //
@@ -256,6 +282,27 @@ function furnishClicked(){
         }
     })
 
+    ////////////////////////////////////////////
+    ////////FRIDGES/////////////////////////////
+    ////////////////////////////////////////////
+
+    nastyfridge = document.getElementById("nastyfridge");
+    nastyfridge.addEventListener("click", () => {
+        if(nastyfridgeowned == true && nastyfridgeplaced == false && houseData.fridge === ""){
+
+            document.getElementById("physicalnastyfridge").classList.remove("hidden");
+            nastyfridge.classList.add("placed");
+            nastyfridgeplaced = true;
+            houseData.fridge = "nastyfridge";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        } else if(nastyfridgeplaced == true){
+            document.getElementById("physicalnastyfridge").classList.add("hidden");
+            nastyfridge.classList.remove("placed");
+            nastyfridgeplaced = false;
+            houseData.fridge = "";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        }
+    })
     //
     //
     

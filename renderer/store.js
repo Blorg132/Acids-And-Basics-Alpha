@@ -15,6 +15,7 @@ let thereclinerpurchased = false;
 let pooltablepurchased = false;
 let metaltablepurchased  = false;
 let chandypurchased = false;
+let nastyfridgepurchased = false;
 
 
 fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
@@ -50,10 +51,10 @@ fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
     document.getElementById("pooltable").classList.add("sold");
   }
 
-if(jsonData.items.some(item => item.id === 105)){
-    metaltablepurchased = true;
-    document.getElementById("metaltable").classList.add("sold");
-  }
+    if(jsonData.items.some(item => item.id === 105)){
+        metaltablepurchased = true;
+        document.getElementById("metaltable").classList.add("sold");
+    }
 
   //////////////////////////////////
   // Missing id 106 here
@@ -65,10 +66,17 @@ if(jsonData.items.some(item => item.id === 105)){
   }
 
 
+
+  if(jsonData.items.some(item => item.id === 109)){
+    nastyfridgepurchased = true;
+    document.getElementById("nastyfridge").classList.add("sold");
+  }
+
+
+
+
   // Updating the counter on screen!
   beakerhud.textContent = beakers + " Beakers Owned";
-
-
 
 });
 
@@ -246,7 +254,7 @@ metaltable = document.getElementById("metaltable");
 metaltable.addEventListener("mouseover", () => {
     Name.textContent = "Metal Table";
     Name.className = "rareitem";
-    description.textContent = "Strong, tough, and perfect for any high-school cafeteria or interrogation room. Make sure you keep kids from licking the rust under it.";
+    description.textContent = "Strong, tough, and perfect for any high-school cafeteria or interrogation room. Make sure you keep kids from eating the gum stuck under it.";
     cost.textContent = "Cost: 100 Beakers";
 });
 
@@ -283,6 +291,34 @@ chandy.addEventListener("click", () => {
 
 
 });
+
+///////////////////////////////////////
+///////FRIDGES//////////////////////////
+///////////////////////////////////////
+
+nastyfridge = document.getElementById("nastyfridge");
+nastyfridge.addEventListener("mouseover", () => {
+    Name.textContent = "Nasty Fridge";
+    Name.className = "normalitem";
+    description.textContent = "It's got mold, it's got rust, and it hasn't turned on properly since the 80s. But let's be honest, you just need a blockade to hide your ripped wallpaper.";
+    cost.textContent = "Cost: 80 Beakers";
+});
+
+nastyfridge.addEventListener("click", () => {
+    console.log(nastyfridgepurchased);
+    if(nastyfridgepurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "Nasty Fridge";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 80 Beakers?";
+    }
+
+
+});
+
+
+
+
+
 
 
 //
@@ -374,6 +410,15 @@ purchasebutton.addEventListener("click", () => {
         if(beakers > itemprice){
             metaltablepurchased = true;
             document.getElementById("metaltable").classList.add("sold");
+        }
+    } else if(purchasechosen == "Nasty Fridge"){
+        itemname = "Nasty Fridge";
+        itemprice = 80;
+        itemid = 109;
+        itemresell = 30;
+        if(beakers > itemprice){
+            nastyfridgepurchased = true;
+            document.getElementById("nastyfridge").classList.add("sold");
         }
     }
     //
