@@ -1,5 +1,5 @@
 {
-  "beakers": 2985,
+  "beakers": 2860,
   "beakersearned": 0,
   "items": [
     {
@@ -41,6 +41,11 @@
       "id": 101,
       "name": "Broken Wooden Chair",
       "resell": 6
+    },
+    {
+      "id": 113,
+      "name": "Abstract Painting",
+      "resell": 60
     }
   ]
 }

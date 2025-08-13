@@ -32,6 +32,8 @@ let nastyfridgeplaced = false;
 // paintings
 let cheappaintingowned = false;
 let cheappaintingplaced = false;
+let abstractpaintingowned = false;
+let abstractpaintingplaced = false;
 
 
 //Getting Clickables from The Document///////////////////
@@ -49,6 +51,7 @@ chandy = document.getElementById("chandy");
 nastyfridge = document.getElementById("nastyfridge");
 
 cheappainting = document.getElementById("cheappainting");
+abstractpainting = document.getElementById("abstractpainting");
 //////////////////////////////////////////////////////////
 
 // Loading in house and inventory saves from disk!!!!//////////////////////////////////////
@@ -113,6 +116,11 @@ if(houseData.painting === "cheappainting"){
     document.getElementById("physicalcheappainting").classList.remove("hidden");
     //getting placed look
     cheappainting.classList.add("placed");
+} else if(houseData.painting === "abstractpainting"){
+    abstractpaintingplaced = true;
+    document.getElementById("physicalabstractpainting").classList.remove("hidden");
+    //getting placed look
+    abstractpainting.classList.add("placed");
 }
 
 
@@ -287,6 +295,24 @@ cheappainting.addEventListener("click", () => {
 })
 
 
+abstractpainting = document.getElementById("abstractpainting");
+abstractpainting.addEventListener("click", () => {
+    if(abstractpaintingowned == true && abstractpaintingplaced == false && houseData.painting === ""){
+
+        document.getElementById("physicalabstractpainting").classList.remove("hidden");
+        abstractpainting.classList.add("placed");
+        abstractpaintingplaced = true;
+        houseData.painting = "abstractpainting";
+        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+    } else if(abstractpaintingplaced == true){
+        document.getElementById("physicalabstractpainting").classList.add("hidden");
+        abstractpainting.classList.remove("placed");
+        abstractpaintingplaced = false;
+        houseData.painting = "";
+        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+    }
+})
+
 
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////////FURNISH CLICKED///////////////////////////////
@@ -353,6 +379,11 @@ function furnishClicked(){
     if(inventoryData.items.some(item => item.id === 112)){
         cheappaintingowned = true;
         document.getElementById("cheappainting").classList.remove("unavailable");
+    }
+
+    if(inventoryData.items.some(item => item.id === 113)){
+        abstractpaintingowned = true;
+        document.getElementById("abstractpainting").classList.remove("unavailable");
     }
 }
 

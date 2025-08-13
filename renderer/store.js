@@ -17,6 +17,7 @@ let metaltablepurchased  = false;
 let chandypurchased = false;
 let nastyfridgepurchased = false;
 let cheappaintingpurchased = false;
+let abstractpaintingpurchased = false;
 
 
 fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
@@ -77,6 +78,11 @@ fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if(jsonData.items.some(item => item.id === 112)){
     cheappaintingpurchased = true;
     document.getElementById("cheappainting").classList.add("sold");
+  }
+
+  if(jsonData.items.some(item => item.id === 113)){
+    abstractpaintingpurchased = true;
+    document.getElementById("abstractpainting").classList.add("sold");
   }
 
 
@@ -332,7 +338,7 @@ nastyfridge.addEventListener("click", () => {
 cheappainting = document.getElementById("cheappainting");
 cheappainting.addEventListener("mouseover", () => {
     Name.textContent = "Cheap Painting";
-    Name.className = "rareitem";
+    Name.className = "normalitem";
     description.textContent = "The beauty of mass production! Now, even YOU can own your very own masterpiece. This one even includes a condiment stain.";
     cost.textContent = "Cost: 60 Beakers";
 });
@@ -348,6 +354,25 @@ cheappainting.addEventListener("click", () => {
 
 });
 
+
+abstractpainting = document.getElementById("abstractpainting");
+abstractpainting.addEventListener("mouseover", () => {
+    Name.textContent = "Abstract Painting";
+    Name.className = "rareitem";
+    description.textContent = "An abstract painting recovered from a shipwreck in perfect condition, hidden amongst kelp and an antique wind instrument. Doesn't this remind you of something? Ah, whatever...";
+    cost.textContent = "Cost: 125 Beakers";
+});
+
+abstractpainting.addEventListener("click", () => {
+    console.log(abstractpaintingpurchased);
+    if(abstractpaintingpurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "Abstract Painting";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 125 Beakers?";
+    }
+
+
+});
 
 
 
@@ -461,6 +486,15 @@ purchasebutton.addEventListener("click", () => {
         if(beakers > itemprice){
             cheappaintingpurchased = true;
             document.getElementById("cheappainting").classList.add("sold");
+        }
+    } else if(purchasechosen == "Abstract Painting"){
+        itemname = "Abstract Painting";
+        itemprice = 125;
+        itemid = 113;
+        itemresell = 60;
+        if(beakers > itemprice){
+            abstractpaintingpurchased = true;
+            document.getElementById("abstractpainting").classList.add("sold");
         }
     }
     //
