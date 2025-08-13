@@ -1,7 +1,17 @@
 {
-  "beakers": 9780,
+  "beakers": 9520,
   "beakersearned": 0,
   "items": [
+    {
+      "id": 104,
+      "name": "Pool Table",
+      "resell": 18
+    },
+    {
+      "id": 103,
+      "name": "The Recliner",
+      "resell": 60
+    },
     {
       "id": 101,
       "name": "Broken Wooden Chair",
@@ -11,11 +21,6 @@
       "id": 102,
       "name": "Sturdy Metal Chair",
       "resell": 30
-    },
-    {
-      "id": 103,
-      "name": "The Recliner",
-      "resell": 60
     }
   ]
 }

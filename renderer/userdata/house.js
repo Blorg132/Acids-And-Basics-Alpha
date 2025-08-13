@@ -7,6 +7,7 @@ let metalchairowned = false;
 let metalchairplaced = false;
 let thereclinerowned = false;
 let thereclinerplaced = false;
+
 //tables
 let pooltableowned = false;
 let pooltableplaced = false;
@@ -61,8 +62,11 @@ function furnishClicked(){
         }
     });
 
-
-    //physically placing the furniture now
+    //
+    //
+    //ACTUAL PLACING LOGIC
+    //
+    //
     //CHAIRS
     woodenchair = document.getElementById("woodenchair")
     woodenchair.addEventListener("click", () => {
@@ -108,7 +112,19 @@ function furnishClicked(){
         }
     })
 
+    pooltable = document.getElementById("pooltable");
+    pooltable.addEventListener("click", () => {
+        if(pooltableowned == true && pooltableplaced == false){
 
+            document.getElementById("physicalpooltable").classList.remove("hidden");
+            pooltable.classList.add("placed");
+            pooltableplaced = true;
+        } else if(pooltableplaced == true){
+            document.getElementById("physicalpooltable").classList.add("hidden");
+            pooltable.classList.remove("placed");
+            pooltableplaced = false;
+        }
+    })
 
     //
     //

@@ -111,7 +111,7 @@
                 object-fit: fill;
 
                 position: absolute; /* or fixed */
-                top: 50%;  /* distance from top of page */
+                top: 54%;  /* distance from top of page */
                 left: 17% /* distance from left of page */
             }
 
@@ -126,7 +126,7 @@
                 object-fit: fill;
 
                 position: absolute; /* or fixed */
-                top: 48%;  /* distance from top of page */
+                top: 50%;  /* distance from top of page */
                 left: 9% /* distance from left of page */
             }
             
@@ -142,9 +142,24 @@
                 object-fit: fill;
 
                 position: absolute; /* or fixed */
-                top: 40%;  /* distance from top of page */
+                top: 45%;  /* distance from top of page */
                 left: 35%; /* distance from left of page */
                 transform: scaleX(-1);
+            }
+
+            .physicalpooltable img {
+                height: auto;
+                max-width: 60vw;
+                max-height: 40vw;
+                min-width: 60vw;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 70%;  /* distance from top of page */
+                left: 45%; /* distance from left of page */
             }
 
         </style>
@@ -198,6 +213,10 @@
             <img src="../images/imageassets/TheReclinerTransparent.png">
         </div>
 
+
+        <div class="physicalpooltable hidden" id="physicalpooltable">
+            <img src="../images/imageassets/PoolTableTransparent.png">
+        </div>
 
 
         <!--buttons-->
