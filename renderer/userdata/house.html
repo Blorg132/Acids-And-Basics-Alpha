@@ -35,9 +35,9 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background: rgba(45, 189, 67, 0.651);
+                background: rgba(45, 189, 67, 0.491);
                 border: 6px solid rgb(0, 0, 0);
-                padding: 60px;
+                padding: 35px;
                 z-index: 1000;
             }
 
@@ -64,7 +64,7 @@
             }
 
             .unavailable {
-                opacity: 0.2;
+                opacity: 0.15;
             }
 
             .furniture img{
@@ -95,7 +95,7 @@
             }
 
             .placed {
-                opacity: 0.8;
+                opacity: 0.6;
             }
 
             .cancelbutton {
@@ -220,6 +220,22 @@
                 left: 74%; /* distance from left of page */
             }
 
+            .physicalcheappainting img {
+                height: auto;
+                max-width: 15vw;
+                max-height: 20vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transform: rotateZ(15deg) rotateY(35deg);
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 22%;  /* distance from top of page */
+                left: 8%; /* distance from left of page */
+            }
+
 
 
         </style>
@@ -257,6 +273,15 @@
                 </div>
             </div>
 
+
+            <!--Paintings-->
+            <div class="furniture-section" id="paintingholder">
+                <div class="furniture unavailable" id="cheappainting">
+                    <img src="../images/imageassets/CheapPainting.webp">
+                </div>
+            </div>
+
+
             <!--Roof Items-->
             <div class="furniture-section" id="roofholder">
                 <div class="furniture unavailable" id="chandy">
@@ -287,6 +312,10 @@
         </div>
         <div class="physicalmetalchair hidden" id="physicalmetalchair">
             <img src="../images/imageassets/MetalChairTransparent.webp">
+        </div>
+
+        <div class="physicalcheappainting" id="physicalcheappainting">
+            <img src="../images/imageassets/CheapPaintingTransparent.webp">
         </div>
         <div class="physicaltherecliner hidden" id="physicaltherecliner">
             <img src="../images/imageassets/TheReclinerTransparent.png">

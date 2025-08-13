@@ -16,6 +16,7 @@ let pooltablepurchased = false;
 let metaltablepurchased  = false;
 let chandypurchased = false;
 let nastyfridgepurchased = false;
+let cheappaintingpurchased = false;
 
 
 fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
@@ -70,6 +71,12 @@ fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if(jsonData.items.some(item => item.id === 109)){
     nastyfridgepurchased = true;
     document.getElementById("nastyfridge").classList.add("sold");
+  }
+
+
+  if(jsonData.items.some(item => item.id === 112)){
+    cheappaintingpurchased = true;
+    document.getElementById("cheappainting").classList.add("sold");
   }
 
 
@@ -317,6 +324,32 @@ nastyfridge.addEventListener("click", () => {
 
 
 
+/////////////////////////////////////////////////
+////////////////////////PAINTINGS////////////////
+///////////////////////////////////////////////////
+
+
+cheappainting = document.getElementById("cheappainting");
+cheappainting.addEventListener("mouseover", () => {
+    Name.textContent = "Cheap Painting";
+    Name.className = "rareitem";
+    description.textContent = "The beauty of mass production! Now, even YOU can own your very own masterpiece. This one even includes a condiment stain.";
+    cost.textContent = "Cost: 60 Beakers";
+});
+
+cheappainting.addEventListener("click", () => {
+    console.log(cheappaintingpurchased);
+    if(cheappaintingpurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "Cheap Painting";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 60 Beakers?";
+    }
+
+
+});
+
+
+
 
 
 
@@ -419,6 +452,15 @@ purchasebutton.addEventListener("click", () => {
         if(beakers > itemprice){
             nastyfridgepurchased = true;
             document.getElementById("nastyfridge").classList.add("sold");
+        }
+    } else if(purchasechosen == "Cheap Painting"){
+        itemname = "Cheap Painting";
+        itemprice = 60;
+        itemid = 112;
+        itemresell = 26;
+        if(beakers > itemprice){
+            cheappaintingpurchased = true;
+            document.getElementById("cheappainting").classList.add("sold");
         }
     }
     //

@@ -29,6 +29,11 @@ let nastyfridgeowned = false;
 let nastyfridgeplaced = false;
 
 
+// paintings
+let cheappaintingowned = false;
+let cheappaintingplaced = false;
+
+
 //Getting Clickables from The Document///////////////////
 popupwindow = document.getElementById("selectionwindow");
 
@@ -42,6 +47,8 @@ metaltable = document.getElementById("metaltable");
 chandy = document.getElementById("chandy");
 
 nastyfridge = document.getElementById("nastyfridge");
+
+cheappainting = document.getElementById("cheappainting");
 //////////////////////////////////////////////////////////
 
 // Loading in house and inventory saves from disk!!!!//////////////////////////////////////
@@ -98,6 +105,14 @@ if(houseData.fridge === "nastyfridge"){
     document.getElementById("physicalnastyfridge").classList.remove("hidden");
     //getting placed look
     nastyfridge.classList.add("placed");
+}
+
+
+if(houseData.painting === "cheappainting"){
+    cheappaintingplaced = true;
+    document.getElementById("physicalcheappainting").classList.remove("hidden");
+    //getting placed look
+    cheappainting.classList.add("placed");
 }
 
 
@@ -249,6 +264,32 @@ nastyfridge.addEventListener("click", () => {
 //
 //
 
+//////////////////////////////////////////////////
+////////////////////PAINTINGS//////////////////////
+//////////////////////////////////////////////////
+
+cheappainting = document.getElementById("cheappainting");
+cheappainting.addEventListener("click", () => {
+    if(cheappaintingowned == true && cheappaintingplaced == false && houseData.painting === ""){
+
+        document.getElementById("physicalcheappainting").classList.remove("hidden");
+        cheappainting.classList.add("placed");
+        cheappaintingplaced = true;
+        houseData.painting = "cheappainting";
+        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+    } else if(cheappaintingplaced == true){
+        document.getElementById("physicalcheappainting").classList.add("hidden");
+        cheappainting.classList.remove("placed");
+        cheappaintingplaced = false;
+        houseData.painting = "";
+        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+    }
+})
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+////////////////////////////FURNISH CLICKED///////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
 function furnishClicked(){
@@ -307,6 +348,11 @@ function furnishClicked(){
     }
 
 
-    
+    /// PAINTINGS
+
+    if(inventoryData.items.some(item => item.id === 112)){
+        cheappaintingowned = true;
+        document.getElementById("cheappainting").classList.remove("unavailable");
+    }
 }
 

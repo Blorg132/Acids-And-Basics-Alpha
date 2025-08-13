@@ -24,3 +24,8 @@ chandy = 107
 
 
 nasty fridge = 109
+110
+111
+
+
+cheap painting = 112
