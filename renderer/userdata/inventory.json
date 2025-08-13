@@ -1,31 +1,11 @@
 {
-  "beakers": 6495,
+  "beakers": 6245,
   "beakersearned": 0,
   "items": [
     {
       "id": 101,
       "name": "Broken Wooden Chair",
       "resell": 6
-    },
-    {
-      "id": 107,
-      "name": "Chandy",
-      "resell": 50
-    },
-    {
-      "id": 102,
-      "name": "Sturdy Metal Chair",
-      "resell": 30
-    },
-    {
-      "id": 103,
-      "name": "The Recliner",
-      "resell": 60
-    },
-    {
-      "id": 105,
-      "name": "Metal Table",
-      "resell": 48
     },
     {
       "id": 104,
@@ -36,6 +16,11 @@
       "id": 109,
       "name": "Nasty Fridge",
       "resell": 30
+    },
+    {
+      "id": 107,
+      "name": "Chandy",
+      "resell": 50
     }
   ]
 }

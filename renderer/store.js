@@ -276,7 +276,7 @@ metaltable.addEventListener("click", () => {
 chandy = document.getElementById("chandy");
 chandy.addEventListener("mouseover", () => {
     Name.textContent = "Chandy";
-    Name.className = "rareitem";
+    Name.className = "exquisiteitem";
     description.textContent = "Old Victorian-era chandelier in solid condition. We call it Chandy so as to not scare away the common folk in the store.";
     cost.textContent = "Cost: 115 Beakers";
 });
