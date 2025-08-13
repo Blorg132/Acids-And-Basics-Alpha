@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { json } = require('stream/consumers');
 
 
 
@@ -160,4 +161,15 @@ sellbutton.addEventListener("click", () => {
 
 
         
+});
+
+
+
+
+clearbutton = document.getElementById("clearbutton");
+clearbutton.addEventListener("click", () => {
+    let jsonData = JSON.parse(fs.readFileSync("./renderer/userdata/inventory.json", "utf8"));
+    jsonData.items = [];
+    fs.writeFileSync("./renderer/userdata/inventory.json", JSON.stringify(jsonData, null, 2), "utf8");
+
 });
