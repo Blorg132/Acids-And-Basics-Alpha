@@ -5,8 +5,7 @@
 const flashcards = [
 
   // If you're ever interested into what each of the units mean, here is what i have so far:
-  // Unit 1: Basic shit. not really sure. Abhinav you figure it out.
-  
+
   // Unit 1: Basic Things
   { front: "What is the smallest unit of matter?", back: "An atom", unit: "1" },
   { front: "What three particles make up an atom?", back: "Protons, neutrons, and electrons", unit: "1" },
