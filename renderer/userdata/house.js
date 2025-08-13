@@ -32,18 +32,26 @@ console.log(houseData);
 if(houseData.chair === "woodenchair"){
     woodenchairplaced = true;
     document.getElementById("physicalwoodenchair").classList.remove("hidden");
+    //getting placed look
+    woodenchair.classList.add("placed");
 }else if(houseData.chair === "metalchair"){
     metalchairowned = true;
     document.getElementById("physicalmetalchair").classList.remove("hidden");
+    //getting placed look
+    metalchair.classList.add("placed");
 }else if(houseData.chair === "therecliner"){
     thereclinerplaced = true;
     document.getElementById("physicaltherecliner").classList.remove("hidden");
+    //getting placed look
+    therecliner.classList.add("placed");
 }
 console.log("Chair loaded!");
 
 if(houseData.table === "pooltable"){
     pooltableplaced = true;
     document.getElementById("physicalpooltable").classList.remove("hidden");
+    //getting placed look
+    pooltable.classList.add("placed");
 }
 /////////////////////////////////////////////////////////////////////////////
 
@@ -83,67 +91,85 @@ function furnishClicked(){
         document.getElementById("pooltable").classList.remove("unavailable");
     }
 
-    //
+    /////////////////////////////////////////////////////////////////////
     //
     //ACTUAL PLACING LOGIC
     //
     //
-    //CHAIRS
+    //CHAIRS/////////////////////////////////////////////////////////////
     woodenchair = document.getElementById("woodenchair")
     woodenchair.addEventListener("click", () => {
-        if(woodenchairowned == true && woodenchairplaced == false){
-
+        if(woodenchairowned == true && woodenchairplaced == false && houseData.chair === ""){
             document.getElementById("physicalwoodenchair").classList.remove("hidden");
             woodenchair.classList.add("placed");
             woodenchairplaced = true;
+            houseData.chair = "woodenchair";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
         } else if(woodenchairplaced == true){
             document.getElementById("physicalwoodenchair").classList.add("hidden");
             woodenchair.classList.remove("placed");
             woodenchairplaced = false;
+            houseData.chair = "";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
         }
     });
 
 
     metalchair = document.getElementById("metalchair");
     metalchair.addEventListener("click", () => {
-        if(metalchairowned == true && metalchairplaced == false){
-
+        if(metalchairowned == true && metalchairplaced == false && houseData.chair === ""){
             document.getElementById("physicalmetalchair").classList.remove("hidden");
             metalchair.classList.add("placed");
             metalchairplaced = true;
+            houseData.chair = "metalchair";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
         } else if(metalchairplaced == true){
             document.getElementById("physicalmetalchair").classList.add("hidden");
             metalchair.classList.remove("placed");
             metalchairplaced = false;
+            houseData.chair = "";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
         }
     })
 
 
     therecliner = document.getElementById("therecliner");
     therecliner.addEventListener("click", () => {
-        if(thereclinerowned == true && thereclinerplaced == false){
-
+        if(thereclinerowned == true && thereclinerplaced == false && houseData.chair === ""){
             document.getElementById("physicaltherecliner").classList.remove("hidden");
             therecliner.classList.add("placed");
             thereclinerplaced = true;
+            houseData.chair = "therecliner";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
         } else if(thereclinerplaced == true){
             document.getElementById("physicaltherecliner").classList.add("hidden");
             therecliner.classList.remove("placed");
             thereclinerplaced = false;
+            houseData.chair = "";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
         }
     })
 
+
+    //////////////////////////////// tables /////////////////////////
+    // PLEASE MAKE SURE TO CHANGE THE CODE FOR TABLES! IT IS HOUSEDATA.TABLE NOW!!!
+    /////////////////////////////////
+
     pooltable = document.getElementById("pooltable");
     pooltable.addEventListener("click", () => {
-        if(pooltableowned == true && pooltableplaced == false){
+        if(pooltableowned == true && pooltableplaced == false && houseData.table === ""){
 
             document.getElementById("physicalpooltable").classList.remove("hidden");
             pooltable.classList.add("placed");
             pooltableplaced = true;
+            houseData.table = "pooltable";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
         } else if(pooltableplaced == true){
             document.getElementById("physicalpooltable").classList.add("hidden");
             pooltable.classList.remove("placed");
             pooltableplaced = false;
+            houseData.table = "";
+            fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
         }
     })
 
