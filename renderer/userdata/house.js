@@ -37,7 +37,7 @@ metaltable = document.getElementById("metaltable");
 chandy = document.getElementById("chandy");
 //////////////////////////////////////////////////////////
 
-// Loading in house saves from disk!!!!//////////////////////////////////////
+// Loading in house and inventory saves from disk!!!!//////////////////////////////////////
 let rawHouseData = fs.readFileSync("./renderer/userdata/house.json", "utf8");
 let houseData = JSON.parse(rawHouseData);
 console.log(houseData);
