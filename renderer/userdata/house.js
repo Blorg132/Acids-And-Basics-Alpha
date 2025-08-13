@@ -105,7 +105,7 @@ if(houseData.fridge === "nastyfridge"){
 /////////////////////////////////////////////////////////////////////
 //
 //ACTUAL PLACING LOGIC
-//
+// lmao this can't be called in furnishClicked() because OTHERWISE everything fucks up!!!!
 //
 //CHAIRS/////////////////////////////////////////////////////////////
 woodenchair = document.getElementById("woodenchair")

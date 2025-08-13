@@ -1,5 +1,5 @@
 {
-  "beakers": 6245,
+  "beakers": 4275,
   "beakersearned": 0,
   "items": [
     {
@@ -16,6 +16,21 @@
       "id": 109,
       "name": "Nasty Fridge",
       "resell": 30
+    },
+    {
+      "id": 102,
+      "name": "Sturdy Metal Chair",
+      "resell": 30
+    },
+    {
+      "id": 105,
+      "name": "Metal Table",
+      "resell": 48
+    },
+    {
+      "id": 103,
+      "name": "The Recliner",
+      "resell": 60
     },
     {
       "id": 107,
