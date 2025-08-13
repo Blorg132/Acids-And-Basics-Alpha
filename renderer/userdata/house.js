@@ -11,6 +11,10 @@ let thereclinerplaced = false;
 let pooltableowned = false;
 let pooltableplaced = false;
 
+
+// Checking Previous House Saves
+
+
 function furnishClicked(){
     popupwindow = document.getElementById("selectionwindow");
     popupwindow.classList.remove("hidden");
@@ -22,6 +26,8 @@ function furnishClicked(){
     therecliner = document.getElementById("therecliner");
 
     pooltable = document.getElementById("pooltable");
+
+
 
     //
     // Reading Inventory from Disk
@@ -77,3 +83,4 @@ function furnishClicked(){
     //
     
 }
+
