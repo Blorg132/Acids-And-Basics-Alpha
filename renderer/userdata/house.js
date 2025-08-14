@@ -18,7 +18,7 @@ let pooltableowned = false;
 let pooltableplaced = false;
 let metaltableowned = false;
 let metaltableplaced = false;
-let oaktableowned = true;
+let oaktableowned = false;
 let oaktableplaced = false;
 
 
