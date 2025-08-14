@@ -18,6 +18,7 @@ let chandypurchased = false;
 let nastyfridgepurchased = false;
 let cheappaintingpurchased = false;
 let abstractpaintingpurchased = false;
+let fancypaintingpurchased = false;
 
 
 fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
@@ -83,6 +84,11 @@ fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
   if(jsonData.items.some(item => item.id === 113)){
     abstractpaintingpurchased = true;
     document.getElementById("abstractpainting").classList.add("sold");
+  }
+
+  if(jsonData.items.some(item => item.id === 114)){
+    fancypaintingpurchased = true;
+    document.getElementById("fancypainting").classList.add("sold");
   }
 
 
@@ -374,6 +380,25 @@ abstractpainting.addEventListener("click", () => {
 
 });
 
+fancypainting = document.getElementById("fancypainting");
+fancypainting.addEventListener("mouseover", () => {
+    Name.textContent = "Fancy Painting";
+    Name.className = "exquisiteitem";
+    description.textContent = "If anyone actually knew about this painting, I'm damn sure it'd be in a famous museum somewhere. It's got a hefty weight for sure, and a hefty price tag to go with it as well.";
+    cost.textContent = "Cost: 220 Beakers";
+});
+
+fancypainting.addEventListener("click", () => {
+    console.log(fancypaintingpurchased);
+    if(fancypaintingpurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "Fancy Painting";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 220 Beakers?";
+    }
+
+
+});
+
 
 
 
@@ -495,6 +520,15 @@ purchasebutton.addEventListener("click", () => {
         if(beakers > itemprice){
             abstractpaintingpurchased = true;
             document.getElementById("abstractpainting").classList.add("sold");
+        }
+    } else if(purchasechosen == "Fancy Painting"){
+        itemname = "Fancy Painting";
+        itemprice = 220;
+        itemid = 114;
+        itemresell = 100;
+        if(beakers > itemprice){
+            fancypaintingpurchased = true;
+            document.getElementById("fancypainting").classList.add("sold");
         }
     }
     //

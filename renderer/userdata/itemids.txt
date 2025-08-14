@@ -29,3 +29,5 @@ nasty fridge = 109
 
 
 cheap painting = 112
+abstract painting = 113
+fancy painting = 114
