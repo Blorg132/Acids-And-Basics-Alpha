@@ -3,12 +3,52 @@
 
 
 body {
-    background-color: rgb(195, 145, 69);
+    background-color: rgb(38, 37, 36);
 }
 
+
+.lesson-container {
+    position: relative;      /* keeps the background positioned correctly */
+    width: 100%;
+    min-height: 100vh;       /* at least full screen height */
+}
+
+.lesson-background {
+    /* This infinite repeat kind of looks awful... but i'm not willing to fix it. If anyone else sees this, message me "buttery monkey". */
+    background-image: url('../images/lessonbackground.jpg');
+    background-size: 107% auto; /* fill width, repeat vertically */
+    background-repeat: repeat-y;
+    background-position: top center;
+    position: absolute;
+    inset: 0;
+    z-index: -1;             /* behind content */
+    opacity: 0.7;
+}
+
+.test-container {
+    position: relative;      /* keeps the background positioned correctly */
+    width: 100%;
+    min-height: 100vh;       /* at least full screen height */
+    color: whitesmoke;
+}
+.test-background {
+    background-image: url('../images/testbackground.jpg');
+    background-size: 140% auto; /* fill width, repeat vertically */
+    background-repeat: repeat-y;
+    background-position: top center;
+    position: absolute;
+    inset: 0;
+    z-index: -1;             /* behind content */
+    opacity: 0.6;
+}
+
+.test-body {
+    background-color: rgb(150, 147, 143);
+}
 .cool-header-blue {
     color:aliceblue;
-    font-size: 30px;
+    font-size: 5vw;
+    font-family: Quantico;
     text-align: center;
     transition-duration: 0.5s;
     
@@ -16,27 +56,39 @@ body {
 
 
 .cool-header-blue:hover {
-    font-size: 40px;
-    transition-duration: 1s;
+    color: rgba(137, 43, 226, 0.374);
+    transition-duration: 0.3s;
 }
 
 b {
     color:rgb(79, 109, 159);
     transition-duration: 250ms;
+    font-family: LessonBold;
     
 }
 
 b:hover {
-    display: inline-block;
-    transform: scale(1.5);
+    transform: scale(1.2);
     transform-origin: top;
     color:greenyellow;
     transition-duration: 500ms;
 }
 
+.paragraph {
+    color: rgb(15, 15, 15);
+    font-size: 3vw;
+    font-family: LessonRegular;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-indent: 2em;
+}
+
 p {
     color: rgb(15, 15, 15);
-    font-size: 20px;
+    font-size: 3vw;
+    font-family: LessonRegular;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 
 
@@ -73,9 +125,9 @@ p {
     background-color: grey;
     color:rgb(253, 253, 253);
     transition-duration: 0.2s;
-    text-align: center;
-    bottom: 80px;
-    left: 80px;
+    text-align: center; /* this doesn't center */
+    justify-content: center; /* this doesn't center */
+    align-items: center; /* this doesn't center... */
 
 }
 
@@ -85,4 +137,26 @@ p {
     border-radius: 25;
     background-color: goldenrod;
     transition-duration: 0.2s;
+}
+
+
+
+
+
+/* haha fonts */
+
+
+@font-face {
+    font-family: LessonRegular;
+    src: url("../fonts/LibertinusSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: LessonBold;
+    src: url("../fonts/LibertinusSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: Quantico;
+    src: url("../fonts/Quantico-Bold.ttf");
 }

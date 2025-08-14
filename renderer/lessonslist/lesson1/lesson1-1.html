@@ -12,90 +12,93 @@
     </head>
 
 
-    <body style="background-color: grey">
+    <body class="test-body">
         
-        <!--Please note that all instances of form-submission with HTML should be in labels. No idea why though.-->
-        <form id="lessonform1">
+        <div class="test-container">
+            <div class=test-background></div>
+            <div id="actualcontent">
+                <!--Please note that all instances of form-submission with HTML should be in labels. No idea why though.-->
+                <form id="lessonform1">
 
-            <!--First Question-->
-            <!--Just so you know, for 'radio' forms, set the values to wrong or correct. Then, look for 'correct' with a querySelectorAll thing.-->
-            <p>What state of matter takes the shape of it's container and can flow?</p>
-            <label>
-                <input type="radio" name="question1" value="wrong">
-                "Solid"
-            </label>
-            <label>
-                <input type="radio" name="question1" value="correct">
-                "Liquid"
-            </label>
-            <label>
-                <input type="radio" name="question1" value="wrong">
-                "Gas"
-            </label> 
-
-
-            <!--Second Question-->
-            <p>According to the KMT, how do gas particles move?</p>
-            <label>
-                <input type="radio" name="question2" value="wrong">
-                "In a fixed position"
-            </label>
-            <label>
-                <input type="radio" name="question2" value="wrong">
-                "In circular waves"
-            </label>
-            <label>
-                <input type="radio" name="question2" value="wrong">
-                "In straight lines forever"
-            </label>
-            <label>
-                <input type="radio" name="question2" value="correct">
-                "In straight lines until they collide"
-            </label>
-
-            <!--Submit button-->
-
-            <br>
-            <br>
-            <button type="submit">I'm Done!</button>
-
-        </form>
+                    <!--First Question-->
+                    <!--Just so you know, for 'radio' forms, set the values to wrong or correct. Then, look for 'correct' with a querySelectorAll thing.-->
+                    <p>What state of matter takes the shape of it's container and can flow?</p>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        "Solid"
+                    </label>
+                    <label>
+                        <input type="radio" name="question1" value="correct">
+                        "Liquid"
+                    </label>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        "Gas"
+                    </label> 
 
 
+                    <!--Second Question-->
+                    <p>According to the KMT, how do gas particles move?</p>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "In a fixed position"
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "In circular waves"
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "In straight lines forever"
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="correct">
+                        "In straight lines until they collide"
+                    </label>
 
-        <script src="../lessons.js"></script>
+                    <!--Submit button-->
 
-        
-        <script>
-            // Checking answers when user submits with the button
-            document.getElementById("lessonform1").addEventListener("submit", function(event) {
-                event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
-                let totalscore = 0; // please pass this variable into the function lessonGiveBeakers to add the proper amount
+                    <br>
+                    <br>
+                    <button type="submit">I'm Done!</button>
 
+                </form>
+                
 
-                // QUESTION 1: Multiple Choice
-                let question1 = document.querySelector('input[name="question1"]:checked');
-                if (question1 && question1.value === "correct") {
-                    totalscore++;
-                }
+                <script src="../lessons.js"></script>
 
-                // QUESTION 2: Multiple Choice
-
-                let question2 = document.querySelector('input[name="question2"]:checked');
-                if(question2 && question2.value === "correct"){
-                    totalscore = totalscore + 2;
-                }
+                <script>
+                    // Checking answers when user submits with the button
+                    document.getElementById("lessonform1").addEventListener("submit", function(event) {
+                        event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
+                        let totalscore = 0; // please pass this variable into the function lessonGiveBeakers to add the proper amount
 
 
+                        // QUESTION 1: Multiple Choice
+                        let question1 = document.querySelector('input[name="question1"]:checked');
+                        if (question1 && question1.value === "correct") {
+                            totalscore++;
+                        }
+
+                        // QUESTION 2: Multiple Choice
+
+                        let question2 = document.querySelector('input[name="question2"]:checked');
+                        if(question2 && question2.value === "correct"){
+                            totalscore = totalscore + 2;
+                        }
 
 
-                lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
-                // make sure you pass the score variable through, or else it won't work!
 
-                window.location.href="../lessoncomplete.html";
-            });
 
-        </script>
+                        lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
+                        // make sure you pass the score variable through, or else it won't work!
+
+                        window.location.href="../lessoncomplete.html";
+                    });
+
+                </script>
+            </div>
+        </div>
 
 
     </body>

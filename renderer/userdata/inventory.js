@@ -175,7 +175,8 @@ clearbutton.addEventListener("click", () => {
     houseData.chair = "";
     houseData.table = "";
     houseData.roof = "";
-    
+    houseData.painting = "";
+    houseData.fridge = "";
     fs.writeFileSync("./renderer/userdata/inventory.json", JSON.stringify(jsonData, null, 2), "utf8");
 
 });

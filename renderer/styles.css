@@ -141,14 +141,26 @@
 
 
 .lesson-select-button {
-    padding: 8px 50px;
-    font-size: 14px;
-    border: 2px solid black;
-    border-radius: 10px; 
-    font-family: Jost;
-    transition-duration: 0.4s;
-    width: 15%;
-    text-align: center;
+  width: 15%;
+  height: 120px; /* fixed height */
+  
+  justify-content: center;
+  align-items: center;
+  
+  padding: 1vw;
+  font-size: clamp(1rem, 1.5vw, 2rem); /* scales but has limits */
+  
+  border: 2px solid black;
+  border-radius: 10px;
+  font-family: Jost;
+  transition-duration: 0.4s;
+  text-align: center;
+}
+
+
+.lesson-select-container {
+  display: flex;
+  flex-direction: row; /* keep same lessons on same line */
 }
 
 .lesson-select-button:hover {

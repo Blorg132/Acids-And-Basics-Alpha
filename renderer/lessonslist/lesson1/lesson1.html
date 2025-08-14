@@ -17,45 +17,53 @@
 </head>
 
 <body>
-
-    <h1 class="cool-header-blue">What is the Kinetic Molecular Theory?</h1>
-
-
-    <p>
-        In our world, everything that takes up space and has weight <span id="massvolume"><b>(mass/volume)</b></span> is considered to be <i>matter.</i><br>
-        A box of cards is matter, a cup of water is matter, and YOU are even made of matter. However, matter does not appear in the same form for every case.<br>
-        <br>
-        There are three main <span id="states"><b>states of matter</b></span>: liquid, solid, and gas. 
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">What is the Kinetic Molecular Theory?</h1>
 
 
-        <br>
-        <br>
-
-        <i> Kinetic Molecular Theory (KMT): </i><br>
-        The KMT is a scientific model that explains the behavior of gases by focusing on how their particles move.
-        It says that gas particles are incredibly small compared to the space between them, they move in constant random motion, 
-        and they collide with each other and with container walls without losing energy. According to the KMT, there are 
-        no forces pulling gas particles together — they only interact when they collide. This theory helps scientists understand and 
-        predict how gases respond to changes in pressure, temperature, and volume, which is the foundation for gas laws you'll learn later.
+        <p class="paragraph">
+            In our world, everything that takes up space and has weight <span id="massvolume"><b>(mass/volume)</b></span> is considered to be <i>matter.</i><br>
+            A box of cards is matter, a cup of water is matter, and YOU are even made of matter. However, matter does not appear in the same form for every case.<br>
+            <br>
+            There are three main <span id="states"><b>states of matter</b></span>: liquid, solid, and gas. 
 
 
-    </p>
+            <br>
+            <br>
+
+            <i> Kinetic Molecular Theory (KMT): </i><br>
+            The KMT is a scientific model that explains the behavior of gases by focusing on how their particles move.
+            It says that gas particles are incredibly small compared to the space between them, they move in constant random motion, 
+            and they collide with each other and with container walls without losing energy. According to the KMT, there are 
+            no forces pulling gas particles together — they only interact when they collide. This theory helps scientists understand and 
+            predict how gases respond to changes in pressure, temperature, and volume, which is the foundation for gas laws you'll learn later.
 
 
-    <!--Running Custom Alert scripts here.-->
-    <script>
-        document.getElementById("massvolume").addEventListener("click", () => {
-            customAlert("Mass is the amount of matter in an object (grams/pounds), and volume is the amount of space an object takes up (litres or cm³)")
-        });
+        </p>
 
-        document.getElementById("states").addEventListener("click", () => {
-            customAlert("A state of matter is a distinct form that matter can have, which usually has specific physical properties.")
-        });
-    </script>
-    
 
-    <button class="quiz-button" onclick="window.location.href='lesson1-1.html';">Take this short quiz to prove you've got it!</button>
-    <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+        <!--Running Custom Alert scripts here.-->
+        <script>
+            document.getElementById("massvolume").addEventListener("click", () => {
+                customAlert("Mass is the amount of matter in an object (grams/pounds), and volume is the amount of space an object takes up (litres or cm³)")
+            });
+
+            document.getElementById("states").addEventListener("click", () => {
+                customAlert("A state of matter is a distinct form that matter can have, which usually has specific physical properties.")
+            });
+        </script>
+        
+        <div style="text-align: center;">
+            <!--Why do I have to do this to actually center a button? No fucking clue.-->
+            <button class="quiz-button" onclick="window.location.href='lesson1-1.html';">Take this short quiz to prove you've got it!</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+        </div>
+    </div>
+
 </body>
 
 

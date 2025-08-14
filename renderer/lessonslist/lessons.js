@@ -87,14 +87,24 @@ function lessonGiveBeakers(score){
 
         let lessonData = JSON.parse(lessonRaw);
         let givebeakers = false;
-
+        /////////////////////////////////
+        // Writing lesson completion
+        /////////////////////////////////
         if (lessonData.lesson1 === false) {
             givebeakers = true;
             lessonData.lesson1 = true;
 
+        } else if(lessonData.lesson2 === false && lessonData.lesson1 === true){
+            givebeakers = true;
+            lessonData.lesson2 = true;
+        } else if(lessonData.lesson3 === false && lessonData.lesson2 === true){
+            givebeakers = true;
+            lessonData.lesson3 = true;
         }
 
-        // Save lesson completion
+        /////////////////////////////////////////
+        
+        // Saving changes
         fs.writeFileSync('./renderer/userdata/lessondata.json', JSON.stringify(lessonData, null, 2));
 
         // Give beakers if needed

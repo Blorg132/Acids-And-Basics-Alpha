@@ -16,7 +16,7 @@
 
 </head>
 
-<body style="background-color: gray">
+<body style="background-color: rgb(10, 22, 62)">
     
     <!--Declaring CSS Styles-->
     <style>
@@ -24,15 +24,36 @@
         .hidden {
                 display: none;
         }
+
+        span {
+            color: green;
+            font-size: 18px;
+        }
     </style>
 
 
-    <button class="lesson-select-button" onclick="window.location.href='lessonslist/lesson1/lesson1.html';">Lesson 1: Basics of Kinetic Molecular Theory</button>
-    <button id="lesson2" class="lesson-select-button hidden" onclick="window.location.href='lessonslist/lesson2/lesson2.html';">Lesson 2: KMT Continued</button>
-    <button id="lesson3" class="lesson-select-button hidden">Lesson 3: KMT Final</button>
+    <!--KMT SECTION-->
+    <div class="lesson-select-container">
+        <button class="lesson-select-button" onclick="window.location.href='lessonslist/lesson1/lesson1.html';"><span>Lesson 1:</span><br>Basics of Kinetic Molecular Theory</button>
+        <button id="lesson2" class="lesson-select-button hidden" onclick="window.location.href='lessonslist/lesson2/lesson2.html';"><span>Lesson 2:</span><br>KMT Continued</button>
+        <button id="lesson3" class="lesson-select-button hidden"><span>Lesson 3: </span><br>KMT Final</button>
+    </div>
+    <!---->
+
+    <!--ATOMIC THEORY SECTION-->
+    <div class="lesson-select-container">
+        <button class="lesson-select-button" onclick="console.log('thisbuttondoesnothingyet!');"><span>Lesson 4:</span><br>Basics of Atomic Theory</button>
+    </div>
+    <!---->
+    
     <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
 
     <script>
+
+        ////////////////////////////////////////////////////
+        // This script is just for reading lessondata.json!!
+        ////////////////////////////////////////////////////
+
         const fs = require('fs');
         // hiding and unhiding lessons
 
@@ -41,13 +62,18 @@
 
             //
             // the actual hiding
-            //
+            // NOTE: Each check has to be in different if statements. Thank god i figured that out. I don't need ChatGPT guys. I'm just like that.
+
+            //KMT Section/////////////////////////////////////////////////////
             if(lessonData.lesson1 == true){
                 document.getElementById("lesson2").classList.remove("hidden");
             }
-            //
-            //
-            //
+            if(lessonData.lesson2 == true){
+                document.getElementById("lesson3").classList.remove("hidden");
+            }
+            //////////////////////////////////////////////////////////////////
+
+
         });
     </script>
 </body>

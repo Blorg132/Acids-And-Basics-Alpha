@@ -47,3 +47,10 @@ Electron Packager will generate a new folder like:
    FlashcardApp-win32-x64/
 
 Inside that folder, you'll find a file like FlashcardApp.exe — that's your standalone desktop app!
+
+
+
+
+keybinds:
+collapse all: ctrl+ k, ctrl+ 0
+uncollapse all: ctrl + k, ctrl + j
