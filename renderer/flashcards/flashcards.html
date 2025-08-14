@@ -58,6 +58,66 @@
             font-size: 35px;
             font-size: calc(2em + 1vw);
         }
+
+
+        /*This is for the popup */
+
+        .selectionwindow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(81, 113, 149, 0.791);
+            border: 6px solid rgb(0, 0, 0);
+            padding: 35px;
+            z-index: 1000;
+        }
+
+        .flashcard-section {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .flashcard-select-button {
+            width: 100%;
+            height: 100%; /* fixed height */
+            
+            
+            padding: 1vw;
+            font-size: clamp(1rem, 1.5vw, 2rem); /* scales but has limits */
+            
+            border: 2px solid black;
+            border-radius: 10px;
+            font-family: Jost;
+            transition-duration: 0.2s;
+            text-align: center;
+        }
+
+        .flashcard-select-button:hover {
+            transform: scale(1.2);
+        }
+
+        .cancelbutton {
+            padding: 1vw 1.5vw;
+            font-size: 1.3vw;
+            font-family: Quantico;
+            transition-duration: 0.3s ease;
+            margin: 0 auto;
+        }
+
+        .cancelbutton:hover {
+            background-color: rgba(232, 50, 50, 0.651);
+            color: white;
+            transition-duration: 0.15s;
+        }
+
+        .clicked {
+            opacity: 0.6;
+        }
+
+
     </style>
 </head>
 
@@ -76,7 +136,38 @@
         <button class="flashcardbutton" onclick="nextCard()">Next</button>
         <br>
         <button class="flashcardbutton" onclick="shuffleFlashcards()"><em>Shuffle Set</em></button>
+        <br>
+        <button class="flashcardbutton" onclick="unitSelect()"><em>Choose Unit</em></button>
 
+    </div>
+
+    <!--Popup Window for Selecting Unit-->
+    <div id="selectionwindow" class="selectionwindow hidden">      
+        <div class="flashcard-section" id="flashcardsection">
+            <!--Unit 1 button-->
+            <div class="flashcardunit unavailable clicked" id="flashcardunit1button">
+                <button class="flashcard-select-button">Unit 1: KMT</button>
+            </div>
+            <!--Unit 2 button-->
+            <div class="flashcardunit unavailable" id="flashcardunit2button">
+                <button class="flashcard-select-button">Unit 2: Atomic Theory</button>
+            </div>
+            <!--Unit 3 button-->
+            <div class="flashcardunit unavailable" id="flashcardunit3button">
+                <button class="flashcard-select-button">Unit 3: Abhinav</button>
+            </div>
+            <!--Unit 4 button-->
+            <div class="flashcardunit unavailable" id="flashcardunit4button">
+                <button class="flashcard-select-button">Unit 4: Ishaan</button>
+            </div>
+        </div>
+
+
+        <!--This is the close window button-->
+        <br>
+        <div style="display: flex; justify-content: center; gap: 15px;">
+            <button class="cancelbutton" onclick="document.getElementById('selectionwindow').classList.add('hidden');">Close Window</button>
+        </div>
     </div>
 
 
