@@ -1,21 +1,45 @@
-const flashcards = [
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////BEFORE YOU ADD TO THIS FILE////////////////////////////////////////////////////// /
+////////////////////////PLEASE CTRL + K, CTRL + 0 TO CLOSE ALL OF THIS SHIT ///////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // If you're ever interested into what each of the units mean, here is what i have so far:
-  // Unit 1: Basic shit. not really sure. Abhinav you figure it out.
-  
-  // Unit 1: Basic Things
-  { front: "What is the smallest unit of matter?", back: "An atom", unit: "1" },
-  { front: "What three particles make up an atom?", back: "Protons, neutrons, and electrons", unit: "1" },
-  { front: "What is the charge of a proton?", back: "Positive (+)", unit: "1" },
-  { front: "What is the charge of an electron?", back: "Negative (−)", unit: "1" },
-  { front: "What is the charge of a neutron?", back: "Neutral (0)", unit: "1" },
-  { front: "Where are protons and neutrons found?", back: "In the nucleus", unit: "1" },
-  { front: "Where are electrons found?", back: "In electron shells/orbitals", unit: "1" },
-  { front: "What defines an element?", back: "The number of protons", unit: "1" },
-  { front: "What is the atomic number?", back: "The number of protons in an atom", unit: "1" },
-  { front: "What is the mass number?", back: "Protons + Neutrons", unit: "1" },
-  { front: "What is a homogenous mixture?", back: "A mixture with uniform composition", unit: "1"},
 
+// KMT UNIT ///////////////////////////////////////////////////////////////////////////////////////
+const flashcardsunit1 = [
+  { "front": "What does the Kinetic Molecular Theory explain?", "back": "The behavior of particles in gases", "unit": "6" },
+  { "front": "According to KMT, how are gas particles in motion?", "back": "They are in constant, random motion", "unit": "6" },
+  { "front": "What does KMT assume about the size of gas particles?", "back": "They are so small compared to the space between them that their own volume is negligible", "unit": "6" },
+  { "front": "What type of collisions do gas particles have according to KMT?", "back": "Elastic collisions (no energy is lost)", "unit": "6" },
+  { "front": "What does KMT say about the forces between gas particles?", "back": "There are no attractive or repulsive forces between them", "unit": "6" },
+  { "front": "According to KMT, what determines the temperature of a gas?", "back": "The average kinetic energy of its particles", "unit": "6" },
+  { "front": "What happens to particle speed when temperature increases?", "back": "Particle speed increases", "unit": "6" },
+  { "front": "What happens to particle speed when temperature decreases?", "back": "Particle speed decreases", "unit": "6" },
+  { "front": "According to KMT, why do gases fill their containers?", "back": "Particles move freely and spread out to fill the available space", "unit": "6" },
+  { "front": "In KMT, what does 'elastic collision' mean?", "back": "Particles bounce off each other without losing total kinetic energy", "unit": "6" },
+  { "front": "How does KMT explain gas pressure?", "back": "Gas particles colliding with the walls of the container", "unit": "6" },
+  { "front": "If temperature doubles, what happens to the average kinetic energy?", "back": "It doubles", "unit": "6" },
+  { "front": "How does KMT explain diffusion in gases?", "back": "Particles move randomly and spread out evenly over time", "unit": "6" },
+  { "front": "What is effusion according to KMT?", "back": "Gas particles passing through a tiny hole without collisions", "unit": "6" },
+  { "front": "How does particle mass affect speed in KMT?", "back": "Lighter particles move faster at the same temperature", "unit": "6" },
+  { "front": "What does KMT say about the motion of particles in a vacuum?", "back": "They move in straight lines until they collide", "unit": "6" },
+  { "front": "What happens to particle motion if volume is reduced?", "back": "Collisions with container walls become more frequent, increasing pressure", "unit": "6" },
+  { "front": "How does KMT relate temperature to pressure?", "back": "Higher temperature → faster particles → more collisions → higher pressure", "unit": "6" },
+  { "front": "Why do gases have low density according to KMT?", "back": "Particles are far apart compared to their size", "unit": "6" },
+  { "front": "What is the relationship between kinetic energy and absolute temperature?", "back": "They are directly proportional", "unit": "6" },
+  { "front": "What does KMT assume about the duration of collisions?", "back": "Collisions are instantaneous", "unit": "6" },
+  { "front": "Why are real gases not ideal?", "back": "Real gases have intermolecular forces and particles with actual volume", "unit": "6" },
+  { "front": "Under what conditions do gases behave most ideally?", "back": "High temperature and low pressure", "unit": "6" },
+  { "front": "How does KMT explain Boyle's Law?", "back": "Reducing volume increases collision frequency, raising pressure", "unit": "6" },
+  { "front": "How does KMT explain Charles's Law?", "back": "Increasing temperature increases speed, causing expansion", "unit": "6" },
+  { "front": "How does KMT explain Gay-Lussac's Law?", "back": "Higher temperature increases collision force, raising pressure", "unit": "6" },
+  { "front": "According to KMT, what happens when gas particles collide with each other?", "back": "They bounce off in new directions without losing total energy", "unit": "6" },
+  { "front": "What happens to the motion of gas particles as they approach absolute zero?", "back": "They slow down and approach no motion", "unit": "6" },
+  { "front": "How does KMT describe gas particle paths between collisions?", "back": "They travel in straight lines", "unit": "6" },
+  { "front": "How does KMT explain that gases mix evenly?", "back": "Random motion causes particles to intermix until evenly distributed", "unit": "6" }
+]
+///////////////////////////////////////////////////////////////////////////////////
+
+const flashcardsunit2 = [  
   // Unit 2: Periodic Table
   { front: "Who created the periodic table?", back: "Dmitri Mendeleev", unit: "2" },
   { front: "What does a group (column) in the periodic table show?", back: "Elements with similar properties", unit: "2" },
@@ -28,7 +52,10 @@ const flashcards = [
   { front: "What element has atomic number 1?", back: "Hydrogen", unit: "2" },
   { front: "Which metal is liquid at room temperature?", back: "Mercury", unit: "2" },
 
-  // Unit 3: Chemical Bonding
+]
+
+const flashcardsunit3 = [
+    // Unit 3: Chemical Bonding
   { front: "What is an ionic bond?", back: "Transfer of electrons between atoms", unit: "3" },
   { front: "What is a covalent bond?", back: "Sharing of electrons between atoms", unit: "3" },
   { front: "What types of elements form ionic bonds?", back: "Metals and nonmetals", unit: "3" },
@@ -40,7 +67,10 @@ const flashcards = [
   { front: "Why do atoms form bonds?", back: "To become more stable", unit: "3" },
   { front: "What is a valence electron?", back: "An electron in the outermost shell", unit: "3" },
 
-  // Unit 4: Chemical Reactions
+]
+
+const flashcardsunit4 = [
+    // Unit 4: Chemical Reactions
   { front: "What is a chemical reaction?", back: "A process that changes substances into new ones", unit: "4" },
   { front: "What are the signs of a chemical reaction?", back: "Color change, gas, temperature change, precipitate", unit: "4" },
   { front: "What is a reactant?", back: "A substance that starts a chemical reaction", unit: "4" },
@@ -51,8 +81,11 @@ const flashcards = [
   { front: "What is a balanced equation?", back: "Same number of atoms on both sides of the equation", unit: "4" },
   { front: "What is a catalyst?", back: "A substance that speeds up a reaction without being used up", unit: "4" },
   { front: "What is a chemical equation?", back: "A symbolic representation of a chemical reaction", unit: "4" },
+]
 
-  // Unit 5: States of Matter
+
+const flashcardsunit5 = [
+    // Unit 5: States of Matter
   { front: "What are the three main states of matter?", back: "Solid, liquid, and gas", unit: "5" },
   { front: "What state of matter has a fixed shape and volume?", back: "Solid", unit: "5" },
   { front: "What state of matter has a fixed volume but no fixed shape?", back: "Liquid", unit: "5" },
@@ -63,19 +96,8 @@ const flashcards = [
   { front: "What is the process of liquid to solid called?", back: "Freezing", unit: "5" },
   { front: "What is the process of solid to gas called?", back: "Sublimation", unit: "5" },
   { front: "What causes changes in states of matter?", back: "Adding or removing heat", unit: "5" }
-
-
-  // My actual questions
-
 ]
 
-//
-//
-//
-//
-//
-//
-//
 //
 //          // Actual code starts beyond this point.
 //
@@ -87,8 +109,11 @@ const flashcards = [
 let currentIndex = 0;
 let isFlipped = false;
 let monkey = 0;
-let cardText = document.getElementById('card-text')
-let usedFlashcards = []
+let cardText = document.getElementById('card-text');
+let usedFlashcards = [];
+let unitSelected = 1;
+// setting flashcards initially to unit 1;
+flashcards = flashcardsunit1;
 
 //counter stuff yet again
 let flashcardcounter = document.getElementById("flashcardcounter");
@@ -192,6 +217,11 @@ function shuffleFlashcards(){
   nextCard();
 }
 
+function unitSelect(){
+  let selectionwindow = document.getElementById("selectionwindow")
+  selectionwindow.classList.remove("hidden");
+}
+
 
 // make a unit select button
 
@@ -218,46 +248,54 @@ let unit4 = document.getElementById("flashcardunit4button");
 unit1.addEventListener("click", () => {
   // selecting unit
   unitSelected = 1;
+  flashcards = flashcardsunit1;
   // getting rid of clicked css style on everything else
   unit2.classList.remove("clicked");
   unit3.classList.remove("clicked");
   unit4.classList.remove("clicked");
   console.log(unitSelected);
   unit1.classList.add("clicked");
+  shuffleFlashcards();
 });
 
 unit2.addEventListener("click", () => {
   // selecting unit
   unitSelected = 2;
+  flashcards = flashcardsunit2;
   // getting rid of clicked css style on everything else
   unit1.classList.remove("clicked");
   unit3.classList.remove("clicked");
   unit4.classList.remove("clicked");
   console.log(unitSelected);
   unit2.classList.add("clicked");
+  shuffleFlashcards();
 });
 
 
 unit3.addEventListener("click", () => {
   // selecting unit
   unitSelected = 3;
+  flashcards = flashcardsunit3;
   // getting rid of clicked css style on everything else
   unit1.classList.remove("clicked");
   unit2.classList.remove("clicked");
   unit4.classList.remove("clicked");
   console.log(unitSelected);
   unit3.classList.add("clicked");
+  shuffleFlashcards();
 });
 
 
 unit4.addEventListener("click", () => {
   // selecting unit
   unitSelected = 4;
+  flashcards = flashcardsunit4;
   // getting rid of clicked css style on everything else
   unit1.classList.remove("clicked");
   unit2.classList.remove("clicked");
   unit3.classList.remove("clicked");
   console.log(unitSelected);
   unit4.classList.add("clicked");
+  shuffleFlashcards();
 });
 showFront(); // Load first card on page load
