@@ -18,6 +18,8 @@ let pooltableowned = false;
 let pooltableplaced = false;
 let metaltableowned = false;
 let metaltableplaced = false;
+let oaktableowned = true;
+let oaktableplaced = false;
 
 
 // roofs
@@ -27,6 +29,8 @@ let chandyplaced = false;
 // fridges
 let nastyfridgeowned = false;
 let nastyfridgeplaced = false;
+let doubledoorfridgeowned = false;
+let doubledoorfridgeplaced = false;
 
 
 // paintings
@@ -34,6 +38,8 @@ let cheappaintingowned = false;
 let cheappaintingplaced = false;
 let abstractpaintingowned = false;
 let abstractpaintingplaced = false;
+let fancypaintingowned = false;
+let fancypaintingplaced = false;
 
 
 //Getting Clickables from The Document///////////////////
@@ -45,13 +51,16 @@ therecliner = document.getElementById("therecliner");
 
 pooltable = document.getElementById("pooltable");
 metaltable = document.getElementById("metaltable");
+oaktable = document.getElementById("oaktable");
 
 chandy = document.getElementById("chandy");
 
 nastyfridge = document.getElementById("nastyfridge");
+doubledoorfridge = document.getElementById("doubledoorfridge");
 
 cheappainting = document.getElementById("cheappainting");
 abstractpainting = document.getElementById("abstractpainting");
+fancypainting = document.getElementById("fancypainting");
 //////////////////////////////////////////////////////////
 
 // Loading in house and inventory saves from disk!!!!//////////////////////////////////////
@@ -89,6 +98,11 @@ if(houseData.table === "pooltable"){
     document.getElementById("physicalmetaltable").classList.remove("hidden");
     //getting placed look
     metaltable.classList.add("placed");
+} else if(houseData.table === "oaktable"){
+    oaktableplaced = true;
+    document.getElementById("physicaloaktable").classList.remove("hidden");
+    //placed look
+    oaktable.classList.add("placed");
 }
 
 console.log("Table loaded!");
@@ -108,6 +122,11 @@ if(houseData.fridge === "nastyfridge"){
     document.getElementById("physicalnastyfridge").classList.remove("hidden");
     //getting placed look
     nastyfridge.classList.add("placed");
+} else if(houseData.fridge === "doubledoorfridge"){
+    doubledoorfridgeplaced = true;
+    document.getElementById("physicaldoubledoorfridge").classList.remove("hidden");
+    //getting placed look
+    doubledoorfridge.classList.add("placed");
 }
 
 
@@ -121,6 +140,9 @@ if(houseData.painting === "cheappainting"){
     document.getElementById("physicalabstractpainting").classList.remove("hidden");
     //getting placed look
     abstractpainting.classList.add("placed");
+} else if(houseData.painting === "fancypainting"){
+    fancypaintingplaced = true;
+    document.getElementById("physicalfancypainting").classList.remove("hidden");
 }
 
 
@@ -226,6 +248,25 @@ metaltable.addEventListener("click", () => {
 })
 
 
+oaktable = document.getElementById("oaktable");
+oaktable.addEventListener("click", () => {
+    if(oaktableowned == true && oaktableplaced == false && houseData.table === ""){
+
+        document.getElementById("physicaloaktable").classList.remove("hidden");
+        oaktable.classList.add("placed");
+        oaktableplaced = true;
+        houseData.table = "oaktable";
+        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+    } else if(oaktableplaced == true){
+        document.getElementById("physicaloaktable").classList.add("hidden");
+        oaktable.classList.remove("placed");
+        oaktableplaced = false;
+        houseData.table = "";
+        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+    }
+})
+
+
 //////////////////////////////////roof stuff//////////////////////////
 //////////////////////////////////////////////////////////////////////
 
@@ -265,6 +306,24 @@ nastyfridge.addEventListener("click", () => {
         document.getElementById("physicalnastyfridge").classList.add("hidden");
         nastyfridge.classList.remove("placed");
         nastyfridgeplaced = false;
+        houseData.fridge = "";
+        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+    }
+})
+
+doubledoorfridge = document.getElementById("doubledoorfridge");
+doubledoorfridge.addEventListener("click", () => {
+    if(doubledoorfridgeowned == true && doubledoorfridgeplaced == false && houseData.fridge === ""){
+
+        document.getElementById("physicaldoubledoorfridge").classList.remove("hidden");
+        doubledoorfridge.classList.add("placed");
+        doubledoorfridgeplaced = true;
+        houseData.fridge = "doubledoorfridge";
+        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+    } else if(doubledoorfridgeplaced == true){
+        document.getElementById("physicaldoubledoorfridge").classList.add("hidden");
+        doubledoorfridge.classList.remove("placed");
+        doubledoorfridgeplaced = false;
         houseData.fridge = "";
         fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
     }
@@ -314,6 +373,26 @@ abstractpainting.addEventListener("click", () => {
 })
 
 
+fancypainting = document.getElementById("fancypainting");
+fancypainting.addEventListener("click", () => {
+    if(fancypaintingowned == true && fancypaintingplaced == false && houseData.painting === ""){
+
+        document.getElementById("physicalfancypainting").classList.remove("hidden");
+        fancypainting.classList.add("placed");
+        fancypaintingplaced = true;
+        houseData.painting = "fancypainting";
+        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+    } else if(fancypaintingplaced == true){
+        document.getElementById("physicalfancypainting").classList.add("hidden");
+        fancypainting.classList.remove("placed");
+        fancypaintingplaced = false;
+        houseData.painting = "";
+        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+    }
+})
+
+
+
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////////FURNISH CLICKED///////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
@@ -358,6 +437,11 @@ function furnishClicked(){
         document.getElementById("metaltable").classList.remove("unavailable");
     }
 
+    if(inventoryData.items.some(item => item.id === 106)){
+        oaktableowned = true;
+        document.getElementById("oaktable").classList.remove("unavailable");
+    }
+
     // ROOF STUFF
 
     if(inventoryData.items.some(item => item.id === 107)){
@@ -373,6 +457,11 @@ function furnishClicked(){
         document.getElementById("nastyfridge").classList.remove("unavailable");
     }
 
+    if(inventoryData.items.some(item => item.id === 110)){
+        doubledoorfridgeowned = true;
+        document.getElementById("doubledoorfridge").classList.remove("unavailable");
+    }
+
 
     /// PAINTINGS
 
@@ -384,6 +473,11 @@ function furnishClicked(){
     if(inventoryData.items.some(item => item.id === 113)){
         abstractpaintingowned = true;
         document.getElementById("abstractpainting").classList.remove("unavailable");
+    }
+    
+    if(inventoryData.items.some(item => item.id === 114)){
+        fancypaintingowned = true;
+        document.getElementById("fancypainting").classList.remove("unavailable");
     }
 }
 

@@ -24,7 +24,7 @@ chandy = 107
 
 
 nasty fridge = 109
-110
+doubledoor fridge = 110
 111
 
 

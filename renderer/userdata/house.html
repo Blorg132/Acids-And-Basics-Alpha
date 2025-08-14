@@ -220,6 +220,22 @@
                 left: 74%; /* distance from left of page */
             }
 
+            .physicaldoubledoorfridge img {
+                height: auto;
+                max-width: 35vw;
+                max-height: 40vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transform: rotateY(180deg);
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 30%;  /* distance from top of page */
+                left: 66%; /* distance from left of page */
+            }
+
             .physicalcheappainting img {
                 height: auto;
                 max-width: 15vw;
@@ -251,6 +267,39 @@
                 top: 22%;  /* distance from top of page */
                 left: 8%; /* distance from left of page */
             }
+
+            .physicalfancypainting img {
+                height: auto;
+                max-width: 23vw;
+                max-height: 26vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transform: rotateY(45deg);
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 22%;  /* distance from top of page */
+                left: 8%; /* distance from left of page */
+            }
+
+            .physicaloaktable img {
+                height: auto;
+                max-width: 20vw;
+                max-height: 23vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 60%;  /* distance from top of page */
+                left: 28%; /* distance from left of page */
+            }
+
+            
 
 
         </style>
@@ -286,6 +335,10 @@
                 <div class="furniture unavailable" id="metaltable">
                     <img src="../images/imageassets/MetalTable.webp">
                 </div>
+
+                <div class="furniture unavailable" id="oaktable">
+                    <img src="../images/imageassets/OakTable.webp">
+                </div>
             </div>
 
 
@@ -296,6 +349,9 @@
                 </div>
                 <div class="furniture unavailable" id="abstractpainting">
                     <img src="../images/imageassets/AbstractPainting.webp">
+                </div>
+                <div class="furniture unavailable" id="fancypainting">
+                    <img src="../images/imageassets/FancyPainting.webp">
                 </div>
             </div>
 
@@ -311,6 +367,9 @@
             <div class="furniture-section" id="fridgeholder">
                 <div class="furniture unavailable" id="nastyfridge">
                     <img src="../images/imageassets/NastyFridge.webp">
+                </div>
+                <div class="furniture unavailable" id="doubledoorfridge">
+                    <img src="../images/imageassets/DoubleDoorFridge.webp">
                 </div>
             </div>
 
@@ -338,13 +397,23 @@
         <div class="physicalabstractpainting hidden" id="physicalabstractpainting">
             <img src="../images/imageassets/AbstractPaintingTransparent.webp">
         </div>
+        <div class="physicalfancypainting hidden" id="physicalfancypainting">
+            <img src="../images/imageassets/FancyPaintingTransparent.png">
+        </div>
         <div class="physicaltherecliner hidden" id="physicaltherecliner">
             <img src="../images/imageassets/TheReclinerTransparent.png">
+        </div>
+
+        <div class="physicaloaktable hidden" id="physicaloaktable">
+            <img src="../images/imageassets/OakTableTransparent.webp">
         </div>
 
 
         <div class="physicalnastyfridge hidden" id="physicalnastyfridge">
             <img src="../images/imageassets/NastyFridgeTransparent.webp">
+        </div>
+        <div class="physicaldoubledoorfridge hidden" id="physicaldoubledoorfridge">
+            <img src="../images/imageassets/DoubleDoorFridgeTransparent.webp">
         </div>
 
 

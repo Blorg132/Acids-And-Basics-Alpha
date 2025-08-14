@@ -1,11 +1,66 @@
 {
-  "beakers": 2515,
+  "beakers": 149620,
   "beakersearned": 0,
   "items": [
+    {
+      "id": 106,
+      "name": "Oak Table",
+      "resell": 120
+    },
     {
       "id": 114,
       "name": "Fancy Painting",
       "resell": 100
+    },
+    {
+      "id": 107,
+      "name": "Chandy",
+      "resell": 50
+    },
+    {
+      "id": 103,
+      "name": "The Recliner",
+      "resell": 60
+    },
+    {
+      "id": 109,
+      "name": "Nasty Fridge",
+      "resell": 30
+    },
+    {
+      "id": 105,
+      "name": "Metal Table",
+      "resell": 48
+    },
+    {
+      "id": 112,
+      "name": "Cheap Painting",
+      "resell": 26
+    },
+    {
+      "id": 101,
+      "name": "Broken Wooden Chair",
+      "resell": 6
+    },
+    {
+      "id": 104,
+      "name": "Pool Table",
+      "resell": 18
+    },
+    {
+      "id": 102,
+      "name": "Sturdy Metal Chair",
+      "resell": 30
+    },
+    {
+      "id": 113,
+      "name": "Abstract Painting",
+      "resell": 60
+    },
+    {
+      "id": 110,
+      "name": "Double-Door Fridge",
+      "resell": 65
     }
   ]
 }

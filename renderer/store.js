@@ -14,11 +14,13 @@ let metalchairpurchased = false;
 let thereclinerpurchased = false;
 let pooltablepurchased = false;
 let metaltablepurchased  = false;
+let oaktablepurchased = false;
 let chandypurchased = false;
 let nastyfridgepurchased = false;
 let cheappaintingpurchased = false;
 let abstractpaintingpurchased = false;
 let fancypaintingpurchased = false;
+let doubledoorfridgepurchased = false;
 
 
 fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
@@ -59,9 +61,10 @@ fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
         document.getElementById("metaltable").classList.add("sold");
     }
 
-  //////////////////////////////////
-  // Missing id 106 here
-  //////////////////////////////////
+  if(jsonData.items.some(item => item.id === 106)){
+    oaktablepurchased = true;
+    document.getElementById("oaktable").classList.add("sold");
+  }
 
   if(jsonData.items.some(item => item.id === 107)){
     chandypurchased = true;
@@ -75,6 +78,10 @@ fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
     document.getElementById("nastyfridge").classList.add("sold");
   }
 
+  if(jsonData.items.some(item => item.id === 110)){
+    doubledoorfridgepurchased = true;
+    document.getElementById("doubledoorfridge").classList.add("sold");
+  }
 
   if(jsonData.items.some(item => item.id === 112)){
     cheappaintingpurchased = true;
@@ -90,6 +97,8 @@ fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
     fancypaintingpurchased = true;
     document.getElementById("fancypainting").classList.add("sold");
   }
+
+  
 
 
 
@@ -288,6 +297,27 @@ metaltable.addEventListener("click", () => {
 
 });
 
+////////////////
+/////OAK TABLE
+////////////////
+oaktable = document.getElementById("oaktable");
+oaktable.addEventListener("mouseover", () => {
+    Name.textContent = "Oak Table";
+    Name.className = "exquisiteitem";
+    description.textContent = "A beautiful piece sourced from Bolivian oak and crafted with Italian hands. I'd try and say something bad about it, but to be honest, I can't.";
+    cost.textContent = "Cost: 260 Beakers";
+});
+
+oaktable.addEventListener("click", () => {
+    console.log(oaktablepurchased);
+    if(oaktablepurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "Oak Table";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 260 Beakers?";
+    }
+
+
+});
 
 //////////////////////////////////
 //roof stuff
@@ -334,6 +364,25 @@ nastyfridge.addEventListener("click", () => {
 
 });
 
+doubledoorfridge = document.getElementById("doubledoorfridge");
+doubledoorfridge.addEventListener("mouseover", () => {
+    Name.textContent = "Double-Door Fridge";
+    Name.className = "rareitem";
+    description.textContent = "Trusty, reliable, and looks great with pretty much anything. My cousin had one of these a couple years ago, and it never let him down, up until his house sparked into flames. Oh yeah- this fridge is flammable.";
+    cost.textContent = "Cost: 140 Beakers";
+});
+
+doubledoorfridge.addEventListener("click", () => {
+    console.log(doubledoorfridgepurchased);
+    if(doubledoorfridgepurchased == false){
+        popup.classList.remove("hidden");
+        purchasechosen = "Double-Door Fridge";
+        popuptext.textContent = purchasephrase + purchasechosen + " for 140 Beakers?";
+    }
+
+
+});
+
 
 
 /////////////////////////////////////////////////
@@ -345,7 +394,7 @@ cheappainting = document.getElementById("cheappainting");
 cheappainting.addEventListener("mouseover", () => {
     Name.textContent = "Cheap Painting";
     Name.className = "normalitem";
-    description.textContent = "The beauty of mass production! Now, even YOU can own your very own masterpiece. This one even includes a condiment stain.";
+    description.textContent = "The beauty of mass production! Now, even YOU can have your very own masterpiece. This one even includes a condiment stain!";
     cost.textContent = "Cost: 60 Beakers";
 });
 
@@ -384,7 +433,7 @@ fancypainting = document.getElementById("fancypainting");
 fancypainting.addEventListener("mouseover", () => {
     Name.textContent = "Fancy Painting";
     Name.className = "exquisiteitem";
-    description.textContent = "If anyone actually knew about this painting, I'm damn sure it'd be in a famous museum somewhere. It's got a hefty weight for sure, and a hefty price tag to go with it as well.";
+    description.textContent = "If anyone actually knew about this painting, I'm damn sure it'd be in a famous museum somewhere. Actually... if anyone asks where you got it, keep my name out of it.";
     cost.textContent = "Cost: 220 Beakers";
 });
 
@@ -529,6 +578,24 @@ purchasebutton.addEventListener("click", () => {
         if(beakers > itemprice){
             fancypaintingpurchased = true;
             document.getElementById("fancypainting").classList.add("sold");
+        }
+    } else if(purchasechosen == "Oak Table"){
+        itemname = "Oak Table";
+        itemprice = 260;
+        itemid = 106;
+        itemresell = 120;
+        if(beakers > itemprice){
+            oaktablepurchased = true;
+            document.getElementById("oaktable").classList.add("sold");
+        }
+    } else if(purchasechosen === "Double-Door Fridge"){
+        itemname = "Double-Door Fridge";
+        itemprice = 140;
+        itemid = 110;
+        itemresell = 65;
+        if(beakers > itemprice){
+            doubledoorfridgepurchased = true;
+            document.getElementById("doubledoorfridge").classList.add("sold");
         }
     }
     //
