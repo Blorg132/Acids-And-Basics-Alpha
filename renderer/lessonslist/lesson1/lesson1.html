@@ -46,7 +46,9 @@
 
 
         <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
         <script>
+            saveLessonCompletion("lesson1");
             document.getElementById("massvolume").addEventListener("click", () => {
                 customAlert("Mass is the amount of matter in an object (grams/pounds), and volume is the amount of space an object takes up (litres or cm³)")
             });
@@ -55,6 +57,7 @@
                 customAlert("A state of matter is a distinct form that matter can have, which usually has specific physical properties.")
             });
         </script>
+        <script src="../lessons.js"></script>
         
         <div style="text-align: center;">
             <!--Why do I have to do this to actually center a button? No fucking clue.-->

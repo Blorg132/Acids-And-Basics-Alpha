@@ -73,12 +73,20 @@ function customAlert(message) {
 //
 //
 
+function saveLessonCompletion(penis){
+  const fs = require('fs');
+  let dog = fs.readFileSync("./renderer/userdata/lessondata.json", "utf8");
+  roggie = JSON.parse(dog);
+  roggie.lessonclicked = penis;
+  fs.writeFileSync("./renderer/userdata/lessondata.json", JSON.stringify(roggie, null, 2));
+}
 
 
 //
 //
 // GIVING BEAKERS AFTER LESSON
 function lessonGiveBeakers(score){
+  console.log("Lesson Give Beakers Running")
   fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
     let jsonData = JSON.parse(jsonString);
 
@@ -90,15 +98,15 @@ function lessonGiveBeakers(score){
         /////////////////////////////////
         // Writing lesson completion
         /////////////////////////////////
-        if (lessonData.lesson1 === false) {
+        if (lessonData.lessonclicked === "lesson1" && lessonData.lesson1 === false) {
             givebeakers = true;
             lessonData.lesson1 = true;
 
-        } else if(lessonData.lesson2 === false && lessonData.lesson1 === true){
+        } else if(lessonData.lessonclicked === "lesson2" && lessonData.lesson2 === false){
             givebeakers = true;
             lessonData.lesson2 = true;
-        } else if(lessonData.lesson3 === false && lessonData.lesson2 === true){
-            givebeakers = true;
+        } else if(lessonData.lessonclicked === "lesson3" && lessonData.lesson3 === false){
+            givebeakers = true
             lessonData.lesson3 = true;
         }
 
