@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+
+    <head>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="../lessonstyles.css">
+        <title>Lesson 3 Quiz</title>
+    </head>
+
+
+    <body class="test-body">
+        
+
+        <div class="test-container">
+            <div class=test-background></div>
+            <div id="actualcontent">
+                <!--Please note that all instances of form-submission with HTML should be in labels. No idea why though.-->
+                <form id="lessonform3">
+
+                    <!--First Question-->
+                    <!--Just so you know, for 'radio' forms, set the values to wrong or correct. Then, look for 'correct' with a querySelectorAll thing.-->
+                    <p>What are the main requirements for a gas particle?</p>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        "Gas particles have no volume and no motion."
+                    </label>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        "Gas particles attract each other strongly."
+                    </label>
+                    <label>
+                        <input type="radio" name="question1" value="correct">
+                        "Gas particles are in constant, random motion and collide elastically."
+                    </label> 
+
+
+                    <!--Second Question-->
+                    <p>According to the KMT, how do gas particles move?</p>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "In a fixed position"
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "In circular waves"
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "In straight lines forever"
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="correct">
+                        "In straight lines until they collide"
+                    </label>
+
+                    <!--Submit button-->
+
+                    <br>
+                    <br>
+                    <button type="submit">I'm Done!</button>
+
+                </form>
+
+
+
+                <script src="../lessons.js"></script>
+
+                <script>
+                    // Checking answers when user submits with the button
+                    document.getElementById("lessonform3").addEventListener("submit", function(event) {
+                        event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
+                        let totalscore = 0; // please pass this variable into the function lessonGiveBeakers to add the proper amount
+
+
+                        // QUESTION 1: Multiple Choice
+                        let question1 = document.querySelector('input[name="question1"]:checked');
+                        if (question1 && question1.value === "correct") {
+                            totalscore++;
+                        }
+
+                        // QUESTION 2: Multiple Choice
+
+                        let question2 = document.querySelector('input[name="question2"]:checked');
+                        if(question2 && question2.value === "correct"){
+                            totalscore = totalscore + 2;
+                        }
+
+
+
+
+                        lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
+                        // make sure you pass the score variable through, or else it won't work!
+
+                        window.location.href="../lessoncomplete.html";
+                    });
+
+                </script>
+            </div>
+        </div>
+
+
+    </body>
+
+
+
+</html>

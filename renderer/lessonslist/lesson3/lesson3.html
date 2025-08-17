@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../lessonstyles.css">
+    <script src="../lessons.js"></script>
+    <title>Lesson 3: KMT Final</title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">Doggie and Monkey</h1>
+
+
+            <p class="paragraph">
+                Since we now know that dogs are <span id="monkeys"><b>monkeys</b></span>
+
+
+            </p>
+
+
+            <!--Running Custom Alert scripts here.-->
+            <script>
+                saveLessonCompletion("lesson3");
+
+                document.getElementById("monkeys").addEventListener("click", () => {
+                    customAlert("Monkeys are great!");
+                });
+
+            </script>
+            <script src="../lessons.js"></script>
+            
+
+            <div style="text-align: center;">
+                <button class="quiz-button" onclick="window.location.href='lesson3-3.html';">Take this short quiz to prove you've got it!</button>
+            </div>
+            <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
