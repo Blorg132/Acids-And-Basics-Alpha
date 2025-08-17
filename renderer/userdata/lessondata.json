@@ -1,8 +1,8 @@
 {
   "comment1": "Section 1: KMT Lessons ",
-  "lessonclicked": "lesson3",
+  "lessonclicked": "lesson2",
   "lesson1": true,
   "lesson2": true,
-  "lesson3": true,
+  "lesson3": false,
   "lesson4": false
 }
