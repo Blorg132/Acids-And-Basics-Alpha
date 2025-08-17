@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Lessons Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <audio src="sounds/lessonsong.mp3" autoplay loop id="backgroundmusic"></audio>
+
+    <!--Changing the volume. I think we can have multiple Java scripts. Don't worry. Forget about it.-->
+    <script>
+        var audio = document.getElementById("backgroundmusic");
+        audio.volume = 0.3;
+    </script>
+
+</head>
+
+<body style="background-color: rgb(10, 22, 62)">
+    
+    <!--Declaring CSS Styles-->
+    <style>
+
+        .hidden {
+                display: none;
+        }
+
+        span {
+            color: green;
+            font-size: 18px;
+        }
+    </style>
+
+
+    <!--KMT SECTION-->
+    <div class="lesson-select-container">
+        <button class="lesson-select-button" onclick="window.location.href='lessonslist/lesson1/lesson1.html';"><span>Lesson 1:</span><br>Basics of Kinetic Molecular Theory</button>
+        <button id="lesson2" class="lesson-select-button hidden" onclick="window.location.href='lessonslist/lesson2/lesson2.html';"><span>Lesson 2:</span><br>KMT Continued</button>
+        <button id="lesson3" class="lesson-select-button hidden" onclick="window.location.href='lessonslist/lesson3/lesson3.html'"><span>Lesson 3: </span><br>KMT Final</button>
+    </div>
+    <!---->
+
+    <!--ATOMIC THEORY SECTION-->
+    <div class="lesson-select-container">
+        <button class="lesson-select-button" onclick="window.location.href='lessonslist/lesson4/lesson4.html';"><span>Lesson 4:</span><br>Basics of Atomic Theory</button>
+    </div>
+    <!---->
+
+
+    <!--BONDING SECTION-->
+    <div class="lesson-select-container">
+        <button class="lesson-select-button" onclick="console.log('thisbuttondoesnothingyet!');"><span>Lesson 8:</span><br>Bonding Basics</button>
+    </div>
+    <!---->
+
+    <!--NAMING SECTION-->
+    <div class="lesson-select-container">
+        <button class="lesson-select-button" onclick="console.log('thisbuttondoesnothingyet!');"><span>Lesson 12:</span><br>Naming</button>
+    </div>
+
+
+
+    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
+
+    <script>
+
+        ////////////////////////////////////////////////////
+        // This script is just for reading lessondata.json!!
+        ////////////////////////////////////////////////////
+
+        const fs = require('fs');
+        // hiding and unhiding lessons
+
+        fs.readFile("./renderer/userdata/lessondata.json", "utf8", (err, lessonRaw) => {
+            lessonData = JSON.parse(lessonRaw);
+
+            //
+            // the actual hiding
+            // NOTE: Each check has to be in different if statements. Thank god i figured that out. I don't need ChatGPT guys. I'm just like that.
+
+            //KMT Section/////////////////////////////////////////////////////
+            if(lessonData.lesson1 == true){
+                document.getElementById("lesson2").classList.remove("hidden");
+            }
+            if(lessonData.lesson2 == true){
+                document.getElementById("lesson3").classList.remove("hidden");
+            }
+            if(lessonData.lesson4 == true){
+                document.getElementById("lesson5").classList.remove("hidden");
+            }
+            //////////////////////////////////////////////////////////////////
+
+
+        });
+    </script>
+</body>
+
+
+</html>
