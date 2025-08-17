@@ -108,7 +108,9 @@ function lessonGiveBeakers(score){
         } else if(lessonData.lessonclicked === "lesson3" && lessonData.lesson3 === false){
             givebeakers = true
             lessonData.lesson3 = true;
-        }
+        }  else if(lessonData.lessonclicked === "lesson4" && lessonData.lesson4 === false){
+            givebeakers = true;
+            lessonData.lesson4 = true;
 
         /////////////////////////////////////////
         
