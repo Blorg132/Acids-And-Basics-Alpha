@@ -112,6 +112,11 @@ function lessonGiveBeakers(score){
             givebeakers = true;
             lessonData.lesson4 = true;
 
+        }  else if(lessonData.lessonclicked === "lesson5" && lessonData.lesson5 === false){
+            givebeakers = true;
+            lessonData.lesson4 = true;
+
+
         /////////////////////////////////////////
         
         // Saving changes
