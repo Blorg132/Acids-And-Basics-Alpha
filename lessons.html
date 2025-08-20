@@ -46,6 +46,11 @@
     </div>
     <!---->
 
+    <!--Periodicity-->
+    <div class="lesson-select-container">
+        <button class="lesson-select-button" onclick="window.location.href='lessonslist/lesson4/lesson4.html';"><span>Lesson 5:</span><br>The Periodic Table of Elements</button>
+    </div>
+
 
     <!--BONDING SECTION-->
     <div class="lesson-select-container">
@@ -73,7 +78,8 @@
 
         fs.readFile("./renderer/userdata/lessondata.json", "utf8", (err, lessonRaw) => {
             lessonData = JSON.parse(lessonRaw);
-
+    
+        });  
             //
             // the actual hiding
             // NOTE: Each check has to be in different if statements. Thank god i figured that out. I don't need ChatGPT guys. I'm just like that.
@@ -88,12 +94,17 @@
             if(lessonData.lesson4 == true){
                 document.getElementById("lesson5").classList.remove("hidden");
             }
+             if(lessonData.lesson5 == true){
+                document.getElementById("lesson6").classList.remove("hidden");
+
             //////////////////////////////////////////////////////////////////
 
 
-        });
+        };
     </script>
 </body>
 
-
 </html>
+
+
+        

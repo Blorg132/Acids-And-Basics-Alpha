@@ -5,5 +5,9 @@
   "lesson2": false,
   "lesson3": false,
   "lesson4": true,
-  "lesson5": false,
+<<<<<<< HEAD
+  "lesson5":false
+=======
+  "lesson5": false
+>>>>>>> 40718503740df34f6f661c5806f40ecbd7e28d9f
 }
