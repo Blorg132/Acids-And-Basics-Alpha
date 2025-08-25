@@ -114,7 +114,45 @@ function lessonGiveBeakers(score){
 
         }  else if(lessonData.lessonclicked === "lesson5" && lessonData.lesson5 === false){
             givebeakers = true;
-            lessonData.lesson4 = true;
+            lessonData.lesson5 = true;
+
+        }  else if(lessonData.lessonclicked === "lesson6" && lessonData.lesson5 === false){
+            givebeakers = true;
+            lessonData.lesson5 = true;
+
+        }  else if(lessonData.lessonclicked === "lesson7" && lessonData.lesson5 === false){
+            givebeakers = true;
+            lessonData.lesson5 = true;
+
+        }  else if(lessonData.lessonclicked === "lesson8" && lessonData.lesson5 === false){
+            givebeakers = true;
+            lessonData.lesson5 = true;
+
+        }  else if(lessonData.lessonclicked === "lesson9" && lessonData.lesson5 === false){
+            givebeakers = true;
+            lessonData.lesson5 = true;
+
+        }  else if(lessonData.lessonclicked === "lesson10" && lessonData.lesson5 === false){
+            givebeakers = true;
+            lessonData.lesson5 = true;
+
+        }  else if(lessonData.lessonclicked === "lesson11" && lessonData.lesson5 === false){
+            givebeakers = true;
+            lessonData.lesson5 = true;
+
+        }  else if(lessonData.lessonclicked === "lesson12" && lessonData.lesson5 === false){
+            givebeakers = true;
+            lessonData.lesson5 = true;
+
+
+
+
+
+
+
+
+
+      
 
 
         /////////////////////////////////////////
