@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="../lessonstyles.css">
     <script src="../lessons.js"></script>
-    <title>Lesson 10: Acids vs Bases</title>
+    <title>Lesson 5: The periodic table of elements</title>
 
     <style>
         @font-face {
@@ -17,41 +16,99 @@
 </head>
 
 <body>
+    <!--These div's are so the background-image actually works. Whoops!-->
 
     <div class="lesson-container">
         <div class="lesson-background"></div>
         <div id="actualcontent">
-            <h1 class="cool-header-blue">What affects particles?</h1>
+            <h1 class="cool-header-blue"><strong> What are acids and bases ?</strong></h1>
 
+            <div id="image" 
 
-            <p class="paragraph">
-              
+                <img src="https://cdn.hswstatic.com/gif/periodic-table-large.gif"/>
 
-            </p>
-
-
-            <!--Running Custom Alert scripts here.-->
-            <script>
-                saveLessonCompletion("lesson10");
-                document.getElementById("temperature").addEventListener("click", () => {
-                    customAlert("the degree or intensity of heat present in a substance or object, especially as expressed according to a comparative scale and shown by a thermometer or perceived by touch.");
-                });
-
-                document.getElementById("kineticenergy").addEventListener("click", () => {
-                    customAlert("Kinetic energy is the energy an object possesses due to its motion. It's the energy an object has when it's moving, and the amount of kinetic energy depends on the object's mass and speed.");
-                })
-
-                document.getElementById("volatility").addEventListener("click", () => {
-                    customAlert("liability to change rapidly and unpredictably");
-                })
-            </script>
-            <script src="../lessons.js"></script>
-            
-
-            <div style="text-align: center;">
-                <button class="quiz-button" onclick="window.location.href='lesson2-2.html';">Take this short quiz to prove you've got it!</button>
             </div>
-            <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+
+
+        
+
+     <div id="The arrangement of periodic table"> </div>
+        <h2 class="cool-header-blue">"The Periodic Table: Nature’s Blueprint for Elements"</h2>
+
+        <p class="paragraph">
+           <br> The periodic table of elements was created by <span id="Dmitri Mendeleev"></span> Dmitri Mendeleev  in 1896 
+            It is a tabular arrangement of the chemical elements organized by the atomic number  (the no.of protons)
+        </p>
+
+        
+        <div id="Rows vs Periods"> </div>
+            <h2 class="cool-header-blue">"Side to side are periods wide, up and down are groups with pride."</h2>
+
+        <p class="paragraph">
+          <br>In the periodic table of elements, elements are arranged in horizontal rows known as periods and
+          vertical columns known as family/groups. 
+
+
+       <div id="Rows vs Periods"> </div>
+            <h3 class="cool-header-blue">"Periods keep the shell count still, families add shells at will."</h3> 
+           <ul>
+            <li> Period - When moving across the same period, no. of electron shells remains the same</li>
+            <li> Family - However, when moving down the same family, the no. of electron shells increase</li>
+           </ul>
+ "                
+
+        </p>
+        
+        <div id="The arrangement of periodic table">
+            <h2 class="cool-header-blue">"The Periodic Table: Nature’s Blueprint for Elements"</h2>
+
+
+        <p class="paragraph">
+            Furthermore, this arrangement is beneficial in predicting both the physical and chemical properties of elements<br>
+            For example,
+
+            <div id="Physical properties"></div>
+                <h3 class=" cool-header-blue">"Some of the predicted physical properties include the following"</h3>
+ "              <ul>
+                <li>Atomic Radius- The distance from the nucleus to the outermost electron orbital</li>
+                <li>Metallic character- Metals, Non-metals, or metalloids</li>
+                <li>Molar mass- The mass of one mole (SI unit of measurement) of an element  </li>
+                <li>State of matter- Solid, Liquid, or Gaseous state</li>
+
+                </ul>
+
+            <div id="Chemical  properties"></div>
+                <h3 class=" cool-header-blue">"Some of the predicted physical properties include"</h3>
+ "              <ul>
+                <li>Reactivity - A substance's tendency to undergo a chemical reaction </li>
+                <li>Ionization energy - The energy required to remove one mole of an electron from one mole of a gaseous atom </li>
+                <li>Electronegativity - The ability of an atom to attract electrons in a chemical bond<br> Pauling Scale can be used to quantify the electronegativity of an element</li>
+                <li> Valence electrons - The electrons located in outermost orbital of an atom</li>
+
+                </ul> 
+      
+        
+
+        
+
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonCompletion("lesson5");
+            document.getElementById("Dmitri Mendeleev").addEventListener("click", () => {
+                customAlert("The Father of the Periodic Table");
+            });
+
+            
+        </script>
+        <script src="../lessons.js"></script>
+        
+        <div style="text-align: center;">
+            <!--Why do I have to do this to actually center a button? N-->
+            <button class="quiz-button" onclick="window.location.href='lesson5-5.html';">Take this short quiz to prove you've got it!</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
         </div>
     </div>
 

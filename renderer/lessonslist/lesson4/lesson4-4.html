@@ -54,13 +54,13 @@
                     // Checking answers when user submits with the button
                     document.getElementById("lessonform1").addEventListener("submit", function(event) {
                         event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
-                        let totalscore = 0; // please pass this variable into the function lessonGiveBeakers to add the proper amount
+                        let totalscore = 1; // please pass this variable into the function lessonGiveBeakers to add the proper amount
 
 
                         // QUESTION 1: Multiple Choice
                         let question1 = document.querySelector('input[name="question1"]:checked');
                         if (question1 && question1.value === "correct") {
-                            totalscore=totalscore+4;
+                            totalscore=totalscore + 2;
                         }
 
                         
