@@ -101,6 +101,8 @@ function lessonGiveBeakers(score){
         if (lessonData.lessonclicked === "lesson1" && lessonData.lesson1 === false) {
             givebeakers = true;
             lessonData.lesson1 = true;
+            console.log(lessonData.lesson1);
+            console.log("this runs");
 
         } else if(lessonData.lessonclicked === "lesson2" && lessonData.lesson2 === false){
             givebeakers = true;
@@ -146,7 +148,7 @@ function lessonGiveBeakers(score){
 
 
 
-
+        }
         /////////////////////////////////////////
         
         // Saving changes
@@ -166,7 +168,7 @@ function lessonGiveBeakers(score){
         fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(jsonData, null, 2));
 
         console.log(`Updated inventory: ${jsonData.beakers} beakers`);
-    }});
+    });
   });
 }
 //
