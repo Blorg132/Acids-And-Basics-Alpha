@@ -25,68 +25,78 @@
                     <p> Which of the following household items are acidic</p>
                     <label>
                         <input type="radio" name="question1" value="wrong">
-                        ""
+                        " Vinegar"
                     </label>
                     <label>
                         <input type="radio" name="question1" value="correct">
-                        "p=17,n=19,e=18"
+                        "Dish washing liquid"
                     </label>
                     <label>
                         <input type="radio" name="question1" value="wrong">
-                        "p=18,n=18,e=17"
+                        "Orange Juice"
                     </label> 
 
                     <label>
-                        <input type="radio" name="question1" value="wrong">
-                        "p=15,n=16,e=15"
+                        <input type="radio" name="question1" value="correct">
+                        "Hand Sanitizer"
                     </label>
 
                 <!--Second Question-->
 
-                    <p>Determine the physical properties that can be predicted through the periodic table</p>
+                    <p> If orange juice has a pH of around 3-4 and baking soda has  a pH of around 9. When 
+                        mixing these two solutions, will the resulting salt be acidic, basic, or neutral. 
+                    </p>
                     <label>
-                        <input type="radio" name="question2" value="wrong">
-                        "Electronegativity"
+                        <input type="radio" name="question2" value="correct">
+                        " Mild Acid"
                     </label>
                     
                     <label>
                         <input type="radio" name="question2" value="wrong">
-                        "Ionization"
+                        " Mild Base"
                         
                     </label>
 
                     <label>
-                        <input type="radio" name="question2" value="correct">
-                        "Valence electrons"
+                        <input type="radio" name="question2" value="wrong">
+                        "Strong Acid"
                     </label>
                     
                     <label>
                         <input type="radio" name="question2" value="wrong">
-                        "Atomic Radius"
+                        "Strong Base"
                     </label>
 
                     <!--Third Question-->
 
-                    <p>Determine why elements in the same group have similar chemical properties, even though their atomic numbers are different.</p>
+                    <p> A student tests two unknown solutions and discovers 
+                        <ul>
+                            <li> Solution A turns red litmus blue</li>
+                            <li> Solution B turns blue litmus red</li>
+                            
+                        </ul>
+
+                        <br> Suggest two scientific methods that can be used to differentiate between acids and bases.
+                    </p>
                     <label>
                         <input type="radio" name="question2" value="wrong">
-                        "They have the same no. of total electrons"
+                        "Color Perception"
                     </label>
                     
                     <label>
                         <input type="radio" name="question2" value="wrong">
-                        "They are all metals"
+                        "Adding surplous amounts of an indicator "
                         
                     </label>
 
                     <label>
                         <input type="radio" name="question2" value="correct">
-                        "They have the same no. of valence electrons"
+                        " Adding the measured amount of an indicator "
                     </label>
                     
                     <label>
-                        <input type="radio" name="question2" value="wrong">
-                        "They all have the same atomic radius"
+                        <input type="radio" name="question2" value="correct">
+                        " Using specialized tools such as pH meter"
                     </label> 
                     
 
@@ -110,19 +120,19 @@
 
                         // QUESTION 1: Multiple Choice
                         let question1 = document.querySelector('input[name="question1"]:checked');
-                        if (question1 && question1.value === "correct") {
+                        if (question1 && question2.value === "correct") {
                             totalscore=totalscore+2;
                         }
 
                         // QUESTION 2: Multiple Choice
                         let question2 = document.querySelector('input[name="question2"]:checked');
-                        if (question2 && question2.value === "correct") {
+                        if (question2 && question1.value === "correct") {
                             totalscore=totalscore+3;
                         }
 
                         // QUESTION 3: Multiple Choice
                         let question3 = document.querySelector('input[name="question3"]:checked');
-                        if (question3 && question3.value === "correct") {
+                        if (question3 && question3.value && question4.value=== "correct") {
                             totalscore=totalscore+4;
                         }
 
