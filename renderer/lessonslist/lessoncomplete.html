@@ -76,6 +76,8 @@
         <!--adding lessons.js just for the FS require-->
         <script src="lessons.js"></script>
         <script>
+
+            lessonGiveBeakers();
             showscore = document.getElementById("showscore");
             fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, inventoryRaw) => {
                 inventoryData = JSON.parse(inventoryRaw);

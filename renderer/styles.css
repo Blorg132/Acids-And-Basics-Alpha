@@ -120,6 +120,28 @@
     font-family: Quantico;
 }
 
+/* Redefining back button here because i want it to be on the right. Oh well! */
+.back-button-lessons {
+    padding: 8px 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /*this is all that's changed */
+    font-size: calc(1em + 0.5vw);
+    text-align: center;
+    font-family: Jost;
+    border: 2px solid rgb(199, 33, 33);
+    border-radius: 10px; 
+    transition-duration: 0.4s;
+    width: 15%;
+    font-family: Quantico;
+}
+
+.back-button-lessons:hover {
+    background-color: #f54e4e;
+    color:aliceblue;
+    transform: translateY(-5px);
+    font-family: Quantico;
+}
 
 
 

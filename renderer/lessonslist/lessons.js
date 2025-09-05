@@ -73,11 +73,11 @@ function customAlert(message) {
 //
 //
 
-function saveLessonCompletion(penis){
+function saveLessonCompletion(lessonname){
   const fs = require('fs');
   let dog = fs.readFileSync("./renderer/userdata/lessondata.json", "utf8");
   roggie = JSON.parse(dog);
-  roggie.lessonclicked = penis;
+  roggie.lessonclicked = lessonname;
   fs.writeFileSync("./renderer/userdata/lessondata.json", JSON.stringify(roggie, null, 2));
 }
 
@@ -101,6 +101,8 @@ function lessonGiveBeakers(score){
         if (lessonData.lessonclicked === "lesson1" && lessonData.lesson1 === false) {
             givebeakers = true;
             lessonData.lesson1 = true;
+            console.log(lessonData.lesson1);
+            console.log("this runs");
 
         } else if(lessonData.lessonclicked === "lesson2" && lessonData.lesson2 === false){
             givebeakers = true;
@@ -116,45 +118,37 @@ function lessonGiveBeakers(score){
             givebeakers = true;
             lessonData.lesson5 = true;
 
-        }  else if(lessonData.lessonclicked === "lesson6" && lessonData.lesson5 === false){
+        }  else if(lessonData.lessonclicked === "lesson6" && lessonData.lesson6 === false){
             givebeakers = true;
-            lessonData.lesson5 = true;
+            lessonData.lesson6 = true;
 
-        }  else if(lessonData.lessonclicked === "lesson7" && lessonData.lesson5 === false){
+        }  else if(lessonData.lessonclicked === "lesson7" && lessonData.lesson7 === false){
             givebeakers = true;
-            lessonData.lesson5 = true;
+            lessonData.lesson7 = true;
 
-        }  else if(lessonData.lessonclicked === "lesson8" && lessonData.lesson5 === false){
+        }  else if(lessonData.lessonclicked === "lesson8" && lessonData.lesson8 === false){
             givebeakers = true;
-            lessonData.lesson5 = true;
+            lessonData.lesson8 = true;
 
-        }  else if(lessonData.lessonclicked === "lesson9" && lessonData.lesson5 === false){
+        }  else if(lessonData.lessonclicked === "lesson9" && lessonData.lesson9 === false){
             givebeakers = true;
-            lessonData.lesson5 = true;
+            lessonData.lesson9 = true;
 
-        }  else if(lessonData.lessonclicked === "lesson10" && lessonData.lesson5 === false){
+        }  else if(lessonData.lessonclicked === "lesson10" && lessonData.lesson10 === false){
             givebeakers = true;
-            lessonData.lesson5 = true;
+            lessonData.lesson10 = true;
 
-        }  else if(lessonData.lessonclicked === "lesson11" && lessonData.lesson5 === false){
+        }  else if(lessonData.lessonclicked === "lesson11" && lessonData.lesson11 === false){
             givebeakers = true;
-            lessonData.lesson5 = true;
+            lessonData.lesson11 = true;
 
-        }  else if(lessonData.lessonclicked === "lesson12" && lessonData.lesson5 === false){
+        }  else if(lessonData.lessonclicked === "lesson12" && lessonData.lesson12 === false){
             givebeakers = true;
-            lessonData.lesson5 = true;
+            lessonData.lesson12 = true;
 
 
 
-
-
-
-
-
-
-      
-
-
+        }
         /////////////////////////////////////////
         
         // Saving changes
@@ -174,7 +168,7 @@ function lessonGiveBeakers(score){
         fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(jsonData, null, 2));
 
         console.log(`Updated inventory: ${jsonData.beakers} beakers`);
-    }});
+    });
   });
 }
 //
