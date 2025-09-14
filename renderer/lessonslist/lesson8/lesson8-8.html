@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+
+    <head>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="../lessonstyles.css">
+        <title>Lesson 8 Quiz</title>
+    </head>
+
+
+    <body class="test-body">
+        
+        <div class="test-container">
+            <div class=test-background></div>
+            <div id="actualcontent">
+                <!--Please note that all instances of form-submission with HTML should be in labels. No idea why though.-->
+                <form id="lessonform1">
+
+                    <!--First Question-->
+                    <!--Just so you know, for 'radio' forms, set the values to wrong or correct. Then, look for 'correct' with a querySelectorAll thing.-->
+                    <p>What is the definition of ionic bonding?</p>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        "When two elements come together and share electrons."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        "When two elements offer each other electrons in order to reach a stable state of matter."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        "When two non-metals offer each other electrons to reach a stable state."
+                    </label>
+                    <br> 
+                    <label>
+                        <input type="radio" name="question1" value="correct">
+                        "When a metal offers electrons to a non-metal for both to reach a stable state."
+                    </label>
+                    <br>
+
+                    <!--Second Question-->
+                    <p>What is covalent bonding?</p>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "When two metals share electrons to reach a stable state."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "When two non-metals combine after ionizing."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "When two non-metals share electrons to both reach a stable state of matter, under the right conditions."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="correct">
+                        "When two non-metals share electrons to each reach a stable state."
+                    </label>
+
+
+                    <p style="color: whitesmoke; background-color: goldenrod; text-align: center;"><em>Psst! Use a periodic table for the next few questions!</em></p>
+
+                    <!--Third Question-->
+                    <p>If a sodium atom creates an ionic bond with an atom of chlorine, what happens to both of them?</p>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        "The sodium atom gives two electrons to chlorine and they bond after a few seconds."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question3" value="correct">
+                        "The sodium atom gives an electron to chlorine and they bond in a stable state."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        "The sodium atom gains two electrons from chlorine and they leave each other."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        "None of the above; sodium and chlorine do not interact."
+                    </label>
+
+
+                    <!--Fourth Question-->
+                    <p>If a magnesium atom creates a covalent bond with an atom of oxygen, what happens to both of them?</p>
+                    <label>
+                        <input type="radio" name="question4" value="wrong">
+                        "The magnesium atom gives two electrons to oxygen and they bond after a few seconds."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question4" value="wrong">
+                        "The magnesium atom shares two electrons with oxygen and they bond."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question4" value="correct">
+                        "None of the above; magnesium and oxygen do not form this bond."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question4" value="wrong">
+                        "The magnesium atom gives one electron to oxygen, forming an ionic bond."
+                    </label>
+
+
+                    <!--Fifth Question-->
+                    <p>When is a valence shell 'stable'?</p>
+                    <label>
+                        <input type="radio" name="question5" value="correct">
+                        "When it is full with electrons."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question5" value="wrong">
+                        "When it is nearly empty or nearly full with electrons."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question5" value="correct">
+                        "When a bond is formed, as another atom provides gravitational stability."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question5" value="wrong">
+                        "When it reaches an iodized electron configuration."
+                    </label>
+
+
+
+
+                    <!--Sixth Question-->
+                    <p>What happens when an oxygen atom forms a covalent bond with two hydrogen atoms?</p>
+                    <label>
+                        <input type="radio" name="question6" value="wrong">
+                        "The oxygen atom gives two electrons, and the hydrogen atoms take them and become stable."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question6" value="wrong">
+                        "The oxygen atom gains two electrons from hydrogen."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question6" value="wrong">
+                        "The hydrogen atoms ionize and give their electrons to hydrogen."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question6" value="correct">
+                        "The oxygen atom shares two electrons to the hydrogens, and the hydrogens share one each with oxygen."
+                    </label>
+
+
+
+                    <!--Submit button-->
+
+                    <br>
+                    <br>
+                    <button type="submit">I'm Done!</button>
+
+                </form>
+                
+
+                <script src="../lessons.js"></script>
+
+                <script>
+                    // Checking answers when user submits with the button
+                    document.getElementById("lessonform1").addEventListener("submit", function(event) {
+                        event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
+                        let totalscore = 0; // please pass this variable into the function lessonGiveBeakers to add the proper amount
+
+
+                        // QUESTION 1: Multiple Choice
+                        let question1 = document.querySelector('input[name="question1"]:checked');
+                        if (question1 && question1.value === "correct") {
+                            totalscore += 2;
+                        }
+
+                        // QUESTION 2: Multiple Choice
+
+                        let question2 = document.querySelector('input[name="question2"]:checked');
+                        if(question2 && question2.value === "correct"){
+                            totalscore += 3;
+                        }
+
+                        // QUESTION 3: Multiple Choice
+
+                        let question3 = document.querySelector('input[name="question3"]:checked');
+                        if(question3 && question3.value === "correct"){
+                            totalscore++;
+                        }
+
+                        // QUESTION 4: Multiple Choice
+
+                        let question4 = document.querySelector('input[name="question4"]:checked');
+                        if(question4 && question4.value === "correct"){
+                            totalscore += 4;
+                        }
+
+                        // QUESTION 5: Multiple Choice
+
+                        let question5 = document.querySelector('input[name="question5"]:checked');
+                        if(question5 && question5.value === "correct"){
+                            totalscore += 2;
+                        }
+
+                        // QUESTION 6: Multiple Choice
+
+                        let question6 = document.querySelector('input[name="question6"]:checked');
+                        if(question6 && question6.value === "correct"){
+                            totalscore += 3;
+                        }
+
+                        console.log(totalscore);
+                        lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
+                        // make sure you pass the score variable through, or else it won't work!
+
+                        window.location.href="../lessoncomplete.html";
+                    });
+
+                </script>
+            </div>
+        </div>
+
+
+    </body>
+
+
+
+</html>

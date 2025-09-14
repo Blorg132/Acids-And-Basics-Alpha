@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../lessonstyles.css">
+    <script src="../lessons.js"></script>
+    <title>Lesson 8: Bonding Basics</title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">What is bonding?</h1>
+
+
+        <p class="paragraph">
+            With all of these elements on the table, it would sure be a shame if none of them liked each other! Thankfully, harmonious friendships are common when it comes to these atoms, and many of them often join together in nature (and when forced by an angry chemist) to form <span id="compound"><b>compounds</b></span> 
+            and <span id="molecule"><b>molecules</b></span>. 
+            <br>
+            <br>
+            So why do elements <em>want</em> to bond in the first place? Each element has a certain number of electrons (Carbon has 12, Iron has 26), placed within a series of 'rings' circling around the atom called <span id="valenceshell"><b>valence shells</b></span>.
+            These elements want to combine or find any way possible to get to a low-energy/stable state, usually by reaching a <span id="noblegasconfiguration"><b>noble gas configuration</b></span>. To do this, they either need to gain or lose electrons,
+            which leads them to join up with other friendly elements interested in the same idea.
+            <br>
+            <br>
+            There are two main types of bonding between elements: <em>ionic bonding</em> and <em>covalent bonding</em>. Let's go over them now!
+            <br>
+            <br>
+            Ionic bonding happens when a metal and a non-metal element agree to give each other electrons, so both of them can reach a stable state. The metal will <span id="ionize"><b>ionize</b></span>, and the non-metal will
+            take the electrons it needs. For example, a famous ionic compound is NaCl, also known as table salt. Sodium has 11 electrons, meaning that a single <span id="valenceelectron"><b>valence electron</b></span> is looking to leave the atom.
+            By the electron leaving, sodium reaches ten electrons for two shells, a stable configuration! Chlorine on the other hand wants an electron; its just shy of becoming fully stable! So, when both of them get
+            into contact (under the right conditions), sodium will offer an electron to chlorine and both become one stable compound.
+            <br>
+            <img src="../../images/NaClelectrons.png" style="width: 10em; height: auto;">
+            <br>
+
+            Covalent bonding happens between two non-metals, for similar reasoning. They both need some amount of electrons to become stable! Oxygen has six electrons, and wants two more to get to 
+            a stable state. When it meets two hydrogen atoms, it strikes up a deal. Oxygen will promise to share one electron to each hydrogen, if they share their single electrons as well. So,
+            they all get into a big hug, and everyone has a full shell. Each hydrogen has their original electron and the shared oxygen electron, while oxygen shares the two original hydrogen electrons as well!
+            <br>
+            <img src="../../images/Water-Molecule.gif">
+            <br>
+
+            As you can see from the image above, the X's indicate the shared original hydrogen electrons, while their other pair is also shared.
+            
+        </p>
+
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonCompletion("lesson8");
+            document.getElementById("massvolume").addEventListener("click", () => {
+                customAlert("Mass is the amount of matter in an object (grams/pounds), and volume is the amount of space an object takes up (litres or cm³)");
+            });
+
+            document.getElementById("states").addEventListener("click", () => {
+                customAlert("A state of matter is a distinct form that matter can have, which usually has specific physical properties.");
+            });
+        </script>
+        <script src="../lessons.js"></script>
+        
+        <div style="text-align: center;">
+            <!--Why do I have to do this to actually center a button? No fucking clue.-->
+            <button class="quiz-button" onclick="window.location.href='lesson8-8.html';">Take this short quiz to prove you've got it!</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
