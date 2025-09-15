@@ -69,7 +69,8 @@
 
     <!--BONDING SECTION-->
     <div class="lesson-select-container">
-        <button class="lesson-select-button" onclick="window.location.href='lessonslist/lesson8/lesson8.html';"><span>Lesson 8:</span><br>Bonding Basics</button>
+        <button id="lesson8" class="lesson-select-button" onclick="window.location.href='lessonslist/lesson8/lesson8.html';"><span>Lesson 8:</span><br>Bonding Basics</button>
+        <button id="lesson9" class="lesson-select-button" onclick="window.location.href='lessonslist/lesson9/lesson9.html';"><span>Lesson 9:</span><br>Metallic Bonding and Properties</button>
     </div>
     <!---->
 
@@ -92,6 +93,11 @@
         const fs = require('fs');
         // hiding and unhiding lessons
 
+        //first, hide all unlockable lessons?
+
+        document.getElementById("lesson9").classList.add("hidden");
+
+
         fs.readFile("./renderer/userdata/lessondata.json", "utf8", (err, lessonRaw) => {
             lessonData = JSON.parse(lessonRaw);
 
@@ -99,10 +105,7 @@
             // the actual hiding
             // NOTE: Each check has to be in different if statements. Thank god i figured that out. I don't need ChatGPT guys. I'm just like that.
 
-            //KMT Section/////////////////////////////////////////////////////
-            if(lessonData.lesson1 == true){
-                document.getElementById("lesson2").classList.remove("hidden");
-            }
+
             if(lessonData.lesson2 == true){
                 document.getElementById("lesson3").classList.remove("hidden");
             }
@@ -111,6 +114,10 @@
             }
             //////////////////////////////////////////////////////////////////
 
+            //Bonding Section/////////////////////////////////////////////////
+            if(lessonData.lesson8 == true){
+                document.getElementById("lesson9").classList.remove("hidden");
+            }
 
         });
     </script>
