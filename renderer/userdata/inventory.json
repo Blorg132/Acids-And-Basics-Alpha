@@ -1,5 +1,36 @@
 {
-  "beakers": 99998540,
-  "items": [],
+  "beakers": 99997910,
+  "items": [
+    {
+      "id": 110,
+      "name": "Double-Door Fridge",
+      "resell": 65
+    },
+    {
+      "id": 106,
+      "name": "Oak Table",
+      "resell": 120
+    },
+    {
+      "id": 109,
+      "name": "Nasty Fridge",
+      "resell": 30
+    },
+    {
+      "id": 112,
+      "name": "Cheap Painting",
+      "resell": 26
+    },
+    {
+      "id": 102,
+      "name": "Sturdy Metal Chair",
+      "resell": 30
+    },
+    {
+      "id": 101,
+      "name": "Broken Wooden Chair",
+      "resell": 6
+    }
+  ],
   "beakersearned": 0
 }
