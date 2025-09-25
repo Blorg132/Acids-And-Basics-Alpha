@@ -21,8 +21,10 @@
     <!--Declaring CSS Styles-->
     <style>
 
-        .hidden {
-                display: none;
+        .locked {
+            pointer-events: none;  
+            opacity: 0.5;          
+            cursor: not-allowed;   /* Optional: shows a "not allowed" cursor */
         }
 
         span {
@@ -30,57 +32,77 @@
             font-size: 18px;
         }
 
+        p {
+            color: whitesmoke;
+            background-color: rgba(218, 165, 32, 0.678);
+            text-align: center;
+            font-size: 2.5vw;
+        }
     </style>
 
 
-    <!--KMT SECTION-->
+
+    <!---->
+    <!--Grade 8 Section-->
+    <p><em>The Beginning! (Grade 8)</em></p>
     <div class="lesson-select-container">
-        <button class="lesson-select-button" onclick="window.location.href='lessonslist/lesson1/lesson1.html';"><span>Lesson 1:</span><br>Basics of Kinetic Molecular Theory</button>
-        
-    </div>
-    
-    
-
-     <!--Matter + Its States-->
-
-    <div class="lesson-select-container">
-        <button id="lesson2" class="lesson-select-button hidden" onclick="window.location.href='lessonslist/lesson2/lesson2.html';"><span>Lesson 2:</span><br>Matter + Its Different States</button>
-
-    </div>
-    
-     <!--Physical vs Chemical Changes-->
-
-    <div class="lesson-select-container">
-        <button id="lesson3" class="lesson-select-button hidden" onclick="window.location.href='lessonslist/lesson3/lesson3.html';"><span>Lesson 3:</span><br> Physical vs Chemical Changes</button>
-
-    </div>
-
-    <!--ATOMIC THEORY SECTION-->
-    <div class="lesson-select-container">
-        <button class="lesson-select-button" onclick="window.location.href='lessonslist/lesson4/lesson4.html';"><span>Lesson 4:</span><br>Basics of Atomic Theory</button>
+        <button class="lesson-select-button" onclick="window.location.href='lessonslist/grade8/lesson1/lesson1.html';" id="lesson1"><span>Lesson 1:</span><br>Intro to Chemistry</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade8/lesson2/lesson2.html';" id="lesson2"><span>Lesson 2:</span><br>Particles and States of Matter</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade8/lesson3/lesson3.html';" id="lesson3"><span>Lesson 3:</span><br>Basics of Kinetic Molecular Theory</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade8/lesson4/lesson4.html';" id="lesson4"><span>Lesson 4:</span><br>Physical vs. Chemical Changes</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade8/lesson5/lesson5.html';" id="lesson5"><span>Lesson 5:</span><br>Mixtures and Solutions</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade8/lesson6/lesson6.html';" id="lesson6"><span>Lesson 6:</span><br>Basics of Atomic Structure</button>
     </div>
     <!---->
-
-    <!--Periodicity SECTION-->
-     <div class="lesson-select-container">
-        <button class="lesson-select-button" onclick=""window.location.href='lessonslist/lesson4/lesson5.html';"><span>Lesson 5:</span><br>Periodicity</button>
-    </div>
-
-
-    <!--BONDING SECTION-->
-    <div class="lesson-select-container">
-        <button id="lesson8" class="lesson-select-button" onclick="window.location.href='lessonslist/lesson8/lesson8.html';"><span>Lesson 8:</span><br>Bonding Basics</button>
-        <button id="lesson9" class="lesson-select-button" onclick="window.location.href='lessonslist/lesson9/lesson9.html';"><span>Lesson 9:</span><br>Metallic Bonding and Properties</button>
-    </div>
     <!---->
 
-    <!--NAMING SECTION-->
+
+
+
+
+
+
+
+    <!---->
+    <!--Grade 9 Section-->
+    <p style="background-color: rgba(13, 13, 190, 0.543);"><em>The Path of the Intermediate (Grade 9)</em></p>
     <div class="lesson-select-container">
-        <button class="lesson-select-button" onclick="console.log('thisbuttondoesnothingyet!');"><span>Lesson 12:</span><br>Naming</button>
+        <button class="lesson-select-button" onclick="window.location.href='lessonslist/grade9/lesson7/lesson7.html';" id="lesson7"><span>Lesson 7:</span><br>Periodic Table 101</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade9/lesson8/lesson8.html';" id="lesson8"><span>Lesson 8:</span><br>More Atomic Structure</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade9/lesson9/lesson9.html';" id="lesson9"><span>Lesson 9:</span><br>Chemical Bonds</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade9/lesson10/lesson10.html';" id="lesson10"><span>Lesson 10:</span><br>KMT and States of Matter Cont.</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade9/lesson11/lesson11.html';" id="lesson11"><span>Lesson 11:</span><br>Chemical Reactions and Equations</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade9/lesson12/lesson12.html';" id="lesson12"><span>Lesson 12:</span><br>Acids, Bases, and pH 101</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade9/lesson12/lesson13.html';" id="lesson13"><span>Lesson 13:</span><br>Mixture Seperation Techniques</button>    
     </div>
+    <!---->
+    <!---->
 
-    
 
+
+
+
+
+    <!---->
+    <!--Grade 10 Section-->
+    <p style="background-color: rgba(226, 39, 39, 0.762);"><em>Avogadro's Arena (Grade 10)</em></p>
+    <div class="lesson-select-container">
+        <button class="lesson-select-button" onclick="window.location.href='lessonslist/grade10/lesson14/lesson14.html';" id="lesson14"><span>Lesson 14:</span><br>Gas Laws with KMT</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade10/lesson15/lesson15.html';" id="lesson15"><span>Lesson 15:</span><br>Ideal vs. Real Gases</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade10/lesson16/lesson16.html';" id="lesson16"><span>Lesson 16:</span><br>Stoichiometry and the Mole Concept</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade10/lesson17/lesson17.html';" id="lesson17"><span>Lesson 17:</span><br>Solutions and Concentration</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade10/lesson18/lesson18.html';" id="lesson18"><span>Lesson 18:</span><br>Energy Changes in Reactions</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade10/lesson19/lesson19.html';" id="lesson19"><span>Lesson 19:</span><br>Chemical Equilibrium</button>
+        <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade10/lesson20/lesson20.html';" id="lesson20"><span>Lesson 20:</span><br>Graduation!</button>   
+    </div>
+    <!---->
+    <!---->
+
+
+
+
+
+ 
 
     <button class="back-button-lessons" onclick="window.location.href='mainpage.html';">Back</button>
 
@@ -91,11 +113,8 @@
         ////////////////////////////////////////////////////
 
         const fs = require('fs');
-        // hiding and unhiding lessons
 
-        //first, hide all unlockable lessons?
-
-        document.getElementById("lesson9").classList.add("hidden");
+        //first, hide all unlockable lessons
 
 
         fs.readFile("./renderer/userdata/lessondata.json", "utf8", (err, lessonRaw) => {
@@ -106,18 +125,66 @@
             // NOTE: Each check has to be in different if statements. Thank god i figured that out. I don't need ChatGPT guys. I'm just like that.
 
 
+            if(lessonData.lesson1 == true){
+                document.getElementById("lesson2").classList.remove("locked");
+            }
             if(lessonData.lesson2 == true){
-                document.getElementById("lesson3").classList.remove("hidden");
+                document.getElementById("lesson3").classList.remove("locked");
+            }
+            if(lessonData.lesson3 == true){
+                document.getElementById("lesson4").classList.remove("locked");
             }
             if(lessonData.lesson4 == true){
-                document.getElementById("lesson5").classList.remove("hidden");
+                document.getElementById("lesson5").classList.remove("locked");
             }
-            //////////////////////////////////////////////////////////////////
-
-            //Bonding Section/////////////////////////////////////////////////
+            if(lessonData.lesson5 == true){
+                document.getElementById("lesson6").classList.remove("locked");
+            }
+            if(lessonData.lesson6 == true){
+                document.getElementById("lesson7").classList.remove("locked");
+            }
+            if(lessonData.lesson7 == true){
+                document.getElementById("lesson8").classList.remove("locked");
+            }
             if(lessonData.lesson8 == true){
-                document.getElementById("lesson9").classList.remove("hidden");
+                document.getElementById("lesson9").classList.remove("locked");
             }
+            if(lessonData.lesson9 == true){
+                document.getElementById("lesson10").classList.remove("locked");
+            }
+            if(lessonData.lesson10 == true){
+                document.getElementById("lesson11").classList.remove("locked");
+            }
+            if(lessonData.lesson11 == true){
+                document.getElementById("lesson12").classList.remove("locked");
+            }
+            if(lessonData.lesson12 == true){
+                document.getElementById("lesson13").classList.remove("locked");
+            }
+            if(lessonData.lesson13 == true){
+                document.getElementById("lesson14").classList.remove("locked");
+            }
+            if(lessonData.lesson14 == true){
+                document.getElementById("lesson15").classList.remove("locked");
+            }
+            if(lessonData.lesson15 == true){
+                document.getElementById("lesson16").classList.remove("locked");
+            }
+            if(lessonData.lesson16 == true){
+                document.getElementById("lesson17").classList.remove("locked");
+            }
+            if(lessonData.lesson17 == true){
+                document.getElementById("lesson18").classList.remove("locked");
+            }
+            if(lessonData.lesson18 == true){
+                document.getElementById("lesson19").classList.remove("locked");
+            }
+            if(lessonData.lesson19 == true){
+                document.getElementById("lesson20").classList.remove("locked");
+            }
+
+
+
 
         });
     </script>

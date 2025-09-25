@@ -54,7 +54,7 @@
 
 .lesson-select-button {
   width: 15%;
-  height: 120px; /* fixed height */
+  height: 15%; /* fixed height */
   
   justify-content: center;
   align-items: center;
