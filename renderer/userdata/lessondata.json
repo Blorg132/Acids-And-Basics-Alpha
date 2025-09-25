@@ -1,6 +1,6 @@
 {
-  "comment1": "Section 1: KMT Lessons ",
-  "lessonclicked": "lesson8",
+  "comment1": "Grade 8 Section: ",
+  "lessonclicked": "lesson1",
   "lesson1": true,
   "lesson2": false,
   "lesson3": false,
@@ -12,5 +12,9 @@
   "lesson9": true,
   "lesson10": false,
   "lesson11": false,
-  "lesson12": false
+  "lesson12": false,
+  "comment2": "Grade 9 Section: ",
+  "blahblahblah": "dog",
+  "comment3": "Grade 10 Section: ",
+  "finallesson": false
 }
