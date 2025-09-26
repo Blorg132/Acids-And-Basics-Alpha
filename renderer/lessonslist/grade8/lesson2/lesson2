@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="../lessonstyles.css">
     <script src="../lessons.js"></script>
-    <title>Lesson 2: Introduction To Chemistry</title>
+    <title>Lesson 2: Particles and States of Matter </title>
 
     <style>
         @font-face {
@@ -20,21 +20,28 @@
     <div class="lesson-container">
         <div class="lesson-background"></div>
         <div id="actualcontent">
-            <h1 class="cool-header-blue">Intro to Chemistry</h1>
+            <h1 class="cool-header-blue"> Particles and States of Matter</h1>
 
 
         <p class="paragraph">
-            This is your intro to <span id="chemistry"><b>chemistry!</b></span>
+          <br> <span id=" Matter"> </span>as we know today exists in three phases - <b> <span id = "solid" ></span>, liquid, and gas</b>. This is specifically distinguished by the behavior of fundamental particles.
         </p>
 
 
         <!--Running Custom Alert scripts here.-->
         <!--Also doing the "lessonclicked" json change-->
         <script>
-            saveLessonCompletion("lesson1");
-            document.getElementById("chemistry").addEventListener("click", () => {
-                customAlert("say something cool here later")
+            saveLessonCompletion("lesson2");
+            document.getElementById("Matter").addEventListener("click", () => {
+                customAlert("Anything that has mass and occupies space (volume)")
             });
+
+            
+             saveLessonCompletion("lesson 2");
+            document.getElementById("solid").addEventListener("click", () => {
+                customAlert("Particles are tightly packed, vibrating in fixed postions")
+            });
+
         </script>
         <script src="../lessons.js"></script>
         
