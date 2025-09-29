@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../lessonstyles.css">
+    <script src="../lessons.js"></script>
+    <title>Lesson 5: Mixtures & Solutions </title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">Mixtures & Solutions</h1>
+
+
+        <p class="paragraph">
+            This is your intro to <span id="chemistry"><b>chemistry!</b></span>
+        </p>
+
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonCompletion("lesson1");
+            document.getElementById("chemistry").addEventListener("click", () => {
+                customAlert("say something cool here later")
+            });
+        </script>
+        <script src="../lessons.js"></script>
+        
+        <div style="text-align: center;">
+            <!--Why do I have to do this to actually center a button? No fucking clue.-->
+            <button class="quiz-button" onclick="window.location.href='lesson8-8.html';">Take this short quiz to prove you've got it!</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
