@@ -23,10 +23,21 @@
             <h1 class="cool-header-blue"> Particles and States of Matter</h1>
 
 
+       
+
+
         <p class="paragraph">
-          <br> <span id=" Matter"> </span>as we know today exists in three phases - <b> <span id = "solid" ></span> </b>, <b> <span id = "liquid"> </span> </b> , and gas</b>. This is specifically distinguished by the behavior of fundamental particles.
+          <br> <span id=" Matter"> </span>as we know today exists in three phases - <b> <span id = "solid" ></span> </b>, <b> <span id = "liquid"> </span> </b> , and <b> <span id ="gas"></span> </b>. This is specifically distinguished by the behavior of fundamental particles.
         </p>
 
+        <p class="paragraph">
+          The mentioned composition and movement contributes to the following properties of each individual phase  
+        </p>
+
+    <div id ="image"> 
+        <img src="https://general.chemistrysteps.com/wp-content/uploads/2023/01/solid-liquid-gas-properties-table.png"
+            alt="Solid, Liquid, and Gas Properties table">
+    </div>
 
         <!--Running Custom Alert scripts here.-->
         <!--Also doing the "lessonclicked" json change-->
@@ -39,8 +50,20 @@
             
              saveLessonCompletion("lesson 2");
             document.getElementById("solid").addEventListener("click", () => {
-                customAlert("Particles are tightly packed, vibrating in fixed postions")
+                customAlert("Particles are tightly packed, vibrating in fixed postions ; meaning that they have both a definite volume and shape")
             });
+
+            saveLessonCompletion("lesson 2");
+            document.getElementById("liquid").addEventListener("click", () => {
+                customAlert("Particles have a definite volume since they remain in close contact with one another, but are able to move around each other ; which means they have no definite shape ")
+            });
+
+
+            saveLessonCompletion("lesson 2");
+            document.getElementById("gas").addEventListener("click", () => {
+                customAlert("Particles move in random motion, since they have sufficient kinetic energy to move freely and far apsrt; hence they have no definite volume nor mass ")
+            });
+
 
         </script>
         <script src="../lessons.js"></script>
