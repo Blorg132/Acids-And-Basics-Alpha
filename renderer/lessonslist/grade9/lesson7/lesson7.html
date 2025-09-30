@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../lessonstyles.css">
+    <script src="../../lessons.js"></script>
+    <title>Lesson 7: Periodic Table 101</title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">Who doesn't love a table?</h1>
+
+
+        <p class="paragraph">
+            The periodic table, first created in its moden state sometime in 1869 by Russian chemist Dmitri Mendeleev, gave scientists and chemists alike
+            the opportunity to find relations and properties of elements based on where they were placed. The concept is simple, every element is organized
+            into a <span id="period"><b>period</b></span> and a <span id="row"><b>row</b></span> that corresponds to certain properties. The best thing about it is,
+            most elements next to each other (nearby, same row or period) tend to share some similarities as well! Let's take a look:
+            <br>
+            <br>
+            <img src="../../../images/periodictable.png" width=100% height=50%>
+            <br>
+            <br>
+            It's a lot to look at, but let's just start from the left side. The first row, also known as Group 1, consists of your <span id="alkalimetals"><b>alkali metals</b></span>.
+            Aside from hydrogen, which acts a bit different then the rest of the row, all of these elements act and react in a very similar fashion, aside from some
+            differences in intensity and other physical characteristics. They'll bond similarily as well! (we'll go over that soon)
+            <br>
+            <br>
+            The next row over is the <span id="alkalinemetals"><b>alkaline earth metal</b></span> group. Since the alkali metals are right next to Group 2, they share some similarities between them! First of all,
+            they're both metals, which means they're generally shiny and like to conduct electricity. 
+        </p>
+
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonCompletion("lesson7");
+            document.getElementById("period").addEventListener("click", () => {
+                customAlert("The horizontal rows across the table. The word 'period' is also horizontally longer than the word 'row', if you need a good way to memorize it.");
+            });
+
+            document.getElementById("row").addEventListener("click", () => {
+                customAlert("The vertical rows up and down the table. You can imagine it like 'rowing' a boat, with the paddle only going up and down!");
+            });
+
+            document.getElementById("alkalimetals").addEventListener("click", () => {
+                customAlert("Highly reactive metals with only ONE valence electron. They are generally pretty big in comparison to the rest of the table.");
+            });
+
+            document.getElementById("alkalinemetals").addEventListener("click", () => {
+                customAlert("Somewhat reactive metals with two valence electrons that go down Group/Row 2.");
+            });
+
+
+        </script>
+
+
+
+
+        <script src="../../lessons.js"></script>
+        
+        <div style="text-align: center;">
+            <!--Why do I have to do this to actually center a button? No fucking clue.-->
+            <button class="quiz-button" onclick="window.location.href='lesson7-7.html';">Take this short quiz to prove you've got it!</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>

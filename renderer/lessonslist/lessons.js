@@ -74,6 +74,7 @@ function customAlert(message) {
 //
 
 function saveLessonCompletion(lessonname){
+  console.log("hallo");
   const fs = require('fs');
   let dog = fs.readFileSync("./renderer/userdata/lessondata.json", "utf8");
   roggie = JSON.parse(dog);
