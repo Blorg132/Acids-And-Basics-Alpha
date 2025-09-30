@@ -25,17 +25,36 @@
 
 
         <p class="paragraph">
-            This is your intro to <span id="chemistry"><b>chemistry!</b></span>
+            <br> The  <b> <span id=" Kinetic Molecular Theory "></span> </b> aids in further understanding the properties of gaseous particles in different scenarios.
+        </p>
+
+        <p class="paragraph">
+            Furthermore, the theory also states that the particles are in straightline motion and colliding with one another.
+            The frequency of collisions can be increased by increasing the <b> <span id="absolute temperature"></span></b> through the addition of kinetic energy.
+
+        </p>  
+
+        <p class="pararaph">
+            Finally, 
+                
+
         </p>
 
 
         <!--Running Custom Alert scripts here.-->
         <!--Also doing the "lessonclicked" json change-->
         <script>
-            saveLessonCompletion("lesson1");
-            document.getElementById("chemistry").addEventListener("click", () => {
-                customAlert("say something cool here later")
+            saveLessonCompletion("lesson3");
+            document.getElementById("Kinetic Molecular Theory").addEventListener("click", () => {
+                customAlert("Describes ideal gases as being tiny particles in constant, random motion having negligible volume")
             });
+
+
+            saveLessonCompletion("lesson3");
+            document.getElementById("absolute temperature").addEventListener("click", () => {
+                customAlert("Physical quantity measuring temperature from absolute value (in Kelvin) and it is directly proportional to the average kinetic energy ")
+            });
+            
         </script>
         <script src="../lessons.js"></script>
         
