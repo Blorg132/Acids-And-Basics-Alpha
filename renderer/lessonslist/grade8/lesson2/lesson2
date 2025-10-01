@@ -27,8 +27,17 @@
 
 
         <p class="paragraph">
-          <br> <span id=" Matter"> </span>as we know today exists in three phases - <b> <span id = "solid" ></span> </b>, <b> <span id = "liquid"> </span> </b> , and <b> <span id ="gas"></span> </b>. This is specifically distinguished by the behavior of fundamental particles.
+          <br> <span id=" Matter"> </span>as we know today exists in three phases - <b> <span id="solid" ></span> </b>, <b> <span id = "liquid"> </span> </b> , and <b> <span id ="gas"></span> </b>. This is specifically distinguished by the behavior of fundamental particles.
         </p>
+
+        <p class="paragraph">
+            However, there exists a fourth state of matter known as <b><span id="plasma"></span></b>, which is a very good conductor of electricity & respnonds to magnetics fields, 
+            behaving differently from a gas
+
+
+        </p>
+        
+        
 
         <p class="paragraph">
           The mentioned composition and movement contributes to the following properties of each individual phase  
@@ -62,6 +71,12 @@
             saveLessonCompletion("lesson 2");
             document.getElementById("gas").addEventListener("click", () => {
                 customAlert("Particles move in random motion, since they have sufficient kinetic energy to move freely and far apsrt; hence they have no definite volume nor mass ")
+            });
+
+
+             saveLessonCompletion("lesson 2");
+            document.getElementById("plasma").addEventListener("click", () => {
+                customAlert(" A form of ionized gas, which means that the atoms have gained the required energy to strip away from the electrons, allowing ions to freely move and hence why plasma is electrically conductive and responds to magnetic fields ")
             });
 
 

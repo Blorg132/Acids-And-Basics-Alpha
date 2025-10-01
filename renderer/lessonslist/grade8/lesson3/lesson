@@ -35,10 +35,14 @@
         </p>  
 
         <p class="pararaph">
-            Finally, 
-                
-
+            Finally, the Kinetic Molecular Theory can also be used to explain the inverse relation between pressure and volume by explaining that pressure is caused by gas particles colliding with the container walls.
+            This allowed many scientists to formulate many laws regarding laws regarding pressure,volume, and temperature. 
         </p>
+
+         <div id ="image"> 
+        <img src=" "
+         width=100% height=50%  alt="Solid, Liquid, and Gas Properties table">
+    </div>
 
 
         <!--Running Custom Alert scripts here.-->
