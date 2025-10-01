@@ -36,7 +36,7 @@
 
     <div id ="image"> 
         <img src="https://general.chemistrysteps.com/wp-content/uploads/2023/01/solid-liquid-gas-properties-table.png"
-            alt="Solid, Liquid, and Gas Properties table">
+         width=100% height=50%  alt="Solid, Liquid, and Gas Properties table">
     </div>
 
         <!--Running Custom Alert scripts here.-->
