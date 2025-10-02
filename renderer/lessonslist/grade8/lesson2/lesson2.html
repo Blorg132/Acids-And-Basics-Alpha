@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../lessonstyles.css">
+    <link rel="stylesheet" href="../../lessonstyles.css">
     <script src="../lessons.js"></script>
     <title>Lesson 2: Particles and States of Matter </title>
 
@@ -27,11 +27,12 @@
 
 
         <p class="paragraph">
-          <br> <span id=" Matter"> </span>as we know today exists in three phases - <b> <span id="solid" ></span> </b>, <b> <span id = "liquid"> </span> </b> , and <b> <span id ="gas"></span> </b>. This is specifically distinguished by the behavior of fundamental particles.
+          <br> <span id="matter"><b>Matter</b></span> as we know today exists in three phases - <span id="solid"><b>solid</b></span>, <span id="liquid"><b>liquid</b></span>, and <span id="gas"><b>gas</b></span>. This is specifically distinguished by the behavior of fundamental particles.
         </p>
 
         <p class="paragraph">
             However, there exists a fourth state of matter known as <b><span id="plasma"></span></b>, which is a very good conductor of electricity & respnonds to magnetics fields, 
+            <span id="plasma"><b>plasma</b></span>
             behaving differently from a gas
 
 
@@ -52,42 +53,38 @@
         <!--Also doing the "lessonclicked" json change-->
         <script>
             saveLessonCompletion("lesson2");
-            document.getElementById("Matter").addEventListener("click", () => {
-                customAlert("Anything that has mass and occupies space (volume)")
+            document.getElementById("matter").addEventListener("click", () => {
+                customAlert("Anything that has mass and occupies space (volume)");
             });
 
             
-             saveLessonCompletion("lesson 2");
             document.getElementById("solid").addEventListener("click", () => {
-                customAlert("Particles are tightly packed, vibrating in fixed postions ; meaning that they have both a definite volume and shape")
+                customAlert("Particles are tightly packed, vibrating in fixed postions ; meaning that they have both a definite volume and shape");
             });
 
-            saveLessonCompletion("lesson 2");
             document.getElementById("liquid").addEventListener("click", () => {
-                customAlert("Particles have a definite volume since they remain in close contact with one another, but are able to move around each other ; which means they have no definite shape ")
+                customAlert("Particles have a definite volume since they remain in close contact with one another, but are able to move around each other ; which means they have no definite shape ");
             });
 
 
-            saveLessonCompletion("lesson 2");
             document.getElementById("gas").addEventListener("click", () => {
-                customAlert("Particles move in random motion, since they have sufficient kinetic energy to move freely and far apsrt; hence they have no definite volume nor mass ")
+                customAlert("Particles move in random motion, since they have sufficient kinetic energy to move freely and far apsrt; hence they have no definite volume nor mass ");
             });
 
 
-             saveLessonCompletion("lesson 2");
             document.getElementById("plasma").addEventListener("click", () => {
-                customAlert(" A form of ionized gas, which means that the atoms have gained the required energy to strip away from the electrons, allowing ions to freely move and hence why plasma is electrically conductive and responds to magnetic fields ")
+                customAlert(" A form of ionized gas, which means that the atoms have gained the required energy to strip away from the electrons, allowing ions to freely move and hence why plasma is electrically conductive and responds to magnetic fields ");
             });
 
 
         </script>
-        <script src="../lessons.js"></script>
+        <script src="../../lessons.js"></script>
         
         <div style="text-align: center;">
             <!--Why do I have to do this to actually center a button? No fucking clue.-->
-            <button class="quiz-button" onclick="window.location.href='lesson8-8.html';">Take this short quiz to prove you've got it!</button>
+            <button class="quiz-button" onclick="window.location.href='lesson2-2.html';">Take this short quiz to prove you've got it!</button>
         </div>
-        <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+        <button class="back-button" onclick="window.location.href='../../../lessons.html';">Back</button>
         </div>
     </div>
 
