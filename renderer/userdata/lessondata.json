@@ -1,6 +1,6 @@
 {
   "comment1": "Grade 8 Section: ",
-  "lessonclicked": "lesson7",
+  "lessonclicked": "lesson8",
   "lesson1": false,
   "lesson2": false,
   "lesson3": false,
@@ -8,7 +8,7 @@
   "lesson5": false,
   "lesson6": false,
   "comment2": "Grade 9 Section: ",
-  "lesson7": false,
+  "lesson7": true,
   "lesson8": false,
   "lesson9": false,
   "lesson10": false,
