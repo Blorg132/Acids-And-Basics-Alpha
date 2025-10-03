@@ -22,25 +22,25 @@
 
                     <!--First Question-->
                     <!--Just so you know, for 'radio' forms, set the values to wrong or correct. Then, look for 'correct' with a querySelectorAll thing.-->
-                    <p> </p>
+                    <p> According to the Kinetic Molecular Theory, what are all particles in matter doing? </p>
                     <label>
                         <input type="radio" name="question1" value="wrong">
-                        " They move freely and spread far apart"
-                    </label>
-                    <br>
-                    <label>
-                        <input type="radio" name="question1" value="correct">
-                        " They vibrate in fixed positions, close together "
+                        " Disappearing "
                     </label>
                     <br>
                     <label>
                         <input type="radio" name="question1" value="wrong">
-                        " They slide past one another with spaces in between "
+                        " Staying still "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        " Expanding in size "
                     </label>
                     <br> 
                     <label>
-                        <input type="radio" name="question1" value="wrong">
-                        "They are not moving at all "
+                        <input type="radio" name="question1" value="correct">
+                        " Constantly moving "
                     </label>
                     <br>
 
