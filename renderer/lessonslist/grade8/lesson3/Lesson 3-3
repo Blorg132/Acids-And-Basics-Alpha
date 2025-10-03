@@ -47,64 +47,66 @@
                     <!--Second Question-->
 
 
-                    <p>When ice melts, explain the changes in the state of matter</p>
-                    <label>
-                        <input type="radio" name="question2" value="wrong">
-                        " Stop moving completely"
-                    </label>
-                    <br>
-                    <label>
-                        <input type="radio" name="question2" value="wrong">
-                        " Lose energy and move closer together "
-                    </label>
+                   <p>Based on the following image, which best explains why gases entirely fill their containers completely, according to the Kinetic Molecular Theory .</p>
+                    <img src=" ../../../https://study.com/cimages/multimages/16/gas3127374113108120140.jpg " width=10% height=10%>
                     <br>
                     <label>
                         <input type="radio" name="question2" value="correct">
-                        " Gain energy and break free from fixed positions"
+                        " The gas particles are heavy and sink."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        " The gas particles have strong forces holding them together."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        " The gas particles move quickly and spread apart with little attraction. "
                     </label>
                     <br> 
                     <label>
                         <input type="radio" name="question2" value="wrong">
-                        " Form chemical bonds "
+                        " The gas particles change shape to match the container."
                     </label>
                     <br>
 
                     <!--Third Question-->
 
-                    <p>Why can liquids flow but solids cannot? </p>
+                    <p> Which particle motion best compares particle motion and attraction in solids, liquids, and gases </p>
                     <label>
-                        <input type="radio" name="question3" value="wrong">
-                        " Liquids have fixed particles in a lattice"
+                        <input type="radio" name="question3" value="correct">
+                        " Solids: vibrate in place, strong attraction; Liquids: slide past each other, moderate attraction; Gases: move freely, little to no attraction"
                     </label>
                     <br>
                     <label>
                         <input type="radio" name="question3" value="wrong">
-                        " Solids have particles moving randomly in all directions"
+                        " Solids: fixed particles, strong attraction; Liquids: free-moving, no attraction; Gases: very fast, strong attraction"
                     </label>
                     <br>
                     <label>
                         <input type="radio" name="question3" value="wrong">
-                        " Solids have stronger particle forces but more space between particles"
+                        " Solids: move freely, weak attraction; Liquids: vibrate only, strong attraction; Gases: tightly packed, very strong attraction"
                     </label>
 
                     <br> 
                     <label>
-                        <input type="radio" name="question3" value="correct">
-                        "Liquids have weaker particle forces and particles can slide past one another"
+                        <input type="radio" name="question3" value="wrong">
+                        " Solids: expand easily, weak attraction; Liquids: compress easily, no attraction; Gases: do not move at all"
                     </label>
                     <br>
 
 
                     <!--Fourth Question-->
 
-                    <p>True or false; The average kinetic energy increases when a gas is cooled</p>
+                    <p>True or false; When a balloon is heated, the particles gain more energy and hence expands</p>
                     <label>
-                        <input type="radio" name="question4" value="wrong">
+                        <input type="radio" name="question4" value="correct">
                         "True"
                     </label>
                     <br>
                     <label>
-                        <input type="radio" name="question4" value="correct">
+                        <input type="radio" name="question4" value="wrong">
                         "False"
                     </label>
                     <br>

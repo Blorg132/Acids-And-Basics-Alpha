@@ -25,16 +25,16 @@
 
 
         <p class="paragraph">
-            This is your intro to <span id="chemistry"><b>chemistry!</b></span>
+        <b> <span id = " Physical changes" ></span> </b> are caused 
         </p>
 
 
         <!--Running Custom Alert scripts here.-->
         <!--Also doing the "lessonclicked" json change-->
         <script>
-            saveLessonCompletion("lesson1");
-            document.getElementById("chemistry").addEventListener("click", () => {
-                customAlert("say something cool here later")
+            saveLessonCompletion("lesson4");
+            document.getElementById("Physical changes").addEventListener("click", () => {
+                customAlert(" A change in matter which alters the appearance of the product, however its chemical identity ")
             });
         </script>
         <script src="../lessons.js"></script>
