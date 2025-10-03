@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf8">
         <link rel="stylesheet" href="../../lessonstyles.css">
-        <title>Lesson 2 Quiz</title>
+        <title>Lesson 3 Quiz</title>
     </head>
 
 
@@ -22,7 +22,7 @@
 
                     <!--First Question-->
                     <!--Just so you know, for 'radio' forms, set the values to wrong or correct. Then, look for 'correct' with a querySelectorAll thing.-->
-                    <p>Which statement best describes the particles in a solid?</p>
+                    <p> </p>
                     <label>
                         <input type="radio" name="question1" value="wrong">
                         " They move freely and spread far apart"
