@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+
+    <head>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="../../lessonstyles.css">
+        <title>Lesson 9 Quiz</title>
+    </head>
+
+
+    <body class="test-body">
+        
+        <div class="test-container">
+            <div class=test-background></div>
+            <div id="actualcontent">
+                <!--Please note that all instances of form-submission with HTML should be in labels. No idea why though.-->
+                <form id="lessonform1">
+
+                    <!--First Question-->
+                    <p>What is a valence electron?</p>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        "An electron that sits the closest to the nucleus."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question1" value="correct">
+                        "An electron that sits the farthest from the nucleus"
+                    </label>
+                    <br>
+
+                    <!--Second Question-->
+                    <p>What is a valence electron?</p>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "An electron that sits the closest to the nucleus."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="correct">
+                        "correct answer"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "An electron that sits the farthest from the nucleus"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "An electron that sits the farthest from the nucleus"
+                    </label>
+                    <br>
+                    
+
+                    
+                    
+                    
+
+                    <!--Submit button-->
+
+                    <br>
+                    <br>
+                    <button type="submit">I'm Done!</button>
+
+                </form>
+                
+
+                <script src="../../lessons.js"></script>
+
+                <script>
+                    // Checking answers when user submits with the button
+                    document.getElementById("lessonform1").addEventListener("submit", function(event) {
+                        event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
+                        let totalscore = 0; // please pass this variable into the function lessonGiveBeakers to add the proper amount
+
+
+                        // QUESTION 1: 
+                        let question1 = document.querySelector('input[name="question1"]:checked');
+                        if (question1 && question1.value === "correct") {
+                            totalscore += 3;
+                        }
+
+                        // QUESTION 2: 
+                        let question2 = document.querySelector('input[name="question2"]:checked');
+                        if (question2 && question2.value === "correct") {
+                            totalscore += 2;
+                        }
+
+
+
+
+
+
+                        console.log(totalscore);
+                        lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
+                        // make sure you pass the score variable through, or else it won't work!
+
+                        window.location.href="../../lessoncomplete.html";
+                    });
+
+                </script>
+            </div>
+        </div>
+
+
+    </body>
+
+
+
+</html>

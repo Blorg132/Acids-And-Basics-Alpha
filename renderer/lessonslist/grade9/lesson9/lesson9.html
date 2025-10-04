@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../lessonstyles.css">
+    <script src="../../lessons.js"></script>
+    <title>Lesson 9: The best number, 9!</title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">Welcome to the number 9!</h1>
+
+
+        <p class="paragraph">
+
+
+            Do you know the word <span id="discombulation"><b>discombulation</b></span>
+
+            In the first shell of every atom, the one RIGHT next to the nucleus, only two electrons like to fit and stay there. And, for simplicity, every subsequent shell holds 8 electrons that it keeps in pairs.
+            As we can see for Sodium, it has its first two, another <span id="fullshell"><b>full shell</b></span> of eight electrons, and then one lonely electron on the third shell. This is the <em>valence electron</em>!
+            <br>
+            <br>
+        </p>
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonCompletion("lesson9");
+
+
+            document.getElementById("discombulation").addEventListener("click", () => {
+                customAlert("doscombulation bobcombulation");
+            });
+
+            
+
+            
+
+        </script>
+
+
+
+
+        <script src="../../lessons.js"></script>
+        
+        <div style="text-align: center;">
+            <!--Why do I have to do this to actually center a button? No fucking clue.-->
+            <button class="quiz-button" onclick="window.location.href='lesson9-9.html';">Take this short quiz to prove you've got it!</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='../../../lessons.html'">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
