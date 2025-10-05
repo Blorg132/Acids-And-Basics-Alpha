@@ -43,6 +43,8 @@ function customAlert(message) {
   const text = document.createElement('p');
   text.textContent = message;
   text.style.marginBottom = '20px';
+  text.style.color = '#000000ff';
+  text.style.fontSize = "2.5vw";
 
   // OK Button
   const btn = document.createElement('button');
