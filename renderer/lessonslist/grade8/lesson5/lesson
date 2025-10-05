@@ -32,10 +32,19 @@
 
         <p class="paragraph">
 
-                The above mentioned mixtures and solutions can be differentiated respectively into b> <span id=" heterogenous mixture"></span> </b> and b> <span id=" homogenous mixture"></span> </b>
-    
+                The above mentioned mixtures and solutions can be categorized respectively into b> <span id=" heterogenous mixture"></span> </b> and b> <span id=" homogenous mixture">.
+                Now, as seen in the provided definition, the main difference is the uniformity (as seen in the following diagram), where we are able to see 
+                each individual component in a heterogenous mixture, the components are not visibly distinct.
 
         </p>
+
+        <div id="image">
+
+           <img src=" https://chemistrytalk.org/wp-content/uploads/2023/03/1200px-Mixtures_and_Pure_Substances_2x2.svg.png"
+         width=100% height=50%  alt=" Heterogenous vs Homogenous Mixture - Particle Arrangement">
+    </div> 
+
+        </div>
 
 
         <!--Running Custom Alert scripts here.-->
@@ -54,8 +63,18 @@
 
             saveLessonCompletion("lesson5");
             document.getElementById(" heterogenous mixture").addEventListener("click", () => {
-                customAlert(" Non-uniform combination of two or more substances. Ex. A chocolate chip cookie")
+                customAlert(" Non-uniform , physical combination of two or more substances. Ex. A chocolate chip cookie")
             });
+
+
+            saveLessonCompletion("lesson5");
+            document.getElementById(" homogenous mixture").addEventListener("click", () => {
+                customAlert(" Uniform, physical combination of two or more substances. Ex. Salt Water")
+            });
+
+
+
+    
 
 
 
