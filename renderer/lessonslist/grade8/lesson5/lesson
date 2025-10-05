@@ -25,17 +25,42 @@
 
 
         <p class="paragraph">
-            This is your intro to <span id="chemistry"><b>chemistry!</b></span>
+           
+              <b> <span id=" Mixtures"></span> </b> and  <b> <span id=" Solutions "></span> </b> are both ways in which two or more substances
+              can combine without undergoing a chemical reaction. 
+
+
+        <p class="paragraph">
+
+                The above mentioned mixtures and solutions can be differentiated respectively into b> <span id=" heterogenous mixture"></span> </b> and b> <span id=" homogenous mixture"></span> </b>
+    
+
         </p>
 
 
         <!--Running Custom Alert scripts here.-->
         <!--Also doing the "lessonclicked" json change-->
         <script>
-            saveLessonCompletion("lesson1");
-            document.getElementById("chemistry").addEventListener("click", () => {
-                customAlert("say something cool here later")
+            saveLessonCompletion("lesson5");
+            document.getElementById("Mixtures").addEventListener("click", () => {
+                customAlert(" Involve the physical blending of components that result in retaining their respective physical properties ; an example of a heterogenous mixture")
             });
+  
+             saveLessonCompletion("lesson5");
+            document.getElementById(" Solutions").addEventListener("click", () => {
+                customAlert(" A special type of mixture where one substance (solute) is dissolved in another substance(solvent), forming a homogenous mixture")
+            });
+
+
+            saveLessonCompletion("lesson5");
+            document.getElementById(" heterogenous mixture").addEventListener("click", () => {
+                customAlert(" Non-uniform combination of two or more substances. Ex. A chocolate chip cookie")
+            });
+
+
+
+               
+
         </script>
         <script src="../lessons.js"></script>
         
