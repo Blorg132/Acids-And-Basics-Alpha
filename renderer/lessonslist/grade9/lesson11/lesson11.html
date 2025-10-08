@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../lessonstyles.css">
+    <script src="../../lessons.js"></script>
+    <title>Lesson 11: Chemical Reactions and Equations</title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">Reacting to reactions.</h1>
+
+
+        <p class="paragraph">
+            Chemical reactions and equations are much more simple to understand than they appear, although they can explore much more difficults subjects, <em>learning how to balance equations</em> and the types of basic reactions is crucial to chemistry.
+            <br>
+            <br>
+            Starting with the different types of reactions, to understand each reaction more clearly, press on the highlighted words the main 5 reaction types are <span id="Synthesis"><b>Synthesis</b></span>
+            Matter is made up of a bunch of particles bouncing around. But how many particles bounce around, and how fast they bounce around, is dependent
+            on the actual state of matter. Solids, such as ice and wood, have the slowest moving particles. They generally don't move past each other
+            and stay in a rigid structure, keeping their form no matter where they are. 
+            Liquids are in the middle of the spectrum. They have faster moving particles that are actually able to move and flow past each other. This
+            is one of the reasons that liquids "flow" in a container and fill up volume.
+            Gases are at the very fast end of the spectrum. Their particles are zipping around, and there's hardly any proper form/connection between these
+            particles aside from them all being part of the same piece of matter. Take a look at the image below to understand the differences between these three.
+
+            <br>
+            <br>
+            Now i'm going to insert an image after a space.
+            <br>
+            <img src="../../../images/lesson8/bohrmodelatom.webp" width=30% height=30% style="display: block; margin-left: auto; margin-right: auto;">
+            <br>
+            <br>
+            Wasn't that so cool? I even centered it with the "style" part, and it takes up 30% of the screen for width and height, no matter the window size!
+            <br>
+            Sometimes though, you don't know what a word is. Such as the word <span id="monkey"><b>monkey</b></span>. Click on that and you'll find out!
+        </p>
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonCompletion("WHATEVER LESSON YOU ARE WRITING AT THE MOMENT!!!!!!!!!!!"); //eg. "lesson7", "lesson8", always "lesson+lessonnumber"
+
+            //This is me making the words i chose actually clickable!
+            document.getElementById("Synthesis").addEventListener("click", () => {
+                customAlert("A + B -> AB");
+            });
+
+            
+        </script>
+
+
+
+
+        <script src="../../lessons.js"></script>
+        <div style="text-align: center;">
+
+            <!---->
+            <!--PLEASE MAKE SURE THE QUIZ BUTTON GOES TO THE RIGHT SPOT-->
+            <button class="quiz-button" onclick="window.location.href='THEQUIZFORTHISLESSONSHALLGOHERE.html';">Take this short quiz to prove you've got it!</button>
+            <!---->
+            <!---->
+        
+        </div>
+
+        <!---->
+        <!---->
+        <!--That's it, you're done! Now simply write the quiz, and push it to GitHub!-->
+        <!---->
+        <!---->
+
+        
+        <button class="back-button" onclick="window.location.href='../../../lessons.html'">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
