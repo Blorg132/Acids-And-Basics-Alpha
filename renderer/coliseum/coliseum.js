@@ -77,7 +77,7 @@ function startTimer(duration = 30) {
       timerDisplay.style.color = "rgb(161, 191, 61)";
       timerDisplay.style.scale = "1.2";
     } 
-    if(timeLeft < 10){
+    if(timeLeft <= 10){
       timerDisplay.style.color = "rgba(223, 84, 84, 1)";
       timerDisplay.style.scale = "1.5";
     }
@@ -85,13 +85,13 @@ function startTimer(duration = 30) {
     if (timeLeft <= 0) {
       clearInterval(countdown);
       timerDisplay.textContent = "Time's up!";
-      handleTimeUp(); // call a function when timer ends
+      endGame(); // call a function when timer ends
     }
   }, 1000);
 }
 
-function handleTimeUp() {
-  window.location.href="../mainpage.html";
+function endGame() {
+  window.location.href="gameover.html";
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
