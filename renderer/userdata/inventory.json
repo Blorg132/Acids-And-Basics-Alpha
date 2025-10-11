@@ -1,5 +1,5 @@
 {
-  "beakers": 246,
+  "beakers": 455,
   "items": [
     {
       "id": 110,
@@ -65,8 +65,13 @@
       "id": 2,
       "name": "Very Angry Man",
       "resell": 6969
+    },
+    {
+      "id": 104,
+      "name": "Pool Table",
+      "resell": 18
     }
   ],
   "beakersearned": 0,
-  "coliseumbeakersearned": 90
+  "coliseumbeakersearned": 3
 }

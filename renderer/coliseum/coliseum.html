@@ -47,6 +47,14 @@
                 font-family: Jost;
             }
 
+            .question {
+                word-wrap: break-word; /* wraps long words */
+                overflow-wrap: break-word;
+                white-space: normal;   /* ensures the text can break into multiple lines */
+                font-size: 2rem;       /* adjust size if needed */
+                line-height: 1.3;      /* add spacing between lines */
+            }
+
             .submit {
                 padding: 15px;
                 width: 13%;
@@ -148,7 +156,7 @@
 
 
         <div id="questionholder" style="display: flex; flex-direction: column; align-items: center; position: center;">
-            <p id="question">asdf</p>
+            <p id="question" class="question">asdf</p>
         </div>
 
         <div id="answerholder" style="display: flex; flex-direction: column; align-items: center; position: center;">
@@ -158,7 +166,7 @@
         </div>
 
         <div>
-            <p id="feedback" style="text-align: center; -webkit-text-stroke: 0.2px rgb(255, 255, 255); font-family: Quantico;"></p>
+            <aside id="feedback" style="float: right; font-family: Quantico; font-size: 1em; color: rgba(255, 255, 255, 0.712);"></p>
         </div>
 
         <!--The special stuff on the sides and everything.-->
@@ -179,16 +187,12 @@
                 <img src="../images/imageassets/acidsword.webp">
             </div>
 
-             <div class="powerup" id="slots">
-                <img src="../images/imageassets/SLOTMACHINE.jpg">
-            </div>
-
             <div class="powerup" id="shield">
                 <img src="../images/imageassets/Sheild.jpg">
             </div>
 
-            <div class="powerup" id="shield">
-                <img src="../images/imageassets/acidsword.webp">
+            <div class="powerup" id="slots">
+                <img src="../images/imageassets/SLOTMACHINE.jpg">
             </div>
 
 

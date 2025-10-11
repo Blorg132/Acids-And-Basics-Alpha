@@ -4,10 +4,52 @@ const fs = require('fs');
 
 ////////////////////////Questions/////////////////////////
 const questions = [
+  { lesson: "lesson2", id: "2-1", question: "What are the smallest particles of elements called?", correctAnswers: ["atoms"] },
+  { lesson: "lesson2", id: "2-2", question: "What is formed when two or more atoms bond together?", correctAnswers: ["molecule", "molecules"] },
+  { lesson: "lesson2", id: "2-3", question: "What do we call atoms that have gained or lost electrons?", correctAnswers: ["ions"] },
+  { lesson: "lesson2", id: "2-4", question: "What charge does an atom have if it loses electrons?", correctAnswers: ["positive"] },
+  { lesson: "lesson2", id: "2-5", question: "What charge does an atom have if it gains electrons?", correctAnswers: ["negative"] },
+  { lesson: "lesson2", id: "2-6", question: "Which state of matter has particles that vibrate in fixed positions?", correctAnswers: ["solid", "solids"] },
+  { lesson: "lesson2", id: "2-7", question: "Which state of matter flows but keeps a fixed volume?", correctAnswers: ["liquid", "liquids"] },
+  { lesson: "lesson2", id: "2-8", question: "Which state of matter has particles far apart and moving freely?", correctAnswers: ["gas", "gases"] },
+  { lesson: "lesson2", id: "2-9", question: "What type of motion do all particles have?", correctAnswers: ["random"] },
+  { lesson: "lesson2", id: "2-10", question: "What increases when particles move faster?", correctAnswers: ["temperature"] },
+  { lesson: "lesson2", id: "2-11", question: "What decreases when particles slow down?", correctAnswers: ["temperature"] },
+  { lesson: "lesson2", id: "2-12", question: "E... space exists between gas particles.", correctAnswers: ["empty space", "empty"] },
+  { lesson: "lesson2", id: "2-13", question: "B--- hold atoms together in molecules.", correctAnswers: ["bond", "bonds"] },
+  { lesson: "lesson2", id: "2-14", question: "What type of ion has a negative charge?", correctAnswers: ["anion", "anions"] },
+  { lesson: "lesson2", id: "2-15", question: "What type of ion has a positive charge?", correctAnswers: ["cation", "cations"] },
+   
+  { lesson: "lesson3", id: "3-1", question: "What does KMT stand for?", correctAnswers: ["kinetic molecular theory"] },
+  { lesson: "lesson3", id: "3-2", question: "According to KMT, what are all substances made of?", correctAnswers: ["particles"] },
+  { lesson: "lesson3", id: "3-3", question: "Solid particles ... in place", correctAnswers: ["vibrate"] },
+  { lesson: "lesson3", id: "3-4", question: "What do particles in liquids do that solids cannot?", correctAnswers: ["slide", "flow"] },
+  { lesson: "lesson3", id: "3-5", question: "What do particles in gases do freely?", correctAnswers: ["move", "move freely"] },
+  { lesson: "lesson3", id: "3-6", question: "What happens to particle motion as temperature increases?", correctAnswers: ["increases", "faster", "gets faster", "speeds up"] },
+  { lesson: "lesson3", id: "3-7", question: "What happens to particle motion as temperature decreases?", correctAnswers: ["decreases", "slower", "gets slower", "slows down"] },
+  { lesson: "lesson3", id: "3-8", question: "In which state are particles closest together?", correctAnswers: ["solid", "solids"] },
+  { lesson: "lesson3", id: "3-9", question: "In which state are particles furthest apart?", correctAnswers: ["gas", "gases"] },
+  { lesson: "lesson3", id: "3-10", question: "What causes the pressure of a gas?", correctAnswers: ["collisions", "particle collisions"] },
+  { lesson: "lesson3", id: "3-11", question: "What type of movement do gas particles have?", correctAnswers: ["random"] },
+  { lesson: "lesson3", id: "3-12", question: "What is the energy that moving particles carry?", correctAnswers: ["kinetic energy", "kinetic"] },
+  { lesson: "lesson3", id: "3-13", question: "Which state of matter has definite shape and volume?", correctAnswers: ["solid"] },
+  { lesson: "lesson3", id: "3-14", question: "Which state of matter has definite volume but no fixed shape?", correctAnswers: ["liquid"] },
+  { lesson: "lesson3", id: "3-15", question: "Which state of matter has neither fixed shape nor volume?", correctAnswers: ["gas"] },
 
-    { lesson: "lesson2", id: "10-1", question: "What does KMT stand for?", correctAnswers: ["e"] },
-    { lesson: "lesson10", id: "10-2", question: "What causes gas pressure?", correctAnswers: ["particle collisions"] },
-    { lesson: "lesson11", id: "11-1", question: "What is a synthesis reaction?", correctAnswers: ["synthesis"] }
+  { lesson: "lesson4", id: "4-1", question: "What is the change from solid to liquid called?", correctAnswers: ["melting"] },
+  { lesson: "lesson4", id: "4-2", question: "What is the change from liquid to solid called?", correctAnswers: ["freezing", "solidification"] },
+  { lesson: "lesson4", id: "4-3", question: "What is the change from liquid to gas called?", correctAnswers: ["boiling", "evaporation"] },
+  { lesson: "lesson4", id: "4-4", question: "What is the change from gas to liquid called?", correctAnswers: ["condensation"] },
+  { lesson: "lesson4", id: "4-5", question: "What happens to particles when a substance melts?", correctAnswers: ["move faster", "spread apart", "get faster", "speed up"] },
+  { lesson: "lesson4", id: "4-6", question: "What happens to particles when a substance freezes?", correctAnswers: ["slow down", "move slower"] },
+  { lesson: "lesson4", id: "4-7", question: "What is a chemical change that produces heat and light called?", correctAnswers: ["combustion"] },
+  { lesson: "lesson4", id: "4-8", question: "What is the slow reaction of metal with oxygen called?", correctAnswers: ["rusting", "corrosion", "rust"] },
+  { lesson: "lesson4", id: "4-9", question: "What must happen for a chemical reaction to occur?", correctAnswers: ["particle collision", "particle collisions"] },
+  { lesson: "lesson4", id: "4-11", question: "What do we call the starting substances in a reaction?", correctAnswers: ["reactants"] },
+  { lesson: "lesson4", id: "4-12", question: "What do we call the new substances formed in a reaction?", correctAnswers: ["products"] },
+  { lesson: "lesson4", id: "4-13", question: "What type of change can be reversed: physical or chemical?", correctAnswers: ["physical"] },
+  { lesson: "lesson4", id: "4-14", question: "Only ----- changes form new substances.", correctAnswers: ["chemical"] },
+  { lesson: "lesson4", id: "4-15", question: "When a solid forms from a liquid reaction, what is it called?", correctAnswers: ["precipitate", "precipitates"] },
 ];
 
 const questionsArray = Object.values(questions).flat();
@@ -161,7 +203,6 @@ function loadNewQuestion() {
   if (answerInput) answerInput.value = "";
 
   const feedback = document.getElementById("feedback");
-  if (feedback) feedback.textContent = "";
   startTimer(timeLeft);
 }
 
@@ -177,6 +218,7 @@ function checkAnswer() {
   const streaktext = document.getElementById("streak");
 
   if (correctAnswers.includes(userAnswer)) {
+    feedback.textContent = "";
     let multiplierdecider = Math.random() * 100;
     if(multiplierdecider < chance){
       score += (scoreadd * multiplier);
@@ -200,6 +242,7 @@ function checkAnswer() {
     }
     boo.currentTime = 0;
     boo.play();
+    feedback.textContent = `Possible Answers: ${correctAnswers}`
   }
 
   /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
@@ -210,24 +253,24 @@ function checkAnswer() {
 
     multiplier = 1;
     chance = 0;
-  } else if (streak >= 10) {
+  } else if (streak >= 15) {
     streaktext.style.color = "rgba(82, 255, 13, 0.81)";
     streaktext.style.scale = 1.2;
 
     multiplier = 3;
-    chance = 50;
-  } else if (streak >= 8) {
+    chance = 75;
+  } else if (streak >= 12) {
     streaktext.style.color = "rgba(231, 56, 33, 1)";
     streaktext.style.scale = 1.1;
 
     chance = 35;
-  } else if (streak >= 5) {
+  } else if (streak >= 8) {
     streaktext.style.color = "rgba(0, 48, 153, 1)";
     streaktext.style.scale = 1.05;
 
     multiplier = 2;
     chance = 25;
-  } else if (streak >= 3) {
+  } else if (streak >= 5) {
     streaktext.style.color = "rgba(147, 171, 224, 1)";
     streaktext.style.scale = 1.0;
 
@@ -295,19 +338,34 @@ sword.addEventListener("mouseover", () => {
     cost.textContent = "Give Up: 10 Beakers Earned";
 });
 sword.addEventListener("click", () => {
-    Name.textContent = "Acid Sword";
-    Name.className = "normalpowerup";
-    description.textContent = "Strike fear into your opponents! Increase score multiplier by 1.";
-    cost.textContent = "Give Up: 10 Beakers Earned";
+    //purchase code write later
 });
 
 
 shield = document.getElementById("shield");
 shield.addEventListener("mouseover", () => {
-    Name.textContent = "Iron Shield";
+    Name.textContent = "Wooden Shield";
     Name.className = "normalpowerup";
     description.textContent = "Keep your streak going after an incorrect answer.";
     cost.textContent = "Give Up: 10 Beakers Earned";
+});
+
+shield.addEventListener("click", () => {
+    //purchase code write later
+});
+
+
+
+slots = document.getElementById("slots");
+slots.addEventListener("mouseover", () => {
+    Name.textContent = "Vegas, Baby!";
+    Name.className = "exquisitepowerup";
+    description.textContent = "Give up your life for a 5% chance to triple all beakers earned!";
+    cost.textContent = "Give Up: 10 Beakers Earned";
+});
+
+slots.addEventListener("click", () => {
+    //purchase code write later
 });
 
 
