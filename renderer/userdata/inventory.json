@@ -1,5 +1,5 @@
 {
-  "beakers": 99960003,
+  "beakers": 99949774,
   "items": [
     {
       "id": 110,
@@ -49,6 +49,21 @@
     {
       "id": 1,
       "name": "Gas-Dipped Matchbox",
+      "resell": 6969
+    },
+    {
+      "id": 103,
+      "name": "The Recliner",
+      "resell": 60
+    },
+    {
+      "id": 105,
+      "name": "Metal Table",
+      "resell": 48
+    },
+    {
+      "id": 2,
+      "name": "Very Angry Man",
       "resell": 6969
     }
   ],

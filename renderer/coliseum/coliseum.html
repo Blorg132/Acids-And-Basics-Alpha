@@ -11,15 +11,14 @@
         <audio id="boo" src="../sounds/coliseumbooing.wav" preload="auto"></audio>
 
 
-
         <script>
             // changing the volume of these loud sound effects!!!!
 
             const music = document.getElementById("backgroundmusic");
-            music.volume = 0.6;
+            music.volume = 0.5;
 
             const ambience = document.getElementById("ambience");
-            ambience.volume = 0.5;
+            ambience.volume = 0.4;
 
             const cheer = document.getElementById("cheer");
             cheer.volume = 0.6;
@@ -64,6 +63,61 @@
                 transition-duration: 0.15s;
             }
 
+
+
+            .powerup-container {
+                display: grid;
+                grid-template-columns: repeat(22, 1fr); /* first number is how many columns */
+                grid-template-rows: repeat(1, auto);   /* 2 rows */
+                gap: 10px;
+                border: 5px dotted rgb(0, 0, 0);
+            }
+
+
+            .powerup img{
+                width: 5.5vw;
+                height: auto;
+                max-width: 5.5vw;
+                max-height: 5.5vw;
+                min-width: 5.5w;
+                min-height: 5.5vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                border: 5px solid black;
+                object-fit: fill;
+                
+            }
+
+            .powerup img:hover {
+                transform: scale(1.25);
+                transition-duration: 0.2s;
+                border: 5px solid rgb(128, 141, 218);
+            }
+
+
+            /*making rarity text?*/
+            .normalpowerup {
+                color: green;
+                font-size: 2.5vw;
+                font-family: Quantico;
+            }
+
+            .rarepowerup {
+                color: rgb(0, 54, 125);
+                font-size: 2.5vw;
+                font-family: Jost;
+                font-style: italic;
+                font-weight: 600;
+            }
+
+            .exquisitepowerup {
+                color: rgb(144, 67, 83);
+                font-size: 2.5vw;
+                font-family: Exquisite;
+                animation-name: exquisite;
+                animation-duration: 1.5s;
+                animation-iteration-count: infinite;
+            }
             @font-face {
                 font-family: Jost;
                 src: url("../fonts/Jost-VariableFont_wght.ttf");
@@ -75,6 +129,9 @@
             }
 
         </style>
+
+
+        <link rel="stylesheet" href="../styles.css">
     </head>
 
 
@@ -95,12 +152,37 @@
         </div>
 
         <div id="answerholder" style="display: flex; flex-direction: column; align-items: center; position: center;">
-            <input type="text" id="answer" placeholder="Type your answer..." style="font-family: Quantico; width: 25%; height: 25%;">
+            <input type="text" id="answer" placeholder="Type your answer..." style="font-family: Quantico; width: 25%; height: 25%; font-size: 2vw;">
             <br>
             <button id="submit" class="submit">Submit</button>
         </div>
 
-        <p id="feedback" style="text-align: center; -webkit-text-stroke: 0.2px rgb(255, 255, 255); font-family: Quantico;"></p>
+        <div>
+            <p id="feedback" style="text-align: center; -webkit-text-stroke: 0.2px rgb(255, 255, 255); font-family: Quantico;"></p>
+        </div>
+
+        <!--The special stuff on the sides and everything.-->
+        <aside id="beakersearned" style="font-family: Quantico; font-size: 2vw; color: rgb(158, 200, 20);">beakersearned goes here :)</aside>
+        <aside id="luckleft" style="font-family: Quantico; font-size: 2vw; color: rgb(131, 12, 12);">luckleft goes here :)</aside>
+        <div class="powerup-container">
+
+            <div class="powerup" id="sword">
+                <img src="../images/imageassets/AngryMan.png">
+            </div>
+
+
+
+            
+        </div>
+
+        <p id="name" class="normalitem"></p>
+        <p id="description" style="font-family: Jost; font-size: 2vw;">Psst! Need some help?</p>
+        <p id="cost" style="font-family: Money; color:green; font-size: 2.5vw; text-align: center;"></p>
+
+
+
+
+        <button class="back-button" onclick="window.location.href='../mainpage.html';">Concede</button>
         
     </body>
 
