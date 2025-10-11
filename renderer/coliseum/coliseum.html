@@ -69,8 +69,7 @@
                 display: grid;
                 grid-template-columns: repeat(22, 1fr); /* first number is how many columns */
                 grid-template-rows: repeat(1, auto);   /* 2 rows */
-                gap: 10px;
-                border: 5px dotted rgb(0, 0, 0);
+                border: 5px solid rgb(129, 109, 194);
             }
 
 
@@ -91,13 +90,13 @@
             .powerup img:hover {
                 transform: scale(1.25);
                 transition-duration: 0.2s;
-                border: 5px solid rgb(128, 141, 218);
+                border: 5px solid rgb(51, 194, 15);
             }
 
 
             /*making rarity text?*/
             .normalpowerup {
-                color: green;
+                color: rgb(41, 220, 41);
                 font-size: 2.5vw;
                 font-family: Quantico;
             }
@@ -167,8 +166,10 @@
         <div class="powerup-container">
 
             <div class="powerup" id="sword">
-                <img src="../images/imageassets/AngryMan.png">
+                <img src="../images/imageassets/acidsword.webp">
             </div>
+
+            
 
 
 
@@ -176,8 +177,8 @@
         </div>
 
         <p id="name" class="normalitem"></p>
-        <p id="description" style="font-family: Jost; font-size: 2vw;">Psst! Need some help?</p>
-        <p id="cost" style="font-family: Money; color:green; font-size: 2.5vw; text-align: center;"></p>
+        <p id="description" style="font-family: Jost; font-size: 2vw; color:rgba(255, 255, 255, 0.75);">Psst! Need some help?</p>
+        <p id="cost" style="font-family: Money; color:rgb(123, 154, 215); font-size: 2.5vw; text-align: center;"></p>
 
 
 

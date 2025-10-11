@@ -174,7 +174,7 @@ cost = document.getElementById("cost");
 
 // defaulting to normal text when mouse leaves
 description.addEventListener("mouseleave", () => {
-    description.textContent = "Welcome to the Emporium! Hover over anything to see if you want to buy it!";
+    description.textContent = "Psst! Need some help?";
     Name.textContent = "";
     cost.textContent = "";
 });
@@ -186,7 +186,7 @@ sword.addEventListener("mouseover", () => {
     Name.textContent = "Acid Sword";
     Name.className = "normalpowerup";
     description.textContent = "Strike fear into your opponents! Increase score multiplier by 1.";
-    cost.textContent = "Cost: 10 Beakers";
+    cost.textContent = "Give Up: 10 Beakers Earned";
 });
 
 
