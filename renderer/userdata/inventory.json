@@ -1,5 +1,5 @@
 {
-  "beakers": 21,
+  "beakers": 99960003,
   "items": [
     {
       "id": 110,
@@ -30,6 +30,26 @@
       "id": 101,
       "name": "Broken Wooden Chair",
       "resell": 6
+    },
+    {
+      "id": 2,
+      "name": "Very Angry Man",
+      "resell": 6969
+    },
+    {
+      "id": 2,
+      "name": "Very Angry Man",
+      "resell": 6969
+    },
+    {
+      "id": 1,
+      "name": "Gas-Dipped Matchbox",
+      "resell": 6969
+    },
+    {
+      "id": 1,
+      "name": "Gas-Dipped Matchbox",
+      "resell": 6969
     }
   ],
   "beakersearned": 0

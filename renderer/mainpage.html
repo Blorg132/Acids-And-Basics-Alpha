@@ -7,6 +7,7 @@
   <!-- Sounds -->
   <audio src="sounds/themesong.mp3" autoplay loop id="backgroundmusic"></audio>
   <audio id="hoverSound" src="sounds/elementhover.wav" preload="auto"></audio>
+  <audio id="coliseumSound" src="sounds/coliseumbutton.wav" preload="auto"></audio>
   <link rel="stylesheet" href="styles.css">
 
   
@@ -60,27 +61,55 @@
     }
 
     /* Credits button below grid */
-    .credits-button {
+    .extra-button {
         font-size: 2vw;
         font-family: Quantico;
         cursor: pointer;
         border-radius: 6px;
         border: none;
-        background-color: #3a3a8e;
+        background-color: #8888cf;
         color: white;
         box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         transition-duration: 0.3s;
-        display: block;
-        width: 320px; /* about double width of menu buttons (150 * 2 + gap) */
+        width: 340px; /* about double width of menu buttons (150 * 2 + gap) */
         margin: 0 auto 40px auto; /* center horizontally with bottom margin */
         padding: 12px 0;
 
     }
-    .credits-button:hover {
+    .extra-button:hover {
         /*background-color determines what rest of the button turns to,
         color is what the TEXT turns to :) */
         background-color: green;
         color: whitesmoke;
+
+    }
+
+    .coliseum-button {
+        font-size: 2vw;
+        font-family: Quantico;
+        cursor: pointer;
+        border-radius: 6px;
+        border: none;
+        background-color: #8888cf;
+        color: white;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        width: 340px; /* about double width of menu buttons (150 * 2 + gap) */
+        margin: 0 auto 40px auto; /* center horizontally with bottom margin */
+        padding: 12px 0;
+        transition: color 0.3s ease, background-image 0.5s ease;
+
+
+    }
+
+    .coliseum-button:hover {
+        /*background-color determines what rest of the button turns to,
+        color is what the TEXT turns to :) */
+        background-color: rgb(238, 24, 24);
+        color: rgb(199, 24, 24);
+        background-image: url(images/coliseumbutton.jpg);
+        background-blend-mode:exclusion;
+        background-size:cover;
+
     }
 
     /* House and inventory buttons style for reference (optional) */
@@ -134,7 +163,10 @@
     </div>
 
     <!-- Credits Button Below -->
-    <button class="credits-button" onclick="playClickSound1('credits.html');">Credits</button>
+    <div style="text-align: center;">
+      <button class="coliseum-button" onclick="playClickSound1('coliseum/coliseum.html');" style="margin-right: 15px;">Coliseum</button>
+      <button class="extra-button" onclick="playClickSound1('credits.html');">Credits</button>
+    </div>
 
     <!-- This is butchered code straight from the storepage, but hey, it works and it looks alright.-->
     <div class="upgrade">
@@ -155,7 +187,7 @@
       }, 250);
     }
 
-    const buttons = document.querySelectorAll('.menu-button, .credits-button, .imag');
+    const buttons = document.querySelectorAll('.menu-button, .extra-button, .imag');
     const sound = document.getElementById("hoverSound");
     buttons.forEach(button => {
       button.addEventListener('mouseenter', () => {
@@ -163,6 +195,14 @@
         sound.volume = 0.3;
         sound.play();
       });
+    });
+
+    const coliseumbutton = document.querySelector(".coliseum-button");
+    const coliseumsound = document.getElementById("coliseumSound");
+    coliseumbutton.addEventListener('mouseenter', () => {
+      coliseumsound.currentTime = 0;
+      coliseumsound.volume = 0.3;
+      coliseumsound.play();
     });
   </script>
 
