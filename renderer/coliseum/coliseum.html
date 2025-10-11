@@ -6,16 +6,75 @@
     <head>
 
         <audio id="backgroundmusic" src="../sounds/coliseumsong.mp3" autoplay loop></audio>
+        <audio id="ambience" src="../sounds/coliseumambience.mp3" autoplay loop></audio>
+        <audio id="cheer" src="../sounds/coliseumcheering.wav" preload="auto"></audio>
+        <audio id="boo" src="../sounds/coliseumbooing.wav" preload="auto"></audio>
+
 
 
         <script>
-            // changing the volume of this fucking loud ass song!!!
+            // changing the volume of these loud sound effects!!!!
 
-            const sound = document.getElementById("backgroundmusic");
-            sound.volume = 0.6;
+            const music = document.getElementById("backgroundmusic");
+            music.volume = 0.6;
+
+            const ambience = document.getElementById("ambience");
+            ambience.volume = 0.5;
+
+            const cheer = document.getElementById("cheer");
+            cheer.volume = 0.6;
+
+            const boo = document.getElementById("boo");
+            boo.volume = 0.6;
+        
         
         </script>
 
+
+
+        <style>
+            .bg-layer {
+                background-image: url('../images/coliseumbackground.webp');
+                background-size: 100% 100%;
+                background-position: center;
+                position: absolute;
+                inset: 0;
+                opacity: 0.2;
+                z-index: -100;
+            }
+
+            p {
+                font-size: 4vw;
+                font-family: Jost;
+            }
+
+            .submit {
+                padding: 15px;
+                width: 13%;
+                font-family: Jost;
+                font-size: calc(.5em + 1vw);
+                transition-duration: 0.15s;
+            }
+
+            .submit:hover {
+                scale: 1.1;
+                transform: translateY(-5px);
+                background-color: rgb(255, 153, 116);
+                border-color: rgba(172, 252, 51, 0.706);
+                transition-duration: 0.15s;
+            }
+
+            @font-face {
+                font-family: Jost;
+                src: url("../fonts/Jost-VariableFont_wght.ttf");
+            }
+
+            @font-face {
+                font-family: Quantico;
+                src: url("../fonts/Quantico-Bold.ttf");
+            }
+
+        </style>
     </head>
 
 
@@ -24,18 +83,24 @@
 
 
 
-    <body style="overflow: hidden;">
+    <body style="overflow: hidden; background-color:rgb(91, 91, 91);">
+
+        <div class="bg-layer"></div>
+
+
+
 
         <div id="questionholder" style="display: flex; flex-direction: column; align-items: center; position: center;">
             <p id="question">asdf</p>
         </div>
 
         <div id="answerholder" style="display: flex; flex-direction: column; align-items: center; position: center;">
-            <input type="text" id="answer" placeholder="Type your answer...">
-            <button id="submit">Submit</button>
+            <input type="text" id="answer" placeholder="Type your answer..." style="font-family: Quantico; width: 25%; height: 25%;">
+            <br>
+            <button id="submit" class="submit">Submit</button>
         </div>
 
-        <p id="feedback" style="text-align: center;"></p>
+        <p id="feedback" style="text-align: center; -webkit-text-stroke: 0.2px rgb(255, 255, 255); font-family: Quantico;"></p>
         
     </body>
 

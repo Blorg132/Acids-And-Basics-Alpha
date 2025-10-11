@@ -32,9 +32,10 @@ for (let lessonNumber in questions) {
 //////////////////////////////////////////////////////////////////////////
 
 
-////////////////////////////score value
+////////////////////////////score value and sound effects
 let currentQuestion = {};
 let score = 0;
+
 ////////////////////////////////////////
 
 
@@ -98,10 +99,14 @@ function checkAnswer() {
     feedback.style.color = "green";
     feedback.style.scale = 1.0;
     // TODO: add beakers or score
+    cheer.currentTime = 0;
+    cheer.play();
   } else {
     feedback.textContent = `${currentQuestion.correctAnswers[0]}`;
     feedback.style.color = "red";
     feedback.style.scale = 1.5;
+    boo.currentTime = 0;
+    boo.play();
   }
 
   // Load next question after short delay
