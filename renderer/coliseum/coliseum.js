@@ -5,7 +5,7 @@ const fs = require('fs');
 ////////////////////////Questions/////////////////////////
 const questions = [
 
-    { lesson: "lesson2", id: "10-1", question: "What does KMT stand for?", correctAnswers: ["kinetic molecular theory"] },
+    { lesson: "lesson2", id: "10-1", question: "What does KMT stand for?", correctAnswers: ["e"] },
     { lesson: "lesson10", id: "10-2", question: "What causes gas pressure?", correctAnswers: ["particle collisions"] },
     { lesson: "lesson11", id: "11-1", question: "What is a synthesis reaction?", correctAnswers: ["synthesis"] }
 ];
@@ -40,6 +40,8 @@ let scoreadd = 1;
 let streak = 0;
 let luck = 3;
 
+let multiplier = 1;
+let chance = 0;
 
 let beakersearnedtext = document.getElementById("beakersearned");
 beakersearnedtext.textContent = `Beakers Earned: ${score}`;
@@ -63,6 +65,7 @@ luckleft.textContent = `Luck Remaining: ${luck}`;
 let countdown; // will store the interval
 let timeLeft = 30; // seconds
 let timeGain = 5; // time gain per question answered
+let timeMax = 30; // max amount of time in countdown
 
 function startTimer(duration = 30) {
   clearInterval(countdown); // clear any previous timer
@@ -73,12 +76,16 @@ function startTimer(duration = 30) {
   countdown = setInterval(() => {
     timeLeft--;
     timerDisplay.textContent = `${timeLeft}s`;
+    if(timeLeft > 20){
+      timerDisplay.style.color = "rgba(255, 255, 255, 1)";
+      timerDisplay.style.scale = "1.0";
+    } 
     if(timeLeft <= 20){
-      timerDisplay.style.color = "rgb(161, 191, 61)";
+      timerDisplay.style.color = "rgba(131, 117, 220, 1)";
       timerDisplay.style.scale = "1.2";
     } 
     if(timeLeft <= 10){
-      timerDisplay.style.color = "rgba(223, 84, 84, 1)";
+      timerDisplay.style.color = "rgba(250, 44, 44, 0.78)";
       timerDisplay.style.scale = "1.5";
     }
 
@@ -91,6 +98,13 @@ function startTimer(duration = 30) {
 }
 
 function endGame() {
+  console.log("Give Beakers Running")
+  let dog = JSON.parse(fs.readFileSync("./renderer/userdata/inventory.json", "utf8"));
+  dog.coliseumbeakersearned = score;
+  dog.beakers += score;
+  console.log("parsed");
+  fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(dog, null, 2));
+  console.log(`Updated inventory: ${dog.beakers} beakers`);
   window.location.href="gameover.html";
 }
 
@@ -160,29 +174,73 @@ function checkAnswer() {
   // Make sure we use correctAnswers array
   const correctAnswers = currentQuestion.correctAnswers.map(a => a.toLowerCase());
 
-  const feedback = document.getElementById("feedback");
+  const streaktext = document.getElementById("streak");
 
   if (correctAnswers.includes(userAnswer)) {
-    feedback.textContent = "Correct!";
-    feedback.style.color = "green";
-    feedback.style.scale = 1.0;
-    score += scoreadd;
+    let multiplierdecider = Math.random() * 100;
+    if(multiplierdecider < chance){
+      score += (scoreadd * multiplier);
+    } else {
+      score += scoreadd;
+    }
+    
     // TODO: add beakers or score
     cheer.currentTime = 0;
     cheer.play();
     timeLeft += timeGain;
+    streak++;
+    if(timeLeft>timeMax){
+      timeLeft = timeMax;
+    }
   } else {
-    feedback.textContent = `${currentQuestion.correctAnswers[0]}`;
-    feedback.style.color = "red";
-    feedback.style.scale = 1.5;
     luck --;
+    streak = 0;
+    if(luck <= 0){
+      endGame();
+    }
     boo.currentTime = 0;
     boo.play();
   }
 
+  /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
+  /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
+  if (streak == 0) {
+    streaktext.style.color = "white";
+    streaktext.style.scale = 0.8;
+
+    multiplier = 1;
+    chance = 0;
+  } else if (streak >= 10) {
+    streaktext.style.color = "rgba(82, 255, 13, 0.81)";
+    streaktext.style.scale = 1.2;
+
+    multiplier = 3;
+    chance = 50;
+  } else if (streak >= 8) {
+    streaktext.style.color = "rgba(231, 56, 33, 1)";
+    streaktext.style.scale = 1.1;
+
+    chance = 35;
+  } else if (streak >= 5) {
+    streaktext.style.color = "rgba(0, 48, 153, 1)";
+    streaktext.style.scale = 1.05;
+
+    multiplier = 2;
+    chance = 25;
+  } else if (streak >= 3) {
+    streaktext.style.color = "rgba(147, 171, 224, 1)";
+    streaktext.style.scale = 1.0;
+
+  } else if (streak >= 1) {
+    streaktext.style.color = "rgba(141, 158, 73, 1)";
+  }
+  /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
+  /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
+
   //updating tallies/counters/////////////////////////////
   beakersearnedtext.textContent = `Beakers Earned: ${score}`;
   luckleft.textContent = `Luck Remaining: ${luck}`;
+  streaktext.textContent = `   ${streak}x`;
   ////////////////////////////////////////////////////////
 
   // Load next question after short delay
@@ -218,10 +276,13 @@ description = document.getElementById("description");
 cost = document.getElementById("cost");
 
 // defaulting to normal text when mouse leaves
-description.addEventListener("mouseleave", () => {
-    description.textContent = "Psst! Need some help?";
+const descriptioncheck = document.querySelectorAll(".powerup");
+descriptioncheck.forEach(item => {
+  item.addEventListener("mouseleave", () => {
+    description.textContent = "Use powerups to gain an advantage!";
     Name.textContent = "";
     cost.textContent = "";
+  });
 });
 
 
@@ -233,8 +294,21 @@ sword.addEventListener("mouseover", () => {
     description.textContent = "Strike fear into your opponents! Increase score multiplier by 1.";
     cost.textContent = "Give Up: 10 Beakers Earned";
 });
+sword.addEventListener("click", () => {
+    Name.textContent = "Acid Sword";
+    Name.className = "normalpowerup";
+    description.textContent = "Strike fear into your opponents! Increase score multiplier by 1.";
+    cost.textContent = "Give Up: 10 Beakers Earned";
+});
 
 
+shield = document.getElementById("shield");
+shield.addEventListener("mouseover", () => {
+    Name.textContent = "Iron Shield";
+    Name.className = "normalpowerup";
+    description.textContent = "Keep your streak going after an incorrect answer.";
+    cost.textContent = "Give Up: 10 Beakers Earned";
+});
 
 
 

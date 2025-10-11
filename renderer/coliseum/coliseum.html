@@ -70,6 +70,7 @@
                 grid-template-columns: repeat(22, 1fr); /* first number is how many columns */
                 grid-template-rows: repeat(1, auto);   /* 2 rows */
                 border: 5px solid rgb(129, 109, 194);
+                gap: 10px;
             }
 
 
@@ -165,7 +166,8 @@
         <aside id="luckleft" style="font-family: Quantico; font-size: 2vw; color: rgb(131, 12, 12);">luckleft goes here :)</aside>
 
         <!--Timer-->
-        <aside style="float: right; font-family: Quantico; font-size: 4vw;" id="timer">Timer Goes HEre!!!</aside>
+        <aside style="float: left; font-family: Quantico; font-size: 4vw; -webkit-text-stroke: 1px rgb(254, 255, 250);" id="streak">0x</aside>
+        <aside style="float: right; font-family: Quantico; font-size: 4vw; color: white; -webkit-text-stroke: 1px rgb(254, 255, 250);" id="timer">Timer Goes HEre!!!</aside>
         <br>
         <br>
         <br>
@@ -177,7 +179,9 @@
                 <img src="../images/imageassets/acidsword.webp">
             </div>
 
-            
+            <div class="powerup" id="shield">
+                <img src="../images/imageassets/acidsword.webp">
+            </div>
 
 
 
@@ -185,12 +189,9 @@
         </div>
 
         <p id="name" class="normalitem"></p>
-        <p id="description" style="font-family: Jost; font-size: 2vw; color:rgba(255, 255, 255, 0.75);">Psst! Need some help?</p>
-        <p id="cost" style="font-family: Money; color:rgb(123, 154, 215); font-size: 2.5vw; text-align: center;"></p>
+        <p id="description" style="font-family: Jost; font-size: 2vw; color:rgba(255, 255, 255, 0.75);">Use powerups to gain an advantage!</p>
+        <aside id="cost" style="font-family: Money; color:rgb(123, 154, 215); font-size: 1.3vw; float: right;"></p>
 
-
-
-        <button class="back-button" onclick="window.location.href='../mainpage.html';">Concede</button>
         
     </body>
 

@@ -6,15 +6,16 @@
 
     <head>
 
+        <link rel="stylesheet" href="../styles.css">
         <audio id="music" src="../sounds/gameovertheme.mp3" autoplay></audio>
         <style>
             .bg-layer {
                 background-image: url('../images/coliseumgameover.webp');
-                background-size: 100% 100%;
+                background-size: 100% 140%;
                 background-position: center;
                 position: absolute;
                 inset: 0;
-                opacity: 0.2;
+                opacity: 1.0;
                 z-index: -100;
             }
 
@@ -27,7 +28,32 @@
 
     <body>
         <div class="bg-layer"></div>
-        
+        <h1 style="color: rgb(255, 0, 0); font-size: 10vw; font-family: Quantico;">GAME OVER</h1>
+        <aside id="coliseumbeakersearned" style="color:rgb(255, 255, 255); font-family: Fancy; font-size: 4vw; text-align: center;">asdf</aside>
+
+
+
+
+
+
+
+
+        <button class="back-button" onclick="window.location.href='../mainpage.html';">Leave</button>
     </body>
+
+
+    <script>
+        const fs = require('fs');
+
+        coliseumbeakersearned = document.getElementById("coliseumbeakersearned");
+        let dog = fs.readFileSync("./renderer/userdata/inventory.json", "utf8");
+        data = JSON.parse(dog);
+        coliseumbeakersearned.textContent = `Beakers Won: ${data.coliseumbeakersearned}`;
+        coliseumbeakersearned.style.color = "rgb(124, 212, 24)";
+        if(data.coliseumbeakersearned == 0){
+            coliseumbeakersearned.textContent = "...you won nothing.";
+            coliseumbeakersearned.style.color = "white";
+        }
+    </script>
 
 </html>

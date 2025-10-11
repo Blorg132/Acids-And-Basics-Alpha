@@ -1,5 +1,5 @@
 {
-  "beakers": 99949774,
+  "beakers": 246,
   "items": [
     {
       "id": 110,
@@ -67,5 +67,6 @@
       "resell": 6969
     }
   ],
-  "beakersearned": 0
+  "beakersearned": 0,
+  "coliseumbeakersearned": 90
 }
