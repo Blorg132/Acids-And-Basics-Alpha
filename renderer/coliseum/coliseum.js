@@ -52,6 +52,51 @@ luckleft.textContent = `Luck Remaining: ${luck}`;
 
 ////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////TIMER LOGIC//////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+let countdown; // will store the interval
+let timeLeft = 30; // seconds
+let timeGain = 5; // time gain per question answered
+
+function startTimer(duration = 30) {
+  clearInterval(countdown); // clear any previous timer
+  timeLeft = duration;
+  const timerDisplay = document.getElementById("timer");
+  timerDisplay.textContent = `${timeLeft}s`;
+
+  countdown = setInterval(() => {
+    timeLeft--;
+    timerDisplay.textContent = `${timeLeft}s`;
+    if(timeLeft <= 20){
+      timerDisplay.style.color = "rgb(161, 191, 61)";
+      timerDisplay.style.scale = "1.2";
+    } 
+    if(timeLeft < 10){
+      timerDisplay.style.color = "rgba(223, 84, 84, 1)";
+      timerDisplay.style.scale = "1.5";
+    }
+
+    if (timeLeft <= 0) {
+      clearInterval(countdown);
+      timerDisplay.textContent = "Time's up!";
+      handleTimeUp(); // call a function when timer ends
+    }
+  }, 1000);
+}
+
+function handleTimeUp() {
+  window.location.href="../mainpage.html";
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -103,6 +148,7 @@ function loadNewQuestion() {
 
   const feedback = document.getElementById("feedback");
   if (feedback) feedback.textContent = "";
+  startTimer(timeLeft);
 }
 
 ///////////////////////////check answer//////////////////////////////////////////////
@@ -124,6 +170,7 @@ function checkAnswer() {
     // TODO: add beakers or score
     cheer.currentTime = 0;
     cheer.play();
+    timeLeft += timeGain;
   } else {
     feedback.textContent = `${currentQuestion.correctAnswers[0]}`;
     feedback.style.color = "red";
@@ -139,9 +186,7 @@ function checkAnswer() {
   ////////////////////////////////////////////////////////
 
   // Load next question after short delay
-  setTimeout(() => {
-    loadNewQuestion();
-  }, 1500);
+  loadNewQuestion();
 }
 
 // Event listener for the submit button
