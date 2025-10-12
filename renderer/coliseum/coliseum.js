@@ -26,7 +26,7 @@ const questions = [
   { lesson: "lesson3", id: "3-4", question: "What do particles in liquids do that solids cannot?", correctAnswers: ["slide", "flow"] },
   { lesson: "lesson3", id: "3-5", question: "What do particles in gases do freely?", correctAnswers: ["move", "move freely"] },
   { lesson: "lesson3", id: "3-6", question: "What happens to particle motion as temperature increases?", correctAnswers: ["increases", "faster", "gets faster", "speeds up", "speed up"] },
-  { lesson: "lesson3", id: "3-7", question: "What happens to particle motion as temperature decreases?", correctAnswers: ["decreases", "slower", "gets slower", "slows down"] },
+  { lesson: "lesson3", id: "3-7", question: "What happens to particle motion as temperature decreases?", correctAnswers: ["decreases", "slower", "gets slower", "slows down", "slow down"] },
   { lesson: "lesson3", id: "3-8", question: "In which state are particles closest together?", correctAnswers: ["solid", "solids"] },
   { lesson: "lesson3", id: "3-9", question: "In which state are particles furthest apart?", correctAnswers: ["gas", "gases"] },
   { lesson: "lesson3", id: "3-11", question: "What type of movement do gas particles have?", correctAnswers: ["random"] },
@@ -39,7 +39,7 @@ const questions = [
   { lesson: "lesson4", id: "4-2", question: "What is the change from liquid to solid called?", correctAnswers: ["freezing", "solidification"] },
   { lesson: "lesson4", id: "4-3", question: "What is the change from liquid to gas called?", correctAnswers: ["boiling", "evaporation"] },
   { lesson: "lesson4", id: "4-4", question: "What is the change from gas to liquid called?", correctAnswers: ["condensation"] },
-  { lesson: "lesson4", id: "4-5", question: "What happens to particles when a substance melts?", correctAnswers: ["move faster", "spread apart", "get faster", "speed up", "speeds up"] },
+  { lesson: "lesson4", id: "4-5", question: "What happens to particles when a substance melts?", correctAnswers: ["move faster", "moves faster", "spread apart", "get faster", "gets faster", "speed up", "speeds up"] },
   { lesson: "lesson4", id: "4-6", question: "What happens to particles when a substance freezes?", correctAnswers: ["slow down", "move slower"] },
   { lesson: "lesson4", id: "4-7", question: "What is a chemical change that produces heat and light called?", correctAnswers: ["combustion"] },
   { lesson: "lesson4", id: "4-8", question: "What is the slow reaction of metal with oxygen called?", correctAnswers: ["rusting", "corrosion", "rust"] },
@@ -278,23 +278,23 @@ function checkAnswer() {
   } else if (streak >= 15) {
     streaktext.style.color = "rgba(82, 255, 13, 0.81)";
     streaktext.style.scale = 1.2;
-
     multiplier = 3;
     chance = 75;
   } else if (streak >= 12) {
     streaktext.style.color = "rgba(231, 56, 33, 1)";
     streaktext.style.scale = 1.1;
-
-    chance = 35;
+    chance = 50;
   } else if (streak >= 8) {
     streaktext.style.color = "rgba(0, 48, 153, 1)";
     streaktext.style.scale = 1.05;
 
     multiplier = 2;
-    chance = 25;
+    chance = 35;
   } else if (streak >= 5) {
     streaktext.style.color = "rgba(147, 171, 224, 1)";
     streaktext.style.scale = 1.0;
+    multiplier = 2;
+    chance = 15;
 
   } else if (streak >= 1) {
     streaktext.style.color = "rgba(141, 158, 73, 1)";
@@ -307,7 +307,7 @@ function checkAnswer() {
   beakersearnedtext.textContent = `Beakers Earned: ${score}`;
   luckleft.textContent = `Luck Remaining: ${luck}`;
   streaktext.textContent = `   ${streak}x`;
-  if(streak >= 8){
+  if(streak >= 5){
     multipliertext.textContent = `${chance}% of ${multiplier}x beakers`;
   } else {
     multipliertext.textContent = ``;
@@ -456,12 +456,14 @@ slots.addEventListener("mouseover", () => {
     cost.textContent = `Give Up: ${slotsprice} Beakers, and end the run!`;
 });
 slots.addEventListener("click", () => {
-  score -= slotsprice;
-  let slotfate = Math.random() * 100;
-  if(slotfate <= 20){
-    score = score*3;
+  if(score >= price){
+    score -= slotsprice;
+    let slotfate = Math.random() * 100;
+    if(slotfate <= 20){
+      score = score*3;
+    }
+    endGame();
   }
-  endGame();
 });
 
 

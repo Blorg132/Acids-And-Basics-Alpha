@@ -3,46 +3,106 @@
 
   <head>
       <meta charset="UTF-8" />
-      <title>Practice Homepage</title>
+      <title>Materials Homepage</title>
       <link rel="stylesheet" href="styles.css">
 
-      <h1>Practice</h1>
+      <h1>Materials</h1>
+      <p style="font-family: Quantico;">
+        Here you can take a look at some PDFs and materials for more practice and information. Don't forget to ask your actual teachers as well!
+      </p>
 
       <div class="practice-background"></div>
 
       <!--these don't play???-->
-      <audio id="dropdownsound" src="sounds/dropdownsound.wav" preload="auto"></audio>
-      <audio id="elementhoversound" src="sounds/elementhover.wav" preload="auto"></audio>
+      <audio id="hoverSound" src="../renderer/sounds/elementhover.wav" preload="auto"></audio>
 
       <style>
-      .questions-button {
-        width: 25vw;
-        height: 10vw;
-        font-size: clamp(1rem, 3vw, 3.5rem);
-        font-weight: bold;
-        background: linear-gradient(90deg, #f284fc, #a78bfa);
-        color: white;
-        border: none;
-        border-radius: 15px;
-        cursor: pointer;
-        transition: transform 0.2s ease, background 0.5s ease;
-      }
+          /* Container for the 2x2 grid buttons */
+        .container {
+          display: grid;
+          grid-template-columns: repeat(2, 200px); /* two equal-width columns */
+          grid-auto-rows: 100px;                   /* each row is 100px tall */
+          gap: 15px;
+          justify-content: center;
+          margin: 50px auto 20px;
+        }
 
-      .questions-button:hover {
-        transform: scale(1.1);
-        background: linear-gradient(270deg, #7f5af0, #14d3e1); /* reversed */
-      }
+        /* Styling for select buttons */
+        .select-button {
+          font-size: 2vw;
+          font-family: Quantico;
+          cursor: pointer;
+          border-radius: 6px;
+          border: none;
+          background-color: #3a3a8e;
+          color: white;
+          box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+          transition-duration: 0.3s;
+        }
+        .select-button:hover {
+            /*background-color determines what rest of the button turns to,
+            color is what the TEXT turns to :) */
+            background-color: green;
+            border: 5px double rgb(184, 199, 76);
+            color: whitesmoke;
+            scale: 1.2;
 
+        }
+
+
+       .bg-layer {
+          background-image: url('images/practicebackground.webp');
+          background-repeat: repeat-y;
+          background-size: 100% auto;
+          background-position: top center;
+          position: fixed;       /* stays in place behind everything */
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0.3;
+          z-index: -1;
+        }
+
+        p {
+          color: rgb(243, 233, 233);
+          background-color: rgba(175, 142, 58, 0.377);
+          text-align: center;
+          font-size: 2.5vw;
+        }
       </style>
   </head>
 
-  <body style="background-color: rgb(0, 0, 0);">
+  <body style="background-color: rgb(85, 76, 76);">
 
-    <button class="questions-button" onclick="window.location.href='practicepapers/kmt.html';">KMT</button>
-    <button class="questions-button" onclick="window.location.href='practicepapers/matterandstates.html';">Matter and States</button>
-    <button class="questions-button" onclick="window.location.href='practicepapers/physicalchemicalchanges.html';">Physical/Chemical Changes</button>
-    <br>
-    <button class="questions-button" onclick="window.location.href='practicepapers/atomictheory.html';">Atomic T</button>
+    <div class="bg-layer"></div>
+    <div class="container">
+      <button class="select-button" onclick="window.location.href='practicepapers/kmt.html';">KMT</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/matterandstates.html';">Matter and States</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/physicalchemicalchanges.html';">Physical/Chemical Changes</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/atomictheory.html';">Atomic Theory</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/.html';">Basic Atomic Structure</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/.html';">Periodic Table</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/.html';">Intermediate Atomic Structure</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/.html';">Bonding</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/.html';">Gases and Gas Laws</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/.html';">Chemical Reactions</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/.html';">Chemical Equations</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/.html';">Acids, Bases, + pH</button>
+      <button class="select-button" onclick="window.location.href='practicepapers/.html';">Mixtures + Seperation</button>
+    </div>
+
+    <script>
+      const selectbuttons = document.querySelectorAll('.select-button');
+      const hoversound = document.getElementById("hoverSound");
+      selectbuttons.forEach(button => {
+        button.addEventListener("mouseenter", () => {
+          hoversound.currentTime = 0;
+          hoversound.play();
+        });
+      });
+
+    </script>
 
     <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
 
