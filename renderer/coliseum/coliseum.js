@@ -4,8 +4,8 @@ const fs = require('fs');
 
 ////////////////////////Questions/////////////////////////
 const questions = [
-  { lesson: "lesson2", id: "2-1", question: "What are the smallest particles of elements called?", correctAnswers: ["atoms"] },
-  { lesson: "lesson2", id: "2-2", question: "What is formed when two or more atoms bond together?", correctAnswers: ["molecule", "molecules"] },
+  { lesson: "lesson2", id: "2-1", question: "What are the smallest particles of elements called?", correctAnswers: ["atoms", "atom"] },
+  { lesson: "lesson2", id: "2-2", question: "What is formed when two or more atoms bond together?", correctAnswers: ["molecule", "molecules", "compound", "compounds"] },
   { lesson: "lesson2", id: "2-3", question: "What do we call atoms that have gained or lost electrons?", correctAnswers: ["ions"] },
   { lesson: "lesson2", id: "2-4", question: "What charge does an atom have if it loses electrons?", correctAnswers: ["positive"] },
   { lesson: "lesson2", id: "2-5", question: "What charge does an atom have if it gains electrons?", correctAnswers: ["negative"] },
@@ -25,11 +25,10 @@ const questions = [
   { lesson: "lesson3", id: "3-3", question: "Solid particles ... in place", correctAnswers: ["vibrate"] },
   { lesson: "lesson3", id: "3-4", question: "What do particles in liquids do that solids cannot?", correctAnswers: ["slide", "flow"] },
   { lesson: "lesson3", id: "3-5", question: "What do particles in gases do freely?", correctAnswers: ["move", "move freely"] },
-  { lesson: "lesson3", id: "3-6", question: "What happens to particle motion as temperature increases?", correctAnswers: ["increases", "faster", "gets faster", "speeds up"] },
+  { lesson: "lesson3", id: "3-6", question: "What happens to particle motion as temperature increases?", correctAnswers: ["increases", "faster", "gets faster", "speeds up", "speed up"] },
   { lesson: "lesson3", id: "3-7", question: "What happens to particle motion as temperature decreases?", correctAnswers: ["decreases", "slower", "gets slower", "slows down"] },
   { lesson: "lesson3", id: "3-8", question: "In which state are particles closest together?", correctAnswers: ["solid", "solids"] },
   { lesson: "lesson3", id: "3-9", question: "In which state are particles furthest apart?", correctAnswers: ["gas", "gases"] },
-  { lesson: "lesson3", id: "3-10", question: "What causes the pressure of a gas?", correctAnswers: ["collisions", "particle collisions"] },
   { lesson: "lesson3", id: "3-11", question: "What type of movement do gas particles have?", correctAnswers: ["random"] },
   { lesson: "lesson3", id: "3-12", question: "What is the energy that moving particles carry?", correctAnswers: ["kinetic energy", "kinetic"] },
   { lesson: "lesson3", id: "3-13", question: "Which state of matter has definite shape and volume?", correctAnswers: ["solid"] },
@@ -40,7 +39,7 @@ const questions = [
   { lesson: "lesson4", id: "4-2", question: "What is the change from liquid to solid called?", correctAnswers: ["freezing", "solidification"] },
   { lesson: "lesson4", id: "4-3", question: "What is the change from liquid to gas called?", correctAnswers: ["boiling", "evaporation"] },
   { lesson: "lesson4", id: "4-4", question: "What is the change from gas to liquid called?", correctAnswers: ["condensation"] },
-  { lesson: "lesson4", id: "4-5", question: "What happens to particles when a substance melts?", correctAnswers: ["move faster", "spread apart", "get faster", "speed up"] },
+  { lesson: "lesson4", id: "4-5", question: "What happens to particles when a substance melts?", correctAnswers: ["move faster", "spread apart", "get faster", "speed up", "speeds up"] },
   { lesson: "lesson4", id: "4-6", question: "What happens to particles when a substance freezes?", correctAnswers: ["slow down", "move slower"] },
   { lesson: "lesson4", id: "4-7", question: "What is a chemical change that produces heat and light called?", correctAnswers: ["combustion"] },
   { lesson: "lesson4", id: "4-8", question: "What is the slow reaction of metal with oxygen called?", correctAnswers: ["rusting", "corrosion", "rust"] },
@@ -68,7 +67,6 @@ let lessonData = JSON.parse(rawDataLessons);
 for (let lessonNumber in questions) {
   let lessonchosen = questions[lessonNumber];
   let questionsorganized = questionsArray.concat(lessonchosen.question);
-  console.log(questions);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -76,17 +74,22 @@ for (let lessonNumber in questions) {
 
 ////////////////////////////score value and sound effects
 let currentQuestion = {};
-let score = 0;
+let score = 1000;
 let scoreadd = 1;
 
 let streak = 0;
-let luck = 3;
+let luck = 7;
 
 let multiplier = 1;
 let chance = 0;
 
 let beakersearnedtext = document.getElementById("beakersearned");
-beakersearnedtext.textContent = `Beakers Earned: ${score}`;
+// Just making a function so its easier later in some purchase code.
+function updateBeakers(){
+  beakersearnedtext.textContent = `Beakers Earned: ${score}`;
+}
+updateBeakers()
+
 
 let luckleft = document.getElementById("luckleft");
 luckleft.textContent = `Luck Remaining: ${luck}`;
@@ -216,6 +219,7 @@ function checkAnswer() {
   const correctAnswers = currentQuestion.correctAnswers.map(a => a.toLowerCase());
 
   const streaktext = document.getElementById("streak");
+  const multipliertext = document.getElementById("multiplier");
 
   if (correctAnswers.includes(userAnswer)) {
     feedback.textContent = "";
@@ -231,12 +235,27 @@ function checkAnswer() {
     cheer.play();
     timeLeft += timeGain;
     streak++;
+    if(adrenalinepurchased.value == true){
+      timeMax = 40;
+    }
     if(timeLeft>timeMax){
       timeLeft = timeMax;
     }
   } else {
     luck --;
-    streak = 0;
+    //Using Shield Powerups:
+    if(woodenshieldpurchased.value == true){
+      woodenshieldsound.currentTime = 0;
+      woodenshieldsound.play();
+      woodenshieldsused++;
+      woodenshieldpurchased.value = false;
+      if(woodenshieldsused < 2){
+        itemReplenish(woodenshield, woodenshieldpurchased);
+        console.log(woodenshieldsused);
+      }
+    } else {
+      streak = 0;
+    }
     if(luck <= 0){
       endGame();
     }
@@ -284,6 +303,11 @@ function checkAnswer() {
   beakersearnedtext.textContent = `Beakers Earned: ${score}`;
   luckleft.textContent = `Luck Remaining: ${luck}`;
   streaktext.textContent = `   ${streak}x`;
+  if(streak >= 8){
+    multipliertext.textContent = `${chance}% of ${multiplier}x beakers`;
+  } else {
+    multipliertext.textContent = ``;
+  }
   ////////////////////////////////////////////////////////
 
   // Load next question after short delay
@@ -305,6 +329,35 @@ document.getElementById("answer").addEventListener("keypress", function (event) 
 
 
 
+
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////PURCHASE CODE///////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+let acidswordpurchased = { value: false };
+let acidswordprice = 15;
+
+let woodenshieldpurchased = { value : false };
+let woodenshieldprice = 15;
+let woodenshieldsused = 0;
+let woodenshieldsound = document.getElementById("woodenshieldused");
+woodenshieldsound.volume = 1.0;
+
+
+let adrenalinepurchased = { value: false };
+let adrenalineprice = 35;
+
+
+
+let slotspurchased = { value: false };
+let slotsprice = 60;
+
+
+
+let purchasedsound = document.getElementById("purchased");
+purchasedsound.volume = 0.6;
 ///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -330,30 +383,65 @@ descriptioncheck.forEach(item => {
 
 
 //////////////////POWERUP HOVERS/CLICKS////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////
+/////USE THIS FUNCTION FOR PURCHASING AN ITEM!!!
+function purchaseItem(itemElement, purchasedCheck, price) {
+  itemElement.addEventListener("click", () => {
+    if (purchasedCheck.value == false && score >= price) {
+      itemElement.classList.add("sold");
+      purchasedCheck.value = true;
+      score -= price;
+      purchasedsound.currentTime = 0;
+      purchasedsound.play();
+    }
+    updateBeakers();
+  });
+}
+
+///////////////For when you use an item, use itemReplenish(nameofthething, variablesayingitwasboughtoriginally)
+function itemReplenish(itemElement, purchaseCheck) {
+  itemElement.classList.remove("sold");
+  purchaseCheck.value = false;
+}
+
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
 sword = document.getElementById("sword");
 sword.addEventListener("mouseover", () => {
     Name.textContent = "Acid Sword";
-    Name.className = "normalpowerup";
-    description.textContent = "Strike fear into your opponents! Increase score multiplier by 1.";
-    cost.textContent = "Give Up: 10 Beakers Earned";
+    Name.className = "rarepowerup";
+    description.textContent = "Strike fear into your opponents! Gain an extra beaker with every correct answer. Included in multiplier!";
+    cost.textContent = "Give Up: 25 Beakers";
 });
+purchaseItem(sword, acidswordpurchased, acidswordprice);
 sword.addEventListener("click", () => {
-    //purchase code write later
+  if(acidswordpurchased.value == true){
+    scoreadd++;
+  }
 });
 
-
-shield = document.getElementById("shield");
-shield.addEventListener("mouseover", () => {
+woodenshield = document.getElementById("woodenshield");
+woodenshield.addEventListener("mouseover", () => {
     Name.textContent = "Wooden Shield";
     Name.className = "normalpowerup";
     description.textContent = "Keep your streak going after an incorrect answer.";
-    cost.textContent = "Give Up: 10 Beakers Earned";
+    cost.textContent = "Give Up: 15 Beakers";
 });
+purchaseItem(woodenshield, woodenshieldpurchased, woodenshieldprice);
 
-shield.addEventListener("click", () => {
-    //purchase code write later
+
+
+
+adrenaline = document.getElementById("adrenaline");
+adrenaline.addEventListener("mouseover", () => {
+    Name.textContent = "C9-H13-NO3";
+    Name.className = "rarepowerup";
+    description.textContent = "WOO! Now this feels GOOD! Timer now caps out at 40 seconds.";
+    cost.textContent = "Give Up: 35 Beakers";
 });
-
+purchaseItem(adrenaline, adrenalinepurchased, adrenalineprice);
 
 
 slots = document.getElementById("slots");
@@ -361,13 +449,9 @@ slots.addEventListener("mouseover", () => {
     Name.textContent = "Vegas, Baby!";
     Name.className = "exquisitepowerup";
     description.textContent = "Give up your life for a 5% chance to triple all beakers earned!";
-    cost.textContent = "Give Up: 10 Beakers Earned";
+    cost.textContent = "Give Up: Everything";
 });
-
-slots.addEventListener("click", () => {
-    //purchase code write later
-});
-
+purchaseItem(slots, slotspurchased, slotsprice);
 
 
 

@@ -10,6 +10,10 @@
         <audio id="cheer" src="../sounds/coliseumcheering.wav" preload="auto"></audio>
         <audio id="boo" src="../sounds/coliseumbooing.wav" preload="auto"></audio>
 
+        <audio id="woodenshieldused" src="../sounds/woodenshieldused.wav" preload="auto"></audio>
+
+        <audio id="purchased" src="../sounds/chaching.wav" preload="auto"></audio>
+
 
         <script>
             // changing the volume of these loud sound effects!!!!
@@ -111,7 +115,7 @@
             }
 
             .rarepowerup {
-                color: rgb(0, 54, 125);
+                color: rgb(189, 184, 250);
                 font-size: 2.5vw;
                 font-family: Jost;
                 font-style: italic;
@@ -119,13 +123,19 @@
             }
 
             .exquisitepowerup {
-                color: rgb(144, 67, 83);
+                color: rgb(255, 255, 255);
+                -webkit-text-stroke: 0.1px rgba(20, 54, 163, 0.616);
                 font-size: 2.5vw;
                 font-family: Exquisite;
                 animation-name: exquisite;
                 animation-duration: 1.5s;
                 animation-iteration-count: infinite;
             }
+
+            .sold {
+                opacity: 0.2;
+            }
+
             @font-face {
                 font-family: Jost;
                 src: url("../fonts/Jost-VariableFont_wght.ttf");
@@ -174,7 +184,8 @@
         <aside id="luckleft" style="font-family: Quantico; font-size: 2vw; color: rgb(131, 12, 12);">luckleft goes here :)</aside>
 
         <!--Timer-->
-        <aside style="float: left; font-family: Quantico; font-size: 4vw; -webkit-text-stroke: 1px rgb(254, 255, 250);" id="streak">0x</aside>
+        <aside style="float: left; font-family: Quantico; font-size: 4vw; -webkit-text-stroke: 1px rgb(254, 255, 250); color: white;" id="streak">0x</aside>
+        <aside style="float: left; font-family: Quantico; font-size: 2vw; -webkit-text-stroke: 1px rgb(254, 255, 250);" id="multiplier"></aside>
         <aside style="float: right; font-family: Quantico; font-size: 4vw; color: white; -webkit-text-stroke: 1px rgb(254, 255, 250);" id="timer">Timer Goes HEre!!!</aside>
         <br>
         <br>
@@ -183,26 +194,27 @@
 
         <div class="powerup-container">
 
+            <div class="powerup" id="woodenshield">
+                <img src="../images/imageassets/Sheild.jpg">
+            </div>
+
             <div class="powerup" id="sword">
                 <img src="../images/imageassets/acidsword.webp">
             </div>
 
-            <div class="powerup" id="shield">
-                <img src="../images/imageassets/Sheild.jpg">
+            <div class="powerup" id="adrenaline">
+                <img src="../images/imageassets/adrenaline.webp">
             </div>
 
             <div class="powerup" id="slots">
                 <img src="../images/imageassets/SLOTMACHINE.jpg">
             </div>
 
-
-
-            
         </div>
 
         <p id="name" class="normalitem"></p>
         <p id="description" style="font-family: Jost; font-size: 2vw; color:rgba(255, 255, 255, 0.75);">Use powerups to gain an advantage!</p>
-        <aside id="cost" style="font-family: Money; color:rgb(123, 154, 215); font-size: 1.3vw; float: right;"></p>
+        <aside id="cost" style="font-family: Money; color:rgba(171, 194, 221, 0.952); font-size: 2.8vw; float: right;"></p>
 
         
     </body>
