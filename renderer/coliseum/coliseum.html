@@ -12,6 +12,13 @@
 
         <audio id="woodenshieldused" src="../sounds/woodenshieldused.wav" preload="auto"></audio>
 
+
+        <audio id="combo1" src="../sounds/combo1.wav" preload="auto"></audio>
+        <audio id="combo2" src="../sounds/combo2.wav" preload="auto"></audio>
+        <audio id="combo3" src="../sounds/combo3.wav" preload="auto"></audio>
+        <audio id="combo4" src="../sounds/combo4.wav" preload="auto"></audio>
+        
+
         <audio id="purchased" src="../sounds/chaching.wav" preload="auto"></audio>
 
 
@@ -29,6 +36,15 @@
 
             const boo = document.getElementById("boo");
             boo.volume = 0.6;
+
+            const combo1 = document.getElementById("combo1");
+            const combo2 = document.getElementById("combo2");
+            const combo3 = document.getElementById("combo3");
+            const combo4 = document.getElementById("combo4");
+            combo1.volume = 0.6;
+            combo2.volume = 0.7;
+            combo3.volume = 0.9;
+            combo4.volume = 1.0;
         
         
         </script>
@@ -151,6 +167,15 @@
                 }
             }
 
+            @keyframes timerpulse {
+                0%, 100% {
+                    transform: scale(1);
+                }
+                50% {
+                    color: green;
+                }
+            }
+
             @font-face {
                 font-family: Jost;
                 src: url("../fonts/Jost-VariableFont_wght.ttf");
@@ -221,6 +246,15 @@
                 <img src="../images/imageassets/adrenaline.webp">
             </div>
 
+            <div class="powerup" id="rage">
+                <img src="../images/imageassets/rage.webp">
+            </div>
+
+            <div class="powerup" id="prayer">
+                <img src="../images/imageassets/prayer.webp">
+            </div>
+
+
             <div class="powerup" id="slots">
                 <img src="../images/imageassets/SLOTMACHINE.jpg">
             </div>
@@ -229,7 +263,7 @@
 
         <p id="name" class="normalitem"></p>
         <p id="description" style="font-family: Jost; font-size: 2vw; color:rgba(255, 255, 255, 0.75);">Use powerups to gain an advantage!</p>
-        <aside id="cost" style="font-family: Money; color:rgba(171, 194, 221, 0.952); font-size: 2.8vw; float: right;"></p>
+        <aside id="cost" style="font-family: Money; color:rgba(171, 194, 221, 0.952); font-size: 4vw; float: right;"></p>
 
         
     </body>

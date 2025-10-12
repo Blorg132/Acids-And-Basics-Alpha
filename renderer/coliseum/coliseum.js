@@ -40,7 +40,7 @@ const questions = [
   { lesson: "lesson4", id: "4-3", question: "What is the change from liquid to gas called?", correctAnswers: ["boiling", "evaporation"] },
   { lesson: "lesson4", id: "4-4", question: "What is the change from gas to liquid called?", correctAnswers: ["condensation"] },
   { lesson: "lesson4", id: "4-5", question: "What happens to particles when a substance melts?", correctAnswers: ["move faster", "moves faster", "spread apart", "get faster", "gets faster", "speed up", "speeds up"] },
-  { lesson: "lesson4", id: "4-6", question: "What happens to particles when a substance freezes?", correctAnswers: ["slow down", "move slower"] },
+  { lesson: "lesson4", id: "4-6", question: "What happens to particles when a substance freezes?", correctAnswers: ["slow down", "move slower", "slows down"] },
   { lesson: "lesson4", id: "4-7", question: "What is a chemical change that produces heat and light called?", correctAnswers: ["combustion"] },
   { lesson: "lesson4", id: "4-8", question: "What is the slow reaction of metal with oxygen called?", correctAnswers: ["rusting", "corrosion", "rust"] },
   { lesson: "lesson4", id: "4-9", question: "What must happen for a chemical reaction to occur?", correctAnswers: ["particle collision", "particle collisions"] },
@@ -74,11 +74,12 @@ for (let lessonNumber in questions) {
 
 ////////////////////////////score value and sound effects
 let currentQuestion = {};
-let score = 0;
+let score = 1000;
 let scoreadd = 1;
 
 let streak = 0;
-let luck = 5;
+let luck = 3;
+let maxluck = 3;
 
 let multiplier = 1;
 let chance = 0;
@@ -211,6 +212,10 @@ function loadNewQuestion() {
 
 ///////////////////////////check answer//////////////////////////////////////////////
 function checkAnswer() {
+  //Prayer Code/////
+  if(prayerpurchased == true){
+    maxluck = 4;
+  }
   if (!currentQuestion) return; // safety check
 
   const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
@@ -219,6 +224,7 @@ function checkAnswer() {
   const correctAnswers = currentQuestion.correctAnswers.map(a => a.toLowerCase());
 
   const streaktext = document.getElementById("streak");
+  const timerDisplay = document.getElementById("timer");
   const multipliertext = document.getElementById("multiplier");
 
   if (correctAnswers.includes(userAnswer)) {
@@ -226,6 +232,11 @@ function checkAnswer() {
     streaktext.style.animation = 'none';
     streaktext.offsetHeight; //somehow resets the animation????
     streaktext.style.animation = 'pulse 0.3s ease-out 1'
+    timerDisplay.style.animation = 'none';
+    timerDisplay.offsetHeight; //somehow resets the animation????
+    timerDisplay.style.animation = 'timerpulse 0.8s ease-out 1'
+
+
     let multiplierdecider = Math.random() * 100;
     if(multiplierdecider < chance){
       score += (scoreadd * multiplier);
@@ -237,7 +248,7 @@ function checkAnswer() {
     cheer.currentTime = 0;
     cheer.play();
     timeLeft += timeGain;
-    streak++;
+    streak+=5;
     if(adrenalinepurchased.value == true){
       timeMax = 40;
     }
@@ -271,8 +282,7 @@ function checkAnswer() {
   /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
   if (streak == 0) {
     streaktext.style.color = "white";
-    streaktext.style.scale = 0.8;
-
+    rageused = false;
     multiplier = 1;
     chance = 0;
   } else if (streak >= 15) {
@@ -280,21 +290,37 @@ function checkAnswer() {
     streaktext.style.scale = 1.2;
     multiplier = 3;
     chance = 75;
+    combo4.currentTime = 0;
+    combo4.play();
+
+    if(ragepurchased.value == true && rageused == false){
+      luck+=2;
+      rageused = true;
+      if(luck > maxluck){
+        luck = maxluck;
+      }
+    }
+
   } else if (streak >= 12) {
     streaktext.style.color = "rgba(231, 56, 33, 1)";
     streaktext.style.scale = 1.1;
     chance = 50;
+    combo3.currentTime = 0;
+    combo3.play();
   } else if (streak >= 8) {
     streaktext.style.color = "rgba(0, 48, 153, 1)";
     streaktext.style.scale = 1.05;
-
     multiplier = 2;
     chance = 35;
+    combo2.currentTime = 0;
+    combo2.play();
   } else if (streak >= 5) {
     streaktext.style.color = "rgba(147, 171, 224, 1)";
     streaktext.style.scale = 1.0;
     multiplier = 2;
     chance = 15;
+    combo1.currentTime = 0;
+    combo1.play();
 
   } else if (streak >= 1) {
     streaktext.style.color = "rgba(141, 158, 73, 1)";
@@ -341,7 +367,7 @@ document.getElementById("answer").addEventListener("keypress", function (event) 
 ////////////////////////////////////////////////////////////////////
 
 let acidswordpurchased = { value: false };
-let acidswordprice = 15;
+let acidswordprice = 20;
 
 let woodenshieldpurchased = { value : false };
 let woodenshieldprice = 15;
@@ -351,7 +377,15 @@ woodenshieldsound.volume = 1.0;
 
 
 let adrenalinepurchased = { value: false };
-let adrenalineprice = 35;
+let adrenalineprice = 30;
+
+let ragepurchased = { value: false };
+let rageprice = 50;
+let rageused = false;
+
+
+let prayerpurchased = { value: false };
+let prayerprice = 40;
 
 
 
@@ -415,7 +449,7 @@ function itemReplenish(itemElement, purchaseCheck) {
 sword = document.getElementById("sword");
 sword.addEventListener("mouseover", () => {
     Name.textContent = "Acid Sword";
-    Name.className = "rarepowerup";
+    Name.className = "normalpowerup";
     description.textContent = "Strike fear into your opponents! Gain an extra beaker with every correct answer. Included in multiplier!";
     cost.textContent = `Give Up: ${acidswordprice} Beakers`;
 });
@@ -448,18 +482,44 @@ adrenaline.addEventListener("mouseover", () => {
 purchaseItem(adrenaline, adrenalinepurchased, adrenalineprice);
 
 
+
+
+rage = document.getElementById("rage");
+rage.addEventListener("mouseover", () => {
+    Name.textContent = "Chemical Rage, Physical Change";
+    Name.className = "rarepowerup";
+    description.textContent = "Give the audience what they want: entertainment. Get 2 luck back everytime you reach a combo of 15x.";
+    cost.textContent = `Give Up: ${rageprice} Beakers`;
+});
+purchaseItem(rage, ragepurchased, rageprice);
+
+
+
+
+
+prayer = document.getElementById("prayer");
+prayer.addEventListener("mouseover", () => {
+    Name.textContent = "Avogadro's Prayer";
+    Name.className = "exquisitepowerup";
+    description.textContent = "Become one with with Avogadro, king of all beakers. Maximum luck increases to 4.";
+    cost.textContent = `Give Up: ${prayerprice} Beakers`;
+});
+purchaseItem(prayer, prayerpurchased, prayerprice);
+
+
+
 slots = document.getElementById("slots");
 slots.addEventListener("mouseover", () => {
     Name.textContent = "Vegas, Baby!";
     Name.className = "exquisitepowerup";
-    description.textContent = "Give up your life for a 20% chance to triple all beakers earned.";
+    description.textContent = "Give up your life for a 25% chance to TRIPLE all beakers earned. Amount multiplied is after purchase.";
     cost.textContent = `Give Up: ${slotsprice} Beakers, and end the run!`;
 });
 slots.addEventListener("click", () => {
-  if(score >= price){
+  if(score >= slotsprice){
     score -= slotsprice;
     let slotfate = Math.random() * 100;
-    if(slotfate <= 20){
+    if(slotfate <= 25){
       score = score*3;
     }
     endGame();
