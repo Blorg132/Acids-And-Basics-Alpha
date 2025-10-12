@@ -136,6 +136,21 @@
                 opacity: 0.2;
             }
 
+            .pulse-animation {
+                animation-name: pulse;
+                animation-duration: 0.5s;
+                animation-iteration-count: 1;
+            }
+
+            @keyframes pulse {
+                0%, 100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.60);
+                }
+            }
+
             @font-face {
                 font-family: Jost;
                 src: url("../fonts/Jost-VariableFont_wght.ttf");

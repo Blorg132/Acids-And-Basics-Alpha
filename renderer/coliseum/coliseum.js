@@ -74,11 +74,11 @@ for (let lessonNumber in questions) {
 
 ////////////////////////////score value and sound effects
 let currentQuestion = {};
-let score = 1000;
+let score = 0;
 let scoreadd = 1;
 
 let streak = 0;
-let luck = 7;
+let luck = 5;
 
 let multiplier = 1;
 let chance = 0;
@@ -222,7 +222,10 @@ function checkAnswer() {
   const multipliertext = document.getElementById("multiplier");
 
   if (correctAnswers.includes(userAnswer)) {
-    feedback.textContent = "";
+    feedback.textContent = '';
+    streaktext.style.animation = 'none';
+    streaktext.offsetHeight; //somehow resets the animation????
+    streaktext.style.animation = 'pulse 0.3s ease-out 1'
     let multiplierdecider = Math.random() * 100;
     if(multiplierdecider < chance){
       score += (scoreadd * multiplier);
@@ -296,6 +299,7 @@ function checkAnswer() {
   } else if (streak >= 1) {
     streaktext.style.color = "rgba(141, 158, 73, 1)";
   }
+
   /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
   /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
 
@@ -413,7 +417,7 @@ sword.addEventListener("mouseover", () => {
     Name.textContent = "Acid Sword";
     Name.className = "rarepowerup";
     description.textContent = "Strike fear into your opponents! Gain an extra beaker with every correct answer. Included in multiplier!";
-    cost.textContent = "Give Up: 25 Beakers";
+    cost.textContent = `Give Up: ${acidswordprice} Beakers`;
 });
 purchaseItem(sword, acidswordpurchased, acidswordprice);
 sword.addEventListener("click", () => {
@@ -426,8 +430,8 @@ woodenshield = document.getElementById("woodenshield");
 woodenshield.addEventListener("mouseover", () => {
     Name.textContent = "Wooden Shield";
     Name.className = "normalpowerup";
-    description.textContent = "Keep your streak going after an incorrect answer.";
-    cost.textContent = "Give Up: 15 Beakers";
+    description.textContent = "Keep your streak going after an incorrect answer. Can only be bought twice, and activates automatically.";
+    cost.textContent = `Give Up: ${woodenshieldprice} Beakers`;
 });
 purchaseItem(woodenshield, woodenshieldpurchased, woodenshieldprice);
 
@@ -439,7 +443,7 @@ adrenaline.addEventListener("mouseover", () => {
     Name.textContent = "C9-H13-NO3";
     Name.className = "rarepowerup";
     description.textContent = "WOO! Now this feels GOOD! Timer now caps out at 40 seconds.";
-    cost.textContent = "Give Up: 35 Beakers";
+    cost.textContent = `Give Up: ${adrenalineprice} Beakers`;
 });
 purchaseItem(adrenaline, adrenalinepurchased, adrenalineprice);
 
@@ -448,10 +452,17 @@ slots = document.getElementById("slots");
 slots.addEventListener("mouseover", () => {
     Name.textContent = "Vegas, Baby!";
     Name.className = "exquisitepowerup";
-    description.textContent = "Give up your life for a 5% chance to triple all beakers earned!";
-    cost.textContent = "Give Up: Everything";
+    description.textContent = "Give up your life for a 20% chance to triple all beakers earned.";
+    cost.textContent = `Give Up: ${slotsprice} Beakers, and end the run!`;
 });
-purchaseItem(slots, slotspurchased, slotsprice);
+slots.addEventListener("click", () => {
+  score -= slotsprice;
+  let slotfate = Math.random() * 100;
+  if(slotfate <= 20){
+    score = score*3;
+  }
+  endGame();
+});
 
 
 
