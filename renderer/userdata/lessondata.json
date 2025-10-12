@@ -1,10 +1,10 @@
 {
   "comment1": "Section 1: KMT Lessons ",
-  "lessonclicked": "lesson9",
+  "lessonclicked": "lesson1",
   "lesson1": true,
   "lesson2": false,
   "lesson3": false,
-  "lesson4": false,
+  "lesson4": true,
   "lesson5": false,
   "lesson6": false,
   "lesson7": false,
