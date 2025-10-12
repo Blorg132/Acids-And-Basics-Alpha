@@ -13,9 +13,9 @@ const questions = [
   { lesson: "lesson2", id: "2-7", question: "Which state of matter flows but keeps a fixed volume?", correctAnswers: ["liquid", "liquids"] },
   { lesson: "lesson2", id: "2-8", question: "Which state of matter has particles far apart and moving freely?", correctAnswers: ["gas", "gases"] },
   { lesson: "lesson2", id: "2-9", question: "What type of motion do all particles have?", correctAnswers: ["random"] },
-  { lesson: "lesson2", id: "2-10", question: "What increases when particles move faster?", correctAnswers: ["temperature"] },
-  { lesson: "lesson2", id: "2-11", question: "What decreases when particles slow down?", correctAnswers: ["temperature"] },
-  { lesson: "lesson2", id: "2-12", question: "E... space exists between gas particles.", correctAnswers: ["empty space", "empty"] },
+  { lesson: "lesson2", id: "2-10", question: "---- temperatures make particles move faster.", correctAnswers: ["temperature"] },
+  { lesson: "lesson2", id: "2-11", question: "---- temperatures make particles slow down.", correctAnswers: ["lower", "decreased"] },
+  { lesson: "lesson2", id: "2-12", question: "----- space exists between gas particles.", correctAnswers: ["empty space", "empty"] },
   { lesson: "lesson2", id: "2-13", question: "B--- hold atoms together in molecules.", correctAnswers: ["bond", "bonds"] },
   { lesson: "lesson2", id: "2-14", question: "What type of ion has a negative charge?", correctAnswers: ["anion", "anions"] },
   { lesson: "lesson2", id: "2-15", question: "What type of ion has a positive charge?", correctAnswers: ["cation", "cations"] },
@@ -30,7 +30,7 @@ const questions = [
   { lesson: "lesson3", id: "3-8", question: "In which state are particles closest together?", correctAnswers: ["solid", "solids"] },
   { lesson: "lesson3", id: "3-9", question: "In which state are particles furthest apart?", correctAnswers: ["gas", "gases"] },
   { lesson: "lesson3", id: "3-11", question: "What type of movement do gas particles have?", correctAnswers: ["random"] },
-  { lesson: "lesson3", id: "3-12", question: "What is the energy that moving particles carry?", correctAnswers: ["kinetic energy", "kinetic"] },
+  { lesson: "lesson3", id: "3-12", question: "What is the type of energy that moving particles carry?", correctAnswers: ["kinetic energy", "kinetic"] },
   { lesson: "lesson3", id: "3-13", question: "Which state of matter has definite shape and volume?", correctAnswers: ["solid"] },
   { lesson: "lesson3", id: "3-14", question: "Which state of matter has definite volume but no fixed shape?", correctAnswers: ["liquid"] },
   { lesson: "lesson3", id: "3-15", question: "Which state of matter has neither fixed shape nor volume?", correctAnswers: ["gas"] },
@@ -74,6 +74,7 @@ for (let lessonNumber in questions) {
 
 ////////////////////////////score value and sound effects
 let currentQuestion = {};
+let questionsAnswered = 0;
 let score = 1000;
 let scoreadd = 1;
 
@@ -148,6 +149,7 @@ function endGame() {
   let dog = JSON.parse(fs.readFileSync("./renderer/userdata/inventory.json", "utf8"));
   dog.coliseumbeakersearned = score;
   dog.beakers += score;
+  dog.questionsanswered = questionsAnswered;
   console.log("parsed");
   fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(dog, null, 2));
   console.log(`Updated inventory: ${dog.beakers} beakers`);
@@ -213,8 +215,19 @@ function loadNewQuestion() {
 ///////////////////////////check answer//////////////////////////////////////////////
 function checkAnswer() {
   //Prayer Code/////
-  if(prayerpurchased == true){
+  if(prayerpurchased.value == true){
     maxluck = 4;
+  }
+
+  /////////Spear Code/////////////////////////////
+  let chanceaddition = 0;
+  if(spearpurchased.value == true){
+    chanceaddition = 7.5;
+  }
+
+  /////////Isotope Heart Code/////////////////////
+  if(isotopeheartpurchased.value == true){
+    maxluck = 6;
   }
   if (!currentQuestion) return; // safety check
 
@@ -228,6 +241,7 @@ function checkAnswer() {
   const multipliertext = document.getElementById("multiplier");
 
   if (correctAnswers.includes(userAnswer)) {
+    questionsAnswered++;
     feedback.textContent = '';
     streaktext.style.animation = 'none';
     streaktext.offsetHeight; //somehow resets the animation????
@@ -248,7 +262,7 @@ function checkAnswer() {
     cheer.currentTime = 0;
     cheer.play();
     timeLeft += timeGain;
-    streak+=5;
+    streak++;
     if(adrenalinepurchased.value == true){
       timeMax = 40;
     }
@@ -278,6 +292,15 @@ function checkAnswer() {
     feedback.textContent = `Possible Answers: ${correctAnswers}`
   }
 
+  ////////////Thick Blood Code//////////////////
+  if(thickbloodpurchased.value == true){
+    luck += 0.05;
+    luck = parseFloat(luck.toFixed(2)); //getting it in 2 decimal places!
+    if(luck>maxluck){
+      luck = maxluck;
+    }
+  }
+
   /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
   /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
   if (streak == 0) {
@@ -289,10 +312,11 @@ function checkAnswer() {
     streaktext.style.color = "rgba(82, 255, 13, 0.81)";
     streaktext.style.scale = 1.2;
     multiplier = 3;
-    chance = 75;
+    chance = 75+chanceaddition;
     combo4.currentTime = 0;
     combo4.play();
 
+    /////////Rage Code////////////////////////////
     if(ragepurchased.value == true && rageused == false){
       luck+=2;
       rageused = true;
@@ -304,21 +328,21 @@ function checkAnswer() {
   } else if (streak >= 12) {
     streaktext.style.color = "rgba(231, 56, 33, 1)";
     streaktext.style.scale = 1.1;
-    chance = 50;
+    chance = 50+chanceaddition;
     combo3.currentTime = 0;
     combo3.play();
   } else if (streak >= 8) {
     streaktext.style.color = "rgba(0, 48, 153, 1)";
     streaktext.style.scale = 1.05;
     multiplier = 2;
-    chance = 35;
+    chance = 35+chanceaddition;
     combo2.currentTime = 0;
     combo2.play();
   } else if (streak >= 5) {
     streaktext.style.color = "rgba(147, 171, 224, 1)";
     streaktext.style.scale = 1.0;
     multiplier = 2;
-    chance = 15;
+    chance = 15+chanceaddition;
     combo1.currentTime = 0;
     combo1.play();
 
@@ -366,8 +390,6 @@ document.getElementById("answer").addEventListener("keypress", function (event) 
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
 
-let acidswordpurchased = { value: false };
-let acidswordprice = 20;
 
 let woodenshieldpurchased = { value : false };
 let woodenshieldprice = 15;
@@ -375,24 +397,36 @@ let woodenshieldsused = 0;
 let woodenshieldsound = document.getElementById("woodenshieldused");
 woodenshieldsound.volume = 1.0;
 
+let acidswordpurchased = { value: false };
+let acidswordprice = 20;
 
 let adrenalinepurchased = { value: false };
 let adrenalineprice = 30;
 
 let ragepurchased = { value: false };
-let rageprice = 50;
+let rageprice = 35;
 let rageused = false;
+
+let spearpurchased = { value: false };
+let spearprice = 40;
+
+let pocketwatchpurchased = { value: false };
+let pocketwatchprice = 50;
 
 
 let prayerpurchased = { value: false };
-let prayerprice = 40;
+let prayerprice = 45;
 
 
 
 let slotspurchased = { value: false };
 let slotsprice = 60;
 
+let isotopeheartpurchased = { value: false };
+let isotopeheartprice = 75;
 
+let thickbloodpurchased = { value: false };
+let thickbloodprice = 80;
 
 let purchasedsound = document.getElementById("purchased");
 purchasedsound.volume = 0.6;
@@ -464,7 +498,7 @@ woodenshield = document.getElementById("woodenshield");
 woodenshield.addEventListener("mouseover", () => {
     Name.textContent = "Wooden Shield";
     Name.className = "normalpowerup";
-    description.textContent = "Keep your streak going after an incorrect answer. Can only be bought twice, and activates automatically.";
+    description.textContent = "Keep your streak going (still lose luck) after an incorrect answer. Can only be bought twice, and activates automatically.";
     cost.textContent = `Give Up: ${woodenshieldprice} Beakers`;
 });
 purchaseItem(woodenshield, woodenshieldpurchased, woodenshieldprice);
@@ -475,7 +509,7 @@ purchaseItem(woodenshield, woodenshieldpurchased, woodenshieldprice);
 adrenaline = document.getElementById("adrenaline");
 adrenaline.addEventListener("mouseover", () => {
     Name.textContent = "C9-H13-NO3";
-    Name.className = "rarepowerup";
+    Name.className = "normalpowerup";
     description.textContent = "WOO! Now this feels GOOD! Timer now caps out at 40 seconds.";
     cost.textContent = `Give Up: ${adrenalineprice} Beakers`;
 });
@@ -488,10 +522,41 @@ rage = document.getElementById("rage");
 rage.addEventListener("mouseover", () => {
     Name.textContent = "Chemical Rage, Physical Change";
     Name.className = "rarepowerup";
-    description.textContent = "Give the audience what they want: entertainment. Get 2 luck back everytime you reach a combo of 15x.";
+    description.textContent = "Give the audience what they want: entertainment. Get +1 luck when you reach a combo of 15x, allowing a free mistake.";
     cost.textContent = `Give Up: ${rageprice} Beakers`;
 });
 purchaseItem(rage, ragepurchased, rageprice);
+
+
+
+spear = document.getElementById("spear");
+spear.addEventListener("mouseover", () => {
+    Name.textContent = "Erlenmeyer's Spear";
+    Name.className = "rarepowerup";
+    description.textContent = "You really thought he ONLY had a flask? Increase all multiplier chances by 7.5%.";
+    cost.textContent = `Give Up: ${spearprice} Beakers`;
+});
+purchaseItem(spear, spearpurchased, spearprice);
+
+
+pocketwatch = document.getElementById("pocketwatch");
+pocketwatch.addEventListener("mouseover", () => {
+    Name.textContent = "Young's Pocket Watch";
+    Name.className = "rarepowerup";
+    description.textContent = "Get an advantage over time, whether its a particle or a wave. Increases time gain from correct answers by 2s.";
+    cost.textContent = `Give Up: ${pocketwatchprice} Beakers`;
+});
+pocketwatch.addEventListener("click", () => {
+  if (!pocketwatchpurchased.value && score >= pocketwatchprice) {
+    pocketwatch.classList.add("sold");
+    pocketwatchpurchased.value = true;
+    score -= pocketwatchprice;
+    timeGain += 2; // ✅ Apply the bonus here immediately
+    purchasedsound.currentTime = 0;
+    purchasedsound.play();
+    updateBeakers();
+  }
+});
 
 
 
@@ -500,7 +565,7 @@ purchaseItem(rage, ragepurchased, rageprice);
 prayer = document.getElementById("prayer");
 prayer.addEventListener("mouseover", () => {
     Name.textContent = "Avogadro's Prayer";
-    Name.className = "exquisitepowerup";
+    Name.className = "rarepowerup";
     description.textContent = "Become one with with Avogadro, king of all beakers. Maximum luck increases to 4.";
     cost.textContent = `Give Up: ${prayerprice} Beakers`;
 });
@@ -525,6 +590,26 @@ slots.addEventListener("click", () => {
     endGame();
   }
 });
+
+
+isotopeheart = document.getElementById("isotopeheart");
+isotopeheart.addEventListener("mouseover", () => {
+    Name.textContent = "Isotope-Filled Heart";
+    Name.className = "exquisitepowerup";
+    description.textContent = "All those extra neutrons make you one hefty fighter. Maximum luck increases to 6.";
+    cost.textContent = `Give Up: ${isotopeheartprice} Beakers`;
+});
+purchaseItem(isotopeheart, isotopeheartpurchased, isotopeheartprice);
+
+
+thickblood = document.getElementById("thickblood");
+thickblood.addEventListener("mouseover", () => {
+    Name.textContent = "Thick Blood";
+    Name.className = "exquisitepowerup";
+    description.textContent = "Not sure why, but we're assuming a Vitamin K overdose. Luck slightly regens every question answered, right or wrong.";
+    cost.textContent = `Give Up: ${thickbloodprice} Beakers`;
+});
+purchaseItem(thickblood, thickbloodpurchased, thickbloodprice);
 
 
 

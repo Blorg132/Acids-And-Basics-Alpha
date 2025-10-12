@@ -29,7 +29,8 @@
     <body>
         <div class="bg-layer"></div>
         <h1 style="color: rgb(255, 0, 0); font-size: 10vw; font-family: Quantico;">GAME OVER</h1>
-        <aside id="coliseumbeakersearned" style="color:rgb(255, 255, 255); font-family: Fancy; font-size: 4vw; text-align: center;">asdf</aside>
+        <aside id="coliseumbeakersearned" style="color:rgb(255, 255, 255); font-family: Fancy; font-size: 3.5vw; text-align: center;">asdf</aside>
+        <aside id="questionsanswered" style="color:rgb(255, 255, 255); font-family: Fancy; font-size: 2.5vw; text-align: center;">asdf</aside>
 
 
 
@@ -53,6 +54,12 @@
         if(data.coliseumbeakersearned == 0){
             coliseumbeakersearned.textContent = "...you won nothing.";
             coliseumbeakersearned.style.color = "white";
+        }
+        questionsanswered = document.getElementById("questionsanswered");
+        questionsanswered.textContent = `Questions Answered: ${data.questionsanswered}`;
+        questionsanswered.style.color = "white";
+        if(data.questionsanswered == 0){
+            questionsanswered.textContent = "...and did nothing.";
         }
     </script>
 
