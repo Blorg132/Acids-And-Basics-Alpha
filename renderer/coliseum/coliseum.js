@@ -13,8 +13,8 @@ const questions = [
   { lesson: "lesson2", id: "2-7", question: "Which state of matter flows but keeps a fixed volume?", correctAnswers: ["liquid", "liquids"] },
   { lesson: "lesson2", id: "2-8", question: "Which state of matter has particles far apart and moving freely?", correctAnswers: ["gas", "gases"] },
   { lesson: "lesson2", id: "2-9", question: "What type of motion do all particles have?", correctAnswers: ["random"] },
-  { lesson: "lesson2", id: "2-10", question: "---- temperatures make particles move faster.", correctAnswers: ["temperature"] },
-  { lesson: "lesson2", id: "2-11", question: "---- temperatures make particles slow down.", correctAnswers: ["lower", "decreased"] },
+  { lesson: "lesson2", id: "2-10", question: "---- temperatures make particles move faster.", correctAnswers: ["higher", "increased", "high"] },
+  { lesson: "lesson2", id: "2-11", question: "---- temperatures make particles slow down.", correctAnswers: ["lower", "decreased", "low"] },
   { lesson: "lesson2", id: "2-12", question: "----- space exists between gas particles.", correctAnswers: ["empty space", "empty"] },
   { lesson: "lesson2", id: "2-13", question: "B--- hold atoms together in molecules.", correctAnswers: ["bond", "bonds"] },
   { lesson: "lesson2", id: "2-14", question: "What type of ion has a negative charge?", correctAnswers: ["anion", "anions"] },
@@ -150,6 +150,7 @@ function endGame() {
   dog.coliseumbeakersearned = score;
   dog.beakers += score;
   dog.questionsanswered = questionsAnswered;
+  dog.championending = championending;
   console.log("parsed");
   fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(dog, null, 2));
   console.log(`Updated inventory: ${dog.beakers} beakers`);
@@ -262,9 +263,16 @@ function checkAnswer() {
     cheer.currentTime = 0;
     cheer.play();
     timeLeft += timeGain;
-    streak++;
+    if(ancientknowledgepurchased.value == true){
+      streak += 2;
+    } else {
+      streak++;
+    }
     if(adrenalinepurchased.value == true){
       timeMax = 40;
+    }
+    if(finalsolutionpurchased.value == true){
+      timeMax = 6;
     }
     if(timeLeft>timeMax){
       timeLeft = timeMax;
@@ -301,18 +309,30 @@ function checkAnswer() {
     }
   }
 
+  //////final solution code//////////////////
+  let finalsolutionmultiplier = 0;
+  let finalsolutionchance = 0;
+  if(finalsolutionpurchased.value == true){
+    finalsolutionmultiplier = 1;
+    finalsolutionchance = 100;
+  } else {
+    finalsolutionmultiplier = 0;
+    finalsolutionchance = 0;
+  }
+
+
   /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
   /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
   if (streak == 0) {
     streaktext.style.color = "white";
     rageused = false;
-    multiplier = 1;
+    multiplier = 1+finalsolutionmultiplier;
     chance = 0;
   } else if (streak >= 15) {
     streaktext.style.color = "rgba(82, 255, 13, 0.81)";
     streaktext.style.scale = 1.2;
-    multiplier = 3;
-    chance = 75+chanceaddition;
+    multiplier = 3+finalsolutionmultiplier;
+    chance = 75+chanceaddition+finalsolutionchance;
     combo4.currentTime = 0;
     combo4.play();
 
@@ -328,21 +348,21 @@ function checkAnswer() {
   } else if (streak >= 12) {
     streaktext.style.color = "rgba(231, 56, 33, 1)";
     streaktext.style.scale = 1.1;
-    chance = 50+chanceaddition;
+    chance = 50+chanceaddition+finalsolutionchance;
     combo3.currentTime = 0;
     combo3.play();
   } else if (streak >= 8) {
     streaktext.style.color = "rgba(0, 48, 153, 1)";
     streaktext.style.scale = 1.05;
-    multiplier = 2;
-    chance = 35+chanceaddition;
+    multiplier = 2+finalsolutionmultiplier;
+    chance = 35+chanceaddition+finalsolutionchance;
     combo2.currentTime = 0;
     combo2.play();
   } else if (streak >= 5) {
     streaktext.style.color = "rgba(147, 171, 224, 1)";
     streaktext.style.scale = 1.0;
-    multiplier = 2;
-    chance = 15+chanceaddition;
+    multiplier = 2+finalsolutionmultiplier;
+    chance = 15+chanceaddition+finalsolutionchance;
     combo1.currentTime = 0;
     combo1.play();
 
@@ -354,10 +374,13 @@ function checkAnswer() {
   /////CHANGING STREAK COLOR AND MULTIPLIERS////////////
 
   //updating tallies/counters/////////////////////////////
+  if(chance>100){
+    chance = 100;
+  }
   beakersearnedtext.textContent = `Beakers Earned: ${score}`;
   luckleft.textContent = `Luck Remaining: ${luck}`;
   streaktext.textContent = `   ${streak}x`;
-  if(streak >= 5){
+  if(streak >= 5 || finalsolutionpurchased.value == true){
     multipliertext.textContent = `${chance}% of ${multiplier}x beakers`;
   } else {
     multipliertext.textContent = ``;
@@ -413,6 +436,10 @@ let spearprice = 40;
 let pocketwatchpurchased = { value: false };
 let pocketwatchprice = 50;
 
+let ancientknowledgepurchased = { value: false };
+let ancientknowledgeprice = 50;
+
+
 
 let prayerpurchased = { value: false };
 let prayerprice = 45;
@@ -427,6 +454,13 @@ let isotopeheartprice = 75;
 
 let thickbloodpurchased = { value: false };
 let thickbloodprice = 80;
+
+let finalsolutionpurchased = { value: false };
+let finalsolutionprice = 60;
+
+
+let championpurchased = { value: false };
+let championprice = 250;
 
 let purchasedsound = document.getElementById("purchased");
 purchasedsound.volume = 0.6;
@@ -559,6 +593,15 @@ pocketwatch.addEventListener("click", () => {
 });
 
 
+ancientknowledge = document.getElementById("ancientknowledge");
+ancientknowledge.addEventListener("mouseover", () => {
+    Name.textContent = "Ancient Knowledge";
+    Name.className = "rarepowerup";
+    description.textContent = "Your granddad had this back in Chem War 2, and now it's all yours. Gain 2x combo per correct question.";
+    cost.textContent = `Give Up: ${ancientknowledgeprice} Beakers`;
+});
+purchaseItem(ancientknowledge, ancientknowledgepurchased, ancientknowledgeprice);
+
 
 
 
@@ -606,10 +649,40 @@ thickblood = document.getElementById("thickblood");
 thickblood.addEventListener("mouseover", () => {
     Name.textContent = "Thick Blood";
     Name.className = "exquisitepowerup";
-    description.textContent = "Not sure why, but we're assuming a Vitamin K overdose. Luck slightly regens every question answered, right or wrong.";
+    description.textContent = "Not sure why, but I'd assume a Vitamin K overdose. Luck slightly regens every question answered, right or wrong.";
     cost.textContent = `Give Up: ${thickbloodprice} Beakers`;
 });
 purchaseItem(thickblood, thickbloodpurchased, thickbloodprice);
+
+
+
+finalsolution = document.getElementById("finalsolution");
+finalsolution.addEventListener("mouseover", () => {
+    Name.textContent = "The Final Solution";
+    Name.className = "exquisitepowerup";
+    description.textContent = "You've reached an unstoppable state, but only the thrill of winning keeps you alive. Multiplier +1, chances are 100%, but time cap set to 6s.";
+    cost.textContent = `Give Up: ${finalsolutionprice} Beakers`;
+});
+purchaseItem(finalsolution, finalsolutionpurchased, finalsolutionprice);
+
+
+
+
+champion = document.getElementById("champion");
+champion.addEventListener("mouseover", () => {
+    Name.textContent = "Undisputed Champion";
+    Name.className = "exquisitepowerup";
+    description.textContent = "All your opponents are scattered across the floor, and the king regards you a hero. Leave the coliseum and recieve an extra 200 beakers.";
+    cost.textContent = `Must Own (minimum): ${championprice} Beakers`;
+});
+let championending = false;
+champion.addEventListener("click", () => {
+  if(score >= championprice){
+    championending = true;
+    score = score+200;
+    endGame();
+  }
+});
 
 
 
