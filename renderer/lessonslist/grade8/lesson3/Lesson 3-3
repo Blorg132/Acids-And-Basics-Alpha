@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf8">
         <link rel="stylesheet" href="../../lessonstyles.css">
-        <title>Lesson 8 Quiz</title>
+        <title>Lesson 3 Quiz</title>
     </head>
 
 
@@ -21,98 +21,98 @@
                 <form id="lessonform1">
 
                     <!--First Question-->
-                    <p>What is a valence electron?</p>
+                    <p> According to Kinetic Molecular Theory, the average kinetic energy of gas particles is directly proportional to:?</p>
                     <label>
-                        <input type="radio" name="question1" value="wrong">
-                        "An electron that sits the closest to the nucleus."
+                        <input type="radio" name="question1" value="correct">
+                        " The temperature (in Kelvin)."
                     </label>
                     <br>
                     <label>
                         <input type="radio" name="question1" value="wrong">
-                        "An electron that sits between other electrons."
+                        " The gas pressure"
                     </label>
                     <br>
                     <label>
                         <input type="radio" name="question1" value="wrong">
-                        "A set of 8 electrons that sits on the outside."
+                        " The gas volume."
                     </label>
                     <br> 
                     <label>
-                        <input type="radio" name="question1" value="correct">
-                        "An electron on the outermost shell/energy level."
+                        <input type="radio" name="question1" value="wrong">
+                        "The number of gas particles. "
                     </label>
                     <br>
 
                     <!--Second Question-->
 
-                    <p>What is a valence shell/energy level?</p>
+                    <p> What happens to the average kinetic energy of gas molecules when the temperature of the gas is doubled (in Kelvin)?</p>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        " It halves "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        " It quadruples "
+                    </label>
+                    <br>
                     <label>
                         <input type="radio" name="question2" value="correct">
-                        "The outermost section of the atom that holds valence electrons."
-                    </label>
-                    <br>
-                    <label>
-                        <input type="radio" name="question2" value="wrong">
-                        "The innermost shell that holds two electrons."
-                    </label>
-                    <br>
-                    <label>
-                        <input type="radio" name="question2" value="wrong">
-                        "The outermost section of the atom that has to hold 8 valence electrons."
+                        " It doubles"
                     </label>
                     <br> 
                     <label>
                         <input type="radio" name="question2" value="wrong">
-                        "The structure of the atom where all electrons are stored."
+                        " It remains the same"
                     </label>
                     <br>
 
 
                     <!--Third Question-->
 
-                    <p>If an element is in Group 3, how many valence electrons does it have?</p>
+                    <p> Which of the following best explains why gases can be compressed more easily than solids or liquids ?</p>
                     <label>
                         <input type="radio" name="question3" value="wrong">
-                        "1"
+                        " Gas particles move faster."
                     </label>
                     <br>
                     <label>
                         <input type="radio" name="question3" value="wrong">
-                        "2"
+                        " Gas particles have greater mass."
                     </label>
                     <br>
                     <label>
-                        <input type="radio" name="question3" value="correct">
-                        "3"
+                        <input type="radio" name="question3" value="wrong">
+                        " Gas particles attract each other strongly."
                     </label>
                     <br> 
                     <label>
-                        <input type="radio" name="question3" value="wrong">
-                        "Up to 3, but not always."
+                        <input type="radio" name="question3" value="correct">
+                        " Gas particles are very far apart."
                     </label>
                     <br>
 
                     <!--Fourth Question-->
 
-                    <p>If an element is in Group 16, how many valence electrons does it have?</p>
+                    <p> Which of the following pairs of variables are inversely proportional for a fixed amount of gas (at constant temperature)?</p>
                     <label>
                         <input type="radio" name="question4" value="wrong">
-                        "1"
+                        " Pressure and temperature"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question4" value="correct">
+                        "Pressure and volume "
                     </label>
                     <br>
                     <label>
                         <input type="radio" name="question4" value="wrong">
-                        "8"
-                    </label>
-                    <br>
-                    <label>
-                        <input type="radio" name="question4" value="wrong">
-                        "16"
+                        " Pressure and number of moles"
                     </label>
                     <br> 
                     <label>
-                        <input type="radio" name="question4" value="correct">
-                        "6"
+                        <input type="radio" name="question4" value="wrong">
+                        "Volume and temperature "
                     </label>
                     <br>
 
