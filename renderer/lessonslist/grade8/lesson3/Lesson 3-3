@@ -118,7 +118,7 @@
 
                     <!--Fifth Question-->
 
-                    <p>True or False; valence electrons are responsible for many of the bonds that elements create</p>
+                    <p>True or False; According to the Kinetic Molecular Theory, the particles of an ideal gas are in constant rando motion and have negligible volume</p>
                     <label>
                         <input type="radio" name="question5" value="correct">
                         "True"
@@ -132,31 +132,31 @@
 
                     <!--Sixth Question-->
 
-                    <p>If carbon has 6 protons, how many neutrons does carbon-14 have?</p>
+                    <p> Which of the following gases would have the highest average molecular speed at the same temperature??</p>
                     <label>
                         <input type="radio" name="question6" value="wrong">
-                        "6"
+                        " CO₂"
                     </label>
                     <br>
                     <label>
                         <input type="radio" name="question6" value="wrong">
-                        "14"
+                        " N₂ "
                     </label>
                     <br>
                     <label>
                         <input type="radio" name="question6" value="correct">
-                        "8"
+                        " H₂ "
                     </label>
                     <br> 
                     <label>
                         <input type="radio" name="question6" value="wrong">
-                        "You can't have more neutrons than the natural state, only less."
+                        " O₂"
                     </label>
                     <br>
 
                     <!--Seventh Question-->
 
-                    <p>True or False; the atom on the right pictured here is <em>not</em> an isotope</p>
+                    <p> Which of the following would cause the pressure of a gas to double, assuming no gas escapes?</p>
                     <img src="../../../images/lesson8/lesson8quiz/isotopes.png" width=40% height=40%>
                     <br>
                     <label>
