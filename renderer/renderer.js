@@ -47,7 +47,32 @@ async function writeJson(filename, data) {
         "fridge": ""
     };
 
-    const defaultLessons = {};
+    const defaultLessons = {
+        "comment1": "Grade 8 Section: ",
+        "lessonclicked": "lesson8",
+        "lesson1": false,
+        "lesson2": false,
+        "lesson3": false,
+        "lesson4": false,
+        "lesson5": false,
+        "lesson6": false,
+        "comment2": "Grade 9 Section: ",
+        "lesson7": false,
+        "lesson8": false,
+        "lesson9": false,
+        "lesson10": false,
+        "lesson11": false,
+        "lesson12": false,
+        "lesson13": false,
+        "comment3": "Grade 10 Section: ",
+        "lesson14": false,
+        "lesson15": false,
+        "lesson16": false,
+        "lesson17": false,
+        "lesson18": false,
+        "lesson19": false,
+        "lesson20": false
+    };
 
     ///////////////////////////////////////
     /////READING THE DATA//////////////////
