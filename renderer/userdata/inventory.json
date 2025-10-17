@@ -1,15 +1,30 @@
 {
-  "beakers": 153849,
+  "beakers": 153404,
   "items": [
+    {
+      "id": 106,
+      "name": "Oak Table",
+      "resell": 120
+    },
+    {
+      "id": 103,
+      "name": "The Recliner",
+      "resell": 60
+    },
     {
       "id": 110,
       "name": "Double-Door Fridge",
       "resell": 65
     },
     {
-      "id": 106,
-      "name": "Oak Table",
-      "resell": 120
+      "id": 104,
+      "name": "Pool Table",
+      "resell": 18
+    },
+    {
+      "id": 102,
+      "name": "Sturdy Metal Chair",
+      "resell": 30
     },
     {
       "id": 109,
@@ -22,59 +37,9 @@
       "resell": 26
     },
     {
-      "id": 102,
-      "name": "Sturdy Metal Chair",
-      "resell": 30
-    },
-    {
-      "id": 101,
-      "name": "Broken Wooden Chair",
-      "resell": 6
-    },
-    {
-      "id": 2,
-      "name": "Very Angry Man",
-      "resell": 6969
-    },
-    {
-      "id": 2,
-      "name": "Very Angry Man",
-      "resell": 6969
-    },
-    {
-      "id": 1,
-      "name": "Gas-Dipped Matchbox",
-      "resell": 6969
-    },
-    {
-      "id": 1,
-      "name": "Gas-Dipped Matchbox",
-      "resell": 6969
-    },
-    {
-      "id": 103,
-      "name": "The Recliner",
-      "resell": 60
-    },
-    {
       "id": 105,
       "name": "Metal Table",
       "resell": 48
-    },
-    {
-      "id": 2,
-      "name": "Very Angry Man",
-      "resell": 6969
-    },
-    {
-      "id": 104,
-      "name": "Pool Table",
-      "resell": 18
-    },
-    {
-      "id": 2,
-      "name": "Very Angry Man",
-      "resell": 6969
     },
     {
       "id": 113,
@@ -92,13 +57,13 @@
       "resell": 100
     },
     {
-      "id": 1,
-      "name": "Gas-Dipped Matchbox",
-      "resell": 6969
+      "id": 101,
+      "name": "Broken Wooden Chair",
+      "resell": 6
     }
   ],
   "beakersearned": 0,
-  "coliseumbeakersearned": 954,
-  "questionsanswered": 4,
+  "coliseumbeakersearned": 915,
+  "questionsanswered": 17,
   "championending": false
 }

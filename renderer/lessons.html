@@ -117,7 +117,7 @@
         //first, hide all unlockable lessons
 
 
-        fs.readFile("./renderer/userdata/lessondata.json", "utf8", (err, lessonRaw) => {
+        fs.readFile(lessondataPath, "utf8", (err, lessonRaw) => {
             lessonData = JSON.parse(lessonRaw);
 
             //

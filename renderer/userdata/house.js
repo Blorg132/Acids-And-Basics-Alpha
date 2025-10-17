@@ -64,7 +64,7 @@ fancypainting = document.getElementById("fancypainting");
 //////////////////////////////////////////////////////////
 
 // Loading in house and inventory saves from disk!!!!//////////////////////////////////////
-let rawHouseData = fs.readFileSync("./renderer/userdata/house.json", "utf8");
+let rawHouseData = fs.readFileSync(housePath, "utf8");
 let houseData = JSON.parse(rawHouseData);
 console.log(houseData);
 /////////////////////////////////////////////////////////////////////////////
@@ -160,13 +160,13 @@ woodenchair.addEventListener("click", () => {
         woodenchair.classList.add("placed");
         woodenchairplaced = true;
         houseData.chair = "woodenchair";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(woodenchairplaced == true){
         document.getElementById("physicalwoodenchair").classList.add("hidden");
         woodenchair.classList.remove("placed");
         woodenchairplaced = false;
         houseData.chair = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 });
 
@@ -178,13 +178,13 @@ metalchair.addEventListener("click", () => {
         metalchair.classList.add("placed");
         metalchairplaced = true;
         houseData.chair = "metalchair";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(metalchairplaced == true){
         document.getElementById("physicalmetalchair").classList.add("hidden");
         metalchair.classList.remove("placed");
         metalchairplaced = false;
         houseData.chair = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 })
 
@@ -196,13 +196,13 @@ therecliner.addEventListener("click", () => {
         therecliner.classList.add("placed");
         thereclinerplaced = true;
         houseData.chair = "therecliner";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(thereclinerplaced == true){
         document.getElementById("physicaltherecliner").classList.add("hidden");
         therecliner.classList.remove("placed");
         thereclinerplaced = false;
         houseData.chair = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 })
 
@@ -219,13 +219,13 @@ pooltable.addEventListener("click", () => {
         pooltable.classList.add("placed");
         pooltableplaced = true;
         houseData.table = "pooltable";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(pooltableplaced == true){
         document.getElementById("physicalpooltable").classList.add("hidden");
         pooltable.classList.remove("placed");
         pooltableplaced = false;
         houseData.table = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 })
 
@@ -237,13 +237,13 @@ metaltable.addEventListener("click", () => {
         metaltable.classList.add("placed");
         metaltableplaced = true;
         houseData.table = "metaltable";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(metaltableplaced == true){
         document.getElementById("physicalmetaltable").classList.add("hidden");
         metaltable.classList.remove("placed");
         metaltableplaced = false;
         houseData.table = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 })
 
@@ -256,13 +256,13 @@ oaktable.addEventListener("click", () => {
         oaktable.classList.add("placed");
         oaktableplaced = true;
         houseData.table = "oaktable";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(oaktableplaced == true){
         document.getElementById("physicaloaktable").classList.add("hidden");
         oaktable.classList.remove("placed");
         oaktableplaced = false;
         houseData.table = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 })
 
@@ -279,13 +279,13 @@ chandy.addEventListener("click", () => {
         chandy.classList.add("placed");
         chandyplaced = true;
         houseData.roof = "chandy";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(chandyplaced == true){
         document.getElementById("physicalchandy").classList.add("hidden");
         chandy.classList.remove("placed");
         chandyplaced = false;
         houseData.roof = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 })
 
@@ -301,13 +301,13 @@ nastyfridge.addEventListener("click", () => {
         nastyfridge.classList.add("placed");
         nastyfridgeplaced = true;
         houseData.fridge = "nastyfridge";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(nastyfridgeplaced == true){
         document.getElementById("physicalnastyfridge").classList.add("hidden");
         nastyfridge.classList.remove("placed");
         nastyfridgeplaced = false;
         houseData.fridge = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 })
 
@@ -319,13 +319,13 @@ doubledoorfridge.addEventListener("click", () => {
         doubledoorfridge.classList.add("placed");
         doubledoorfridgeplaced = true;
         houseData.fridge = "doubledoorfridge";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(doubledoorfridgeplaced == true){
         document.getElementById("physicaldoubledoorfridge").classList.add("hidden");
         doubledoorfridge.classList.remove("placed");
         doubledoorfridgeplaced = false;
         houseData.fridge = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 })
 //
@@ -343,13 +343,13 @@ cheappainting.addEventListener("click", () => {
         cheappainting.classList.add("placed");
         cheappaintingplaced = true;
         houseData.painting = "cheappainting";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(cheappaintingplaced == true){
         document.getElementById("physicalcheappainting").classList.add("hidden");
         cheappainting.classList.remove("placed");
         cheappaintingplaced = false;
         houseData.painting = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 })
 
@@ -362,13 +362,13 @@ abstractpainting.addEventListener("click", () => {
         abstractpainting.classList.add("placed");
         abstractpaintingplaced = true;
         houseData.painting = "abstractpainting";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(abstractpaintingplaced == true){
         document.getElementById("physicalabstractpainting").classList.add("hidden");
         abstractpainting.classList.remove("placed");
         abstractpaintingplaced = false;
         houseData.painting = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 })
 
@@ -381,13 +381,13 @@ fancypainting.addEventListener("click", () => {
         fancypainting.classList.add("placed");
         fancypaintingplaced = true;
         houseData.painting = "fancypainting";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     } else if(fancypaintingplaced == true){
         document.getElementById("physicalfancypainting").classList.add("hidden");
         fancypainting.classList.remove("placed");
         fancypaintingplaced = false;
         houseData.painting = "";
-        fs.writeFileSync("./renderer/userdata/house.json", JSON.stringify(houseData, null, 2));
+        fs.writeFileSync(housePath, JSON.stringify(houseData, null, 2));
     }
 })
 
@@ -408,7 +408,7 @@ function furnishClicked(){
 
 
     // NOTE: Readfilesync breaks this. i have no idea why, but i'm assuming it'll fuck something up in the future.
-    let inventoryRaw = fs.readFileSync("./renderer/userdata/inventory.json", "utf8");
+    let inventoryRaw = fs.readFileSync(inventoryPath, "utf8");
     let inventoryData = JSON.parse(inventoryRaw);
 
     // Checking to see what inventory pieces are owned

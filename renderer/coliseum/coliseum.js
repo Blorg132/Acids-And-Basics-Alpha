@@ -146,13 +146,13 @@ function startTimer(duration = 30) {
 
 function endGame() {
   console.log("Give Beakers Running")
-  let dog = JSON.parse(fs.readFileSync("./renderer/userdata/inventory.json", "utf8"));
+  let dog = JSON.parse(fs.readFileSync(inventoryPath, "utf8"));
   dog.coliseumbeakersearned = score;
   dog.beakers += score;
   dog.questionsanswered = questionsAnswered;
   dog.championending = championending;
   console.log("parsed");
-  fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(dog, null, 2));
+  fs.writeFileSync(inventoryPath, JSON.stringify(dog, null, 2));
   console.log(`Updated inventory: ${dog.beakers} beakers`);
   window.location.href="gameover.html";
 }

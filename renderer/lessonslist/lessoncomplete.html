@@ -91,7 +91,7 @@
 
             lessonGiveBeakers();
             showscore = document.getElementById("showscore");
-            fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, inventoryRaw) => {
+            fs.readFile(inventoryPath, "utf8", (err, inventoryRaw) => {
                 inventoryData = JSON.parse(inventoryRaw);
                 showscore.textContent = "Beakers Earned: " + inventoryData.beakersearned;
                 if(inventoryData.beakersearned == 0){

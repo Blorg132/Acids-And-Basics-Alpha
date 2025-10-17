@@ -78,10 +78,10 @@ function customAlert(message) {
 function saveLessonCompletion(lessonname){
   console.log("hallo");
   const fs = require('fs');
-  let dog = fs.readFileSync("./renderer/userdata/lessondata.json", "utf8");
+  let dog = fs.readFileSync(lessondataPath, "utf8");
   roggie = JSON.parse(dog);
   roggie.lessonclicked = lessonname;
-  fs.writeFileSync("./renderer/userdata/lessondata.json", JSON.stringify(roggie, null, 2));
+  fs.writeFileSync(lessondataPath, JSON.stringify(roggie, null, 2));
 }
 
 
@@ -90,10 +90,10 @@ function saveLessonCompletion(lessonname){
 // GIVING BEAKERS AFTER LESSON
 function lessonGiveBeakers(score){
   console.log("Lesson Give Beakers Running")
-  fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
+  fs.readFile(inventoryPath, "utf8", (err, jsonString) => {
     let jsonData = JSON.parse(jsonString);
 
-    fs.readFile("./renderer/userdata/lessondata.json", "utf8", (err, lessonRaw) => {
+    fs.readFile(lessondataPath, "utf8", (err, lessonRaw) => {
         if (err) throw err;
 
         let lessonData = JSON.parse(lessonRaw);

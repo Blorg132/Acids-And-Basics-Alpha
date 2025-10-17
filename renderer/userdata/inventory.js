@@ -104,7 +104,7 @@ sellbutton.addEventListener("click", () => {
     // JUST KNOW THAT IT WRITES TO DISK AND SELLS ITEMS. THAT'S ALL.
     //
     //
-    fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
+    fs.readFile(inventoryPath, "utf8", (err, jsonString) => {
 
         // Parsing and making it usable.
         let jsonData = JSON.parse(jsonString);
@@ -169,7 +169,7 @@ sellbutton.addEventListener("click", () => {
 
 clearbutton = document.getElementById("clearbutton");
 clearbutton.addEventListener("click", () => {
-    let jsonData = JSON.parse(fs.readFileSync("./renderer/userdata/inventory.json", "utf8"));
+    let jsonData = JSON.parse(fs.readFileSync(inventoryPath, "utf8"));
     jsonData.items = [];
     var houseData = JSON.parse(fs.readFileSync('./renderer/userdata/house.json', 'utf8'));
     houseData.chair = "";
@@ -177,6 +177,6 @@ clearbutton.addEventListener("click", () => {
     houseData.roof = "";
     houseData.painting = "";
     houseData.fridge = "";
-    fs.writeFileSync("./renderer/userdata/inventory.json", JSON.stringify(jsonData, null, 2), "utf8");
+    fs.writeFileSync(inventoryPath, JSON.stringify(jsonData, null, 2), "utf8");
 
 });

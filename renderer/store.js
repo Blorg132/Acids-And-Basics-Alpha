@@ -23,7 +23,7 @@ let fancypaintingpurchased = false;
 let doubledoorfridgepurchased = false;
 
 
-fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
+fs.readFile(inventoryPath, "utf8", (err, jsonString) => {
   if (err) {
     console.log("Failed to reach inventory status.", err);
     return;
@@ -467,7 +467,7 @@ cancelbutton.addEventListener("click", () => {
 purchasebutton = document.getElementById("purchase");
 purchasebutton.addEventListener("click", () => {
     popup.classList.add("hidden");
-    fs.readFileSync("./renderer/userdata/inventory.json", "utf8");
+    fs.readFileSync(inventoryPath, "utf8");
 
     //
     //
@@ -620,7 +620,7 @@ purchasebutton.addEventListener("click", () => {
     // actually WRITING TO FUCKING DISK HOLY SHIT this took ages
     //
     //
-    fs.readFile("./renderer/userdata/inventory.json", "utf8", (err, jsonString) => {
+    fs.readFile(inventoryPath, "utf8", (err, jsonString) => {
         if (err) {
             console.error("Failed to read inventory file:", err);
             return;
@@ -640,7 +640,7 @@ purchasebutton.addEventListener("click", () => {
         });
 
         // Write back to file
-        fs.writeFile("./renderer/userdata/inventory.json", JSON.stringify(jsonData, null, 2), (err) => {
+        fs.writeFile(inventoryPath, JSON.stringify(jsonData, null, 2), (err) => {
             if (err) {
                 console.error("Failed to save inventory file:", err);
                 return;

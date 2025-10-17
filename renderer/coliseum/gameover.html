@@ -58,7 +58,7 @@
         const fs = require('fs');
 
         coliseumbeakersearned = document.getElementById("coliseumbeakersearned");
-        let dog = fs.readFileSync("./renderer/userdata/inventory.json", "utf8");
+        let dog = fs.readFileSync(inventoryPath, "utf8");
         data = JSON.parse(dog);
         if(data.championending == true){
             let music = document.getElementById("music");
