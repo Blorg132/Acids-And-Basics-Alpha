@@ -156,16 +156,16 @@
 
                     <!--Seventh Question-->
 
-                    <p> Which of the following would cause the pressure of a gas to double, assuming no gas escapes?</p>
-                    <img src="../../../images/lesson8/lesson8quiz/isotopes.png" width=40% height=40%>
+                    <p> Based on the following diagram, does increasing the temperature cause the pressure of a gas to double </p>
+                    <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqsDN0Xp0EwtHmCjDlnDpB6eG6hQVPnZc5A&s " width=40% height=40%>
                     <br>
                     <label>
-                        <input type="radio" name="question7" value="wrong">
+                        <input type="radio" name="question7" value="correct">
                         "True"
                     </label>
                     <br>
                     <label>
-                        <input type="radio" name="question7" value="correct">
+                        <input type="radio" name="question7" value="wrong">
                         "False"
                     </label>
                     <br>
