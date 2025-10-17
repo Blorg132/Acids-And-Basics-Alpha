@@ -1,41 +1,40 @@
-
+const { app, BrowserWindow, ipcMain } = require('electron');
+const fs = require('fs');
 const path = require('path');
 
-console.log("Running!");
+function createWindow() {
+  const win = new BrowserWindow({
+    width: 1024,
+    height: 720,
+    webPreferences: {
+      nodeIntegration: true,   // allows require() in renderer
+      contextIsolation: false, // allows direct Node access
+    }
+  });
 
-// creating window
-const { app, BrowserWindow } = require('electron');
-
-
-// fixing up pathing for export
-const userDataPath = remote.app.getPath("userData");
-const inventoryPath = path.join(userDataPath, "inventory.json");
-const lessondataPath = path.join(userDataPath, "lessondata.json");
-const housePath = path.join(userDataPath, "house.json");
-
-
-
-let audioWindow;
-function createMainWindow() {
-    // defining properties of the MAIN browserwindow
-    const mainWindow = new BrowserWindow({
-        title: 'Acids & Basics',
-        width: 1024,
-        height: 720,
-        webPreferences: {
-            //devTools: false,  COMMENT THIS BACK IN FOR FULL RELEASE
-            nodeIntegration: true,
-            contextIsolation: false,
-        }
-    });
-
-    // load the actual html file in the main window
-    mainWindow.loadFile(path.join(__dirname, './renderer/mainpage.html'));
+  win.loadFile('./renderer/mainpage.html');
 }
 
-// making the window
-app.whenReady().then(() => {
-    createMainWindow();
+app.whenReady().then(createWindow);
 
+// Helper to get JSON path in userData
+function getJsonPath(filename) {
+  return path.join(app.getPath('userData'), filename);
+}
 
+// IPC handlers
+ipcMain.handle('read-json', (event, filename, defaults = {}) => {
+  const filePath = getJsonPath(filename);
+
+  if (!fs.existsSync(filePath)) {
+    // Create file with default content
+    fs.writeFileSync(filePath, JSON.stringify(defaults, null, 2));
+  }
+
+  return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+});
+
+ipcMain.handle('write-json', (event, filename, data) => {
+  const filePath = getJsonPath(filename);
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 });
