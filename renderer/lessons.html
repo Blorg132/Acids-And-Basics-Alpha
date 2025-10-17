@@ -114,14 +114,11 @@
         // This script is just for reading lessondata.json!!
         ////////////////////////////////////////////////////
 
-        const fs = require('fs');
 
         //first, hide all unlockable lessons
 
-
-        fs.readFile(lessondataPath, "utf8", (err, lessonRaw) => {
-            lessonData = JSON.parse(lessonRaw);
-
+        document.addEventListener('lessondataReady', () => {
+            let lessonData = LESSONDATA;
             //
             // the actual hiding
             // NOTE: Each check has to be in different if statements. Thank god i figured that out. I don't need ChatGPT guys. I'm just like that.
@@ -184,10 +181,6 @@
             if(lessonData.lesson19 == true){
                 document.getElementById("lesson20").classList.remove("locked");
             }
-
-
-
-
         });
     </script>
 </body>
