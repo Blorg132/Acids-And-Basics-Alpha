@@ -37,7 +37,15 @@ async function writeJson(filename, data) {
     "championending": false
     };
 
-    const defaultHouse = {};
+    const defaultHouse = {
+        "comment": "This is going to be where the player can put their furniture/stuff for their house.",
+        "comment1": "They can have any couch under 'couch', any book under 'book', etc. Let it be customizable.",
+        "table": "",
+        "chair": "",
+        "roof": "",
+        "painting": "",
+        "fridge": ""
+    };
 
     const defaultLessons = {};
 
