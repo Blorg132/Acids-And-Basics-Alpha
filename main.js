@@ -23,12 +23,12 @@ function getJsonPath(filename) {
 }
 
 // IPC handlers
-ipcMain.handle('read-json', (event, filename) => {
+ipcMain.handle('read-json', (event, filename, defaults = {}) => {
   const filePath = getJsonPath(filename);
 
-  // Create file if it doesn't exist
   if (!fs.existsSync(filePath)) {
-    fs.writeFileSync(filePath, JSON.stringify({}));
+    // Create file with default content
+    fs.writeFileSync(filePath, JSON.stringify(defaults, null, 2));
   }
 
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
