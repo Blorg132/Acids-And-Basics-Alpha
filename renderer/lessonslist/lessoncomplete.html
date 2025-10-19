@@ -91,12 +91,13 @@
         <script src="lessons.js"></script>
         <script>
 
-            lessonGiveBeakers();
-            showscore = document.getElementById("showscore");
-            fs.readFile(inventoryPath, "utf8", (err, inventoryRaw) => {
-                inventoryData = JSON.parse(inventoryRaw);
-                showscore.textContent = "Beakers Earned: " + inventoryData.beakersearned;
-                if(inventoryData.beakersearned == 0){
+
+            document.addEventListener('inventoryReady', () => {
+                console.log(INVENTORYDATA);
+                lessonGiveBeakers(INVENTORYDATA, LESSONDATA);
+                showscore = document.getElementById("showscore");
+                showscore.textContent = "Beakers Earned: " + INVENTORYDATA.beakersearned;
+                if(INVENT.beakersearned == 0){
                     showscore.textContent = "No Beakers Earned (Lesson Repeated)";
                 }
             });
