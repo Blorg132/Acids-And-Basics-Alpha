@@ -38,3 +38,13 @@ ipcMain.handle('write-json', (event, filename, data) => {
   const filePath = getJsonPath(filename);
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 });
+
+
+
+ipcMain.handle('save-lesson-clicked', async (event, lessonName) => {
+  const lessondataPath = path.join(__dirname, 'lessondata.json');
+  const raw = fs.readFileSync(lessondataPath, 'utf8');
+  const data = JSON.parse(raw);
+  data.lessonclicked = lessonName;
+  fs.writeFileSync(lessondataPath, JSON.stringify(data, null, 2));
+});

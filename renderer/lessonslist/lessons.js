@@ -1,10 +1,4 @@
 // accessing lesson unlock system
-
-const fs = require('fs');
-const path = require('path');
-
-
-
 //
 //
 //
@@ -75,16 +69,24 @@ function customAlert(message) {
 //
 //
 
-function saveLessonCompletion(lessonname){
-  console.log("hallo");
+function saveLessonClicked(lessonName) {
+  console.log("Saving Lesson Clicked to lessondata.json");
+  
   const fs = require('fs');
-  let dog = fs.readFileSync(lessondataPath, "utf8");
-  roggie = JSON.parse(dog);
-  roggie.lessonclicked = lessonname;
-  fs.writeFileSync(lessondataPath, JSON.stringify(roggie, null, 2));
+  const path = require('path');
+
+  // Build the absolute path to lessondata.json
+  const lessondataPath = path.join(__dirname, '..', '..', '..', 'userdata', 'lessondata.json'); // adjust if needed
+
+  // Read the file
+  const data = JSON.parse(fs.readFileSync(lessondataPath, 'utf8'));
+
+  // Update and write back
+  data.lessonclicked = lessonName;
+  fs.writeFileSync(lessondataPath, JSON.stringify(data, null, 2));
+
+  console.log("Saved:", lessonName);
 }
-
-
 //
 //
 // GIVING BEAKERS AFTER LESSON
