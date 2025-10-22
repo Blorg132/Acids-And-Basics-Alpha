@@ -106,7 +106,7 @@ for (let lessonNumber in questions) {
 ////////////////////////////score value and sound effects
 let currentQuestion = {};
 let questionsAnswered = 0;
-let score = 1000;
+let score = 0;
 let scoreadd = 1;
 
 let streak = 0;
