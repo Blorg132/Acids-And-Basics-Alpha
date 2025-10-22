@@ -109,6 +109,8 @@ document.addEventListener('inventoryReady', () => {
         description.textContent = "Welcome to the Emporium! Hover over anything to see if you want to buy it!";
         Name.textContent = "";
         cost.textContent = "";
+        // Updating the counter on screen!
+        beakerhud.textContent = beakers + " Beakers Owned";
     });
 
     //
@@ -129,6 +131,8 @@ document.addEventListener('inventoryReady', () => {
     var itemprice = 0;
     var itemid = 0;
     var itemresell = 0;
+    // Updating the counter on screen!
+    beakerhud.textContent = beakers + " Beakers Owned";
 
 
     matchbox = document.getElementById("matchbox");

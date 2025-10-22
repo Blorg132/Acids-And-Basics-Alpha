@@ -87,20 +87,23 @@
             You've completed the lesson! Make sure to check out the new questions unlocked <br>in the practice section!
         </p>
 
-        <!--adding lessons.js just for the FS require-->
+        <!--adding lessons.js-->
         <script src="lessons.js"></script>
         <script>
 
+            async function loadInventory() {
+                // Use the read-json handler from main.js
+                const inventoryData = await ipcRenderer.invoke('read-json', 'inventory.json', { beakers: 0, items: [], beakersearned: 5, coliseumbeakersearned: 0, questionsanswered: 0, championending: false });
 
-            document.addEventListener('inventoryReady', () => {
-                console.log(INVENTORYDATA);
-                lessonGiveBeakers(INVENTORYDATA, LESSONDATA);
-                showscore = document.getElementById("showscore");
-                showscore.textContent = "Beakers Earned: " + INVENTORYDATA.beakersearned;
-                if(INVENT.beakersearned == 0){
-                    showscore.textContent = "No Beakers Earned (Lesson Repeated)";
+                const showscore = document.getElementById("showscore");
+                showscore.textContent = "Beakers Earned: " + inventoryData.beakersearned;
+                if (inventoryData.beakersearned === 0) {
+                showscore.textContent = "No Beakers Earned (Lesson Repeated)";
                 }
-            });
+            }
+
+            loadInventory(); 
+
         </script>
 
         <button class="back-button" onclick="window.location.href='../lessons.html';">Back</button>
