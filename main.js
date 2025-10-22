@@ -42,9 +42,27 @@ ipcMain.handle('write-json', (event, filename, data) => {
 
 
 ipcMain.handle('save-lesson-clicked', async (event, lessonName) => {
-  const lessondataPath = path.join(__dirname, 'lessondata.json');
-  const raw = fs.readFileSync(lessondataPath, 'utf8');
-  const data = JSON.parse(raw);
+  const lessondataPath = getJsonPath('lessondata.json');
+
+  let data = {};
+  if (fs.existsSync(lessondataPath)) {
+    const raw = fs.readFileSync(lessondataPath, 'utf8');
+    data = JSON.parse(raw);
+  } else {
+    // If file doesn't exist, create it with defaults
+    data = {
+      lessonclicked: '',
+      lesson1: false, lesson2: false, lesson3: false, lesson4: false,
+      lesson5: false, lesson6: false, lesson7: false, lesson8: false,
+      lesson9: false, lesson10: false, lesson11: false, lesson12: false,
+      lesson13: false, lesson14: false, lesson15: false, lesson16: false,
+      lesson17: false, lesson18: false, lesson19: false, lesson20: false
+    };
+  }
+
+  // Update the clicked lesson
   data.lessonclicked = lessonName;
+
+  // Save back
   fs.writeFileSync(lessondataPath, JSON.stringify(data, null, 2));
 });
