@@ -69,13 +69,15 @@ async function saveLessonClicked(lessonName) {
 // GIVE BEAKERS AFTER LESSON
 async function lessonGiveBeakers(score) {
     console.log("Lesson Give Beakers Running");
+    const { ipcRenderer } = require('electron');
 
-    const inventoryData = await window.ipcRenderer.invoke('read-json', 'inventory.json', {
+
+    const inventoryData = await ipcRenderer.invoke('read-json', 'inventory.json', {
         beakers: 0,
         beakersearned: 0
     });
 
-    const lessonData = await window.ipcRenderer.invoke('read-json', 'lessondata.json', {
+    const lessonData = await ipcRenderer.invoke('read-json', 'lessondata.json', {
         lessonclicked: null,
         lesson1: false, lesson2: false, lesson3: false, lesson4: false,
         lesson5: false, lesson6: false, lesson7: false, lesson8: false,
@@ -97,7 +99,7 @@ async function lessonGiveBeakers(score) {
     }
 
     // Update lessondata.json
-    await window.ipcRenderer.invoke('write-json', 'lessondata.json', lessonData);
+    await ipcRenderer.invoke('write-json', 'lessondata.json', lessonData);
 
     // Update inventory
     if (giveBeakers) {
@@ -107,7 +109,7 @@ async function lessonGiveBeakers(score) {
         inventoryData.beakersearned = 0;
     }
 
-    await window.ipcRenderer.invoke('write-json', 'inventory.json', inventoryData);
+    await ipcRenderer.invoke('write-json', 'inventory.json', inventoryData);
     console.log(`Updated inventory: ${inventoryData.beakers} beakers`);
 
     return inventoryData.beakersearned; // useful for showing score
