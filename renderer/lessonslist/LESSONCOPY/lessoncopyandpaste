@@ -65,7 +65,7 @@
 
             <!---->
             <!--PLEASE MAKE SURE THE QUIZ BUTTON GOES TO THE RIGHT SPOT-->
-            <button class="quiz-button" onclick="window.location.href='THEQUIZFORTHISLESSONSHALLGOHERE.html';">Take this short quiz to prove you've got it!</button>
+            <button class="quiz-button" onclick="window.location.href='THEQUIZFORTHISLESSONSHALLGOHERE.html';">I'm ready. Give me the quiz!</button>
             <!---->
             <!---->
         
