@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../lessonstyles.css">
+    <script src="../../lessons.js"></script>
+    <title>Lesson 8: Atomic Structure in Depth</title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">The real friends were the valence electrons we bonded with along the way.</h1>
+
+
+        <p class="paragraph">
+            Alright, alright, I know you might be sick of hearing about "valence electrons" and "valence shells" without knowing what it means. But in this lesson, you're going to
+            be a valence master!
+            <br>
+            <br>
+            Essentially, think of the word <em>valence</em> as the word <em>outer</em>. When electrons are part of an element, they aren't all stuck in one spot. Rather, they revolve and go around
+            the atom, and are constantly moving. If you've ever seen the multi-circle, "solar system" model of an atom in a sci-fi movie, that's exactly what it looks like (according to Bohr)!
+            <br>
+            <img src="../../../images/lesson8/bohrmodelatom.webp" width=30% height=30% style="display: block; margin-left: auto; margin-right: auto;">
+            <br>
+            In this image here, the grey dots circling around are the electrons, with the nucleus consisting of the protons and neutrons sits in the middle.
+            <br>
+            The cool thing about electrons is, the more electrons you actually <em>have</em> on an atom, certain ones stick close while others sit the furthest from the nucleus. Take sodium
+            here as an example:
+            <br>
+            <br>
+            <img src="../../../images/lesson8/sodiumbohrmodel.png" width=30% height=30% style="display: block; margin-left: auto; margin-right: auto;">
+            <br>
+            In the first shell of every atom, the one RIGHT next to the nucleus, only two electrons like to fit and stay there. And, for simplicity, every subsequent shell holds 8 electrons that it keeps in pairs.
+            As we can see for Sodium, it has its first two, another <span id="fullshell"><b>full shell</b></span> of eight electrons, and then one lonely electron on the third shell. This is the <em>valence electron</em>!
+            <br>
+            <br>
+        </p>
+        <p class="paragraph">
+            So, why do we care about valence electrons in the first place? Well, as you might already know (we'll cover it soon), valence electrons are responsible for many of the bonds and reactions possible with an element.
+            All you need to know for now is that the <em>last digit of the group/row number</em> will give you the number of valence electrons on the periodic table. Every alkali metal has one valence electron, and they're all
+            in Group 1. Every noble gas has 8 valence electrons (a full shell), as they're all in Group 18. Helium is the one exception to this rule, where it has a full shell of 2 electrons. We're going to test you on this in a second, so take a look at the image below!
+            <br>
+            <br>
+            <img src="../../../images/lesson8/valenceelectronchart.jpg" width=80% height=80% style="display: block; margin-left: auto; margin-right: auto;">
+            <br>
+            <br>
+            One last thing we have to talk about in this lesson, and that's isotopes! When an element occurs in nature (or sometimes artificially created by crazy scientists) it can have a different amount of neutrons.
+            It has the same electrons, and protons, and largely is the same element! But it can have more or less neutrons, which alters the mass number of the atom and in some cases alter properties of the element.
+            <br>
+            We name isotopes by simply using the name of the element, and then a dash + its mass number. For example, gold usually has 79 neutrons, and an isotope could be gold-81. Here's a chart below of some carbon isotopes so you can get the idea:
+            <br>
+            <img src="../../../images/lesson8/carbon-isotopes-1.png" width=60% height=60% style="display: block; margin-left: auto; margin-right: auto;">
+            <br>
+            Same electrons, same protons, only thing that changes is the neutron count and the mass, as more neutrons equals a heavier atom!
+            
+        </p>
+
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonCompletion("lesson8");
+            document.getElementById("fullshell").addEventListener("click", () => {
+                customAlert("An electron shell/energy level that can't hold any more electrons, with 8 being the usual maximium (aside from the first shell)");
+            });
+
+            
+
+            
+
+        </script>
+
+
+
+
+        <script src="../../lessons.js"></script>
+        
+        <div style="text-align: center;">
+            <!--Why do I have to do this to actually center a button? No fucking clue.-->
+            <button class="quiz-button" onclick="window.location.href='lesson8-8.html';">Take this short quiz to prove you've got it!</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='../../../lessons.html'">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>

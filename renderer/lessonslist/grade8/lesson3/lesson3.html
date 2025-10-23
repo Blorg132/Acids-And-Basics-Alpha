@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../lessonstyles.css">
+    <script src="../lessons.js"></script>
+    <title>Lesson 3: Basics of Kinetic Molecular Theory </title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue"> Basics of Kinetic Molecular Theory</h1>
+
+
+        <p class="paragraph">
+            <br> The  <b> <span id=" Kinetic Molecular Theory "></span> </b> aids in further understanding the properties of gaseous particles in different scenarios.
+        </p>
+
+        <p class="paragraph">
+            Furthermore, the theory also states that the particles are in straightline motion and colliding with one another.
+            The frequency of collisions can be increased by increasing the <b> <span id="absolute temperature"></span></b> through the addition of kinetic energy.
+
+        </p>  
+
+        <p class="paragraph">
+            Finally, the Kinetic Molecular Theory can also be used to explain the inverse relation between pressure and volume by explaining that pressure is caused by gas particles colliding with the container walls.
+            This allowed many scientists to formulate many laws regarding laws regarding pressure,volume, and temperature. 
+        </p>
+
+         <div id ="image"> 
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm8Udifhc1G2Dtl9XVPuXxIursGIx5oC1frg&s " width=35% height=35% style="display: block; margin-left: auto; margin-right: auto;">
+    </div>
+
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonCompletion("lesson3");
+            document.getElementById("Kinetic Molecular Theory").addEventListener("click", () => {
+                customAlert("Describes ideal gases as being tiny particles in constant, random motion having negligible volume")
+            });
+
+
+            saveLessonCompletion("lesson3");
+            document.getElementById("absolute temperature").addEventListener("click", () => {
+                customAlert("Physical quantity measuring temperature from absolute value (in Kelvin) and it is directly proportional to the average kinetic energy ")
+            });
+            
+        </script>
+        <script src="../lessons.js"></script>
+        
+        <div style="text-align: center;">
+            <!--Why do I have to do this to actually center a button? No fucking clue.-->
+            <button class="quiz-button" onclick="window.location.href='lesson8-8.html';">Take this short quiz to prove you've got it!</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>

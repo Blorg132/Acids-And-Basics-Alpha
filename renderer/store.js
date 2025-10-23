@@ -143,15 +143,15 @@ var itemresell = 0;
 
 matchbox = document.getElementById("matchbox");
 matchbox.addEventListener("mouseover", () => {
-    Name.textContent = "Gas-Dipped Matchbox";
+    Name.textContent = "Illegal Gas-Dipped Matchbox";
     Name.className = "normalitem";
-    description.textContent = "This gas-dipped matchbox is perfect for burning any multiple-choice answers up. Feel free to use when you want a better guess!";
-    cost.textContent = "Cost: 25 Beakers";
+    description.textContent = "This gas-dipped matchbox is perfect for burning any multiple-choice answers up. It's pretty much impossible to buy. Unless... you could give yourself infinite money in the game files? Hm...";
+    cost.textContent = "Cost: 9999 Beakers";
 });
 matchbox.addEventListener("click", () => {
     popup.classList.remove("hidden");
     purchasechosen = "Gas-Dipped Matchbox";
-    popuptext.textContent = purchasephrase + purchasechosen + " for 25 Beakers?";
+    popuptext.textContent = purchasephrase + purchasechosen + " for 9999 Beakers?";
 
 });
 
@@ -162,14 +162,14 @@ angryman.addEventListener("mouseover", () => {
 
     Name.textContent = "Very Angry Man";
     Name.className = "rareitem";
-    description.textContent = "Skips any question. We are not liable for any assault/verbal abuse from the Angry Man.";
-    cost.textContent = "Cost: 50 Beakers";
+    description.textContent = "Skips any question. Not really useful as it is. I'll give him to you, if you can somehow get the money for him. I heard financial fraud is popular this time of year.";
+    cost.textContent = "Cost: 9999 Beakers";
 });
 
 angryman.addEventListener("click", () => {
     popup.classList.remove("hidden");
     purchasechosen = "Very Angry Man";
-    popuptext.textContent = purchasephrase + purchasechosen + " for 50 Beakers?";
+    popuptext.textContent = purchasephrase + purchasechosen + " for 9999 Beakers?";
 
 });
 
@@ -479,14 +479,14 @@ purchasebutton.addEventListener("click", () => {
     // IF YOU DO IT BEFORE EVERYTHING GETS FUCKED
     if(purchasechosen == "Gas-Dipped Matchbox"){
         itemname = "Gas-Dipped Matchbox"
-        itemprice = 25;
+        itemprice = 9999;
         itemid = 1;
-        itemresell = 10;
+        itemresell = 6969;
     } else if(purchasechosen == "Very Angry Man"){
         itemname = "Very Angry Man"
-        itemprice = 50;
+        itemprice = 9999;
         itemid = 2;
-        itemresell = 20;
+        itemresell = 6969;
     } else if(purchasechosen == "Broken Wooden Chair"){
         itemname = "Broken Wooden Chair";
         itemprice = 15;

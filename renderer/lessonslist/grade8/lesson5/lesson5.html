@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../lessonstyles.css">
+    <script src="../lessons.js"></script>
+    <title>Lesson 5: Mixtures & Solutions </title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">Mixtures & Solutions</h1>
+
+
+        <p class="paragraph">
+           
+              <span id=" Mixtures"><b>Mixtures</b></span> and <span id=" Solutions "><b>solutions</b></span> are both ways in which two or more substances
+              can combine without undergoing a chemical reaction. 
+
+
+              <div id="image">
+
+              <img src=" https://www.shutterstock.com/image-vector/chocolate-chip-cookie-vector-clip-600w-283370942.jpg" width=35% height=35% style="display: block; margin-left: auto; margin-right: auto;">
+
+          <img src="https://media.gq-magazine.co.uk/photos/65f30eaacc53aa9b2c658801/2:3/w_720,h_1080,c_limit/drinking-salt-water.jpg" width=35% height=30% style="display: block; margin-left: auto; margin-right: auto;">
+    </div> 
+
+
+        <p class="paragraph">
+
+                The above mentioned mixtures and solutions can be categorized respectively into <span id=" heterogenous mixture"><b>heterogenous mixtures</b></span> and <span id="homogenous mixture"><b>homogenous mixtures</b></span>.
+                Now, as seen in the provided definition, the main difference is the uniformity (as seen in the following diagram), where we are able to see 
+                each individual component in a heterogenous mixture, the components are not visibly distinct.
+
+        </p>
+
+        <div id="image">
+
+           <img src=" https://chemistrytalk.org/wp-content/uploads/2023/03/1200px-Mixtures_and_Pure_Substances_2x2.svg.png" width=55% height=55% style="display: block; margin-left: auto; margin-right: auto;">
+    </div> 
+
+    <p class="paragraph">
+
+        To truly understand how a solution forms a homogenous mixture, some of the <b> <span id=" Solubility Principles"></span> </b> must be understood, such as the following.
+         <ul style="font-size: 1.5em; color: rgb(195, 55, 50);">
+            <li> "Like dissolve like" <b> <span id="Polar"></span> </b> solutes dissolve polar (Ex. Sugar water) - </li>
+            <li> On the other hand, polar substances will not dissolve <b> <span id="Non polar"></span></b> (Ex. Oil and Water) </li>
+
+         </ul>
+
+    </p>
+
+        </div>
+
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonCompletion("lesson5");
+            document.getElementById("Mixtures").addEventListener("click", () => {
+                customAlert(" Involve the physical blending of components that result in retaining their respective physical properties ; an example of a heterogenous mixture")
+            });
+  
+            document.getElementById(" Solutions").addEventListener("click", () => {
+                customAlert(" A special type of mixture where one substance (solute) is dissolved in another substance(solvent), forming a homogenous mixture")
+            });
+
+
+            document.getElementById(" heterogenous mixture").addEventListener("click", () => {
+                customAlert(" Non-uniform , physical combination of two or more substances. Ex. A chocolate chip cookie")
+            });
+
+
+            document.getElementById(" homogenous mixture").addEventListener("click", () => {
+                customAlert(" Uniform, physical combination of two or more substances. Ex. Salt Water")
+            });
+
+
+
+            document.getElementById(" Solubility Principles").addEventListener("click", () => {
+                customAlert(" explains the maximum amount of a solute that can de dissolved in a given amount of solvent")
+            });
+
+
+            document.getElementById(" Polar").addEventListener("click", () => {
+                customAlert(" Consists of an uneven distribution of electron charge, resulting in a dipole (partially positive/negative charge)")
+            });
+
+
+            document.getElementById(" Non Polar").addEventListener("click", () => {
+                customAlert(" Consists of an even distribution of electron charge.)")
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+               
+
+        </script>
+        <script src="../lessons.js"></script>
+        
+        <div style="text-align: center;">
+            <!--Why do I have to do this to actually center a button? No fucking clue.-->
+            <button class="quiz-button" onclick="window.location.href='lesson8-8.html';">Take this short quiz to prove you've got it!</button>
+        </div>
+        <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>

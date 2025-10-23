@@ -43,6 +43,8 @@ function customAlert(message) {
   const text = document.createElement('p');
   text.textContent = message;
   text.style.marginBottom = '20px';
+  text.style.color = '#000000ff';
+  text.style.fontSize = "2.5vw";
 
   // OK Button
   const btn = document.createElement('button');
@@ -74,6 +76,7 @@ function customAlert(message) {
 //
 
 function saveLessonCompletion(lessonname){
+  console.log("hallo");
   const fs = require('fs');
   let dog = fs.readFileSync("./renderer/userdata/lessondata.json", "utf8");
   roggie = JSON.parse(dog);
@@ -141,13 +144,33 @@ function lessonGiveBeakers(score){
         }  else if(lessonData.lessonclicked === "lesson11" && lessonData.lesson11 === false){
             givebeakers = true;
             lessonData.lesson11 = true;
-
         }  else if(lessonData.lessonclicked === "lesson12" && lessonData.lesson12 === false){
             givebeakers = true;
             lessonData.lesson12 = true;
-
-
-
+        } else if(lessonData.lessonclicked === "lesson13" && lessonData.lesson13 === false){
+            givebeakers = true;
+            lessonData.lesson13 = true;
+        } else if(lessonData.lessonclicked === "lesson14" && lessonData.lesson14 === false){
+            givebeakers = true;
+            lessonData.lesson14 = true;
+        } else if(lessonData.lessonclicked === "lesson15" && lessonData.lesson15 === false){
+            givebeakers = true;
+            lessonData.lesson15 = true;
+        } else if(lessonData.lessonclicked === "lesson16" && lessonData.lesson16 === false){
+            givebeakers = true;
+            lessonData.lesson16 = true;
+        } else if(lessonData.lessonclicked === "lesson17" && lessonData.lesson17 === false){
+            givebeakers = true;
+            lessonData.lesson17 = true;
+        } else if(lessonData.lessonclicked === "lesson18" && lessonData.lesson18 === false){
+            givebeakers = true;
+            lessonData.lesson18 = true;
+        } else if(lessonData.lessonclicked === "lesson19" && lessonData.lesson19 === false){
+            givebeakers = true;
+            lessonData.lesson19 = true;
+        } else if(lessonData.lessonclicked === "lesson20" && lessonData.lesson20 === false){
+            givebeakers = true;
+            lessonData.lesson20 = true;
         }
         /////////////////////////////////////////
         

@@ -19,12 +19,25 @@
 </head>
 
 
-<body style="background-color: rgb(85, 72, 97)">
-    <h1 style="text-align: center; font-family: Jost;">Created by:</h1>
-    <p id="credits">Ishaan Shemeen
-       <br>Michael Thachuk
-       <br>Nicholas Creanga
-       <br>Abhinav Praphul 
+<body style="background-color: rgb(37, 46, 40)">
+    <div class="bg-layer"></div>
+    <h1 style="font-family: Fancy; float: left;">Created by:</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p id="credits" style="float: right;">Ishaan Shemeen 
+       <br>Michael Thachuk 
+       <br>Nicholas Creanga 
+       <br>Abhinav Praphul  
     </p>
     <audio id="hoverSound" src="sounds/hoversound.wav" preload="auto"></audio>
 
@@ -53,19 +66,26 @@
 
         p {
             color: hsl(180, 14%, 90%);
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
             font-size: calc(2em + 2.5vw);
             font-family: Fancy;
             transition-duration: 0.5s;
+            text-align: right;
+            margin-right: 10px;
 
         }
 
         p:hover{
-            scale: 1.2;
             color: rgb(128, 233, 102);
+        }
+
+        .bg-layer {
+            background-image: url('images/credits.webp');
+            background-size: 100% 100%;
+            background-position: center;
+            position: absolute;
+            inset: 0;
+            opacity: 0.4;
+            z-index: -1;
         }
 
 

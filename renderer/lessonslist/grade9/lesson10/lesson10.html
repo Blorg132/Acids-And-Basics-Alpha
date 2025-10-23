@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../lessonstyles.css">
+    <script src="../../lessons.js"></script>
+    <title>Lesson 10: Gas Basics 101</title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">Gas, the best state of matter.</h1>
+
+
+        <p class="paragraph">
+
+            Since you already know that every piece of matter is already made up of <em>particles</em>, we can dive a bit deeper into this
+            concept regarding states of matter.
+            <br>
+            <br>
+            Matter is made up of a bunch of particles bouncing around. But how many particles bounce around, and how fast they bounce around, is dependent
+            on the actual state of matter. Solids, such as ice and wood, have the slowest moving particles. They generally don't move past each other
+            and stay in a rigid structure, keeping their form no matter where they are. 
+            Liquids are in the middle of the spectrum. They have faster moving particles that are actually able to move and flow past each other. This
+            is one of the reasons that liquids "flow" in a container and fill up volume.
+            Gases are at the very fast end of the spectrum. Their particles are zipping around, and there's hardly any proper form/connection between these
+            particles aside from them all being part of the same piece of matter. Take a look at the image below to understand the differences between these three.
+            <br>
+            <br>
+            <img src="../../../images/lesson10/KMTsolidgasliquid.jpg" width=70% height=70% style="display: block; margin-left: auto; margin-right: auto;">
+            <br>
+
+
+            As you already know from the basics of the KMT, an increase of temperature on a state of matter will increase the speed of particles, which increases <span id="kineticenergy"><b>kinetic energy</b></span>!
+            This means that as we head towards gas, the kinetic energy of our matter increases, and as we head the reverse way, it'll go down.
+            Don't worry about the increasing <span id="imf"><b>IMF</b></span> here for now... we'll discuss that in Avogadro's Arena! >:)
+
+            <br>
+            <br>
+            We know that a change in state of matter is a physical change that can be attained by increasing/decreasing temperature. Water will turn solid
+            once the temperature drops (ice), and it'll turn into gas once you boil it (steam). The higher temperature makes faster particles, changing states
+            of matter and increasing the kinetic energy. But as you can tell, gases act a little bit differently than the other states. Let's take a look at that now!
+
+            <br>
+            <br>
+            If we want to examine a gas, we find that it has two major variables to look at: <em>pressure</em> and <em>volume</em>.
+            <br>
+            <br>
+            Pressure is essentially how hard a gas pushes AGAINST its container by colliding with it in order to get out. If I have 300g of gas in a beaker, it will have a higher
+            pressure than 200g in the <em>same</em> beaker. This is because there are more particles with more collisions pushing against the container to try and get out!
+            Volume is the container space that you put the gas inside. Are you housing the gas in a room, in a empty milk container, or a small soda can?
+            <br>
+            <br>
+            These two are actually linked with each other as well! If I have 200g of gas, and shrink the container from a milk jug to a water bottle, the
+            pressure of the gas will go up! This is because there's less space inside meaning more collisions with the outside walls. If I increase the pressure,
+            the volume that it will take will decrease as well. Think about it as if I squished a spring together; if I want that spring to push back more, it needs
+            to first take up a smaller space/be more squished.
+            <br>
+            <br>
+
+            If you don't understand this concept for now, that's alright. We'll clarify it more when we actually solve for pressures and volumes of a gas. But for now,
+            just keep in mind that every gas will have a pressure and volume, and that they change depending on each other.
+
+           
+        </p>
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonCompletion("lesson10");
+
+
+            document.getElementById("kineticenergy").addEventListener("click", () => {
+                customAlert("The energy that a particle/thing holds because of its motion. A moving car has kinetic energy that INCREASES once the driver speeds up, but a parked one stays at 0.");
+            });
+
+            document.getElementById("imf").addEventListener("click", () => {
+                customAlert("Intermolecular forces. The forces that act between SEPARATE molecules, atoms, or ions. Not to be confused with 'intramolecular'!");
+            });
+
+            
+
+        </script>
+
+
+
+
+        <script src="../../lessons.js"></script>
+        
+        <div style="text-align: center;">
+            <!--Why do I have to do this to actually center a button? No fucking clue.-->
+            <button class="quiz-button" onclick="window.location.href='lesson10-10.html';">Take this short quiz to prove you've got it!</button>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        <button class="back-button" onclick="window.location.href='../../../lessons.html'">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
