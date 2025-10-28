@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../lessonstyles.css">
+    <script src="../../lessons.js"></script>
+    <title>Lesson 12: Acids, Bases, and pH 101</title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">And we're back to the name of the app!</h1>
+
+
+        <p class="paragraph">
+            Acids, bases, and the general concept of pH is super crucial within our daily lives, especially when it concerns biochemistry and how different substances interact with each other.
+            I'm sure that even if you haven't taken chemistry in school, you've likely heard of the more well-known acids, and how they like to burn through things and dissolve villains in spy movies. Let's first go over what being an acid and a base actually <em>means</em>.
+            <br>
+            <br>
+            Acids are simply substances recognized to have a low pH and have certain acidic properties. They often contain hydrogen in their composition, as the acids commonly release hydrogen ions (H+)
+            <br>
+            <br>
+            The main 5 reaction types are <span id="Synthesis"><b>Synthesis</b></span>, <span id="Decomposition"><b>Decomposition</b></span>, <span id="Single Replacement"><b>Single Replacement</b></span>, <span id="Double Replacement"><b>Double Replacement</b></span>, and <span id="Combustion"><b>Combustion</b></span> which is slightly different from the rest.
+            
+        </p>
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonClicked("lesson12"); //eg. "lesson7", "lesson8", always "lesson+lessonnumber"
+
+            //This is me making the words i chose actually clickable!
+            document.getElementById("Synthesis").addEventListener("click", () => {
+                customAlert("A + B -> AB");
+            });
+
+
+            
+        </script>
+
+
+
+
+        <script src="../../lessons.js"></script>
+        <div style="text-align: center;">
+
+            <!---->
+            <!--PLEASE MAKE SURE THE QUIZ BUTTON GOES TO THE RIGHT SPOT-->
+            <button class="quiz-button" onclick="window.location.href='lesson12-12.html';">I'm ready. Give me the quiz!</button>
+            <!---->
+            <!---->
+        
+        </div>
+
+        <!---->
+        <!---->
+        <!--That's it, you're done! Now simply write the quiz, and push it to GitHub!-->
+        <!---->
+        <!---->
+
+        
+        <button class="back-button" onclick="window.location.href='../../../lessons.html'">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
