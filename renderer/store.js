@@ -21,6 +21,7 @@ let cheappaintingpurchased = false;
 let abstractpaintingpurchased = false;
 let fancypaintingpurchased = false;
 let doubledoorfridgepurchased = false;
+let spongebobpaintingpurchased = false;
 
 document.addEventListener('inventoryReady', () => {
     console.log("Inventory is ready:", INVENTORYDATA);
@@ -93,6 +94,11 @@ document.addEventListener('inventoryReady', () => {
     if(INVENTORYDATA.items.some(item => item.id === 114)){
         fancypaintingpurchased = true;
         document.getElementById("fancypainting").classList.add("sold");
+    }
+
+    if(INVENTORYDATA.items.some(item => item.id === 115)){
+        spongebobpaintingpurchased = true;
+        document.getElementById("spongebobpainting").classList.add("sold");
     }
 
     
@@ -443,6 +449,27 @@ document.addEventListener('inventoryReady', () => {
     });
 
 
+    spongebobpainting = document.getElementById("spongebobpainting");
+    spongebobpainting.addEventListener("mouseover", () => {
+        Name.textContent = "Squidward's Masterpiece";
+        Name.className = "exquisiteitem";
+        description.textContent = "An absolute beauty, created and ideated by the Acids and Basics Beta Release Event Winners. Courtesy of M&J.";
+        cost.textContent = "Cost: 250 Beakers";
+    });
+
+    spongebobpainting.addEventListener("click", () => {
+        console.log(spongebobpaintingpurchased);
+        if(spongebobpaintingpurchased == false){
+            popup.classList.remove("hidden");
+            purchasechosen = "Squidward's Masterpiece";
+            popuptext.textContent = purchasephrase + purchasechosen + " for 250 Beakers?";
+        }
+
+
+    });
+
+
+
 
 
 
@@ -588,6 +615,15 @@ document.addEventListener('inventoryReady', () => {
             if(beakers > itemprice){
                 doubledoorfridgepurchased = true;
                 document.getElementById("doubledoorfridge").classList.add("sold");
+            }
+        } else if(purchasechosen === "Squidward's Masterpiece"){
+            itemname = "Squidward's Masterpiece";
+            itemprice = 250;
+            itemid = 115;
+            itemresell = 125;
+            if(beakers > itemprice){
+                spongebobpaintingpurchased = true;
+                document.getElementById("spongebobpainting").classList.add("sold");
             }
         }
         //

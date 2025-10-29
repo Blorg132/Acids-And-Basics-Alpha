@@ -284,6 +284,22 @@
                 left: 8%; /* distance from left of page */
             }
 
+            .physicalspongebobpainting img {
+                height: auto;
+                max-width: 45vw;
+                max-height: 28vw;
+                min-width: 35vw;
+                min-height: 10vw;
+                transform: rotateY(52deg) rotateZ(14deg) rotateX(-3deg);
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 22%;  /* distance from top of page */
+                left: 2%; /* distance from left of page */
+            }
+
             .physicaloaktable img {
                 height: auto;
                 max-width: 20vw;
@@ -355,6 +371,9 @@
                 <div class="furniture unavailable" id="fancypainting">
                     <img src="../images/imageassets/FancyPainting.webp">
                 </div>
+                <div class="furniture unavailable" id="spongebobpainting">
+                    <img src="../images/imageassets/squidwardpaintingnormal.webp">
+                </div>
             </div>
 
 
@@ -401,6 +420,9 @@
         </div>
         <div class="physicalfancypainting hidden" id="physicalfancypainting">
             <img src="../images/imageassets/FancyPaintingTransparent.png">
+        </div>
+        <div class="physicalspongebobpainting hidden" id="physicalspongebobpainting">
+            <img src="../images/imageassets/squidwardpaintingtransparent.webp">
         </div>
         <div class="physicaltherecliner hidden" id="physicaltherecliner">
             <img src="../images/imageassets/TheReclinerTransparent.png">

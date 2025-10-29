@@ -40,6 +40,8 @@ let abstractpaintingowned = false;
 let abstractpaintingplaced = false;
 let fancypaintingowned = false;
 let fancypaintingplaced = false;
+let spongebobpaintingplaced = false;
+let spongebobpaintingowned = false;
 
 
 //Getting Clickables from The Document///////////////////
@@ -61,6 +63,7 @@ doubledoorfridge = document.getElementById("doubledoorfridge");
 cheappainting = document.getElementById("cheappainting");
 abstractpainting = document.getElementById("abstractpainting");
 fancypainting = document.getElementById("fancypainting");
+spongebobpainting = document.getElementById("spongebobpainting");
 //////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
@@ -145,6 +148,11 @@ function furnishClicked(passin){
         fancypaintingowned = true;
         document.getElementById("fancypainting").classList.remove("unavailable");
     }
+
+    if(inventoryData.items.some(item => item.id === 115)){
+        spongebobpaintingowned = true;
+        document.getElementById("spongebobpainting").classList.remove("unavailable");
+    }
 }
 
 document.addEventListener('houseReady', () => {
@@ -225,6 +233,11 @@ document.addEventListener('houseReady', () => {
     } else if(houseData.painting === "fancypainting"){
         fancypaintingplaced = true;
         document.getElementById("physicalfancypainting").classList.remove("hidden");
+        fancypainting.classList.add("placed");
+    } else if(houseData.painting === "spongebobpainting"){
+        spongebobpaintingplaced = true;
+        document.getElementById("physicalspongebobpainting").classList.remove("hidden");
+        spongebobpainting.classList.add("placed");
     }
 
 
@@ -475,6 +488,25 @@ document.addEventListener('houseReady', () => {
     })
 
 
+    spongebobpainting = document.getElementById("spongebobpainting");
+    spongebobpainting.addEventListener("click", async () => {
+        if(spongebobpaintingowned == true && spongebobpaintingplaced == false && houseData.painting === ""){
+
+            document.getElementById("physicalspongebobpainting").classList.remove("hidden");
+            spongebobpainting.classList.add("placed");
+            spongebobpaintingplaced = true;
+            houseData.painting = "spongebobpainting";
+            await writeJson('house.json', houseData);
+        } else if(spongebobpaintingplaced == true){
+            document.getElementById("physicalspongebobpainting").classList.add("hidden");
+            spongebobpainting.classList.remove("placed");
+            spongebobpaintingplaced = false;
+            houseData.painting = "";
+            await writeJson('house.json', houseData);
+        }
+    })
+
+
 
     //////////////////////////////////////////////////////////////////////////////
 ////////////////////////////FURNISH CLICKED///////////////////////////////
@@ -483,15 +515,3 @@ document.addEventListener('houseReady', () => {
 
 
 });
-
-/*
-
-
-
-
-
-
-
-
-
-*/
