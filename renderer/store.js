@@ -453,7 +453,7 @@ document.addEventListener('inventoryReady', () => {
     spongebobpainting.addEventListener("mouseover", () => {
         Name.textContent = "Squidward's Masterpiece";
         Name.className = "exquisiteitem";
-        description.textContent = "An absolute beauty, created and ideated by the Acids and Basics Beta Release Event Winners. Courtesy of M&J.";
+        description.textContent = "Painted by the artistic yet reluctant Squidward after losing a clarinet competition. Created and ideated by the Acids and Basics Beta Release Event Winners. Courtesy of M&J.";
         cost.textContent = "Cost: 250 Beakers";
     });
 
