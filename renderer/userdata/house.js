@@ -70,14 +70,14 @@ spongebobpainting = document.getElementById("spongebobpainting");
 function furnishClicked(passin){
     popupwindow.classList.remove("hidden");
 
-    //I made all the clickables global.... thank me later.... just kidding it kind of does jackshod, 
+    //I made all the clickables global.... thank me later.... just kidding it kind of does jackshit, 
     //I just hated how it looked over here
     //
     // Reading Inventory from Disk
     //
 
 
-    // NOTE: Readfilesync breaks this. i have no idea why, but i'm assuming it'll duck something up in the future.
+    // NOTE: Readfilesync breaks this. i have no idea why, but i'm assuming it'll fuck something up in the future.
     let inventoryData = passin;
 
     // Checking to see what inventory pieces are owned
@@ -246,7 +246,7 @@ document.addEventListener('houseReady', () => {
     /////////////////////////////////////////////////////////////////////
     //
     //ACTUAL PLACING LOGIC
-    // lmao this can't be called in furnishClicked() because OTHERWISE everything ducks up!!!!
+    // lmao this can't be called in furnishClicked() because OTHERWISE everything fucks up!!!!
     //
     //CHAIRS/////////////////////////////////////////////////////////////
     woodenchair = document.getElementById("woodenchair")

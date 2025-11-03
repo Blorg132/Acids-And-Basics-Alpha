@@ -493,9 +493,9 @@ document.addEventListener('inventoryReady', () => {
         // PLEASE PUT PRICES AND NAMES HERE
         // also figure out what id's are what later? make a new file? thanks
         //
-        // ALSO OH MY duckING GOD
+        // ALSO OH MY FUCKING GOD
         // PLEASE PUT THE BEAKER > ITEMPRICE CHECK AFTER DECLARING THE VARIABLES
-        // IF YOU DO IT BEFORE EVERYTHING GETS duckED
+        // IF YOU DO IT BEFORE EVERYTHING GETS FUCKED
         if(purchasechosen == "Gas-Dipped Matchbox"){
             itemname = "Gas-Dipped Matchbox"
             itemprice = 9999;
