@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+
+<html>
+
+
+    <head>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="../styles.css">
+        <audio id="backgroundmusic" src="../sounds/housesong.mp3" autoplay loop></audio>
+
+
+
+        <!--Setting volume for the audio/soundeffects-->
+        <script>
+            // setting the volume for background music
+            document.getElementById("backgroundmusic").volume = 0.15;
+        </script>
+
+
+        <style>
+            .bg-layer {
+                background-image: url('../images/house.webp');
+                background-size: 100% 100%;
+                background-position: center;
+                position: absolute;
+                inset: 0;
+                opacity: 1;
+                z-index: -100;
+            }
+
+
+            .selectionwindow {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(45, 189, 67, 0.491);
+                border: 6px solid rgb(0, 0, 0);
+                padding: 35px;
+                z-index: 1000;
+            }
+
+            .furnish-button {
+                padding: 8px 50px;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                font-size: calc(1em + 0.5vw);
+                justify-content: center;
+                font-family: Jost;
+                border: 4px solid rgb(63, 185, 206);
+                border-radius: 10px; 
+                transition-duration: 0.4s;
+                width: 15%;
+                font-family: Quantico;
+            }
+
+            .furnish-button:hover {
+                background-color: #60dc5e;
+                color:rgb(40, 53, 65);
+                transform: translateY(-5px);
+                font-family: Quantico;
+            }
+
+            .unavailable {
+                opacity: 0.15;
+            }
+
+            .furniture img{
+                width: 7vw;
+                height: auto;
+                max-width: 7vw;
+                max-height: 7vw;
+                min-width: 7w;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+                border: 5px solid black;
+                
+            }
+
+            .furniture img:hover {
+                transform: scale(1.25);
+                transition-duration: 0.2s;
+                border: 5px solid rgb(128, 141, 218);
+            }
+
+
+            .furniture-section {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .placed {
+                opacity: 0.6;
+            }
+
+            .cancelbutton {
+                padding: 1vw 1.5vw;
+                font-size: 1.3vw;
+                font-family: Quantico;
+                transition-duration: 0.3s ease;
+            }
+
+            .cancelbutton:hover {
+                background-color: rgba(232, 50, 50, 0.651);
+                color: white;
+                transition-duration: 0.15s;
+            }
+
+
+            .physicalwoodenchair img{
+                height: auto;
+                max-width: 42vw;
+                max-height: 37vw;
+                min-width: 8w;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 63%;  /* distance from top of page */
+                left: 45% /* distance from left of page */
+            }
+
+            .physicalmetalchair img{
+                height: auto;
+                max-width: 52vw;
+                max-height: 41vw;
+                min-width: 8w;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 54%;  /* distance from top of page */
+                left: 45% /* distance from left of page */
+            }
+            
+
+            .physicaltherecliner img {
+                height: auto;
+                max-width: 25vw;
+                max-height: 23vw;
+                min-width: 8w;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 45%;  /* distance from top of page */
+                left: 35%; /* distance from left of page */
+                transform: scaleX(-1);
+            }
+
+            .physicalpooltable img {
+                height: auto;
+                max-width: 60vw;
+                max-height: 40vw;
+                min-width: 60vw;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 70%;  /* distance from top of page */
+                left: 45%; /* distance from left of page */
+            }
+
+            .physicalchandy img {
+                height: auto;
+                max-width: 15vw;
+                max-height: 25vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 17%;  /* distance from top of page */
+                left: 42%; /* distance from left of page */
+            }
+
+            .physicalmetaltable img {
+                height: auto;
+                max-width: 55vw;
+                max-height: 60vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 58%;  /* distance from top of page */
+                left: 50%; /* distance from left of page */
+            }
+
+
+            .physicalnastyfridge img {
+                height: auto;
+                max-width: 25vw;
+                max-height: 30vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 45%;  /* distance from top of page */
+                left: 74%; /* distance from left of page */
+            }
+
+            .physicaldoubledoorfridge img {
+                height: auto;
+                max-width: 35vw;
+                max-height: 40vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transform: rotateY(180deg);
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 30%;  /* distance from top of page */
+                left: 66%; /* distance from left of page */
+            }
+
+            .physicalcheappainting img {
+                height: auto;
+                max-width: 15vw;
+                max-height: 20vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transform: rotateZ(15deg) rotateY(35deg);
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 35%;  /* distance from top of page */
+                left: 12%; /* distance from left of page */
+            }
+
+            .physicalabstractpainting img {
+                height: auto;
+                max-width: 23vw;
+                max-height: 26vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transform: rotateY(45deg);
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 22%;  /* distance from top of page */
+                left: 8%; /* distance from left of page */
+            }
+
+            .physicalfancypainting img {
+                height: auto;
+                max-width: 23vw;
+                max-height: 26vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transform: rotateY(45deg);
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 22%;  /* distance from top of page */
+                left: 8%; /* distance from left of page */
+            }
+
+            .physicalspongebobpainting img {
+                height: auto;
+                width: 50vw;
+                height: 30vw;
+                transform: rotateY(65deg) rotateZ(8deg) rotateX(-9deg);
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 22%;  /* distance from top of page */
+                left: -6%; /* distance from left of page */
+            }
+
+            .physicaloaktable img {
+                height: auto;
+                max-width: 20vw;
+                max-height: 23vw;
+                min-width: 10vw;
+                min-height: 7vw;
+                transition-duration: 0.2s;
+                object-fit: contain; /* keeps proportions */
+                object-fit: fill;
+
+                position: absolute; /* or fixed */
+                top: 60%;  /* distance from top of page */
+                left: 28%; /* distance from left of page */
+            }
+
+            
+
+
+        </style>
+
+        <script src="../renderer.js"></script>
+
+    </head>
+
+
+    <body style="overflow: hidden;">
+        <div class="bg-layer"></div>
+
+        <!--Selection Window-->
+        <div id="selectionwindow" class="selectionwindow hidden">
+            
+            <!--Chairs-->
+            <div class="furniture-section" id="chairholder">
+                <div class="furniture unavailable" id="woodenchair">
+                    <img src="../images/imageassets/WoodenChair.webp">
+                </div>
+                <div class="furniture unavailable" id="metalchair">
+                    <img src="../images/imageassets/MetalChair.webp">
+                </div>
+                <div class="furniture unavailable" id="therecliner">
+                    <img src="../images/imageassets/TheRecliner.webp">
+                </div>
+            </div>
+
+            <!--Tables-->
+            <div class="furniture-section" id="tableholder">
+                <div class="furniture unavailable" id="pooltable">
+                    <img src="../images/imageassets/PoolTable.webp">
+                </div>
+
+                <div class="furniture unavailable" id="metaltable">
+                    <img src="../images/imageassets/MetalTable.webp">
+                </div>
+
+                <div class="furniture unavailable" id="oaktable">
+                    <img src="../images/imageassets/OakTable.webp">
+                </div>
+            </div>
+
+
+            <!--Paintings-->
+            <div class="furniture-section" id="paintingholder">
+                <div class="furniture unavailable" id="cheappainting">
+                    <img src="../images/imageassets/CheapPainting.webp">
+                </div>
+                <div class="furniture unavailable" id="abstractpainting">
+                    <img src="../images/imageassets/AbstractPainting.webp">
+                </div>
+                <div class="furniture unavailable" id="fancypainting">
+                    <img src="../images/imageassets/FancyPainting.webp">
+                </div>
+                <div class="furniture unavailable" id="spongebobpainting">
+                    <img src="../images/imageassets/squidwardpaintingnormal.webp">
+                </div>
+            </div>
+
+
+            <!--Roof Items-->
+            <div class="furniture-section" id="roofholder">
+                <div class="furniture unavailable" id="chandy">
+                    <img src="../images/imageassets/ChandyTransparent.webp">
+                </div>
+            </div>
+
+            <!--Fridges-->
+            <div class="furniture-section" id="fridgeholder">
+                <div class="furniture unavailable" id="nastyfridge">
+                    <img src="../images/imageassets/NastyFridge.webp">
+                </div>
+                <div class="furniture unavailable" id="doubledoorfridge">
+                    <img src="../images/imageassets/DoubleDoorFridge.webp">
+                </div>
+            </div>
+
+
+
+
+            <div style="display: flex; justify-content: center; gap: 15px;">
+                <button id="cancelpurchase" class="cancelbutton" onclick="document.getElementById('selectionwindow').classList.add('hidden');">Close Window</button>
+            </div>
+        </div>
+        
+
+        <!--The Physical Furniture-->
+        <!--I think placing these in different spots helps with the 3d arrangement? who knows.-->
+        <div class="physicalwoodenchair hidden" id="physicalwoodenchair">
+            <img src="../images/imageassets/WoodenChairTransparent.png">
+        </div>
+        <div class="physicalmetalchair hidden" id="physicalmetalchair">
+            <img src="../images/imageassets/MetalChairTransparent.webp">
+        </div>
+
+        <div class="physicalcheappainting hidden" id="physicalcheappainting">
+            <img src="../images/imageassets/CheapPaintingTransparent.webp">
+        </div>
+        <div class="physicalabstractpainting hidden" id="physicalabstractpainting">
+            <img src="../images/imageassets/AbstractPaintingTransparent.webp">
+        </div>
+        <div class="physicalfancypainting hidden" id="physicalfancypainting">
+            <img src="../images/imageassets/FancyPaintingTransparent.png">
+        </div>
+        <div class="physicalspongebobpainting hidden" id="physicalspongebobpainting">
+            <img src="../images/imageassets/squidwardpaintingtransparent.webp">
+        </div>
+        <div class="physicaltherecliner hidden" id="physicaltherecliner">
+            <img src="../images/imageassets/TheReclinerTransparent.png">
+        </div>
+
+        <div class="physicaloaktable hidden" id="physicaloaktable">
+            <img src="../images/imageassets/OakTableTransparent.webp">
+        </div>
+
+
+        <div class="physicalnastyfridge hidden" id="physicalnastyfridge">
+            <img src="../images/imageassets/NastyFridgeTransparent.webp">
+        </div>
+        <div class="physicaldoubledoorfridge hidden" id="physicaldoubledoorfridge">
+            <img src="../images/imageassets/DoubleDoorFridgeTransparent.webp">
+        </div>
+
+
+        <div class="physicalpooltable hidden" id="physicalpooltable">
+            <img src="../images/imageassets/PoolTableTransparent.png">
+        </div>
+        <div class="physicalmetaltable hidden" id="physicalmetaltable">
+            <img src="../images/imageassets/MetalTableTransparent.webp">
+        </div>
+
+
+
+        <div class="physicalchandy hidden" id="physicalchandy">
+            <img src="../images/imageassets/ChandyTransparent.webp">
+        </div>
+
+
+        <!--buttons-->
+        <button class="back-button" onclick="window.location.href='../mainpage.html';">Back</button>
+        <!--I think if we make this a while loop, we can avoid sticky buttons? who knows.-->
+        <button class="furnish-button" onclick="furnishClicked(INVENTORYDATA);">Furnish</button>
+
+
+        <script src="house.js"></script>
+    </body>
+
+
+
+</html>

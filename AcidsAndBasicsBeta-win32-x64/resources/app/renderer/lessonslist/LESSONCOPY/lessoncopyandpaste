@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../../lessonstyles.css">
+    <script src="../../lessons.js"></script>
+    <title>Lesson (NUMBER OF LESSON): The Best Lesson EVER!!!!!!!!!!!</title>
+
+    <style>
+        @font-face {
+            font-family: Jost;
+            src: url('fonts/Jost-VariableFont_wght.ttf');
+        }
+    </style>
+</head>
+
+<body>
+    <!--These div's are so the background-image actually works. Whoops!-->
+    <div class="lesson-container">
+        <div class="lesson-background"></div>
+        <div id="actualcontent">
+            <h1 class="cool-header-blue">The real friends were the valence electrons we bonded with along the way.</h1>
+
+
+        <p class="paragraph">
+            Here is my opening sentence. Before i get into what REALLY matters,  im going to do a big break between this and the next paragraph.
+            <br>
+            <br>
+            See, wasn't that really cool? In fact, I might italicize my opinion by <em>using the em tags!</em> And if my writing is getting too long,
+            I'm free to go to the next line without actually breaking the text by simply going to the next line! Note that this does NOT mean a next line
+            on the page. It will keep going until it hits the border, or you use "< br >"!
+
+            <br>
+            <br>
+            Now i'm going to insert an image after a space.
+            <br>
+            <img src="../../../images/lesson8/bohrmodelatom.webp" width=30% height=30% style="display: block; margin-left: auto; margin-right: auto;">
+            <br>
+            <br>
+            Wasn't that so cool? I even centered it with the "style" part, and it takes up 30% of the screen for width and height, no matter the window size!
+            <br>
+            Sometimes though, you don't know what a word is. Such as the word <span id="monkey"><b>monkey</b></span>. Click on that and you'll find out!
+        </p>
+
+        <!--Running Custom Alert scripts here.-->
+        <!--Also doing the "lessonclicked" json change-->
+        <script>
+            saveLessonClicked("WHATEVER LESSON YOU ARE WRITING AT THE MOMENT!!!!!!!!!!!"); //eg. "lesson7", "lesson8", always "lesson+lessonnumber"
+
+            //This is me making the words i chose actually clickable!
+            document.getElementById("monkey").addEventListener("click", () => {
+                customAlert("I monkey, you monkey, everyone monkey.");
+            });
+
+            
+        </script>
+
+
+
+
+        <script src="../../lessons.js"></script>
+        <div style="text-align: center;">
+
+            <!---->
+            <!--PLEASE MAKE SURE THE QUIZ BUTTON GOES TO THE RIGHT SPOT-->
+            <button class="quiz-button" onclick="window.location.href='THEQUIZFORTHISLESSONSHALLGOHERE.html';">I'm ready. Give me the quiz!</button>
+            <!---->
+            <!---->
+        
+        </div>
+
+        <!---->
+        <!---->
+        <!--That's it, you're done! Now simply write the quiz, and push it to GitHub!-->
+        <!---->
+        <!---->
+
+        
+        <button class="back-button" onclick="window.location.href='../../../lessons.html'">Back</button>
+        </div>
+    </div>
+
+</body>
+
+
+</html>

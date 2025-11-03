@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+
+<!---->
+<!---->
+<!---->
+<!--Please keep in mind that all of this code is now deprecated. The chances of this being read are slim. To be honest, it's more likely that-->
+<!--the heat death of the universe will happen before this is read ever again. Isn't that scary? But that's how life is. Anyways, enjoy this unused code.-->
+<!---->
+<!---->
+<!---->
+
+<html>
+
+    <head>
+        <link rel="stylesheet" href="../styles.css">
+        <meta charset="utf8">
+
+
+
+        <style>
+
+
+            p {
+                color: whitesmoke;
+                font-family: Jost;
+                font-size: 2vw;
+            }
+
+
+
+            .sellwindow {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgb(53, 77, 58);
+                border: 5px solid rgb(0, 0, 0);
+                padding: 60px;
+                z-index: 1000;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            .selltext {
+                font-family: Jost;
+                font-size: 1.5em;
+                color: rgb(178, 178, 178);
+                text-align: center;
+            }
+
+        
+            .sellbutton {
+                font-family: Jost;
+                font-size: 1em;
+                padding: 20px 20px;
+                border: 4px dotted black;
+                font-weight: 800;
+                border-radius: 10px;
+                left: 80%;
+                transition-duration: 0.5s;
+            }
+
+            .sellbutton:hover {
+                background-color: rgb(20, 135, 20);
+                color: whitesmoke;
+                border-radius: 25px;
+                transition-duration: 0.2s;
+            }
+
+
+            .cancelbutton {
+                font-family: Jost;
+                font-size: 1em;
+                padding: 20px 20px;
+                border: 4px dotted black;
+                font-weight: 800;
+                border-radius: 10px;
+                left: 80%;
+                transition-duration: 0.5s;
+            }
+
+            .cancelbutton:hover {
+                background-color: rgb(193, 54, 54);
+                color: whitesmoke;
+                border-radius: 25px;
+                transition-duration: 0.2s;
+            }
+
+            .beakerhud {
+                font-size: 3vw;
+                font-family: Money;
+                color:rgb(0, 0, 0);
+                border: 5px solid rgb(0, 0, 0);
+                display: inline-block; /*this makes the border stop at the end of the text!!! keep this in mind!!! */
+                background-image: url("../images/flashcardbackground.jpg");
+                background-size: 10em;
+                background-repeat: no-repeat;
+            }
+
+        </style>
+
+    </head>
+
+
+
+
+    <body style="background-color: rgb(48, 47, 47);">
+
+        <h1>Inventory</h1>
+
+
+        <!--Sell Window that pops up on click.-->
+        <div id="sellwindow" class="sellwindow hidden">
+            <p id="selltext" class="selltext">You want to purchase me!</p>
+            <div style="display: flex; justify-content: center; gap: 35px;">
+                <button id="cancelsell" class="cancelbutton">Cancel Sell</button>
+                <button id="sell" class="sellbutton">Sell!</button>
+            </div>
+        </div>
+
+
+        <div>
+            <!--Please put the item "count" thingamajiggers in this spot, and in order of rarity if you can.-->
+            <p id="matchboxcount"></p>
+            <p id="angrymancount"></p>
+            <!---->
+            <aside style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: rgb(203, 203, 203);">If you want to sell an item, click on it here!</aside>
+        
+        </div>
+
+
+        <br>
+        <br>
+        <aside class="beakerhud" id="beakerhud">asdf</aside>
+        <br>
+        <br>
+        <br>
+        <button class="cancelbutton" id="clearbutton">Clear All Items</button>
+        <button class="back-button" onclick="window.location.href='../mainpage.html';">Back</button>
+
+
+
+        <script src="../renderer.js"></script>
+        <script src="inventory.js"></script>
+    </body>
+
+
+
+</html>

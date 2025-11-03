@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+
+    <head>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="../../lessonstyles.css">
+        <title>Lesson 3 Quiz</title>
+    </head>
+
+
+    <body class="test-body">
+        
+        <div class="test-container">
+            <div class=test-background></div>
+            <div id="actualcontent">
+                <!--Please note that all instances of form-submission with HTML should be in labels. No idea why though.-->
+                <form id="lessonform1">
+
+                    <!--First Question-->
+                    <p> According to Kinetic Molecular Theory, the average kinetic energy of gas particles is directly proportional to:?</p>
+                    <label>
+                        <input type="radio" name="question1" value="correct">
+                        " The temperature (in Kelvin)."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        " The gas pressure"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        " The gas volume."
+                    </label>
+                    <br> 
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        "The number of gas particles. "
+                    </label>
+                    <br>
+
+                    <!--Second Question-->
+
+                    <p> What happens to the average kinetic energy of gas molecules when the temperature of the gas is doubled (in Kelvin)?</p>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        " It halves "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        " It quadruples "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="correct">
+                        " It doubles"
+                    </label>
+                    <br> 
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        " It remains the same"
+                    </label>
+                    <br>
+
+
+                    <!--Third Question-->
+
+                    <p> Which of the following best explains why gases can be compressed more easily than solids or liquids ?</p>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        " Gas particles move faster."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        " Gas particles have greater mass."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        " Gas particles attract each other strongly."
+                    </label>
+                    <br> 
+                    <label>
+                        <input type="radio" name="question3" value="correct">
+                        " Gas particles are very far apart."
+                    </label>
+                    <br>
+
+                    <!--Fourth Question-->
+
+                    <p> Which of the following pairs of variables are inversely proportional for a fixed amount of gas (at constant temperature)?</p>
+                    <label>
+                        <input type="radio" name="question4" value="wrong">
+                        " Pressure and temperature"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question4" value="correct">
+                        "Pressure and volume "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question4" value="wrong">
+                        " Pressure and number of moles"
+                    </label>
+                    <br> 
+                    <label>
+                        <input type="radio" name="question4" value="wrong">
+                        "Volume and temperature "
+                    </label>
+                    <br>
+
+                    <!--Fifth Question-->
+
+                    <p>True or False; According to the Kinetic Molecular Theory, the particles of an ideal gas are in constant rando motion and have negligible volume</p>
+                    <label>
+                        <input type="radio" name="question5" value="correct">
+                        "True"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question5" value="wrong">
+                        "False"
+                    </label>
+                    <br>
+
+                    <!--Sixth Question-->
+
+                    <p> Which of the following gases would have the highest average molecular speed at the same temperature??</p>
+                    <label>
+                        <input type="radio" name="question6" value="wrong">
+                        " CO₂"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question6" value="wrong">
+                        " N₂ "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question6" value="correct">
+                        " H₂ "
+                    </label>
+                    <br> 
+                    <label>
+                        <input type="radio" name="question6" value="wrong">
+                        " O₂"
+                    </label>
+                    <br>
+
+                    <!--Seventh Question-->
+
+                    <p> Based on the following diagram, does increasing the temperature cause the pressure of a gas to double </p>
+                    <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdqsDN0Xp0EwtHmCjDlnDpB6eG6hQVPnZc5A&s " width=40% height=40%>
+                    <br>
+                    <label>
+                        <input type="radio" name="question7" value="correct">
+                        "True"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question7" value="wrong">
+                        "False"
+                    </label>
+                    <br>
+                    
+                    
+
+                    <!--Submit button-->
+
+                    <br>
+                    <br>
+                    <button type="submit" class="submitbutton">I'm Done!</button>
+
+                </form>
+                
+
+                <script src="../../lessons.js"></script>
+
+                <script>
+                    // Checking answers when user submits with the button
+                    document.getElementById("lessonform1").addEventListener("submit", async function(event) {
+                        event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
+                        let totalscore = 0; // please pass this variable into the function lessonGiveBeakers to add the proper amount
+
+
+                        // QUESTION 1: 
+                        let question1 = document.querySelector('input[name="question1"]:checked');
+                        if (question1 && question1.value === "correct") {
+                            totalscore += 2;
+                        }
+
+                        // QUESTION 2: 
+                        let question2 = document.querySelector('input[name="question2"]:checked');
+                        if (question2 && question2.value === "correct") {
+                            totalscore += 2;
+                        }
+
+                        // QUESTION 3: 
+                        let question3 = document.querySelector('input[name="question3"]:checked');
+                        if (question3 && question3.value === "correct") {
+                            totalscore += 2;
+                        }
+
+                        // QUESTION 4: 
+                        let question4 = document.querySelector('input[name="question4"]:checked');
+                        if (question4 && question4.value === "correct") {
+                            totalscore += 3;
+                        }
+
+                        // QUESTION 5: 
+                        let question5 = document.querySelector('input[name="question5"]:checked');
+                        if (question5 && question5.value === "correct") {
+                            totalscore += 4;
+                        }
+
+                        // QUESTION 6: 
+                        let question6 = document.querySelector('input[name="question6"]:checked');
+                        if (question6 && question6.value === "correct") {
+                            totalscore += 3;
+                        }
+
+                        // QUESTION 7: 
+                        let question7 = document.querySelector('input[name="question7"]:checked');
+                        if (question7 && question7.value === "correct") {
+                            totalscore += 4;
+                        }
+
+
+
+
+                        console.log(totalscore);
+                        await lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
+                        // make sure you pass the score variable through, or else it won't work!
+
+                        window.location.href="../../lessoncomplete.html";
+                    });
+
+                </script>
+            </div>
+        </div>
+
+
+    </body>
+
+
+
+</html>

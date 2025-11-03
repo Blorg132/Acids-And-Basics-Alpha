@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Acids and Basics Beta V.0.1</title>
+
+  <!-- Sounds -->
+  <audio src="sounds/themesong.mp3" autoplay loop id="backgroundmusic"></audio>
+  <audio id="hoverSound" src="sounds/elementhover.wav" preload="auto"></audio>
+  <audio id="coliseumSound" src="sounds/coliseumbutton.wav" preload="auto"></audio>
+  <link rel="stylesheet" href="styles.css">
+
+  
+  <script>
+    var audio = document.getElementById("backgroundmusic");
+    audio.volume = 0.06;
+  </script>
+  <script src="renderer.js"></script>
+
+  <style>
+    .bg-layer {
+      background-image: url('images/chem.avif');
+      background-size: 100% 100%;
+      background-position: center;
+      position: absolute;
+      inset: 0;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    /* Container for the 2x2 grid buttons */
+    .menu-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(120px, 30vw)); /* 2 columns, min 120px, max 30% viewport width */
+        grid-template-rows: repeat(2, minmax(40px, 10vh));     /* 2 rows, 50px tall each */
+        gap: 15px;                              /* spacing between buttons */
+        justify-content: center;                /* center grid horizontally */
+        margin: 50px auto 20px auto;           /* margin top/bottom and horizontally center */
+        width: max-content;                     /* shrink to fit grid */
+    }
+
+    /* Styling for menu buttons */
+    .menu-button {
+      font-size: 2vw;
+      font-family: Quantico;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      background-color: #3a3a8e;
+      color: white;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      transition-duration: 0.3s;
+    }
+    .menu-button:hover {
+        /*background-color determines what rest of the button turns to,
+        color is what the TEXT turns to :) */
+        background-color: green;
+        border: 5px double rgb(184, 199, 76);
+        color: whitesmoke;
+        scale: 1.2;
+
+    }
+
+    /* Credits button below grid */
+    .extra-button {
+        font-size: 2vw;
+        font-family: Quantico;
+        cursor: pointer;
+        border-radius: 6px;
+        border: none;
+        background-color: #8888cf;
+        color: white;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        transition-duration: 0.3s;
+        width: 340px; /* about double width of menu buttons (150 * 2 + gap) */
+        margin: 0 auto 40px auto; /* center horizontally with bottom margin */
+        padding: 12px 0;
+
+    }
+    .extra-button:hover {
+        /*background-color determines what rest of the button turns to,
+        color is what the TEXT turns to :) */
+        background-color: green;
+        color: whitesmoke;
+
+    }
+
+    .coliseum-button {
+        font-size: 2vw;
+        font-family: Quantico;
+        cursor: pointer;
+        border-radius: 6px;
+        border: none;
+        background-color: #8888cf;
+        color: white;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        width: 340px; /* about double width of menu buttons (150 * 2 + gap) */
+        margin: 0 auto 40px auto; /* center horizontally with bottom margin */
+        padding: 12px 0;
+        transition: color 0.3s ease, background-image 0.5s ease;
+
+
+    }
+
+    .coliseum-button:hover {
+        /*background-color determines what rest of the button turns to,
+        color is what the TEXT turns to :) */
+        background-color: rgb(238, 24, 24);
+        color: rgb(255, 0, 0);
+        -webkit-text-stroke: 1px rgb(254, 255, 250);
+        background-image: url(images/coliseumbutton.jpg);
+        background-blend-mode:exclusion;
+        background-size:cover;
+
+    }
+
+    /* House and inventory buttons style for reference (optional) */
+    .house-button {
+      color: red;
+      display: flex;
+      padding: 20px 20px;
+      z-index: 100;
+    }
+    .inventory-button {
+      color: transparent; 
+      display: flex;
+      padding: 20px 20px;
+      object-fit: fill;
+      background-image: url("images/imageassets/Inventory.webp");
+    }
+    .upgrade img{
+        height: auto;
+        background-color: rgb(137, 126, 126);
+        max-width: 5vw;
+        max-height: 5vw;
+        min-width: 5vw;
+        min-height: 5vw;
+        transition-duration: 0.2s;
+        border: 2px solid rgb(29, 175, 109);
+        object-fit: contain;
+    }
+
+    .upgrade img:hover{
+        transform: scale(1.15);
+    }
+
+    .imag{
+        text-align: center;
+    }
+
+    .imagdiscord {
+      text-align: center;
+    }
+
+  </style>
+</head>
+
+<body style="background-color: rgb(27, 22, 54); overflow: hidden;">
+    <div class="bg-layer"></div>
+
+    <h1 class="title-text" style="text-align:center; color:white; margin-top:40px;">Acids and Basics</h1>
+
+    <!-- Menu Buttons in 2x2 grid, thank god -->
+    <div class="menu-container">
+        <button class="menu-button" onclick="playClickSound1('lessons.html');">Lessons</button>
+        <button class="menu-button" onclick="playClickSound1('practice.html')">Materials + Q's</button>
+        <button class="menu-button" onclick="playClickSound1('flashcards/flashcards.html');">Flashcards</button>
+        <button class="menu-button" onclick="playClickSound1('store.html');">Store</button>
+    </div>
+
+    <!-- Credits Button Below -->
+    <div style="text-align: center;">
+      <button class="coliseum-button" onclick="playClickSound1('coliseum/coliseum.html');" style="margin-right: 15px;">Coliseum</button>
+      <button class="extra-button" onclick="playClickSound1('credits.html');">Credits</button>
+    </div>
+
+    <!-- This is butchered code straight from the storepage, but hey, it works and it looks alright.-->
+    <div class="upgrade">
+        <img class='imag' src="images/imageassets/House.webp" onclick="playClickSound1('userdata/house.html');" style="background-color: rgba(72, 130, 229, 0.53);">
+    </div>
+    <div class="upgrade">
+        <img class="imagdiscord" src="images/discord.png" id="redirectbutton" style="background-color: rgba(31, 91, 255, 0.438);">
+    </div>
+
+  <script>
+    function playClickSound1(destination) {
+      const sound = new Audio('sounds/clicksound1.wav');
+      sound.volume = 0.3;
+      sound.play();
+
+      setTimeout(() => {
+        window.location.href = destination;
+      }, 250);
+    }
+
+    const buttons = document.querySelectorAll('.menu-button, .extra-button, .imag');
+    const sound = document.getElementById("hoverSound");
+    buttons.forEach(button => {
+      button.addEventListener('mouseenter', () => {
+        sound.currentTime = 0;
+        sound.volume = 0.3;
+        sound.play();
+      });
+    });
+
+    const coliseumbutton = document.querySelector(".coliseum-button");
+    const coliseumsound = document.getElementById("coliseumSound");
+    coliseumbutton.addEventListener('mouseenter', () => {
+      coliseumsound.currentTime = 0;
+      coliseumsound.volume = 0.3;
+      coliseumsound.play();
+    });
+
+
+    const { shell } = require('electron');
+
+    document.getElementById("redirectbutton").addEventListener("click", () => {
+        shell.openExternal("https://discord.gg/FpDK95hCH3");
+    });
+  </script>
+
+
+</body>
+</html>

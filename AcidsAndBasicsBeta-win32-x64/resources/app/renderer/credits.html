@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Credits</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+    <audio src="sounds/creditssong.mp3" autoplay id="backgroundmusic"></audio>
+
+    <!--Changing the volume. I think we can have multiple Java scripts. Don't worry. Forget about it.-->
+    <script>
+        var audio = document.getElementById("backgroundmusic");
+        audio.volume = 0.3;
+    </script>
+
+</head>
+
+
+<body style="background-color: rgb(37, 46, 40)">
+    <div class="bg-layer"></div>
+    <h1 style="font-family: Fancy; float: left;">Created by:</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p id="credits" style="float: right;">Ishaan Shemeen 
+       <br>Michael Thachuk 
+       <br>Nicholas Creanga 
+       <br>Abhinav Praphul  
+    </p>
+    <audio id="hoverSound" src="sounds/hoversound.wav" preload="auto"></audio>
+
+    <script>
+        // This is for hovering credits and playing hover sound.
+        const credits = document.getElementById("credits");
+        const sound = document.getElementById("hoverSound");
+
+        credits.addEventListener("mouseenter", () => {
+            sound.currentTime = 0; // rewind to start
+            sound.volume = 0.6;
+            sound.play();
+        });
+
+        credits.addEventListener("mouseleave", () => {
+
+            sound.currentTime = 5.3;
+            sound.stop();
+            sound.play();
+        })
+
+    </script>
+
+    <!--Declaring CSS Styles-->
+    <style>
+
+        p {
+            color: hsl(180, 14%, 90%);
+            font-size: calc(2em + 2.5vw);
+            font-family: Fancy;
+            transition-duration: 0.5s;
+            text-align: right;
+            margin-right: 10px;
+
+        }
+
+        p:hover{
+            color: rgb(128, 233, 102);
+        }
+
+        .bg-layer {
+            background-image: url('images/credits.webp');
+            background-size: 100% 100%;
+            background-position: center;
+            position: absolute;
+            inset: 0;
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+
+    </style>
+
+
+    <button class="back-button" onclick="window.location.href='mainpage.html';">Back</button>
+</body>
+
+
+</html>

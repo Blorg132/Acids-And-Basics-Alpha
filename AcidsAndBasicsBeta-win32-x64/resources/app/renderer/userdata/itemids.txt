@@ -1,0 +1,35 @@
+matchbo = 1
+angry man = 2
+
+
+
+
+
+
+UPGRADES
+
+
+wooden chair = 101
+metal chair = 102
+the recliner = 103
+
+
+pool table = 104
+metal table = 105
+oak table = 106
+
+
+chandy = 107
+        = 108
+
+
+nasty fridge = 109
+doubledoor fridge = 110
+111
+
+
+cheap painting = 112
+abstract painting = 113
+fancy painting = 114
+
+spongebobpainting = 115
