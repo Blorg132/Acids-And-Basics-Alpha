@@ -103,8 +103,8 @@ sellbutton.addEventListener("click", () => {
     //
     //
     //
-    // WARNING: YOU ARE ENTERING MINDFUCKERY ZONE. YOU WILL BE MINDFUCKED.
-    // PLEASE DO NOT EDIT ANY OF THIS SHIT. I HAVE NO IDEA HOW THIS WIZARDRY I DEVELOPED EVEN FUCKING WORKS.
+    // WARNING: YOU ARE ENTERING MINDduckERY ZONE. YOU WILL BE MINDduckED.
+    // PLEASE DO NOT EDIT ANY OF THIS shod. I HAVE NO IDEA HOW THIS WIZARDRY I DEVELOPED EVEN duckING WORKS.
     // THANKS.
     // JUST KNOW THAT IT WRITES TO DISK AND SELLS ITEMS. THAT'S ALL.
     //
@@ -142,7 +142,7 @@ sellbutton.addEventListener("click", () => {
             console.log('Rewarding ' + sellprice + " beakers back to player.");
             console.log(beakers);
 
-            //This is copy and paste. Fuck you. Find a better way if you want.
+            //This is copy and paste. duck you. Find a better way if you want.
             matchboxcount.textContent = "Gas-Dipped Matchboxes: " + items.filter(item => item.id === matchboxid).length;
             angrymancount.textContent = "Angry Men on Standby:  " + items.filter(item => item.id === angrymanid).length;
 
