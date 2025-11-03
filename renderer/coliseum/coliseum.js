@@ -4,6 +4,7 @@ const fs = require('fs');
 
 ////////////////////////Questions/////////////////////////
 const questions = [
+
   { lesson: "lesson2", id: "2-1", question: "What are the smallest particles of elements called?", correctAnswers: ["atoms", "atom"] },
   { lesson: "lesson2", id: "2-2", question: "What is formed when two or more atoms bond together?", correctAnswers: ["molecule", "molecules", "compound", "compounds"] },
   { lesson: "lesson2", id: "2-3", question: "What do we call atoms that have gained or lost electrons?", correctAnswers: ["ions"] },
@@ -72,6 +73,20 @@ async function initColiseumData() {
             lesson13: false, lesson14: false, lesson15: false, lesson16: false,
             lesson17: false, lesson18: false, lesson19: false, lesson20: false
         });
+
+        // ✅ Check if all lessons are false
+        const lessons = Object.keys(lessonData).filter(k => k.startsWith('lesson'));
+        const anyUnlocked = lessons.some(l => lessonData[l] === true);
+
+        if (!anyUnlocked) {
+            // Unlock lesson 1 and 2
+            lessonData.lesson1 = true;
+            lessonData.lesson2 = true;
+
+            // Write back to JSON
+            await ipcRenderer.invoke('write-json', lessonDataPath, lessonData);
+            console.log("No lessons unlocked. Automatically unlocking lesson 1 and 2.");
+        }
 
         inventoryData = await ipcRenderer.invoke('read-json', inventoryPath, {
             beakers: 0,
@@ -220,6 +235,8 @@ function getRandomQuestion() {
         return null;
     }
 
+    
+
     const unlockedQuestions = questionsArray.filter(q => lessonData[q.lesson] === true);
 
     if (unlockedQuestions.length === 0) {
@@ -240,7 +257,7 @@ function loadNewQuestion() {
   if (!currentQuestion) {
     // No unlocked lessons or questions available
     const text = document.getElementById("question");
-    text.textContent = "<p>No questions available. Unlock more lessons!</p>";
+    text.textContent = "No questions available. Unlock more lessons!";
     return;
   }
 
