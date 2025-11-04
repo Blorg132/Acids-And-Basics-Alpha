@@ -3,7 +3,7 @@ This is the right one. For sure.
 Check inside the renderer folder if you want to read our thank you message (thankyou.txt)!
 
 
-## 🚀 How to Run the App
+### Everything below this is how to "run" the app via Visual Studio Code. Some Powershell commands are missing as this was only meant for the development team.
 
 ### 🔧 Prerequisites (do this once)
 
