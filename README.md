@@ -1,8 +1,9 @@
 # Acids And Basics Alpha
 This is the right one. For sure.
+Check inside the renderer folder if you want to read our thank you message (thankyou.txt)!
 
 
-## 🚀 How to Run the App
+### Everything below this is how to "run" the app via Visual Studio Code. Some Powershell commands are missing as this was only meant for the development team.
 
 ### 🔧 Prerequisites (do this once)
 
@@ -49,8 +50,3 @@ Electron Packager will generate a new folder like:
 Inside that folder, you'll find a file like FlashcardApp.exe — that's your standalone desktop app!
 
 
-
-
-keybinds:
-collapse all: ctrl+ k, ctrl+ 0
-uncollapse all: ctrl + k, ctrl + j

@@ -9,6 +9,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,   // allows require() in renderer
       contextIsolation: false, // allows direct Node access
+      devTools: false
     }
   });
 

@@ -72,6 +72,7 @@
 .lesson-select-container {
   display: flex;
   flex-direction: row; /* keep same lessons on same line */
+  justify-content: center;
 }
 
 .lesson-select-button:hover {
@@ -175,7 +176,7 @@ h1 {
 
 
 
-/* all of the following horrible shit is for the flashcards */
+/* all of the following horrible shod is for the flashcards */
 
 .frontside {
     transition-duration: 0.4s;
@@ -221,7 +222,6 @@ h1 {
 }
 
 .settle {
-  display: inline-block;
   animation: settle-shake 0.6s ease-out;
 }
 

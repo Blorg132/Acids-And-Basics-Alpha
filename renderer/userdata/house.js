@@ -40,6 +40,8 @@ let abstractpaintingowned = false;
 let abstractpaintingplaced = false;
 let fancypaintingowned = false;
 let fancypaintingplaced = false;
+let spongebobpaintingplaced = false;
+let spongebobpaintingowned = false;
 
 
 //Getting Clickables from The Document///////////////////
@@ -61,20 +63,21 @@ doubledoorfridge = document.getElementById("doubledoorfridge");
 cheappainting = document.getElementById("cheappainting");
 abstractpainting = document.getElementById("abstractpainting");
 fancypainting = document.getElementById("fancypainting");
+spongebobpainting = document.getElementById("spongebobpainting");
 //////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
 function furnishClicked(passin){
     popupwindow.classList.remove("hidden");
 
-    //I made all the clickables global.... thank me later.... just kidding it kind of does jackshit, 
+    //I made all the clickables global.... thank me later.... just kidding it kind of does jackshod, 
     //I just hated how it looked over here
     //
     // Reading Inventory from Disk
     //
 
 
-    // NOTE: Readfilesync breaks this. i have no idea why, but i'm assuming it'll fuck something up in the future.
+    // NOTE: Readfilesync breaks this. i have no idea why, but i'm assuming it'll duck something up in the future.
     let inventoryData = passin;
 
     // Checking to see what inventory pieces are owned
@@ -144,6 +147,11 @@ function furnishClicked(passin){
     if(inventoryData.items.some(item => item.id === 114)){
         fancypaintingowned = true;
         document.getElementById("fancypainting").classList.remove("unavailable");
+    }
+
+    if(inventoryData.items.some(item => item.id === 115)){
+        spongebobpaintingowned = true;
+        document.getElementById("spongebobpainting").classList.remove("unavailable");
     }
 }
 
@@ -225,6 +233,11 @@ document.addEventListener('houseReady', () => {
     } else if(houseData.painting === "fancypainting"){
         fancypaintingplaced = true;
         document.getElementById("physicalfancypainting").classList.remove("hidden");
+        fancypainting.classList.add("placed");
+    } else if(houseData.painting === "spongebobpainting"){
+        spongebobpaintingplaced = true;
+        document.getElementById("physicalspongebobpainting").classList.remove("hidden");
+        spongebobpainting.classList.add("placed");
     }
 
 
@@ -233,7 +246,7 @@ document.addEventListener('houseReady', () => {
     /////////////////////////////////////////////////////////////////////
     //
     //ACTUAL PLACING LOGIC
-    // lmao this can't be called in furnishClicked() because OTHERWISE everything fucks up!!!!
+    // lmao this can't be called in furnishClicked() because OTHERWISE everything ducks up!!!!
     //
     //CHAIRS/////////////////////////////////////////////////////////////
     woodenchair = document.getElementById("woodenchair")
@@ -475,6 +488,25 @@ document.addEventListener('houseReady', () => {
     })
 
 
+    spongebobpainting = document.getElementById("spongebobpainting");
+    spongebobpainting.addEventListener("click", async () => {
+        if(spongebobpaintingowned == true && spongebobpaintingplaced == false && houseData.painting === ""){
+
+            document.getElementById("physicalspongebobpainting").classList.remove("hidden");
+            spongebobpainting.classList.add("placed");
+            spongebobpaintingplaced = true;
+            houseData.painting = "spongebobpainting";
+            await writeJson('house.json', houseData);
+        } else if(spongebobpaintingplaced == true){
+            document.getElementById("physicalspongebobpainting").classList.add("hidden");
+            spongebobpainting.classList.remove("placed");
+            spongebobpaintingplaced = false;
+            houseData.painting = "";
+            await writeJson('house.json', houseData);
+        }
+    })
+
+
 
     //////////////////////////////////////////////////////////////////////////////
 ////////////////////////////FURNISH CLICKED///////////////////////////////
@@ -483,15 +515,3 @@ document.addEventListener('houseReady', () => {
 
 
 });
-
-/*
-
-
-
-
-
-
-
-
-
-*/

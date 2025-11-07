@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+
+    <head>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="../../lessonstyles.css">
+        <title>Lesson 2 Quiz</title>
+    </head>
+
+
+    <body class="test-body">
+        
+        <div class="test-container">
+            <div class=test-background></div>
+            <div id="actualcontent">
+                <!--Please note that all instances of form-submission with HTML should be in labels. No idea why though.-->
+                <form id="lessonform1">
+
+                    <!--First Question-->
+                    <p> Which of the following best describes the arrangement of particles in a solid? </p>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        " Particles are far apart and move freely "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        " Particles move randomly and fill the entire container "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        " Particles move rapidly in all directions"
+                    </label>
+                    <br> 
+                    <label>
+                        <input type="radio" name="question1" value="correct">
+                        " Particles are close together and vibrate in fixed positions "
+                    </label>
+                    <br>
+
+                    <!--Second Question-->
+
+                    <p> What happens to the movement of particles when a solid is heated? </p>
+                    <label>
+                        <input type="radio" name="question2" value="correct">
+                        " They vibrate faster "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        " They become more tightly packed "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        " They move slower "
+                    </label>
+                    <br> 
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "They stop moving ."
+                    </label>
+                    <br>
+
+
+                    <!--Third Question-->
+
+                    <p> Why does the pressure of a gas increase when its temperature increases (if volume is constant)? </p>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        " Particles lose energy and move slower"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        " The mass of gas particles increases "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question3" value="correct">
+                        " Particles collide less frequently with the container walls "
+                    </label>
+                    <br> 
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        " Particles gain energy and collide more forcefully with the container walls "
+                    </label>
+                    <br>
+
+                    <!--Fourth Question-->
+
+                    <p> Which change of state involves both a decrease in kinetic energy and results in the highest density? </p>
+                    <label>
+                        <input type="radio" name="question4" value="wrong">
+                        " Melting "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question4" value="wrong">
+                        " Condensation "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question4" value="wrong">
+                        " Sublimation "
+                    </label>
+                    <br> 
+                    <label>
+                        <input type="radio" name="question4" value="correct">
+                        " Evaporation "
+                    </label>
+                    <br>
+
+                    <!--Fifth Question-->
+
+                    <p>True or False; When a solid melts, the spacing between it remains the same</p>
+                    <label>
+                        <input type="radio" name="question5" value="correct">
+                        " False"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question5" value="wrong">
+                        " True"
+                    </label>
+                    <br>
+
+                    <!--Sixth Question-->
+
+                    <p> Which of the following statements about liquids is correct?</p>
+                    <label>
+                        <input type="radio" name="question6" value="wrong">
+                        " Particles are far apart and move freely "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question6" value="wrong">
+                        " Particles vibrate in fixed positions "
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question6" value="correct">
+                        " Particles are close together but can move past one another "
+                    </label>
+                    <br> 
+                    <label>
+                        <input type="radio" name="question6" value="wrong">
+                        "Particles are arranged in a regular pattern"
+                    </label>
+                    <br>
+
+                    <!--Seventh Question-->
+
+                    <p>True or False; the following shows the particle composition of a metal piece
+                    <img src=" https://www.elevise.co.uk/uploads/9/8/0/2/98021560/published/screenshot-2020-12-30-at-14-58-50.png?1609341355" width=40% height=40%>
+                    <br>
+                    <label>
+                        <input type="radio" name="question7" value="correct">
+                        "True"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question7" value=" wrong">
+                        "False"
+                    </label>
+                    <br>
+                    
+                    
+
+                    <!--Submit button-->
+
+                    <br>
+                    <br>
+                    <button type="submit" class="submitbutton">I'm Done!</button>
+
+                </form>
+                
+
+                <script src="../../lessons.js"></script>
+
+                <script>
+                    // Checking answers when user submits with the button
+                    document.getElementById("lessonform1").addEventListener("submit", async function(event) {
+                        event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
+                        let totalscore = 0; // please pass this variable into the function lessonGiveBeakers to add the proper amount
+
+
+                        // QUESTION 1: 
+                        let question1 = document.querySelector('input[name="question1"]:checked');
+                        if (question1 && question1.value === "correct") {
+                            totalscore += 2;
+                        }
+
+                        // QUESTION 2: 
+                        let question2 = document.querySelector('input[name="question2"]:checked');
+                        if (question2 && question2.value === "correct") {
+                            totalscore += 2;
+                        }
+
+                        // QUESTION 3: 
+                        let question3 = document.querySelector('input[name="question3"]:checked');
+                        if (question3 && question3.value === "correct") {
+                            totalscore += 2;
+                        }
+
+                        // QUESTION 4: 
+                        let question4 = document.querySelector('input[name="question4"]:checked');
+                        if (question4 && question4.value === "correct") {
+                            totalscore += 3;
+                        }
+
+                        // QUESTION 5: 
+                        let question5 = document.querySelector('input[name="question5"]:checked');
+                        if (question5 && question5.value === "correct") {
+                            totalscore += 4;
+                        }
+
+                        // QUESTION 6: 
+                        let question6 = document.querySelector('input[name="question6"]:checked');
+                        if (question6 && question6.value === "correct") {
+                            totalscore += 3;
+                        }
+
+                        // QUESTION 7: 
+                        let question7 = document.querySelector('input[name="question7"]:checked');
+                        if (question7 && question7.value === "correct") {
+                            totalscore += 4;
+                        }
+
+
+
+
+                        console.log(totalscore);
+                        await lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
+                        // make sure you pass the score variable through, or else it won't work!
+
+                        window.location.href="../../lessoncomplete.html";
+                    });
+
+                </script>
+            </div>
+        </div>
+
+
+    </body>
+
+
+
+</html>

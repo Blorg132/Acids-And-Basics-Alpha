@@ -4,6 +4,19 @@ const fs = require('fs');
 
 ////////////////////////Questions/////////////////////////
 const questions = [
+
+
+  // ===== GRADE 8 =====
+  // ---- Lesson 1: Matter vs. Mixtures vs. Pure Substances ----
+  { lesson: "lesson1", id: "1-1", question: "____ has mass and takes up space.", correctAnswers: ["matter"] },
+  { lesson: "lesson1", id: "1-3", question: "What is formed when two or more substances mix but don't bond?", correctAnswers: ["mixture", "mixtures"] },
+  { lesson: "lesson1", id: "1-4", question: "Is water a pure substance or a mixture?", correctAnswers: ["pure substance", "pure"] },
+  { lesson: "lesson1", id: "1-5", question: "Is air a mixture or pure substance?", correctAnswers: ["mixture", "a mixture"] },
+  { lesson: "lesson1", id: "1-6", question: "Can pure substances be chemically combined?", correctAnswers: ["yes", "Yes"] },
+  { lesson: "lesson1", id: "1-7", question: "Can mixtures be chemically combined?", correctAnswers: ["no", "No"] },
+  { lesson: "lesson1", id: "1-8", question: "Can mixtures be separated easily?", correctAnswers: ["yes"] },
+
+
   { lesson: "lesson2", id: "2-1", question: "What are the smallest particles of elements called?", correctAnswers: ["atoms", "atom"] },
   { lesson: "lesson2", id: "2-2", question: "What is formed when two or more atoms bond together?", correctAnswers: ["molecule", "molecules", "compound", "compounds"] },
   { lesson: "lesson2", id: "2-3", question: "What do we call atoms that have gained or lost electrons?", correctAnswers: ["ions"] },
@@ -41,7 +54,7 @@ const questions = [
   { lesson: "lesson4", id: "4-4", question: "What is the change from gas to liquid called?", correctAnswers: ["condensation"] },
   { lesson: "lesson4", id: "4-5", question: "What happens to particles when a substance melts?", correctAnswers: ["move faster", "moves faster", "spread apart", "get faster", "gets faster", "speed up", "speeds up"] },
   { lesson: "lesson4", id: "4-6", question: "What happens to particles when a substance freezes?", correctAnswers: ["slow down", "move slower", "slows down"] },
-  { lesson: "lesson4", id: "4-7", question: "What is a chemical change that produces heat and light called?", correctAnswers: ["combustion"] },
+  { lesson: "lesson4", id: "4-7", question: "What is a chemical reaction that produces heat and light?", correctAnswers: ["combustion"] },
   { lesson: "lesson4", id: "4-8", question: "What is the slow reaction of metal with oxygen called?", correctAnswers: ["rusting", "corrosion", "rust"] },
   { lesson: "lesson4", id: "4-9", question: "What must happen for a chemical reaction to occur?", correctAnswers: ["particle collision", "particle collisions"] },
   { lesson: "lesson4", id: "4-11", question: "What do we call the starting substances in a reaction?", correctAnswers: ["reactants"] },
@@ -49,6 +62,80 @@ const questions = [
   { lesson: "lesson4", id: "4-13", question: "What type of change can be reversed: physical or chemical?", correctAnswers: ["physical"] },
   { lesson: "lesson4", id: "4-14", question: "Only ----- changes form new substances.", correctAnswers: ["chemical"] },
   { lesson: "lesson4", id: "4-15", question: "When a solid forms from a liquid reaction, what is it called?", correctAnswers: ["precipitate", "precipitates"] },
+
+  // ---- Lesson 5: Types of Mixtures and Solutions ----
+  
+
+  // ---- Lesson 6: Atoms and Elements ----
+  { lesson: "lesson6", id: "6-1", question: "What sub-atomic particle has a neutral charge?", correctAnswers: ["neutrons", "neutron"] },
+  { lesson: "lesson6", id: "6-2", question: "Where are protons and neutrons found?", correctAnswers: ["nucleus", "the nucleus"] },
+  { lesson: "lesson6", id: "6-4", question: "Protons have what charge?", correctAnswers: ["positive", "+", "positive charge"] },
+  { lesson: "lesson6", id: "6-5", question: "Electrons have what charge?", correctAnswers: ["negative", "-", "negative charge"] },
+  { lesson: "lesson6", id: "6-6", question: "Neutrons have what charge?", correctAnswers: ["neutral", "no charge", "neutral charge"] },
+  { lesson: "lesson6", id: "6-7", question: "The atomic number shows the number of _____ and _____.", correctAnswers: ["protons and electrons", "electrons and protons"] },
+  { lesson: "lesson6", id: "6-8", question: "What does the atomic mass number show?", correctAnswers: ["protons and neutrons", "protons + neutrons", "neutrons and protons"] },
+  
+
+  // ===== GRADE 9 =====
+  // ---- Lesson 7: Periodic Table Intro ----
+  { lesson: "lesson7", id: "7-2", question: "What are the vertical columns called on the periodic table?", correctAnswers: ["groups", "families", "group"] },
+  { lesson: "lesson7", id: "7-3", question: "What are the horizontal rows called on the periodic table?", correctAnswers: ["periods", "period"] },
+  { lesson: "lesson7", id: "7-4", question: "Metals are found on which side of the periodic table?", correctAnswers: ["left", "left side"] },
+  { lesson: "lesson7", id: "7-5", question: "Non-metals are found on which side of the periodic table?", correctAnswers: ["right", "right side"] },
+  { lesson: "lesson7", id: "7-6", question: "_____ have the properties of both metals and non-metals", correctAnswers: ["metalloid", "metalloids"] },
+  { lesson: "lesson7", id: "7-7", question: "Metals are good con_____", correctAnswers: ["conductors", "ductors"] },
+  { lesson: "lesson7", id: "7-8", question: "What group are the alkali metals?", correctAnswers: ["1", "1st"] },
+  { lesson: "lesson7", id: "7-9", question: "What group are the noble gases?", correctAnswers: ["18", "18th"] },
+  { lesson: "lesson7", id: "7-10", question: "What group are the alkaline earth metals?", correctAnswers: ["2", "2nd"] },
+
+  // ---- Lesson 8: Electron Shells and Isotopes ----
+  { lesson: "lesson8", id: "8-2", question: "What are outer electrons called?", correctAnswers: ["valence electrons", "valence electron"] },
+  { lesson: "lesson8", id: "8-3", question: "All elements in the same group have the same ______", correctAnswers: ["valence electrons"] },
+  { lesson: "lesson8", id: "8-4", question: "What are atoms with different neutrons than normal called?", correctAnswers: ["isotopes", "isotope"] },
+  { lesson: "lesson8", id: "8-5", question: "Isotopes have the same ______ and ________", correctAnswers: ["protons and electrons", "electrons and protons"] },
+  { lesson: "lesson8", id: "8-6", question: "Do isotopes have same neutrons?", correctAnswers: ["no"] },
+  { lesson: "lesson8", id: "8-7", question: "Do isotopes have same atomic number?", correctAnswers: ["yes"] },
+  { lesson: "lesson8", id: "8-8", question: "Do isotopes have same mass?", correctAnswers: ["no"] },
+
+  // ---- Lesson 9: Ionic and Covalent Bonds ----
+  { lesson: "lesson9", id: "9-1", question: "Ionic bonds form from electron _______", correctAnswers: ["transfer"] },
+  { lesson: "lesson9", id: "9-2", question: "Covalent bonds form from electron ________", correctAnswers: ["sharing"] },
+  { lesson: "lesson9", id: "9-3", question: "An ionic bond forms between a ______ and a non-metal", correctAnswers: ["metal"] },
+  { lesson: "lesson9", id: "9-4", question: "A covalent bond forms between a ______ and a non-metal", correctAnswers: ["nonmetal", "non-metal"] },
+  { lesson: "lesson9", id: "9-5", question: "Metals ionize to what charge?", correctAnswers: ["positive", "positive charge"] },
+  { lesson: "lesson9", id: "9-6", question: "Non-metals ionize to what charge?", correctAnswers: ["negative", "negative charge"] },
+
+  // ---- Lesson 10: Gases and KMT ----
+  { lesson: "lesson10", id: "10-1", question: "More heat = particles move _____", correctAnswers: ["faster", "fast"] },
+  { lesson: "lesson10", id: "10-2", question: "Less heat = particles move _____", correctAnswers: ["slower", "slow"] },
+  { lesson: "lesson10", id: "10-3", question: "More particle collisions against the container = a higher _______", correctAnswers: ["pressure"] },
+  { lesson: "lesson10", id: "10-5", question: "Increase temperature = pressure ______?", correctAnswers: ["increases", "grows", "increase"] },
+  { lesson: "lesson10", id: "10-6", question: "An increase in volume shrinks ______", correctAnswers: ["pressure"] },
+  { lesson: "lesson10", id: "10-7", question: "Temperature is the average measurement of _______", correctAnswers: ["kinetic energy"] },
+  { lesson: "lesson10", id: "10-8", question: "KMT stands for?", correctAnswers: ["kinetic molecular theory"] },
+  { lesson: "lesson10", id: "10-9", question: "A cold gas will have ____er particles", correctAnswers: ["slow", "slower"] },
+
+  // ---- Lesson 11: Balanced Equations & Reaction Types ----
+  { lesson: "lesson11", id: "11-1", question: "Balanced equations follow the law of ________ __ ____", correctAnswers: ["conservation of mass"] },
+  { lesson: "lesson11", id: "11-2", question: "There are _____ amounts of each atom on each side of a reaction", correctAnswers: ["equal", "equivalent"] },
+  { lesson: "lesson11", id: "11-3", question: "A + B -> AB is what reaction?", correctAnswers: ["synthesis"] },
+  { lesson: "lesson11", id: "11-4", question: "AB -> A + B is what reaction?", correctAnswers: ["decomposition"] },
+  { lesson: "lesson11", id: "11-5", question: "A + BC -> AC + B is what?", correctAnswers: ["single displacement", "single replacement"] },
+  { lesson: "lesson11", id: "11-6", question: "AB + CD -> AD + CB is what?", correctAnswers: ["double displacement", "double replacement"] },
+  { lesson: "lesson11", id: "11-7", question: "A hydrocarbon plus oxygen is what reaction?", correctAnswers: ["combustion"] },
+  { lesson: "lesson11", id: "11-8", question: "What are the substances before a reaction called?", correctAnswers: ["reactants"] },
+  { lesson: "lesson11", id: "11-9", question: "What are the substances after a reaction called?", correctAnswers: ["products"] },
+
+  // ---- Lesson 12: Acids, Bases, and pH ----
+  { lesson: "lesson12", id: "12-1", question: "Acids have a pH less than...", correctAnswers: ["7"] },
+  { lesson: "lesson12", id: "12-2", question: "Bases have a pH greater than...", correctAnswers: ["7"] },
+  { lesson: "lesson12", id: "12-3", question: "Neutral solutions have a pH of...", correctAnswers: ["7"] },
+  { lesson: "lesson12", id: "12-6", question: "Acids taste?", correctAnswers: ["sour"] },
+  { lesson: "lesson12", id: "12-10", question: "Bases taste?", correctAnswers: ["bitter"] },
+  { lesson: "lesson12", id: "12-7", question: "Bases feel?", correctAnswers: ["slippery"] },
+  { lesson: "lesson12", id: "12-8", question: "The pH scale caps out at ____", correctAnswers: ["14"] },
+  { lesson: "lesson12", id: "12-9", question: "Water's acidity is considered _____ on the pH scale", correctAnswers: ["neutral"] },
+
 ];
 
 const questionsArray = Object.values(questions).flat();
@@ -72,6 +159,20 @@ async function initColiseumData() {
             lesson13: false, lesson14: false, lesson15: false, lesson16: false,
             lesson17: false, lesson18: false, lesson19: false, lesson20: false
         });
+
+        // ✅ Check if all lessons are false
+        const lessons = Object.keys(lessonData).filter(k => k.startsWith('lesson'));
+        const anyUnlocked = lessons.some(l => lessonData[l] === true);
+
+        if (!anyUnlocked) {
+            // Unlock lesson 1 and 2
+            lessonData.lesson1 = true;
+            lessonData.lesson2 = true;
+
+            // Write back to JSON
+            await ipcRenderer.invoke('write-json', lessonDataPath, lessonData);
+            console.log("No lessons unlocked. Automatically unlocking lesson 1 and 2.");
+        }
 
         inventoryData = await ipcRenderer.invoke('read-json', inventoryPath, {
             beakers: 0,
@@ -220,6 +321,8 @@ function getRandomQuestion() {
         return null;
     }
 
+    
+
     const unlockedQuestions = questionsArray.filter(q => lessonData[q.lesson] === true);
 
     if (unlockedQuestions.length === 0) {
@@ -235,12 +338,12 @@ function getRandomQuestion() {
 function loadNewQuestion() {
   // Get a random question from unlocked lessons
   currentQuestion = getRandomQuestion();
-
+  console.log(`Question from ${currentQuestion.lesson} asked!`);
   // Safety check
   if (!currentQuestion) {
     // No unlocked lessons or questions available
     const text = document.getElementById("question");
-    text.textContent = "<p>No questions available. Unlock more lessons!</p>";
+    text.textContent = "No questions available. Unlock more lessons!";
     return;
   }
 

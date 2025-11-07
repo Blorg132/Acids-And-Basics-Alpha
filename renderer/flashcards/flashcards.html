@@ -14,7 +14,7 @@
     <audio id="buttonclicked" src="../sounds/clicksound2.wav" preload="auto"></audio>
     
     <script>
-        // changing the volume of this fucking loud ass song!!!
+        // changing the volume of this ducking loud ass song!!!
 
         const sound = document.getElementById("backgroundmusic");
         sound.volume = 0.3;
@@ -52,11 +52,19 @@
         }
 
         p {
-            font-family: Quantico;
-            color: rgb(133, 144, 211);
-            background-blend-mode: difference;
-            font-size: 35px;
-            font-size: calc(2em + 1vw);
+            width: 85%;       /* or a fixed px value */
+            height: 200px;     /* definite space */
+            overflow: hidden;  /* hide overflowing text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0 auto;
+
+            font-family: Quantico; 
+            color: rgb(133, 144, 211); 
+            background-blend-mode: difference; 
+            font-size: calc(2.5em + 1vw);
         }
 
 
@@ -69,7 +77,7 @@
             transform: translate(-50%, -50%);
             background: rgba(81, 113, 149, 0.791);
             border: 6px solid rgb(0, 0, 0);
-            padding: 35px;
+            padding: 20px;
             z-index: 1000;
         }
 
@@ -81,18 +89,26 @@
         }
 
         .flashcard-select-button {
-            width: 100%;
-            height: 100%; /* fixed height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
             
+            width: 100px;  /* fixed width for all buttons */
+            height: 100px; /* fixed height for all buttons */
+
+            padding: 0.5rem;
             
-            padding: 1vw;
-            font-size: clamp(1rem, 1.5vw, 2rem); /* scales but has limits */
+            font-size: clamp(0.8rem, 1vw, 4rem); /* text shrinks/grows to fit box */
+            text-align: center;
             
             border: 2px solid black;
             border-radius: 10px;
             font-family: Jost;
+            
             transition-duration: 0.2s;
-            text-align: center;
+
+            overflow: hidden; /* prevents overflow if text is too long */
+            word-wrap: break-word; /* wraps text within box */
         }
 
         .flashcard-select-button:hover {
@@ -122,7 +138,7 @@
 </head>
 
 
-<body style="background-color: rgb(59, 59, 59)">
+<body style="background-color: rgb(59, 59, 59); overflow: hidden;">
 
     <div class="background"></div>
     <div style="display: flex; flex-direction: column; align-items: center; position: center;">
@@ -154,11 +170,27 @@
             </div>
             <!--Unit 3 button-->
             <div class="flashcardunit unavailable" id="flashcardunit3button">
-                <button class="flashcard-select-button">Unit 3: ????</button>
+                <button class="flashcard-select-button">Unit 3: Atomic Structure</button>
             </div>
             <!--Unit 4 button-->
             <div class="flashcardunit unavailable" id="flashcardunit4button">
-                <button class="flashcard-select-button">Unit 4: ????</button>
+                <button class="flashcard-select-button">Unit 4: Periodic Table</button>
+            </div>
+            <!--Unit 5 button-->
+            <div class="flashcardunit unavailable" id="flashcardunit5button">
+                <button class="flashcard-select-button">Unit 5: Bonding</button>
+            </div>
+            <!--Unit 6 button-->
+            <div class="flashcardunit unavailable" id="flashcardunit6button">
+                <button class="flashcard-select-button">Unit 6: States of Matter</button>
+            </div>
+            <!--Unit 7 button-->
+            <div class="flashcardunit unavailable" id="flashcardunit7button">
+                <button class="flashcard-select-button">Unit 7: Reactions</button>
+            </div>
+            <!--Unit 8 button-->
+            <div class="flashcardunit unavailable" id="flashcardunit8button">
+                <button class="flashcard-select-button">Unit 8: Mixtures and Solutions</button>
             </div>
         </div>
 
@@ -181,7 +213,7 @@
     <aside id="flashcardsleft" style="font-family: Title; font-size: calc(0.5em + 1vw);"">IF YOU'RE READING THIS IT'S TOO LATE</aside>
 
 
-    <button class="back-button" onclick="window.location.href='../mainpage.html';">Back</button>
+    <button class="back-button-lessons" onclick="window.location.href='../mainpage.html';">Back</button>
 
 
 
