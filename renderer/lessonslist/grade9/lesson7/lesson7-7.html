@@ -168,7 +168,7 @@
 
                     <br>
                     <br>
-                    <button type="submit">I'm Done!</button>
+                    <button type="submit" class="submitbutton">I'm Done!</button>
 
                 </form>
                 
@@ -177,7 +177,7 @@
 
                 <script>
                     // Checking answers when user submits with the button
-                    document.getElementById("lessonform1").addEventListener("submit", function(event) {
+                    document.getElementById("lessonform1").addEventListener("submit", async function(event) {
                         event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
                         let totalscore = 0; // please pass this variable into the function lessonGiveBeakers to add the proper amount
 
@@ -228,7 +228,7 @@
 
 
                         console.log(totalscore);
-                        lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
+                        await lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
                         // make sure you pass the score variable through, or else it won't work!
 
                         window.location.href="../../lessoncomplete.html";

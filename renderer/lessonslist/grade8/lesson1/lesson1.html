@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../lessonstyles.css">
-    <script src="../lessons.js"></script>
-    <title>Lesson 1: Intro to Chemistry </title>
+    <link rel="stylesheet" href="../../lessonstyles.css">
+    <script src="../../lessons.js"></script>
+    <title>Lesson 1: Intro to Acids and Basics </title>
 
     <style>
         @font-face {
@@ -21,29 +21,74 @@
     <div class="lesson-container">
         <div class="lesson-background"></div>
         <div id="actualcontent">
-            <h1 class="cool-header-blue">Intro to Chemistry</h1>
+            <h1 class="cool-header-blue">So... what's a chemistry?</h1>
 
 
         <p class="paragraph">
-            This is your intro to <span id="chemistry"><b>chemistry!</b></span>
+            Welcome to <span id="chemistry"><b>chemistry</b></span>, and more importantly, welcome to Acids and Basics! We (Ishaan, Michael, Abhinav, and Nicholas) wish you well on your journey, and we hope you'll have a wonderful time learning with our app.
+            <br>
+            <br>
+            Now, it's time for your first lesson!
+            <br>
+            <br>
+        </p>
+
+        <p class="paragraph">
+            Chemistry is the study of matter, and how it changes within our physical world. Matter is essentially the core material that everything is made out of; your TV, your food, air, and even your own body, are all made out of matter!
+            Imagine matter as the Play-Doh of the world. Everything physical can be made out of it, and <em>IS</em> made out of it. You might notice however, not everything looks the same! More importantly, things don't necessarily
+            act the same either! So why is that?
+
+            <br>
+            <br>
+            There's a lot of things that seperate water from, let's say, <em>a table</em>. Number one being, water isn't made out of wood, metal, or any other table substance you can think of. This is because the <span id="elements"><b>elements</b></span>
+            that make up the table are different from the elements that make up water. The second thing being that water flows, it moves around, and you're welcome to dive in it at any time. If you've ever tried diving into a table,
+            aside from maybe breaking your back and getting a fail video of yourself on Reddit, the experience couldn't be more different. This because matter, even when the elements are the exact same, can exist in different physical <span id="states"><b>states</b></span>,
+            also known as the different states of matter. Water can be both in liquid form, gas form (steam), and solid form (ice), but in chemistry, we consider all as "water", just in different states/modes.
+            <br>
+            <br>
+            Alright, now I want you to imagine that we took that liquid water from before, and put it in a bowl with a crushed and broken table leg from our earlier diving session. Does the bowl only hold water? No! It holds water, <em>and</em> part of that table.
+            This is how <span id="mixtures"><b>mixtures</b></span> generally work. It's when we put one seperate piece of matter along with another seperate piece of matter, and mix it all up. In the case of our mixture, it's pretty obvious to see we put a table leg
+            in it. This is because, despite it all being mixed, we can CLEARLY see that something else is in that bowl. This is called a <span id="heterogenous"><b>heterogenous</b></span> mixture! However, if I take some salt and mix it in another bowl of water, once it completely <span id="dissolves"><b>dissolves</b></span>,
+            you can't even tell I added it in the first place. When we can't differentiate between the two pieces of matter, it's called a <span id="homogenous"><b>homogenous</b></span> mixture! 
+            <br>
+            <br>
+            One thing to note about mixtures, is that because
+            their combination is strictly <em>physical</em>, both pieces retain their same chemical properties. For example, if we get a chance to seperate the water from the table leg, and the salt from the other bowl of water, we'll
+            still have normal salt and a table leg! There's no actual change to either substance, it's just that they mix together in the same spot. Instead of a mixture however, what if we just had a bowl of water with nothing else in it?
+            This is what we call a <em>pure substance</em>; there's only one "thing" in there that doesn't change within itself. If I take a spoon of water from the left side, and a spoon of water from the right, both spoons should
+            hold the exact same thing: water!
+            <br>
+            <br>
+            Take a read over everything we've talked about so far to get a quick refresher. But in case you're lazy, here's some quick notes:
+            <br>
+            - Everything is made out of matter.
+            <br>
+            - There are different physical states of matter (solid, liquid, and gas) that things can exist in.
+            <br>
+            - Mixtures (homogenous AND heterogenous) are when two seperate pieces of matter are physically combined in some form, and as such can be physically seperated. The chemical properties of these pieces don't change within the mixture as well.
+            
+            <br>
+            <br>
         </p>
 
 
         <!--Running Custom Alert scripts here.-->
         <!--Also doing the "lessonclicked" json change-->
         <script>
-            saveLessonCompletion("lesson1");
+            saveLessonClicked("lesson1");
             document.getElementById("chemistry").addEventListener("click", () => {
-                customAlert("say something cool here later")
+                customAlert("The study of matter, substances, their properties, and how they interact/mingle in our physical world.");
             });
         </script>
-        <script src="../lessons.js"></script>
+        <script src="../../lessons.js"></script>
         
         <div style="text-align: center;">
             <!--Why do I have to do this to actually center a button? No fucking clue.-->
-            <button class="quiz-button" onclick="window.location.href='lesson8-8.html';">Take this short quiz to prove you've got it!</button>
+            <button class="quiz-button" onclick="window.location.href='lesson1-1.html';">I'm ready. Give me the quiz!</button>
+            <br>
+            <br>
         </div>
-        <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+        <button class="back-button" onclick="window.location.href='../../../lessons.html';">Back</button>
         </div>
     </div>
 

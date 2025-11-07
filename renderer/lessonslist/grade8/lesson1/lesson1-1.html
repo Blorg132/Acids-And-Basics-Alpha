@@ -21,16 +21,90 @@
                 <form id="lessonform1">
 
                     <!--First Question-->
-                    <p> Is chemistry fun ? </p>
+                    <p>What is chemistry?</p>
                     <label>
                         <input type="radio" name="question1" value="wrong">
-                        " No "
+                        "Chemistry is the study of chemicals, more specifically water."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        "Chemistry is the study of mixtures of matter, and determining their physical properties."
                     </label>
                     <br>
                     <label>
                         <input type="radio" name="question1" value="correct">
-                        " Yes "
+                        "Chemistry is the study of matter, its properties, and how it interacts in our world."
                     </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question1" value="wrong">
+                        "Chemistry is the study of matter's properties."
+                    </label>
+
+
+
+                    <!--Second Question-->
+                    <p>Define a heterogenous mixture.</p>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "A mixture of two different pieces of matter that cannot be distinguished visually."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="correct">
+                        "A mixture of two different pieces of matter that can be distinguished visually."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "When multiple pure substances combine to produce a chemically altered product."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question2" value="wrong">
+                        "None of the above."
+                    </label>
+
+
+                    <!--Third Question-->
+                    <p>What are the three main states of matter?</p>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        "Solid, liquid, gas, plasma, ether."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        "Solid, gas, and sometimes liquid."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        "Solid, liquid, and sometimes plasma."
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question3" value="correct">
+                        "None of the above."
+                    </label>
+
+
+
+                    <!--Fourth Question-->
+                    <p>True or false; a homogenous mixture is when both pieces of matter are visually distinct from each other.</p>
+                    <label>
+                        <input type="radio" name="question3" value="wrong">
+                        "True"
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="question3" value="correct">
+                        "False"
+                    </label>
+                    <br>
+
+
 
                 
 
@@ -38,7 +112,7 @@
 
                     <br>
                     <br>
-                    <button type="submit">I'm Done!</button>
+                    <button type="submit" class="submitbutton">I'm Done!</button>
 
                 </form>
                 
@@ -47,7 +121,7 @@
 
                 <script>
                     // Checking answers when user submits with the button
-                    document.getElementById("lessonform1").addEventListener("submit", function(event) {
+                    document.getElementById("lessonform1").addEventListener("submit", async function(event) {
                         event.preventDefault(); // this prevents the form from being resubmitted over and over while this code is running
                         let totalscore = 0; // please pass this variable into the function lessonGiveBeakers to add the proper amount
 
@@ -55,11 +129,27 @@
                         // QUESTION 1: 
                         let question1 = document.querySelector('input[name="question1"]:checked');
                         if (question1 && question1.value === "correct") {
-                            totalscore += 0;
+                            totalscore += 2;
                         }
 
+                        let question2 = document.querySelector('input[name="question2"]:checked');
+                        if (question2 && question2.value === "correct") {
+                            totalscore += 3;
+                        }
+
+                        let question3 = document.querySelector('input[name="question3"]:checked');
+                        if (question3 && question3.value === "correct") {
+                            totalscore += 3;
+                        }
+
+                        let question4 = document.querySelector('input[name="question4"]:checked');
+                        if (question4 && question4.value === "correct") {
+                            totalscore += 3;
+                        }
+
+
                         console.log(totalscore);
-                        lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
+                        await lessonGiveBeakers(totalscore); //this is a function that calculates beaker gain and saves to disk
                         // make sure you pass the score variable through, or else it won't work!
 
                         window.location.href="../../lessoncomplete.html";

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="../../lessonstyles.css">
-    <script src="../lessons.js"></script>
+    <script src="../../lessons.js"></script>
     <title>Lesson 3: Basics of Kinetic Molecular Theory </title>
 
     <style>
@@ -47,25 +47,25 @@
         <!--Running Custom Alert scripts here.-->
         <!--Also doing the "lessonclicked" json change-->
         <script>
-            saveLessonCompletion("lesson3");
+            saveLessonClicked("lesson3");
             document.getElementById("Kinetic Molecular Theory").addEventListener("click", () => {
                 customAlert("Describes ideal gases as being tiny particles in constant, random motion having negligible volume")
             });
 
 
-            saveLessonCompletion("lesson3");
+            saveLessonClicked("lesson3");
             document.getElementById("absolute temperature").addEventListener("click", () => {
                 customAlert("Physical quantity measuring temperature from absolute value (in Kelvin) and it is directly proportional to the average kinetic energy ")
             });
             
         </script>
-        <script src="../lessons.js"></script>
+        <script src="../../lessons.js"></script>
         
         <div style="text-align: center;">
             <!--Why do I have to do this to actually center a button? No fucking clue.-->
-            <button class="quiz-button" onclick="window.location.href='lesson8-8.html';">Take this short quiz to prove you've got it!</button>
+            <button class="quiz-button" onclick="window.location.href='lesson8-8.html';">I'm ready. Give me the quiz!</button>
         </div>
-        <button class="back-button" onclick="window.location.href='../../lessons.html';">Back</button>
+        <button class="back-button" onclick="window.location.href='../../../lessons.html';">Back</button>
         </div>
     </div>
 

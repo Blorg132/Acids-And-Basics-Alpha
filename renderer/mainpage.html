@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>Acids and Basics Alpha</title>
+  <title>Acids and Basics Beta V.0.1</title>
 
   <!-- Sounds -->
   <audio src="sounds/themesong.mp3" autoplay loop id="backgroundmusic"></audio>
@@ -15,6 +15,7 @@
     var audio = document.getElementById("backgroundmusic");
     audio.volume = 0.06;
   </script>
+  <script src="renderer.js"></script>
 
   <style>
     .bg-layer {
@@ -147,6 +148,10 @@
         text-align: center;
     }
 
+    .imagdiscord {
+      text-align: center;
+    }
+
   </style>
 </head>
 
@@ -174,7 +179,7 @@
         <img class='imag' src="images/imageassets/House.webp" onclick="playClickSound1('userdata/house.html');" style="background-color: rgba(72, 130, 229, 0.53);">
     </div>
     <div class="upgrade">
-        <img class="imag" src="images/imageassets/Inventory.webp" onclick="playClickSound1('userdata/inventory.html');" style="background-color: rgba(255, 255, 255, 0.678);">
+        <img class="imagdiscord" src="images/discord.png" id="redirectbutton" style="background-color: rgba(31, 91, 255, 0.438);">
     </div>
 
   <script>
@@ -204,6 +209,13 @@
       coliseumsound.currentTime = 0;
       coliseumsound.volume = 0.3;
       coliseumsound.play();
+    });
+
+
+    const { shell } = require('electron');
+
+    document.getElementById("redirectbutton").addEventListener("click", () => {
+        shell.openExternal("https://discord.gg/FpDK95hCH3");
     });
   </script>
 

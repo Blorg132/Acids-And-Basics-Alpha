@@ -14,6 +14,8 @@
         audio.volume = 0.3;
     </script>
 
+
+    <script src="renderer.js"></script>
 </head>
 
 <body style="background-color: rgb(10, 22, 62)">
@@ -24,7 +26,7 @@
         .locked {
             pointer-events: none;  
             opacity: 0.5;          
-            cursor: not-allowed;   /* Optional: shows a "not allowed" cursor */
+            cursor: help;   /* Optional: shows a "not allowed" cursor */
         }
 
         span {
@@ -85,7 +87,7 @@
 
     <!---->
     <!--Grade 10 Section-->
-    <p style="background-color: rgba(226, 39, 39, 0.762);"><em>Avogadro's Arena (Grade 10)</em></p>
+    <p style="background-color: rgba(226, 39, 39, 0.762);"><em>Avogadro's Arena</em> <b>(unavailable in beta)</b></p>
     <div class="lesson-select-container">
         <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade10/lesson14/lesson14.html';" id="lesson14"><span>Lesson 14:</span><br>Gas Laws with KMT</button>
         <button class="lesson-select-button locked" onclick="window.location.href='lessonslist/grade10/lesson15/lesson15.html';" id="lesson15"><span>Lesson 15:</span><br>Ideal vs. Real Gases</button>
@@ -112,14 +114,11 @@
         // This script is just for reading lessondata.json!!
         ////////////////////////////////////////////////////
 
-        const fs = require('fs');
 
         //first, hide all unlockable lessons
 
-
-        fs.readFile("./renderer/userdata/lessondata.json", "utf8", (err, lessonRaw) => {
-            lessonData = JSON.parse(lessonRaw);
-
+        document.addEventListener('lessondataReady', () => {
+            let lessonData = LESSONDATA;
             //
             // the actual hiding
             // NOTE: Each check has to be in different if statements. Thank god i figured that out. I don't need ChatGPT guys. I'm just like that.
@@ -182,10 +181,6 @@
             if(lessonData.lesson19 == true){
                 document.getElementById("lesson20").classList.remove("locked");
             }
-
-
-
-
         });
     </script>
 </body>

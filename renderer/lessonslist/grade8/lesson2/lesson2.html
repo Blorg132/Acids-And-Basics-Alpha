@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="../../lessonstyles.css">
-    <script src="../lessons.js"></script>
+    <script src="../../lessons.js"></script>
     <title>Lesson 2: Particles and States of Matter </title>
 
     <style>
@@ -52,7 +52,7 @@
         <!--Running Custom Alert scripts here.-->
         <!--Also doing the "lessonclicked" json change-->
         <script>
-            saveLessonCompletion("lesson2");
+            saveLessonClicked("lesson2");
             document.getElementById("matter").addEventListener("click", () => {
                 customAlert("Anything that has mass and occupies space (volume)");
             });
@@ -82,7 +82,7 @@
         
         <div style="text-align: center;">
             <!--Why do I have to do this to actually center a button? No fucking clue.-->
-            <button class="quiz-button" onclick="window.location.href='lesson2-2.html';">Take this short quiz to prove you've got it!</button>
+            <button class="quiz-button" onclick="window.location.href='lesson2-2.html';">I'm ready. Give me the quiz!</button>
         </div>
         <button class="back-button" onclick="window.location.href='../../../lessons.html';">Back</button>
         </div>

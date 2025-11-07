@@ -55,10 +55,41 @@ const questionsArray = Object.values(questions).flat();
 ///////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
-// LOADING IN COLISEUM.JSON//////////////////////////////////////////////////
+// LOADING IN LESSON DATA//////////////////////////////////////////////////
+const inventoryPath = 'inventory.json';
+const lessonDataPath = 'lessondata.json';
 
-let rawDataLessons = fs.readFileSync('./renderer/userdata/lessondata.json', 'utf8');
-let lessonData = JSON.parse(rawDataLessons);
+let lessonData;
+let inventoryData;
+
+async function initColiseumData() {
+    try {
+        lessonData = await ipcRenderer.invoke('read-json', lessonDataPath, {
+            lessonclicked: null,
+            lesson1: false, lesson2: false, lesson3: false, lesson4: false,
+            lesson5: false, lesson6: false, lesson7: false, lesson8: false,
+            lesson9: false, lesson10: false, lesson11: false, lesson12: false,
+            lesson13: false, lesson14: false, lesson15: false, lesson16: false,
+            lesson17: false, lesson18: false, lesson19: false, lesson20: false
+        });
+
+        inventoryData = await ipcRenderer.invoke('read-json', inventoryPath, {
+            beakers: 0,
+            coliseumbeakersearned: 0,
+            questionsanswered: 0,
+            championending: false
+        });
+
+        console.log("Loaded lessonData:", lessonData);
+
+        // ✅ Start game only after lessonData is loaded
+        loadNewQuestion();
+
+    } catch (error) {
+        console.error("Error loading Coliseum data:", error);
+    }
+}
+initColiseumData();
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -75,7 +106,7 @@ for (let lessonNumber in questions) {
 ////////////////////////////score value and sound effects
 let currentQuestion = {};
 let questionsAnswered = 0;
-let score = 1000;
+let score = 0;
 let scoreadd = 1;
 
 let streak = 0;
@@ -144,17 +175,26 @@ function startTimer(duration = 30) {
   }, 1000);
 }
 
-function endGame() {
-  console.log("Give Beakers Running")
-  let dog = JSON.parse(fs.readFileSync("./renderer/userdata/inventory.json", "utf8"));
-  dog.coliseumbeakersearned = score;
-  dog.beakers += score;
-  dog.questionsanswered = questionsAnswered;
-  dog.championending = championending;
-  console.log("parsed");
-  fs.writeFileSync('./renderer/userdata/inventory.json', JSON.stringify(dog, null, 2));
-  console.log(`Updated inventory: ${dog.beakers} beakers`);
-  window.location.href="gameover.html";
+async function endGame() {
+    console.log("Give Beakers Running");
+
+    // Update inventory
+    inventoryData.coliseumbeakersearned = score;
+    inventoryData.beakers += score;
+    inventoryData.questionsanswered = questionsAnswered;
+    inventoryData.championending = championending;
+
+    console.log("Parsed inventory:", inventoryData);
+
+    // Write updated data
+    try {
+        await ipcRenderer.invoke('write-json', inventoryPath, inventoryData);
+        console.log(`Updated inventory: ${inventoryData.beakers} beakers`);
+    } catch (error) {
+        console.error("Error writing inventory:", error);
+    }
+
+    window.location.href = "gameover.html";
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -175,18 +215,20 @@ function endGame() {
 
 ///////////////////////GET RANDOM QUESTION///////////////////////////////////
 function getRandomQuestion() {
-  // Only questions from unlocked lessons
-  const unlockedQuestions = questionsArray.filter(q => lessonData[q.lesson] === true);
+    if (!lessonData || Object.keys(lessonData).length === 0) {
+        console.warn("lessonData not loaded yet!");
+        return null;
+    }
 
-  if (unlockedQuestions.length === 0) {
-    console.log("No unlocked lessons available!");
-    return null;
-  }
+    const unlockedQuestions = questionsArray.filter(q => lessonData[q.lesson] === true);
 
-  // Pick a random question from the unlocked set
-  const randomIndex = Math.floor(Math.random() * unlockedQuestions.length);
-  return unlockedQuestions[randomIndex];
-  
+    if (unlockedQuestions.length === 0) {
+        console.log("No unlocked lessons available!");
+        return null;
+    }
+
+    const randomIndex = Math.floor(Math.random() * unlockedQuestions.length);
+    return unlockedQuestions[randomIndex];
 }
 //////////////////////////////////////////////////////////
 //////////////////////////////////Load new Question///////////////////////////////
@@ -686,6 +728,5 @@ champion.addEventListener("click", () => {
 
 
 
-// Start the game
-loadNewQuestion();
+// Start the game happens in function initColiseumData(); at the top
 //////////////////////////////////////

@@ -55,35 +55,54 @@
 
 
     <script>
-        const fs = require('fs');
+        const { ipcRenderer } = require('electron'); // make sure ipcRenderer is available
 
-        coliseumbeakersearned = document.getElementById("coliseumbeakersearned");
-        let dog = fs.readFileSync("./renderer/userdata/inventory.json", "utf8");
-        data = JSON.parse(dog);
-        if(data.championending == true){
-            let music = document.getElementById("music");
-            music.src = "../sounds/congratssong.mp3";
-            let background = document.getElementById("background");
-            background.classList.remove("bg-layer")
-            background.classList.add("bg-layer-champion")
-            let body = document.getElementById("body");
-            body.style.backgroundColor = "rgba(47, 71, 26, 0.603)";
-            let gameover = document.getElementById("gameover");
-            gameover.textContent = "VICTORIOUS";
-            gameover.style.color = "rgb(136, 212, 49)";
+        const inventoryPath = 'inventory.json'; // same as in your game
+
+        async function initGameOver() {
+            try {
+                // Read inventory data asynchronously
+                const data = await ipcRenderer.invoke('read-json', inventoryPath, {
+                    beakers: 0,
+                    coliseumbeakersearned: 0,
+                    questionsanswered: 0,
+                    championending: false
+                });
+
+                const coliseumbeakersearned = document.getElementById("coliseumbeakersearned");
+                const questionsanswered = document.getElementById("questionsanswered");
+                const background = document.getElementById("background");
+                const gameover = document.getElementById("gameover");
+                const body = document.getElementById("body");
+                const music = document.getElementById("music");
+
+                // Champion ending visuals
+                if (data.championending) {
+                    music.src = "../sounds/congratssong.mp3";
+                    background.classList.remove("bg-layer");
+                    background.classList.add("bg-layer-champion");
+                    body.style.backgroundColor = "rgba(47, 71, 26, 0.603)";
+                    gameover.textContent = "VICTORIOUS";
+                    gameover.style.color = "rgb(136, 212, 49)";
+                }
+
+                // Beakers display
+                coliseumbeakersearned.textContent = data.coliseumbeakersearned > 0 ? 
+                    `Beakers Won: ${data.coliseumbeakersearned}` : "...you won nothing.";
+                coliseumbeakersearned.style.color = data.coliseumbeakersearned > 0 ? "rgb(124, 212, 24)" : "white";
+
+                // Questions answered display
+                questionsanswered.textContent = data.questionsanswered > 0 ?
+                    `Questions Answered: ${data.questionsanswered}` : "...and did nothing.";
+                questionsanswered.style.color = "white";
+
+            } catch (error) {
+                console.error("Error loading Game Over data:", error);
+            }
         }
-        coliseumbeakersearned.textContent = `Beakers Won: ${data.coliseumbeakersearned}`;
-        coliseumbeakersearned.style.color = "rgb(124, 212, 24)";
-        if(data.coliseumbeakersearned == 0){
-            coliseumbeakersearned.textContent = "...you won nothing.";
-            coliseumbeakersearned.style.color = "white";
-        }
-        questionsanswered = document.getElementById("questionsanswered");
-        questionsanswered.textContent = `Questions Answered: ${data.questionsanswered}`;
-        questionsanswered.style.color = "white";
-        if(data.questionsanswered == 0){
-            questionsanswered.textContent = "...and did nothing.";
-        }
+
+        // Initialize when page loads
+        initGameOver();
     </script>
 
 </html>

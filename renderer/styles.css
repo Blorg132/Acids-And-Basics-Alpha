@@ -1,5 +1,4 @@
-/* MAINPAGE.HTML */
-
+/* MAINPAGE HTML */
 .title-text {
     color: rgb(77, 226, 184);
     /* We can also use Borel-Regular here, your choice */
@@ -76,7 +75,7 @@
 }
 
 .lesson-select-button:hover {
-    color: rgb(48, 222, 210);
+    color: rgb(41, 150, 26);
     scale: 1.1;
 }
 
@@ -164,16 +163,6 @@ h1 {
     font-family: Quantico;
 }
 
-
-.practice-background {
-    background-image: url('images/practice-background.webp');
-    background-size: 100% 100%;
-    background-position: center;
-    position: absolute;
-    inset: 0;
-    opacity: 0.3;
-    z-index: -1;
-}
 
 
 
